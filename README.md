@@ -56,7 +56,11 @@ Run tests: `UnrealEditor-Cmd BeastForgeKingdom.uproject -ExecCmds="Automation Ru
   Blueprint), incl. procedural weather/particle rendering in Slate OnPaint
 - `Tools/` — sprite extraction pipeline (white-bg removal, slicing,
   classification manifests) and engine automation scripts
-- `Docs/` — design doc and lore bible
+- `SourceArt/` — all source media: exported full-res sheets, 1119 extracted
+  transparent sprites, labeled contact sheets
+- `Docs/` — design doc, lore bible, automation guide, session handoff
+- `.claude-session/` — Claude session transcript + memory for resuming
+  AI-assisted development on another machine (see RESUME.md)
 
 ## Credits
 

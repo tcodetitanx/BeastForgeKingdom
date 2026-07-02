@@ -47,7 +47,7 @@ public:
 	void BuildToken(const FBfkUnitState& U);
 	void Refresh(const FBfkUnitState& U, const UBfkBattle* Battle);
 	void SetIntent(const FString& Line);
-	void SetTargetable(int32 Mode);   // 0 none, 1 enemy(red), 2 ally(green)
+	void SetTargetable(int32 Mode);   // 0 none, 1 enemy(red), 2 ally(green), 3 caster(blue)
 	void FlashHit();
 	int32 UnitId = -1;
 
@@ -95,7 +95,7 @@ private:
 	FVector2D CellCenter(int32 Row, int32 Col) const;
 	FVector2D CellPos(int32 Row, int32 Col) const;   // legacy virtual cell rect centered on the tile
 	static constexpr float CellW = 265.f, CellH = 178.f;
-	static constexpr float HexW = 200.f, HexH = 115.f;
+	static constexpr float HexW = 200.f, HexH = 150.f;   // taller hexes, less iso squish
 	static FVector2D TokenOff() { return FVector2D(-115.f, -133.f); }
 	static int32 CellDepth(int32 Row, int32 Col) { return Row; }   // painter's order by row
 
@@ -119,8 +119,6 @@ private:
 	void OnTokenClicked(UBfkUnitToken* Token);
 	void OnCellClicked(int32 CellCode);
 	UFUNCTION() void OnEndTurnClicked();
-	UFUNCTION() void OnEndKeepClicked();
-	UFUNCTION() void OnEndDiscardClicked();
 	void DoEndTurn(bool bKeepHand);
 	void ClearTargeting();
 	void TryPlayOn(int32 TargetCode);
@@ -166,7 +164,7 @@ private:
 	UPROPERTY() UTextBlock* PvpCurtainText = nullptr;
 	UPROPERTY() UBorder* ResultBox = nullptr;
 
-	UPROPERTY() UBorder* EndChoice = nullptr;     // keep-or-discard hand popup
+	UPROPERTY() TMap<int32, UImage*> HoverHexes;  // hex-shaped hover marker per cell
 	UPROPERTY() UBorder* PileViewer = nullptr;    // draw/discard inspection overlay
 	UPROPERTY() UBorder* IntroSplash = nullptr;   // boss/elite entrance card
 

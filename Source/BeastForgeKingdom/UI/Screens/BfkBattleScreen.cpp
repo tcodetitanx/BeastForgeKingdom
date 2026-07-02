@@ -218,7 +218,9 @@ void UBfkUnitToken::SetTargetable(int32 Mode)
 	}
 	else
 	{
-		Reticle->SetBrush(BfkUi::Brush(Mode == 1 ? TEXT("ui_cursor_reticle_red") : TEXT("ui_cursor_reticle_green"), FVector2D(90, 90)));
+		const TCHAR* Slug = Mode == 1 ? TEXT("ui_cursor_reticle_red")
+			: Mode == 3 ? TEXT("ui_cursor_reticle_blue") : TEXT("ui_cursor_reticle_green");
+		Reticle->SetBrush(BfkUi::Brush(Slug, FVector2D(90, 90)));
 		Reticle->SetVisibility(ESlateVisibility::HitTestInvisible);
 	}
 }
@@ -527,16 +529,45 @@ void UBfkBattleScreen::BuildBoard()
 			BfkUi::AddToCanvas(BoardLayer, Hl, Center - FVector2D(HexW / 2, HexH / 2), FVector2D(HexW, HexH))->SetZOrder(40 + Depth);
 			CellHighlights.Add(Code, Hl);
 
+			// hex-shaped hover marker (replaces the old square hover rect)
+			UImage* Hov = WidgetTree->ConstructWidget<UImage>();
+			Hov->SetBrush(BfkUi::Brush(TEXT("ui_hex_tile"), FVector2D(HexW, HexH)));
+			Hov->SetColorAndOpacity(FLinearColor(1.f, 1.f, 1.f, 0.30f));
+			Hov->SetVisibility(ESlateVisibility::Collapsed);
+			BfkUi::AddToCanvas(BoardLayer, Hov, Center - FVector2D(HexW / 2, HexH / 2), FVector2D(HexW, HexH))->SetZOrder(50 + Depth);
+			HoverHexes.Add(Code, Hov);
+
 			// invisible click-catcher — rect inscribed in the hex so any click
-			// it accepts is genuinely inside the tile
+			// it accepts is genuinely inside the tile; visuals come from the
+			// hex hover marker above, never from the button itself
 			TWeakObjectPtr<UBfkBattleScreen> Weak = this;
 			UBfkTagButton* CellBtn = BfkUi::FlatTagButton(this,
-				FLinearColor(0, 0, 0, 0.01f), FLinearColor(1, 1, 1, 0.07f),
+				FLinearColor(0, 0, 0, 0.01f), FLinearColor(0, 0, 0, 0.01f),
 				[Weak](UBfkTagButton* Btn)
 				{
 					if (Weak.IsValid()) Weak->OnCellClicked(Btn->TagInt);
 				}, 12.f);
 			CellBtn->TagInt = Code;
+			CellBtn->OnTagHovered = [Weak](UBfkTagButton* Btn)
+			{
+				if (Weak.IsValid())
+				{
+					if (UImage** H = Weak->HoverHexes.Find(Btn->TagInt))
+					{
+						(*H)->SetVisibility(ESlateVisibility::HitTestInvisible);
+					}
+				}
+			};
+			CellBtn->OnTagUnhovered = [Weak](UBfkTagButton* Btn)
+			{
+				if (Weak.IsValid())
+				{
+					if (UImage** H = Weak->HoverHexes.Find(Btn->TagInt))
+					{
+						(*H)->SetVisibility(ESlateVisibility::Collapsed);
+					}
+				}
+			};
 			CellBtn->SetVisibility(ESlateVisibility::Collapsed);
 			BfkUi::AddToCanvas(BoardLayer, CellBtn, Center - FVector2D(HexW * 0.32f, HexH * 0.28f), FVector2D(HexW * 0.64f, HexH * 0.56f))->SetZOrder(60);
 			CellButtons.Add(Code, CellBtn);
@@ -764,6 +795,36 @@ void UBfkBattleScreen::OnCardClicked(UBfkCardWidget* Card)
 		return;
 	}
 
+	// show whose card this is (blue ring on the caster) and, for range-limited
+	// cards, an amber footprint of every hex the caster could hit from where it
+	// stands — including empty ones, so repositioning needs are obvious.
+	const FBfkCardInstance* CI = B->FindCard(SelectedCard);
+	const FBfkUnitState* Owner = CI ? B->FindUnit(CI->OwnerUnitId) : nullptr;
+	if (Owner && Owner->bAlive)
+	{
+		if (UBfkUnitToken* OT = Token(Owner->Id))
+		{
+			OT->SetTargetable(3);
+		}
+		if (D->Target == EBfkTarget::Enemy || D->Target == EBfkTarget::EnemyFront)
+		{
+			const int32 Reach = D->bMeleeOnly ? 1 : FMath::Max(1, Owner->Range);
+			for (int32 R = 0; R < Bfk::BoardRows; ++R)
+			{
+				for (int32 Col = 0; Col < Bfk::BoardCols; ++Col)
+				{
+					const FBfkCell Cell(R, Col);
+					if (Cell == Owner->Cell || Bfk::HexDist(Owner->Cell, Cell) > Reach) continue;
+					if (UImage** Hl = CellHighlights.Find(R * 10 + Col))
+					{
+						(*Hl)->SetColorAndOpacity(FLinearColor(1.0f, 0.62f, 0.15f, 0.5f));
+						(*Hl)->SetVisibility(ESlateVisibility::HitTestInvisible);
+					}
+				}
+			}
+		}
+	}
+
 	// highlight valid targets
 	const TArray<int32> UnitTargets = B->GetValidUnitTargets(SelectedCard);
 	for (int32 Id : UnitTargets)
@@ -876,6 +937,7 @@ void UBfkBattleScreen::ClearTargeting()
 	MovingUnit = -1;
 	for (UBfkUnitToken* T : Tokens) T->SetTargetable(0);
 	for (auto& KV : CellHighlights) KV.Value->SetVisibility(ESlateVisibility::Collapsed);
+	for (auto& KV : HoverHexes) KV.Value->SetVisibility(ESlateVisibility::Collapsed);
 	for (auto& KV : CellButtons) KV.Value->SetVisibility(ESlateVisibility::Collapsed);
 	for (UBfkCardWidget* CW : HandCards)
 	{
@@ -905,46 +967,14 @@ void UBfkBattleScreen::OnEndTurnClicked()
 	if (!B || bAnimating || bEnded) return;
 	Click();
 	ClearTargeting();
-
-	// nothing to keep? just end. otherwise: keep or discard, captain's call
-	const int32 Side = B->GetConfig().bPvp ? B->GetActiveSide() : 0;
-	if (B->GetHand(Side).Num() == 0)
-	{
-		DoEndTurn(false);
-		return;
-	}
-	if (!EndChoice)
-	{
-		EndChoice = BfkUi::Panel(this, BfkUi::PanelDark);
-		UVerticalBox* V = WidgetTree->ConstructWidget<UVerticalBox>();
-		UTextBlock* Q = BfkUi::Text(this, TEXT("Your remaining hand?"), 18, BfkUi::Parchment, true);
-		Q->SetJustification(ETextJustify::Center);
-		V->AddChildToVerticalBox(Q)->SetPadding(FMargin(0, 0, 0, 10));
-		UButton* Keep = BfkUi::MakeButton(this, TEXT("Keep it"), 18, BfkUi::GhostTeal);
-		Keep->OnClicked.AddDynamic(this, &UBfkBattleScreen::OnEndKeepClicked);
-		V->AddChildToVerticalBox(Keep)->SetPadding(FMargin(0, 4));
-		UButton* Toss = BfkUi::MakeButton(this, TEXT("Discard it"), 18);
-		Toss->OnClicked.AddDynamic(this, &UBfkBattleScreen::OnEndDiscardClicked);
-		V->AddChildToVerticalBox(Toss)->SetPadding(FMargin(0, 4));
-		UTextBlock* Hint = BfkUi::Text(this, TEXT("Kept cards count toward next turn's 5."), 12, BfkUi::Dim);
-		Hint->SetJustification(ETextJustify::Center);
-		V->AddChildToVerticalBox(Hint)->SetPadding(FMargin(0, 8, 0, 0));
-		EndChoice->SetContent(V);
-		EndChoice->SetVisibility(ESlateVisibility::Collapsed);   // fresh borders default Visible; toggle below
-		BfkUi::AddToCanvas(Root, EndChoice, FVector2D(1595, 640), FVector2D(300, 220));
-	}
-	EndChoice->SetVisibility(
-		EndChoice->GetVisibility() == ESlateVisibility::Collapsed ? ESlateVisibility::Visible : ESlateVisibility::Collapsed);
+	// unused cards always carry over; next turn draws up to a hand of 5
+	DoEndTurn(true);
 }
-
-void UBfkBattleScreen::OnEndKeepClicked()    { Click(); DoEndTurn(true); }
-void UBfkBattleScreen::OnEndDiscardClicked() { Click(); DoEndTurn(false); }
 
 void UBfkBattleScreen::DoEndTurn(bool bKeepHand)
 {
 	UBfkBattle* B = Gi()->ActiveBattle();
 	if (!B || bAnimating || bEnded) return;
-	if (EndChoice) EndChoice->SetVisibility(ESlateVisibility::Collapsed);
 	const bool bPvp = B->GetConfig().bPvp;
 	const int32 PrevSide = B->GetActiveSide();
 	B->EndTurn(bKeepHand);

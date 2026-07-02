@@ -17,7 +17,14 @@ UTexture2D* FBfkAssets::Texture(FName Slug)
 	const FString Name = Slug.ToString();
 	const FString Path = FString::Printf(TEXT("/Game/BFK/T/%s.%s"), *Name, *Name);
 	UTexture2D* Tex = LoadObject<UTexture2D>(nullptr, *Path);
-	if (Tex) TexCache.Add(Slug, Tex);
+	if (Tex)
+	{
+		// Root it: FSlateBrush resource pointers (particle layers, cached button
+		// styles) don't hold GC references — an un-rooted texture can be
+		// collected mid-flight and crash Slate's OnPaint.
+		Tex->AddToRoot();
+		TexCache.Add(Slug, Tex);
+	}
 	return Tex;
 }
 
@@ -31,7 +38,11 @@ USoundBase* FBfkAssets::Sound(FName Slug)
 	const FString Name = Slug.ToString();
 	const FString Path = FString::Printf(TEXT("/Game/BFK/S/%s.%s"), *Name, *Name);
 	USoundBase* Snd = LoadObject<USoundBase>(nullptr, *Path);
-	if (Snd) SndCache.Add(Slug, Snd);
+	if (Snd)
+	{
+		Snd->AddToRoot();
+		SndCache.Add(Slug, Snd);
+	}
 	return Snd;
 }
 

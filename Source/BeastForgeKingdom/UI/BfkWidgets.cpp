@@ -292,11 +292,23 @@ FString NodeName(EBfkNode N)
 UBfkTagButton::UBfkTagButton()
 {
 	OnClicked.AddDynamic(this, &UBfkTagButton::HandleClick);
+	OnHovered.AddDynamic(this, &UBfkTagButton::HandleHover);
+	OnUnhovered.AddDynamic(this, &UBfkTagButton::HandleUnhover);
 }
 
 void UBfkTagButton::HandleClick()
 {
 	if (OnTagClicked) OnTagClicked(this);
+}
+
+void UBfkTagButton::HandleHover()
+{
+	if (OnTagHovered) OnTagHovered(this);
+}
+
+void UBfkTagButton::HandleUnhover()
+{
+	if (OnTagUnhovered) OnTagUnhovered(this);
 }
 
 namespace BfkUi

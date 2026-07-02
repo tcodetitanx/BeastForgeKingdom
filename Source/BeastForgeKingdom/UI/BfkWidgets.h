@@ -88,9 +88,13 @@ public:
 	FName TagName;
 	FGuid TagGuid;
 	TFunction<void(UBfkTagButton*)> OnTagClicked;
+	TFunction<void(UBfkTagButton*)> OnTagHovered;
+	TFunction<void(UBfkTagButton*)> OnTagUnhovered;
 
 private:
 	UFUNCTION() void HandleClick();
+	UFUNCTION() void HandleHover();
+	UFUNCTION() void HandleUnhover();
 };
 
 namespace BfkUi

@@ -42,7 +42,9 @@ UBfkScreen* UBfkUiRouter::Make(EBfkScreenId Screen)
 	}
 	UBfkScreen* W = CreateWidget<UBfkScreen>(Pc(), Cls);
 	W->Router = this;
+	W->SetIsFocusable(true);   // screens take keyboard focus (Esc = pause)
 	W->Build();
+	W->EnsurePauseOverlay();   // last child of the root canvas -> paints on top
 	return W;
 }
 
@@ -72,6 +74,8 @@ void UBfkUiRouter::Go(EBfkScreenId Screen)
 		FInputModeGameAndUI Mode;
 		Mode.SetLockMouseToViewportBehavior(EMouseLockMode::DoNotLock);
 		Mode.SetHideCursorDuringCapture(false);
+		Mode.SetWidgetToFocus(Active->TakeWidget());
 		P->SetInputMode(Mode);
+		Active->SetKeyboardFocus();
 	}
 }

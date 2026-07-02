@@ -56,6 +56,8 @@ namespace BfkUi
 
 	UTextBlock* Text(UUserWidget* Host, const FString& S, int32 Size, FLinearColor Color = Parchment, bool bBold = false, bool bDecor = false);
 	UImage* Sprite(UUserWidget* Host, FName Slug, FVector2D Size, bool bFlipX = false);
+	// aspect-preserving: fits the texture inside Box (no vertical squish)
+	UImage* SpriteFit(UUserWidget* Host, FName Slug, FVector2D Box, bool bFlipX = false);
 	UBorder* Panel(UUserWidget* Host, FLinearColor Tint = PanelDark);
 	UButton* MakeButton(UUserWidget* Host, const FString& Label, int32 FontSize = 20, FLinearColor LabelColor = Parchment);
 	UProgressBar* Bar(UUserWidget* Host, FLinearColor Fill, float Height = 14.f);
@@ -111,16 +113,41 @@ public:
 	UBfkGameInstance* Gi() const;
 	virtual void Build() {}      // construct the tree (called once after creation)
 
+	// in-game pause overlay (Esc): resume / codex / quit. bAllowQuit=false in
+	// battle where bailing out mid-fight would corrupt the run flow.
+	void TogglePause();
+	void EnsurePauseOverlay();   // router calls after Build(): overlay must be part of the initial slate tree
+	virtual bool AllowsPause() const { return true; }
+	virtual bool AllowsPauseQuit() const { return true; }
+	bool IsPaused() const { return PauseOverlay && PauseOverlay->GetVisibility() != ESlateVisibility::Collapsed; }
+	UWidget* GetPauseOverlay() const;   // demo driver: restrict clicks to the modal when open
+
 protected:
+	virtual FReply NativeOnPreviewKeyDown(const FGeometry& Geo, const FKeyEvent& Ev) override;
+
 	UCanvasPanel* MakeRootCanvas();
 	void AddBackdrop(UCanvasPanel* Canvas, FName TextureSlug, float Darken = 0.35f);
 	UWidget* TitleBar(const FString& Title, const FString& BackLabel = TEXT("Back"));
+	// small "☰" pause chip screens can place in a corner
+	UWidget* PauseChip();
 	virtual void OnBack();
 	UFUNCTION() void OnBackClicked();
 	void Click();                // ui click sound
 	void Hover();
 
 	UPROPERTY() UCanvasPanel* Root = nullptr;
+
+private:
+	void BuildPauseOverlay();
+	void ShowPausePage(int32 Page);   // 0 menu, 1 codex
+	UWidget* CodexPage();
+	UFUNCTION() void OnResumeClicked();
+	UFUNCTION() void OnCodexClicked();
+	UFUNCTION() void OnPauseQuitClicked();
+	UFUNCTION() void OnCodexBackClicked();
+
+	UPROPERTY() UBorder* PauseOverlay = nullptr;
+	UPROPERTY() UWidgetSwitcher* PauseSwitcher = nullptr;
 };
 
 // Simple tween runtime for procedural animation, driven by widget tick.

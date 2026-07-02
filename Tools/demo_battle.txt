@@ -1,4 +1,5 @@
-# deterministic gameplay tour: run -> map -> battle -> play cards
+# deterministic gameplay tour: run -> map -> battle -> play cards -> pause/codex
+# iso board: CellCenter(r,c) = (885,250) + ((c[+0.5 enemy]-r)*150, (c[+0.5 enemy]+r)*75)
 wait 3
 shot t_menu
 exec Bfk.NewRun 12345
@@ -7,23 +8,23 @@ shot t_map
 exec Bfk.Enter battle
 wait 3
 shot t_battle_start
-# select the middle card in hand and target the first enemy area
+# select the middle card in hand and target the enemy front (row2,col2 ~ 960,587)
 click 960 960
 wait 0.6
 shot t_card_selected
-click 1300 300
+click 960 560
 wait 2.5
 shot t_card_played
-# another card, target lane / enemy mid
+# another card, target enemy mid (row1,col3 ~ 1260,587)
 click 860 960
 wait 0.6
-click 1300 480
+click 1260 560
 wait 2.5
 shot t_card_played2
 rclick 960 500
 click 1060 960
 wait 0.6
-click 1560 480
+click 1410 490
 wait 2.5
 shot t_card_played3
 # end turn, watch the enemy act
@@ -33,4 +34,16 @@ shot t_enemy_turn_done
 click 1760 927
 wait 4.5
 shot t_turn3
+# pause menu + codex
+click 1750 42
+wait 0.8
+shot t_pause
+click 960 605
+wait 0.8
+shot t_codex
+click 400 185
+wait 0.5
+click 960 528
+wait 0.5
+shot t_resumed
 quit

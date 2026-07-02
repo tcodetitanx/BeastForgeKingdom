@@ -53,7 +53,7 @@ void UBfkVaultScreen::RefreshGrid()
 		Card->TagGuid = B.Id;
 
 		UVerticalBox* V = WidgetTree->ConstructWidget<UVerticalBox>();
-		UImage* Icon = BfkUi::Sprite(this, Sp->SpriteSlug, FVector2D(92, 92), true);
+		UImage* Icon = BfkUi::SpriteFit(this, Sp->SpriteSlug, FVector2D(92, 92), true);
 		V->AddChildToVerticalBox(Icon)->SetHorizontalAlignment(HAlign_Center);
 		UTextBlock* N = BfkUi::Text(this, B.Nickname.IsEmpty() ? Sp->Display : B.Nickname, 13, BfkUi::Parchment, true);
 		N->SetJustification(ETextJustify::Center);
@@ -103,7 +103,7 @@ void UBfkVaultScreen::ShowDetail(const FGuid& Id)
 	const FBfkSpeciesDef* Sp = B ? FBfkContent::Species(B->Species) : nullptr;
 	if (!Sp) return;
 
-	UImage* Big = BfkUi::Sprite(this, Sp->SpriteSlug, FVector2D(200, 200), true);
+	UImage* Big = BfkUi::SpriteFit(this, Sp->SpriteSlug, FVector2D(200, 200), true);
 	DetailBox->AddChildToVerticalBox(Big)->SetHorizontalAlignment(HAlign_Center);
 
 	DetailBox->AddChildToVerticalBox(BfkUi::Text(this, Sp->Display, 24, BfkUi::GhostTeal, true, true))->SetHorizontalAlignment(HAlign_Center);
@@ -217,7 +217,7 @@ void UBfkBreedingScreen::Refresh()
 		Card->TagGuid = B.Id;
 
 		UVerticalBox* V = WidgetTree->ConstructWidget<UVerticalBox>();
-		UImage* Icon = BfkUi::Sprite(this, Sp->SpriteSlug, FVector2D(88, 88), true);
+		UImage* Icon = BfkUi::SpriteFit(this, Sp->SpriteSlug, FVector2D(88, 88), true);
 		V->AddChildToVerticalBox(Icon)->SetHorizontalAlignment(HAlign_Center);
 		UTextBlock* N = BfkUi::Text(this, B.Nickname.IsEmpty() ? Sp->Display : B.Nickname, 12, bSel ? BfkUi::GhostTeal : BfkUi::Parchment, true);
 		N->SetJustification(ETextJustify::Center);
@@ -366,7 +366,7 @@ void UBfkLocalBattleSetupScreen::Build()
 		const FBfkSpeciesDef* Sp = FBfkContent::Species(M.Species);
 		if (!Sp) continue;
 		UHorizontalBox* H = WidgetTree->ConstructWidget<UHorizontalBox>();
-		UImage* I = BfkUi::Sprite(this, Sp->SpriteSlug, FVector2D(84, 84), true);
+		UImage* I = BfkUi::SpriteFit(this, Sp->SpriteSlug, FVector2D(84, 84), true);
 		H->AddChildToHorizontalBox(I);
 		UTextBlock* T = BfkUi::Text(this, FString::Printf(TEXT("%s\n%s %s"), *Sp->Display, *Bfk::ElementName(Sp->Element), *Bfk::ArchetypeName(Sp->Archetype)), 15, BfkUi::Parchment);
 		H->AddChildToHorizontalBox(T)->SetPadding(FMargin(10, 8));
@@ -414,7 +414,7 @@ void UBfkLocalBattleSetupScreen::RefreshFoes()
 		const FBfkSpeciesDef* Sp = FBfkContent::Species(F);
 		if (!Sp) continue;
 		UVerticalBox* V = WidgetTree->ConstructWidget<UVerticalBox>();
-		UImage* I = BfkUi::Sprite(this, Sp->SpriteSlug, FVector2D(110, 110));
+		UImage* I = BfkUi::SpriteFit(this, Sp->SpriteSlug, FVector2D(110, 110));
 		V->AddChildToVerticalBox(I)->SetHorizontalAlignment(HAlign_Center);
 		UTextBlock* T = BfkUi::Text(this, Sp->Display, 14, BfkUi::Parchment, true);
 		T->SetJustification(ETextJustify::Center);
@@ -456,7 +456,7 @@ void UBfkPvpSetupScreen::Build()
 			const FBfkSpeciesDef* Sp = FBfkContent::Species(M.Species);
 			if (!Sp) continue;
 			UHorizontalBox* H = WidgetTree->ConstructWidget<UHorizontalBox>();
-			UImage* I = BfkUi::Sprite(this, Sp->SpriteSlug, FVector2D(92, 92), X < 900);
+			UImage* I = BfkUi::SpriteFit(this, Sp->SpriteSlug, FVector2D(92, 92), X < 900);
 			H->AddChildToHorizontalBox(I);
 			H->AddChildToHorizontalBox(BfkUi::Text(this, Sp->Display, 16, BfkUi::Parchment, true))->SetPadding(FMargin(10, 30));
 			V->AddChildToVerticalBox(H)->SetPadding(FMargin(0, 4));

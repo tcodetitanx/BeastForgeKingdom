@@ -5,6 +5,8 @@
 #include "UI/BfkUiRouter.h"
 #include "Blueprint/WidgetTree.h"
 #include "Engine/Texture2D.h"
+#include "Engine/World.h"
+#include "TimerManager.h"
 
 namespace BfkUi
 {
@@ -38,14 +40,14 @@ FSlateBrush BoxBrush(FName Slug, float Margin, FVector2D Size)
 
 FSlateBrush SolidBrush(FLinearColor Color, float CornerRadius)
 {
+	// always draw as RoundedBox: an Image brush with no resource object is
+	// skipped entirely by this engine build (radius 0 = plain solid rect)
 	FSlateBrush B;
-	B.DrawAs = CornerRadius > 0.f ? ESlateBrushDrawType::RoundedBox : ESlateBrushDrawType::Image;
+	B.DrawAs = ESlateBrushDrawType::RoundedBox;
 	B.TintColor = Color;
-	if (CornerRadius > 0.f)
-	{
-		B.OutlineSettings.RoundingType = ESlateBrushRoundingType::FixedRadius;
-		B.OutlineSettings.CornerRadii = FVector4(CornerRadius, CornerRadius, CornerRadius, CornerRadius);
-	}
+	B.OutlineSettings.RoundingType = ESlateBrushRoundingType::FixedRadius;
+	const float R = FMath::Max(0.f, CornerRadius);
+	B.OutlineSettings.CornerRadii = FVector4(R, R, R, R);
 	return B;
 }
 
@@ -73,6 +75,17 @@ UImage* Sprite(UUserWidget* Host, FName Slug, FVector2D Size, bool bFlipX)
 		I->SetRenderTransform(Tr);
 	}
 	return I;
+}
+
+UImage* SpriteFit(UUserWidget* Host, FName Slug, FVector2D Box, bool bFlipX)
+{
+	FVector2D Size = Box;
+	if (UTexture2D* T = Tex(Slug))
+	{
+		const float Scale = FMath::Min(Box.X / T->GetSizeX(), Box.Y / T->GetSizeY());
+		Size = FVector2D(T->GetSizeX(), T->GetSizeY()) * Scale;
+	}
+	return Sprite(Host, Slug, Size, bFlipX);
 }
 
 UBorder* Panel(UUserWidget* Host, FLinearColor Tint)
@@ -386,6 +399,241 @@ void UBfkScreen::Click()
 void UBfkScreen::Hover()
 {
 	if (Gi()) Gi()->UiSound(TEXT("sfx_ui_hover"), 0.5f);
+}
+
+// ============================================================== pause + codex
+
+FReply UBfkScreen::NativeOnPreviewKeyDown(const FGeometry& Geo, const FKeyEvent& Ev)
+{
+	if (Ev.GetKey() == EKeys::Escape && AllowsPause())
+	{
+		TogglePause();
+		return FReply::Handled();
+	}
+	return Super::NativeOnPreviewKeyDown(Geo, Ev);
+}
+
+UWidget* UBfkScreen::PauseChip()
+{
+	TWeakObjectPtr<UBfkScreen> Weak = this;
+	UBfkTagButton* Tag = BfkUi::FlatTagButton(this, FLinearColor(0.03f, 0.04f, 0.06f, 0.75f), FLinearColor(0.1f, 0.12f, 0.16f, 0.9f),
+		[Weak](UBfkTagButton*)
+		{
+			if (Weak.IsValid()) { Weak->Click(); Weak->TogglePause(); }
+		}, 8.f);
+	UTextBlock* T = BfkUi::Text(this, TEXT("Menu  [Esc]"), 15, BfkUi::Dim, true);
+	T->SetJustification(ETextJustify::Center);
+	Tag->AddChild(T);
+	return Tag;
+}
+
+UWidget* UBfkScreen::GetPauseOverlay() const
+{
+	return PauseOverlay;
+}
+
+void UBfkScreen::EnsurePauseOverlay()
+{
+	if (Root && !PauseOverlay && AllowsPause())
+	{
+		BuildPauseOverlay();
+	}
+}
+
+void UBfkScreen::TogglePause()
+{
+	if (!Root) return;
+	if (!PauseOverlay) BuildPauseOverlay();   // fallback (won't render if slate is already live)
+	const bool bShow = PauseOverlay->GetVisibility() == ESlateVisibility::Collapsed;
+	if (bShow) ShowPausePage(0);
+	PauseOverlay->SetVisibility(bShow ? ESlateVisibility::Visible : ESlateVisibility::Collapsed);
+	if (Gi()) Gi()->UiSound(bShow ? TEXT("sfx_ui_select") : TEXT("sfx_ui_cancel"), 0.7f);
+}
+
+void UBfkScreen::ShowPausePage(int32 Page)
+{
+	if (PauseSwitcher) PauseSwitcher->SetActiveWidgetIndex(Page);
+}
+
+void UBfkScreen::OnResumeClicked()  { Click(); TogglePause(); }
+void UBfkScreen::OnCodexClicked()   { Click(); ShowPausePage(1); }
+void UBfkScreen::OnCodexBackClicked() { Click(); ShowPausePage(0); }
+
+void UBfkScreen::OnPauseQuitClicked()
+{
+	Click();
+	TogglePause();
+	if (Router) Router->Go(EBfkScreenId::Menu);
+}
+
+void UBfkScreen::BuildPauseOverlay()
+{
+	PauseOverlay = WidgetTree->ConstructWidget<UBorder>();
+	PauseOverlay->SetBrush(BfkUi::SolidBrush(FLinearColor(0.01f, 0.015f, 0.025f, 0.88f)));
+	PauseOverlay->SetHorizontalAlignment(HAlign_Center);
+	PauseOverlay->SetVerticalAlignment(VAlign_Center);
+	PauseOverlay->SetVisibility(ESlateVisibility::Collapsed);
+
+	PauseSwitcher = WidgetTree->ConstructWidget<UWidgetSwitcher>();
+
+	// ---- page 0: pause menu
+	UBorder* MenuPanel = BfkUi::Panel(this, BfkUi::PanelDark);
+	MenuPanel->SetPadding(FMargin(48, 36));
+	UVerticalBox* V = WidgetTree->ConstructWidget<UVerticalBox>();
+	UTextBlock* Title = BfkUi::Text(this, TEXT("Paused"), 40, BfkUi::Parchment, true, true);
+	Title->SetJustification(ETextJustify::Center);
+	V->AddChildToVerticalBox(Title)->SetPadding(FMargin(0, 0, 0, 26));
+
+	auto AddBtn = [&](const FString& Label) -> UButton*
+	{
+		UButton* B = BfkUi::MakeButton(this, Label, 22);
+		UVerticalBoxSlot* S = V->AddChildToVerticalBox(B);
+		S->SetPadding(FMargin(0, 6));
+		S->SetHorizontalAlignment(HAlign_Fill);
+		return B;
+	};
+	AddBtn(TEXT("Resume"))->OnClicked.AddDynamic(this, &UBfkScreen::OnResumeClicked);
+	AddBtn(TEXT("Codex — keywords & mechanics"))->OnClicked.AddDynamic(this, &UBfkScreen::OnCodexClicked);
+	if (AllowsPauseQuit())
+	{
+		AddBtn(TEXT("Quit to Main Menu"))->OnClicked.AddDynamic(this, &UBfkScreen::OnPauseQuitClicked);
+	}
+	UTextBlock* Hint = BfkUi::Text(this, TEXT("Esc to resume"), 14, BfkUi::Dim);
+	Hint->SetJustification(ETextJustify::Center);
+	V->AddChildToVerticalBox(Hint)->SetPadding(FMargin(0, 18, 0, 0));
+	MenuPanel->SetContent(V);
+
+	USizeBox* MenuSize = WidgetTree->ConstructWidget<USizeBox>();
+	MenuSize->SetWidthOverride(560);
+	MenuSize->AddChild(MenuPanel);
+	PauseSwitcher->AddChild(MenuSize);
+
+	// ---- page 1: codex
+	PauseSwitcher->AddChild(CodexPage());
+
+	PauseOverlay->SetContent(PauseSwitcher);
+	// plain pos/size add (runtime SetAnchors/SetZOrder on a live canvas slot
+	// does not reliably reach Slate) — added last, so it paints on top
+	BfkUi::AddToCanvas(Root, PauseOverlay, FVector2D::ZeroVector, FVector2D(1920, 1080));
+}
+
+UWidget* UBfkScreen::CodexPage()
+{
+	UBorder* Panel = BfkUi::Panel(this, BfkUi::PanelDark);
+	Panel->SetPadding(FMargin(34, 26));
+	UVerticalBox* V = WidgetTree->ConstructWidget<UVerticalBox>();
+
+	UOverlay* Head = WidgetTree->ConstructWidget<UOverlay>();
+	UTextBlock* Title = BfkUi::Text(this, TEXT("Codex"), 34, BfkUi::Gold, true, true);
+	UOverlaySlot* TS = Head->AddChildToOverlay(Title);
+	TS->SetHorizontalAlignment(HAlign_Center);
+	UButton* Back = BfkUi::MakeButton(this, TEXT("Back"), 17);
+	Back->OnClicked.AddDynamic(this, &UBfkScreen::OnCodexBackClicked);
+	UOverlaySlot* BS = Head->AddChildToOverlay(Back);
+	BS->SetHorizontalAlignment(HAlign_Left);
+	V->AddChildToVerticalBox(Head)->SetPadding(FMargin(0, 0, 0, 14));
+
+	UScrollBox* Scroll = WidgetTree->ConstructWidget<UScrollBox>();
+	UVerticalBox* L = WidgetTree->ConstructWidget<UVerticalBox>();
+
+	auto Section = [&](const FString& S)
+	{
+		UTextBlock* T = BfkUi::Text(this, S, 24, BfkUi::GhostTeal, true, true);
+		L->AddChildToVerticalBox(T)->SetPadding(FMargin(0, 18, 0, 6));
+	};
+	auto Entry = [&](const FString& Name, const FString& Desc, FName IconSlug = NAME_None, FLinearColor NameColor = BfkUi::Parchment)
+	{
+		UHorizontalBox* H = WidgetTree->ConstructWidget<UHorizontalBox>();
+		if (!IconSlug.IsNone())
+		{
+			UImage* I = BfkUi::Sprite(this, IconSlug, FVector2D(30, 30));
+			UHorizontalBoxSlot* IS = H->AddChildToHorizontalBox(I);
+			IS->SetPadding(FMargin(0, 0, 10, 0));
+			IS->SetVerticalAlignment(VAlign_Top);
+		}
+		UTextBlock* NameT = BfkUi::Text(this, Name, 17, NameColor, true);
+		UHorizontalBoxSlot* NS = H->AddChildToHorizontalBox(NameT);
+		NS->SetPadding(FMargin(0, 0, 12, 0));
+		NS->SetVerticalAlignment(VAlign_Top);
+		UTextBlock* DescT = BfkUi::Text(this, Desc, 16, BfkUi::Dim);
+		DescT->SetAutoWrapText(true);
+		UHorizontalBoxSlot* DS = H->AddChildToHorizontalBox(DescT);
+		DS->SetSize(ESlateSizeRule::Fill);
+		L->AddChildToVerticalBox(H)->SetPadding(FMargin(6, 3));
+	};
+	auto Para = [&](const FString& S)
+	{
+		UTextBlock* T = BfkUi::Text(this, S, 16, BfkUi::Parchment);
+		T->SetAutoWrapText(true);
+		L->AddChildToVerticalBox(T)->SetPadding(FMargin(6, 3));
+	};
+
+	Section(TEXT("The Squad is the Deck"));
+	Para(TEXT("You field exactly 3 units. Each contributes its signature cards to one shared battle deck; weapons add their own cards, relics warp a unit's abilities. Card rewards are drawn only from your squad's pools — change the squad, change the game. If a unit dies, its cards are severed (unplayable) until it is revived."));
+
+	Section(TEXT("Turns & Energy"));
+	Para(TEXT("Each turn you get 3 energy (weapons and relics can modify this) and draw 5 cards. Unplayed cards are discarded at end of turn. When the draw pile empties, the discard pile is shuffled back in."));
+
+	Section(TEXT("The Board, Lanes & Range"));
+	Para(TEXT("Battles are fought on a 3x4 board: 3 lanes (rows), your side on the left two columns, the enemy's on the right two. Most attacks are LANE attacks — they hit the first enemy in the attacker's lane. Melee-only cards (crossed swords icon) need the attacker in the front column. Ranged and spell cards reach anywhere."));
+
+	Section(TEXT("Shoves & Collisions"));
+	Para(TEXT("Cards can push, pull and swap units. Shoving a unit into the board edge or into another unit deals collision damage to both. Shoving an enemy out of its telegraphed attack lane WASTES its attack — positioning is half the fight."));
+
+	Section(TEXT("Intents"));
+	Para(TEXT("Every enemy telegraphs its next card above its head, with the damage and the threatened cells glowing red. Dodge it, shove them off the line, body-block with a tank, or kill them before it fires."));
+
+	Section(TEXT("Capture — Soul Snare"));
+	Para(TEXT("A Soul Snare token card is added to your deck each battle against wild beasts. Play it on a beast-type enemy to attempt a capture: better odds at low health, and if none of your squad has died this battle. Captured beasts join your Vault permanently — death cannot take them from you."));
+
+	Section(TEXT("Statuses"));
+	for (int32 i = 0; i <= (int32)EBfkStatus::Stealth; ++i)
+	{
+		const EBfkStatus S = (EBfkStatus)i;
+		Entry(Bfk::StatusName(S), Bfk::StatusDesc(S), BfkUi::StatusIcon(S), BfkUi::StatusColor(S));
+	}
+
+	Section(TEXT("Hazards"));
+	Entry(Bfk::HazardName(EBfkHazard::Coals),        Bfk::HazardDesc(EBfkHazard::Coals),        TEXT("ui_icon_status_burn"));
+	Entry(Bfk::HazardName(EBfkHazard::Hoarfrost),    Bfk::HazardDesc(EBfkHazard::Hoarfrost),    TEXT("ui_icon_status_freeze"));
+	Entry(Bfk::HazardName(EBfkHazard::VoidRift),     Bfk::HazardDesc(EBfkHazard::VoidRift),     TEXT("ui_icon_skull_smoke"));
+	Entry(Bfk::HazardName(EBfkHazard::PowderKeg),    Bfk::HazardDesc(EBfkHazard::PowderKeg),    TEXT("ui_icon_barrel_skull"));
+	Entry(Bfk::HazardName(EBfkHazard::Puddle),       Bfk::HazardDesc(EBfkHazard::Puddle),       TEXT("par_vfx_water_drop_ripple"));
+	Entry(Bfk::HazardName(EBfkHazard::Spores),       Bfk::HazardDesc(EBfkHazard::Spores),       TEXT("ui_icon_status_poison"));
+	Entry(Bfk::HazardName(EBfkHazard::CrystalShard), Bfk::HazardDesc(EBfkHazard::CrystalShard), TEXT("ui_icon_crystal_shard"));
+	Entry(Bfk::HazardName(EBfkHazard::Floodmark),    Bfk::HazardDesc(EBfkHazard::Floodmark),    TEXT("ui_icon_warning_skull"));
+
+	Section(TEXT("Weather"));
+	Entry(Bfk::WeatherName(EBfkWeather::Rain),    Bfk::WeatherDesc(EBfkWeather::Rain));
+	Entry(Bfk::WeatherName(EBfkWeather::Snow),    Bfk::WeatherDesc(EBfkWeather::Snow));
+	Entry(Bfk::WeatherName(EBfkWeather::Ashfall), Bfk::WeatherDesc(EBfkWeather::Ashfall));
+	Entry(Bfk::WeatherName(EBfkWeather::Gloom),   Bfk::WeatherDesc(EBfkWeather::Gloom));
+
+	Section(TEXT("Weapons & Relics"));
+	Para(TEXT("Each unit can hold one weapon (adds 2-3 weapon cards to the deck plus a stat modifier) and one relic (a permanent power with a price — read the fine print). Equip them in the squad muster or from battle rewards."));
+
+	Section(TEXT("Death, Runs & the Vault"));
+	Para(TEXT("Death ends the run — but everything you captured, bred, hatched and unlocked stays. The Beast Vault is your permanent collection; squads are drafted from it. Breeding pairs two compatible beasts (matching element or archetype) into an egg that hatches after enough victories, inheriting stats and sometimes a mutated signature card."));
+
+	Section(TEXT("Currencies"));
+	Entry(TEXT("Gold"),       TEXT("In-run only. Spend it at peddlers; lost when the run ends."), TEXT("ui_icon_coin_bag"));
+	Entry(TEXT("Soulshards"), TEXT("Permanent. Earned each run; spent on meta unlocks."));
+	Entry(TEXT("Emberglass"), TEXT("Rare breeding catalyst from bosses and elites."));
+
+	Section(TEXT("Forge & Milestones"));
+	Para(TEXT("Forge nodes upgrade a card for the rest of the run. Forge Milestones are permanent achievements that unlock new weapons, relics, spells and starting heroes — check the Milestones screen from the main menu."));
+
+	Scroll->AddChild(L);
+	USizeBox* ScrollSize = WidgetTree->ConstructWidget<USizeBox>();
+	ScrollSize->SetHeightOverride(700);
+	ScrollSize->AddChild(Scroll);
+	V->AddChildToVerticalBox(ScrollSize);
+	Panel->SetContent(V);
+
+	USizeBox* PageSize = WidgetTree->ConstructWidget<USizeBox>();
+	PageSize->SetWidthOverride(1280);
+	PageSize->AddChild(Panel);
+	return PageSize;
 }
 
 // ============================================================== tweener

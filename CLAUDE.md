@@ -44,6 +44,21 @@ session (what was built, why, known issues, and the backlog).**
 
 ## Conventions & gotchas (hard-won)
 
+- `BfkUi::SolidBrush` MUST stay DrawAs=RoundedBox: an Image brush with no
+  resource object silently draws NOTHING on this engine build (cost a long
+  debugging session — the pause overlay was "invisible" while fully laid out).
+- Battle board is ISOMETRIC (`CellCenter` in BfkBattleScreen: 300x150 diamond
+  tiles, origin (885,250), enemies offset +0.5 col). `CellPos` still returns a
+  legacy CellW x CellH rect centered on the tile so offset math keeps working.
+  Tokens/tiles/hazards are ZOrder depth-sorted by row+col; update ZOrder when
+  units move. Board pans (drag) and zooms (wheel) via render transform on
+  BoardLayer + Particles — compose shake through ApplyBoardTransform.
+- Creature sprites are TALL (~0.6 aspect): never draw them into fixed squares —
+  use `BfkUi::SpriteFit` (aspect-preserving) for lists/grids.
+- Sprite defringe: `Tools/defringe.py` (aggressive unconditional 1px shave for
+  crt_/hum_/pro_/enm_/min_, relative-brightness test for the rest). Re-run it
+  after re-extracting sprites, BEFORE import_assets.py.
+
 - Asset slugs are flat under `/Game/BFK/T` and `/Game/BFK/S` with prefixes
   (crt_/hum_/pro_/enm_/min_/card_/rel_/wpn_/prj_/ui_/par_/bg_/sfx_);
   resolve via `FBfkAssets::Texture/Sound`. All character art faces LEFT —

@@ -4454,5 +4454,9 @@
 {
 "src": "SourceArt/exported/main_menu/main_menu.png",
 "asset": "bg_main_menu"
+},
+{
+"src": "SourceArt/generated/ui_iso_tile.png",
+"asset": "ui_iso_tile"
 }
 ]

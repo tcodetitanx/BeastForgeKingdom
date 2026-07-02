@@ -78,14 +78,31 @@ class UBfkBattleScreen : public UBfkScreen
 public:
 	virtual void Build() override;
 	virtual void NativeTick(const FGeometry& Geo, float Dt) override;
+	virtual bool AllowsPauseQuit() const override { return false; }   // no bailing mid-fight
+	void CancelTargeting();   // rmb / demo driver
 
 protected:
 	virtual FReply NativeOnMouseButtonDown(const FGeometry& Geo, const FPointerEvent& Ev) override;
+	virtual FReply NativeOnMouseMove(const FGeometry& Geo, const FPointerEvent& Ev) override;
+	virtual FReply NativeOnMouseButtonUp(const FGeometry& Geo, const FPointerEvent& Ev) override;
+	virtual FReply NativeOnMouseWheel(const FGeometry& Geo, const FPointerEvent& Ev) override;
 
 private:
-	// board geometry
-	FVector2D CellPos(int32 Row, int32 Col) const;
+	// board geometry — isometric diamond projection, fixed angle (2:1 tiles)
+	FVector2D CellCenter(int32 Row, int32 Col) const;
+	FVector2D CellPos(int32 Row, int32 Col) const;   // legacy virtual cell rect centered on the tile
 	static constexpr float CellW = 265.f, CellH = 178.f;
+	static constexpr float TileW = 300.f, TileH = 150.f;
+	static FVector2D TokenOff() { return FVector2D(-115.f, -133.f); }
+	static int32 CellDepth(int32 Row, int32 Col) { return Row + Col; }
+
+	// pseudo-3d board camera: drag to pan, wheel to zoom (angle is fixed)
+	void ApplyBoardTransform(FVector2D Shake = FVector2D::ZeroVector);
+	FVector2D ClampPan(FVector2D Pan) const;
+	FVector2D BoardPan = FVector2D::ZeroVector;
+	float BoardZoom = 1.f;
+	bool bPanning = false, bPanMoved = false;
+	FVector2D PanStartMouse = FVector2D::ZeroVector, PanStartPan = FVector2D::ZeroVector;
 
 	// construction
 	void BuildBoard();

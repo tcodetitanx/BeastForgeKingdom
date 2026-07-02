@@ -159,7 +159,7 @@ void UBfkUnitToken::BuildToken(const FBfkUnitState& U)
 	BfkUi::AddToCanvas(C, BlockText, FVector2D(188, 172), FVector2D(40, 18));
 
 	StatusRow = WidgetTree->ConstructWidget<UHorizontalBox>();
-	BfkUi::AddToCanvas(C, StatusRow, FVector2D(25, 194), FVector2D(180, 22));
+	BfkUi::AddToCanvas(C, StatusRow, FVector2D(5, 194), FVector2D(220, 44));
 }
 
 void UBfkUnitToken::Refresh(const FBfkUnitState& U, const UBfkBattle* Battle)
@@ -179,12 +179,15 @@ void UBfkUnitToken::Refresh(const FBfkUnitState& U, const UBfkBattle* Battle)
 	{
 		if (KV.Value <= 0 || KV.Key == EBfkStatus::Ward) continue;
 		UOverlay* Cell = WidgetTree->ConstructWidget<UOverlay>();
-		UImage* Icon = BfkUi::Sprite(this, BfkUi::StatusIcon(KV.Key), FVector2D(20, 20));
+		UImage* Icon = BfkUi::Sprite(this, BfkUi::StatusIcon(KV.Key), FVector2D(40, 40));
 		Cell->AddChildToOverlay(Icon);
-		UTextBlock* N = BfkUi::Text(this, FString::FromInt(KV.Value), 11, BfkUi::StatusColor(KV.Key), true);
+		UTextBlock* N = BfkUi::Text(this, FString::FromInt(KV.Value), 15, BfkUi::StatusColor(KV.Key), true);
 		UOverlaySlot* NS = Cell->AddChildToOverlay(N);
 		NS->SetHorizontalAlignment(HAlign_Right);
 		NS->SetVerticalAlignment(VAlign_Bottom);
+		// hover explains the status
+		Cell->SetToolTipText(FText::FromString(FString::Printf(TEXT("%s (%d) — %s"),
+			*Bfk::StatusName(KV.Key), KV.Value, *Bfk::StatusDesc(KV.Key))));
 		StatusRow->AddChildToHorizontalBox(Cell)->SetPadding(FMargin(1, 0));
 	}
 }
@@ -232,12 +235,22 @@ float UBfkBattleScreen::AnimSpeed() const
 	return Gi()->Profile()->Settings.bFastAnimations ? 2.2f : 1.f;
 }
 
+FVector2D UBfkBattleScreen::CellCenter(int32 Row, int32 Col) const
+{
+	// isometric diamond projection: allies flow down-left, enemies down-right.
+	// extra half-tile gap between the two sides keeps the front line readable.
+	const FVector2D Origin(885.f, 250.f);
+	const float Gap = (Col >= 2) ? 0.5f : 0.f;
+	return Origin + FVector2D(
+		(Col + Gap - Row) * TileW * 0.5f,
+		(Col + Gap + Row) * TileH * 0.5f);
+}
+
 FVector2D UBfkBattleScreen::CellPos(int32 Row, int32 Col) const
 {
-	// gap between the two sides
-	const float BaseX = 300.f;
-	const float Gap = (Col >= 2) ? 90.f : 0.f;
-	return FVector2D(BaseX + Col * CellW + Gap, 120.f + Row * CellH);
+	// legacy virtual cell rect (CellW x CellH) centered on the iso tile so the
+	// existing offset math (tokens, particles, projectiles) keeps working
+	return CellCenter(Row, Col) - FVector2D(CellW / 2, CellH / 2);
 }
 
 void UBfkBattleScreen::Build()
@@ -278,6 +291,9 @@ void UBfkBattleScreen::Build()
 	EndTurnBtn = BfkUi::MakeButton(this, TEXT("End Turn"), 24, BfkUi::Gold);
 	EndTurnBtn->OnClicked.AddDynamic(this, &UBfkBattleScreen::OnEndTurnClicked);
 	BfkUi::AddToCanvas(Canvas, EndTurnBtn, FVector2D(1650, 890), FVector2D(220, 74));
+
+	// pause / codex
+	BfkUi::AddToCanvas(Canvas, PauseChip(), FVector2D(1760, 24), FVector2D(130, 40));
 
 	// particles above everything on the board
 	Particles = WidgetTree->ConstructWidget<UBfkParticleLayer>();
@@ -337,31 +353,36 @@ void UBfkBattleScreen::BuildBoard()
 {
 	UBfkBattle* B = Gi()->ActiveBattle();
 
-	// cells
+	// iso diamond tiles, painter's order (near rows draw over far rows)
 	for (int32 R = 0; R < 3; ++R)
 	{
 		for (int32 Col = 0; Col < 4; ++Col)
 		{
-			const FVector2D P = CellPos(R, Col);
+			const FVector2D Center = CellCenter(R, Col);
+			const int32 Code = R * 10 + Col;
+			const int32 Depth = CellDepth(R, Col);
+
 			UImage* Cell = WidgetTree->ConstructWidget<UImage>();
 			const bool bAllySide = Col <= 1;
-			FLinearColor CC = bAllySide ? FLinearColor(0.12f, 0.2f, 0.22f, 0.30f) : FLinearColor(0.22f, 0.10f, 0.12f, 0.30f);
-			Cell->SetBrush(BfkUi::SolidBrush(CC, 12.f));
-			BfkUi::AddToCanvas(BoardLayer, Cell, P + FVector2D(6, 34), FVector2D(CellW - 12, CellH - 12));
-
-			const int32 Code = R * 10 + Col;
-			UImage* Hl = WidgetTree->ConstructWidget<UImage>();
-			Hl->SetBrush(BfkUi::SolidBrush(FLinearColor(0.4f, 0.95f, 0.6f, 0.0f), 12.f));
-			Hl->SetVisibility(ESlateVisibility::Collapsed);
-			BfkUi::AddToCanvas(BoardLayer, Hl, P + FVector2D(6, 34), FVector2D(CellW - 12, CellH - 12));
-			CellHighlights.Add(Code, Hl);
+			const FLinearColor CC = bAllySide ? FLinearColor(0.16f, 0.30f, 0.32f, 0.42f) : FLinearColor(0.34f, 0.14f, 0.16f, 0.42f);
+			Cell->SetBrush(BfkUi::Brush(TEXT("ui_iso_tile"), FVector2D(TileW, TileH)));
+			Cell->SetColorAndOpacity(CC);
+			BfkUi::AddToCanvas(BoardLayer, Cell, Center - FVector2D(TileW / 2, TileH / 2), FVector2D(TileW, TileH))->SetZOrder(Depth);
 
 			UImage* Hz = WidgetTree->ConstructWidget<UImage>();
 			Hz->SetVisibility(ESlateVisibility::Collapsed);
-			BfkUi::AddToCanvas(BoardLayer, Hz, P + FVector2D(CellW - 66, CellH - 46), FVector2D(44, 44));
+			BfkUi::AddToCanvas(BoardLayer, Hz, Center - FVector2D(44, 54), FVector2D(88, 88))->SetZOrder(20 + Depth);
 			HazardIcons.Add(Code, Hz);
 
-			// invisible click-catcher for cell targeting
+			// highlight diamond, tinted per use (threat red / target green)
+			UImage* Hl = WidgetTree->ConstructWidget<UImage>();
+			Hl->SetBrush(BfkUi::Brush(TEXT("ui_iso_tile"), FVector2D(TileW, TileH)));
+			Hl->SetVisibility(ESlateVisibility::Collapsed);
+			BfkUi::AddToCanvas(BoardLayer, Hl, Center - FVector2D(TileW / 2, TileH / 2), FVector2D(TileW, TileH))->SetZOrder(40 + Depth);
+			CellHighlights.Add(Code, Hl);
+
+			// invisible click-catcher — rect inscribed in the diamond so any
+			// click it accepts is genuinely inside the tile
 			TWeakObjectPtr<UBfkBattleScreen> Weak = this;
 			UBfkTagButton* CellBtn = BfkUi::FlatTagButton(this,
 				FLinearColor(0, 0, 0, 0.01f), FLinearColor(1, 1, 1, 0.07f),
@@ -371,23 +392,19 @@ void UBfkBattleScreen::BuildBoard()
 				}, 12.f);
 			CellBtn->TagInt = Code;
 			CellBtn->SetVisibility(ESlateVisibility::Collapsed);
-			BfkUi::AddToCanvas(BoardLayer, CellBtn, P + FVector2D(6, 34), FVector2D(CellW - 12, CellH - 12));
+			BfkUi::AddToCanvas(BoardLayer, CellBtn, Center - FVector2D(TileW / 4, TileH / 4), FVector2D(TileW / 2, TileH / 2))->SetZOrder(60);
 			CellButtons.Add(Code, CellBtn);
 		}
 	}
 
-	// lane divider glow between the sides
-	UImage* Divider = BfkUi::Sprite(this, TEXT("ui_divider_ghostfire_skull"), FVector2D(60, 520));
-	BfkUi::AddToCanvas(BoardLayer, Divider, FVector2D(CellPos(0, 2).X - 62, 150), FVector2D(58, 520));
-
-	// unit tokens
+	// unit tokens — feet planted on the tile, depth-sorted
 	for (const FBfkUnitState& U : B->GetUnits())
 	{
 		UBfkUnitToken* T = CreateWidget<UBfkUnitToken>(GetOwningPlayer(), UBfkUnitToken::StaticClass());
 		T->BuildToken(U);
 		T->OnTokenClicked.BindUObject(this, &UBfkBattleScreen::OnTokenClicked);
-		const FVector2D P = CellPos(U.Cell.Row, U.Cell.Col);
-		BfkUi::AddToCanvas(BoardLayer, T, P + FVector2D(CellW / 2 - 115, CellH / 2 - 105), FVector2D(230, 220));
+		BfkUi::AddToCanvas(BoardLayer, T, CellCenter(U.Cell.Row, U.Cell.Col) + TokenOff(), FVector2D(230, 220))
+			->SetZOrder(100 + CellDepth(U.Cell.Row, U.Cell.Col) * 2);
 		Tokens.Add(T);
 	}
 }
@@ -434,12 +451,14 @@ void UBfkBattleScreen::RebuildHand()
 		FString Why;
 		CW->SetPlayable(B->CanPlayCard(CI.InstanceId, Why));
 		const float Y = 830.f + FMath::Abs(i - (N - 1) * 0.5f) * 8.f;
-		BfkUi::AddToCanvas(HandLayer, CW, FVector2D(StartX + i * Spread, 1090.f), FVector2D(176, 246));
-		// deal-in tween
+		// park the card at its real spot; identity transform = at rest (so the
+		// transform resets in ClearTargeting can't drop the hand offscreen)
+		BfkUi::AddToCanvas(HandLayer, CW, FVector2D(StartX + i * Spread, Y), FVector2D(176, 246));
+		// deal-in tween: slide up from below the screen edge
 		FBfkTween& Tw = Tweener.Add(CW, 0.28f / AnimSpeed(), i * 0.04f / AnimSpeed());
 		Tw.bPos = true;
-		Tw.FromPos = FVector2D(0, 120);
-		Tw.ToPos = FVector2D(0, Y - 1090.f);
+		Tw.FromPos = FVector2D(0, 1090.f - Y + 120.f);
+		Tw.ToPos = FVector2D::ZeroVector;
 		Tw.Ease = 1;
 		HandCards.Add(CW);
 	}
@@ -493,8 +512,8 @@ void UBfkBattleScreen::RefreshAll()
 			case EBfkHazard::Floodmark:    HIcon = TEXT("ui_icon_warning_skull"); break;
 			default: break;
 			}
-			Icon->SetBrush(BfkUi::Brush(HIcon, FVector2D(44, 44)));
-			Icon->SetVisibility(ESlateVisibility::HitTestInvisible);
+			Icon->SetBrush(BfkUi::Brush(HIcon, FVector2D(88, 88)));
+			Icon->SetVisibility(ESlateVisibility::Visible);   // hit-testable so the tooltip works
 			Icon->SetToolTipText(FText::FromString(Bfk::HazardName(H) + TEXT(" — ") + Bfk::HazardDesc(H)));
 		}
 	}
@@ -549,7 +568,7 @@ void UBfkBattleScreen::RefreshIntents()
 					{
 						if (UImage** Hl = CellHighlights.Find(Code))
 						{
-							(*Hl)->SetBrush(BfkUi::SolidBrush(FLinearColor(0.9f, 0.25f, 0.2f, 0.22f), 12.f));
+							(*Hl)->SetColorAndOpacity(FLinearColor(0.9f, 0.25f, 0.2f, 0.5f));
 							(*Hl)->SetVisibility(ESlateVisibility::HitTestInvisible);
 						}
 					}
@@ -615,14 +634,14 @@ void UBfkBattleScreen::OnCardClicked(UBfkCardWidget* Card)
 			{
 				if (UImage** Hl = CellHighlights.Find(Row * 10 + Col))
 				{
-					(*Hl)->SetBrush(BfkUi::SolidBrush(FLinearColor(0.4f, 0.9f, 0.65f, 0.20f), 12.f));
+					(*Hl)->SetColorAndOpacity(FLinearColor(0.4f, 0.9f, 0.65f, 0.45f));
 					(*Hl)->SetVisibility(ESlateVisibility::HitTestInvisible);
 				}
 			}
 		}
 		else if (UImage** Hl = CellHighlights.Find(Code))
 		{
-			(*Hl)->SetBrush(BfkUi::SolidBrush(FLinearColor(0.4f, 0.9f, 0.65f, 0.20f), 12.f));
+			(*Hl)->SetColorAndOpacity(FLinearColor(0.4f, 0.9f, 0.65f, 0.45f));
 			(*Hl)->SetVisibility(ESlateVisibility::HitTestInvisible);
 		}
 		if (UBfkTagButton** Btn = CellButtons.Find(Code))
@@ -918,10 +937,11 @@ void UBfkBattleScreen::ApplyEventVisuals(const FBfkBattleEvent& E)
 		{
 			const FVector2D From = CellPos(E.A / 10, E.A % 10);
 			const FVector2D To = CellPos(E.B / 10, E.B % 10);
-			// physically move the slot, tween the visual offset
+			// physically move the slot (and its draw depth), tween the visual offset
 			if (UCanvasPanelSlot* S = Cast<UCanvasPanelSlot>(T->Slot))
 			{
-				S->SetPosition(To + FVector2D(CellW / 2 - 115, CellH / 2 - 105));
+				S->SetPosition(CellCenter(E.B / 10, E.B % 10) + TokenOff());
+				S->SetZOrder(100 + CellDepth(E.B / 10, E.B % 10) * 2);
 			}
 			FBfkTween& Tw = Tweener.Add(T, (E.C ? 0.22f : 0.3f) / AnimSpeed());
 			Tw.bPos = true;
@@ -988,7 +1008,8 @@ void UBfkBattleScreen::ApplyEventVisuals(const FBfkBattleEvent& E)
 			T->BuildToken(*U);
 			T->OnTokenClicked.BindUObject(this, &UBfkBattleScreen::OnTokenClicked);
 			const FVector2D P = CellPos(U->Cell.Row, U->Cell.Col);
-			BfkUi::AddToCanvas(BoardLayer, T, P + FVector2D(CellW / 2 - 115, CellH / 2 - 105), FVector2D(230, 220));
+			BfkUi::AddToCanvas(BoardLayer, T, CellCenter(U->Cell.Row, U->Cell.Col) + TokenOff(), FVector2D(230, 220))
+				->SetZOrder(100 + CellDepth(U->Cell.Row, U->Cell.Col) * 2);
 			Tokens.Add(T);
 			T->Refresh(*U, B);
 			FBfkTween& Tw = Tweener.Add(T, 0.35f / AnimSpeed());
@@ -1185,6 +1206,42 @@ void UBfkBattleScreen::OnResultContinueClicked()
 	}
 }
 
+// ============================================================== board camera
+
+void UBfkBattleScreen::ApplyBoardTransform(FVector2D Shake)
+{
+	FWidgetTransform Tr;
+	Tr.Scale = FVector2D(BoardZoom, BoardZoom);
+	Tr.Translation = BoardPan + Shake;
+	if (BoardLayer)
+	{
+		BoardLayer->SetRenderTransformPivot(FVector2D(0.5f, 0.5f));
+		BoardLayer->SetRenderTransform(Tr);
+	}
+	// particles live in a sibling layer (above the hand) — keep them in board space
+	if (Particles)
+	{
+		Particles->SetRenderTransformPivot(FVector2D(0.5f, 0.5f));
+		Particles->SetRenderTransform(Tr);
+	}
+}
+
+FVector2D UBfkBattleScreen::ClampPan(FVector2D Pan) const
+{
+	const float MaxX = 520.f * BoardZoom;
+	const float MaxY = 340.f * BoardZoom;
+	return FVector2D(FMath::Clamp(Pan.X, -MaxX, MaxX), FMath::Clamp(Pan.Y, -MaxY, MaxY));
+}
+
+void UBfkBattleScreen::CancelTargeting()
+{
+	if (SelectedCard >= 0)
+	{
+		Gi()->UiSound(TEXT("sfx_ui_cancel"), 0.5f);
+		ClearTargeting();
+	}
+}
+
 FReply UBfkBattleScreen::NativeOnMouseButtonDown(const FGeometry& Geo, const FPointerEvent& Ev)
 {
 	if (Ev.GetEffectingButton() == EKeys::RightMouseButton && SelectedCard >= 0)
@@ -1193,7 +1250,58 @@ FReply UBfkBattleScreen::NativeOnMouseButtonDown(const FGeometry& Geo, const FPo
 		ClearTargeting();
 		return FReply::Handled();
 	}
+	// drag-to-pan: reaches here only when no card/token/button claimed the press
+	if (Ev.GetEffectingButton() == EKeys::LeftMouseButton || Ev.GetEffectingButton() == EKeys::MiddleMouseButton)
+	{
+		bPanning = true;
+		bPanMoved = false;
+		PanStartMouse = Geo.AbsoluteToLocal(Ev.GetScreenSpacePosition());
+		PanStartPan = BoardPan;
+		return FReply::Handled().CaptureMouse(TakeWidget());
+	}
 	return Super::NativeOnMouseButtonDown(Geo, Ev);
+}
+
+FReply UBfkBattleScreen::NativeOnMouseMove(const FGeometry& Geo, const FPointerEvent& Ev)
+{
+	if (bPanning)
+	{
+		const FVector2D M = Geo.AbsoluteToLocal(Ev.GetScreenSpacePosition());
+		const FVector2D Delta = M - PanStartMouse;
+		if (!bPanMoved && Delta.Size() > 6.f) bPanMoved = true;
+		if (bPanMoved)
+		{
+			BoardPan = ClampPan(PanStartPan + Delta);
+			ApplyBoardTransform();
+		}
+		return FReply::Handled();
+	}
+	return Super::NativeOnMouseMove(Geo, Ev);
+}
+
+FReply UBfkBattleScreen::NativeOnMouseButtonUp(const FGeometry& Geo, const FPointerEvent& Ev)
+{
+	if (bPanning)
+	{
+		bPanning = false;
+		return FReply::Handled().ReleaseMouseCapture();
+	}
+	return Super::NativeOnMouseButtonUp(Geo, Ev);
+}
+
+FReply UBfkBattleScreen::NativeOnMouseWheel(const FGeometry& Geo, const FPointerEvent& Ev)
+{
+	const float Old = BoardZoom;
+	BoardZoom = FMath::Clamp(BoardZoom * (Ev.GetWheelDelta() > 0.f ? 1.15f : 1.f / 1.15f), 0.8f, 2.4f);
+	if (!FMath::IsNearlyEqual(Old, BoardZoom))
+	{
+		// zoom toward the cursor so what you point at stays put
+		const FVector2D C(960.f, 540.f);
+		const FVector2D M = Geo.AbsoluteToLocal(Ev.GetScreenSpacePosition());
+		BoardPan = ClampPan(M - C - (M - C - BoardPan) * (BoardZoom / Old));
+		ApplyBoardTransform();
+	}
+	return FReply::Handled();
 }
 
 // ============================================================== tick
@@ -1212,18 +1320,16 @@ void UBfkBattleScreen::NativeTick(const FGeometry& Geo, float Dt)
 		}
 	}
 
-	// screen shake decay
+	// screen shake decay — composed with the pan/zoom camera transform
 	if (ShakeTime > 0.f)
 	{
 		ShakeTime -= Dt;
 		const float S = ShakeStrength * FMath::Max(0.f, ShakeTime / 0.28f);
-		FWidgetTransform Tr;
-		Tr.Translation = FVector2D(FMath::FRandRange(-S, S), FMath::FRandRange(-S, S));
-		BoardLayer->SetRenderTransform(Tr);
+		ApplyBoardTransform(FVector2D(FMath::FRandRange(-S, S), FMath::FRandRange(-S, S)));
 		if (ShakeTime <= 0.f)
 		{
 			ShakeStrength = 0.f;
-			BoardLayer->SetRenderTransform(FWidgetTransform());
+			ApplyBoardTransform();
 		}
 	}
 

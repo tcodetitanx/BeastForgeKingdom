@@ -55,6 +55,9 @@ void UBfkMapScreen::Build()
 	UButton* Abandon = BfkUi::MakeButton(this, TEXT("Abandon"), 14, BfkUi::Blood);
 	Abandon->OnClicked.AddDynamic(this, &UBfkMapScreen::OnAbandonClicked);
 	BfkUi::AddToCanvas(Canvas, Abandon, FVector2D(1730, 28), FVector2D(150, 54));
+
+	// pause / codex
+	BfkUi::AddToCanvas(Canvas, PauseChip(), FVector2D(1330, 34), FVector2D(130, 40));
 	AbandonLabel = BfkUi::Text(this, TEXT(""), 14, BfkUi::Blood);
 	BfkUi::AddToCanvas(Canvas, AbandonLabel, FVector2D(1510, 86), FVector2D(380, 22));
 
@@ -272,7 +275,7 @@ void UBfkSquadPickerScreen::RefreshRoster()
 		Card->TagGuid = B.Id;
 
 		UVerticalBox* V = WidgetTree->ConstructWidget<UVerticalBox>();
-		UImage* Icon = BfkUi::Sprite(this, Sp->SpriteSlug, FVector2D(96, 96), true);
+		UImage* Icon = BfkUi::SpriteFit(this, Sp->SpriteSlug, FVector2D(96, 96), true);
 		V->AddChildToVerticalBox(Icon)->SetHorizontalAlignment(HAlign_Center);
 		const FString Nick = B.Nickname.IsEmpty() ? Sp->Display : B.Nickname;
 		UTextBlock* N = BfkUi::Text(this, Nick, 14, bPicked ? BfkUi::GhostTeal : BfkUi::Parchment, true);
@@ -319,7 +322,7 @@ void UBfkSquadPickerScreen::RefreshPicked()
 		SlotBtn->TagGuid = Id;
 
 		UHorizontalBox* H = WidgetTree->ConstructWidget<UHorizontalBox>();
-		UImage* Icon = BfkUi::Sprite(this, Sp->SpriteSlug, FVector2D(110, 110), true);
+		UImage* Icon = BfkUi::SpriteFit(this, Sp->SpriteSlug, FVector2D(110, 110), true);
 		H->AddChildToHorizontalBox(Icon)->SetVerticalAlignment(VAlign_Center);
 		UVerticalBox* V = WidgetTree->ConstructWidget<UVerticalBox>();
 		V->AddChildToVerticalBox(BfkUi::Text(this, B->Nickname.IsEmpty() ? Sp->Display : B->Nickname, 16, BfkUi::GhostTeal, true));

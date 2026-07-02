@@ -104,18 +104,6 @@ void FBfkDemoDriver::RunStep(const FStep& S)
 void FBfkDemoDriver::SynthClick(FVector2D DesignPos, bool bRight)
 {
 	if (!FSlateApplication::IsInitialized()) return;
-	FSlateApplication& Slate = FSlateApplication::Get();
-
-	TSharedPtr<SWindow> Win;
-	if (GEngine && GEngine->GameViewport)
-	{
-		Win = GEngine->GameViewport->GetWindow();
-	}
-	if (!Win.IsValid()) return;
-
-	const FSlateRect Client = Win->GetClientRectInScreen();
-	const FVector2D ScreenPos = FVector2D(Client.Left, Client.Top)
-		+ DesignPos * FVector2D(Client.GetSize().X / 1920.0, Client.GetSize().Y / 1080.0);
 
 	// Click through the UMG tree directly: find the topmost interactive widget
 	// containing the point and invoke its real handler. Immune to OS input focus.
@@ -137,18 +125,39 @@ void FBfkDemoDriver::SynthClick(FVector2D DesignPos, bool bRight)
 		return;
 	}
 
+	// design -> slate absolute via the screen's own cached geometry — the OS
+	// window rect is NOT trustworthy (locked desktops move/shrink windows)
+	const FGeometry& RootGeo = Screen->GetCachedGeometry();
+	const FVector2D LocalSize = RootGeo.GetLocalSize();
+	if (LocalSize.IsNearlyZero()) return;
+	const FVector2D ScreenPos = RootGeo.LocalToAbsolute(DesignPos * LocalSize / FVector2D(1920.0, 1080.0));
+
 	if (bRight)
 	{
-		// only battle uses right-click (cancel targeting) — route via Slate as fallback
-		Slate.OnMouseDown(Win->GetNativeWindow(), EMouseButtons::Right, ScreenPos);
-		Slate.OnMouseUp(EMouseButtons::Right, ScreenPos);
+		// only battle uses right-click (cancel targeting) — call it directly
+		if (UBfkBattleScreen* Battle = Cast<UBfkBattleScreen>(Screen))
+		{
+			Battle->CancelTargeting();
+		}
 		return;
 	}
+
+	// with a modal pause overlay open, only its own widgets are clickable
+	UWidget* Modal = Screen->IsPaused() ? Screen->GetPauseOverlay() : nullptr;
 
 	UWidget* Best = nullptr;
 	auto Consider = [&](UWidget* W)
 	{
 		if (!W || !W->IsVisible()) return;
+		if (Modal)
+		{
+			bool bInModal = false;
+			for (UWidget* P = W; P; P = P->GetParent())
+			{
+				if (P == Modal) { bInModal = true; break; }
+			}
+			if (!bInModal) return;
+		}
 		const FGeometry& Geo = W->GetCachedGeometry();
 		if (Geo.GetLocalSize().IsNearlyZero()) return;
 		const FSlateRect Rect = Geo.GetRenderBoundingRect();  // includes anim transforms

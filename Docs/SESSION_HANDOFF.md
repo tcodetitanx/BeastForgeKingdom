@@ -1,5 +1,38 @@
 # Session handoff — Claude build session, 2026-07-01
 
+## Update: home-PC session, 2026-07-01 (evening)
+
+Project cloned to Daniel's home PC (D:\UEProjects\BeastForgeKingdom, engine at
+D:\UE_5.8 — a DIFFERENT UE 5.8 build than the original machine). Daniel
+playtested and drove an art/UX overhaul:
+
+- **Isometric battle board**: 3x4 grid now renders as 300x150 diamond tiles
+  (`CellCenter`), fixed angle, painter's-order ZOrder by row+col, procedural
+  `ui_iso_tile` texture (Tools/make_iso_tile.py). Removed the ghostfire lane
+  divider ("big blue thing"). Drag-to-pan + wheel-zoom (0.8-2.4x, cursor-
+  centric) via render transform on BoardLayer+Particles; shake composes.
+- **Defringe**: Tools/defringe.py strips the white sheet fringe from all 1114
+  sprites (relative-brightness test; unconditional 1px shave + 3 passes for
+  character prefixes). Verified clean at 3x zoom.
+- **Squish fix**: creature sprites are ~0.6 aspect; meta screens were stretching
+  them into squares. New `BfkUi::SpriteFit` used in vault/squad/library/
+  breeding/map (8 sites).
+- **2x status/hazard icons** with hover tooltips (StatusDesc/HazardDesc).
+- **Pause menu (Esc or top-right chip) + full Codex** (keywords, statuses,
+  hazards, weather, capture, breeding, currencies) — built into UBfkScreen,
+  overlay constructed at screen build time (see engine gotcha below).
+- **ENGINE GOTCHA (this machine)**: FSlateBrush DrawAs=Image with no resource
+  object renders NOTHING. SolidBrush now always uses RoundedBox. This also
+  resurrected the AddBackdrop darken shade + menu cover panels + pvp curtain,
+  which had been silently invisible on this engine.
+- **Demo driver hardened**: design->screen mapping now goes through the active
+  screen's cached geometry (window rect lied when the desktop moved windows);
+  rclick routes to `UBfkBattleScreen::CancelTargeting`; clicks respect the
+  modal pause overlay. demo_battle.txt re-coordinated for the iso board +
+  pause/codex steps. Hand cards now PARK at their rest position (transform
+  resets can no longer drop the hand offscreen).
+- All 4 automation suites green; full demo tour runs with zero warnings.
+
 This document is the memory of the Claude session that built BeastForge Kingdom
 from an empty UE 5.8 project in one sitting. If you are a Claude instance (or a
 human) picking this up on another machine: read this top to bottom, then

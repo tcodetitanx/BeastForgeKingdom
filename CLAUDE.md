@@ -1,0 +1,57 @@
+# BeastForge Kingdom — Claude context
+
+3v3 deck-building creature-collector dark-fantasy roguelite, UE 5.8, 100% C++ (no
+Blueprint logic). Built autonomously by a prior Claude session on 2026-07-01.
+**Read `Docs/SESSION_HANDOFF.md` first — it is the full state handoff from that
+session (what was built, why, known issues, and the backlog).**
+
+## Setup on a fresh machine
+
+1. UE 5.8 required. If the uproject's `"5.8"` association doesn't resolve
+   (source build), right-click the .uproject -> Switch Unreal Engine version.
+2. Build: `Tools\build.ps1 -Engine <UE root>` (or set `$env:UE_ROOT`; default
+   `D:\UE_5.8`). Or generate VS files and build `BeastForgeKingdomEditor`.
+3. Open `BeastForgeKingdom.uproject`, press Play (boot map `/Game/BFK/Maps/Boot`
+   is the default; everything is UI). Or launch standalone:
+   `UnrealEditor.exe <uproject> -game -windowed -resx=1600 -resy=900`
+4. Pushing to GitHub needs `Content/keys/githubKey.txt` (git-ignored; line 1 =
+   token, line 3 = username `tcodetitanx`). Ask Daniel for the token.
+
+## Commands
+
+- Build: `Tools\build.ps1` (editor) / `-Game` (game target)
+- Tests: `UnrealEditor-Cmd.exe <uproject> -ExecCmds="Automation RunTests BeastForge; Quit" -unattended -nullrhi`
+  (4 suites: Content.Sanity, Battle.RandomSim, Run.MapGen, Meta.Breeding — all must stay green)
+- Headless editor python: `Tools\uepy.ps1 -Script <abs path .py>`
+- Scripted playtest: launch game with `-BfkDemo=<script.txt>` — see
+  `Docs/AUTOMATION.md` (wait/click/shot/exec/quit; 1920x1080 design coords;
+  console cmds `Bfk.NewRun <seed>`, `Bfk.Enter <nodetype>`)
+
+## Architecture (Source/BeastForgeKingdom)
+
+- `Core/BfkTypes.h` — enums/structs (elements, statuses, hazards, cards, effects)
+- `Core/BfkContentCore.cpp` — hand-authored kits (8 heroes, 4 bosses, neutral
+  cards, element x archetype template kits, weapon-class cards, special relics),
+  encounter/reward/breeding tables
+- `Core/BfkContentGenerated.cpp` — **GENERATED, do not hand-edit.** Regenerate:
+  `python Tools/gen_content.py` (reads `Tools/labels/*.json` sprite manifests)
+- `Battle/BfkBattle.*` — deterministic battle sim; UI replays its `Events` queue
+- `Run/`, `Meta/` — map gen + run state; save game, vault, breeding, milestones
+- `Game/` — GameInstance (all game flow), GameMode, `BfkDemoDriver` (playtest)
+- `UI/BfkWidgets.*` — style helpers, `UBfkTagButton` (payload button — UMG
+  dynamic delegates can't capture), tweener; `UI/BfkFx.*` — Slate-painted
+  weather/particles; `UI/Screens/` — every screen, trees built in C++
+
+## Conventions & gotchas (hard-won)
+
+- Asset slugs are flat under `/Game/BFK/T` and `/Game/BFK/S` with prefixes
+  (crt_/hum_/pro_/enm_/min_/card_/rel_/wpn_/prj_/ui_/par_/bg_/sfx_);
+  resolve via `FBfkAssets::Texture/Sound`. All character art faces LEFT —
+  allies are flipped (render scale -1) to face right.
+- FX overlay widgets MUST set `ESlateVisibility::HitTestInvisible` in their
+  UWidget constructor (UMG SynchronizeProperties overrides Slate-level settings).
+- PowerShell `| Select-Object -First N` on a piped game process KILLS it mid-run.
+- The demo driver clicks by traversing the UMG tree with render-bounds hit tests
+  (OS-level input fails on a locked desktop).
+- Sprite pipeline (if new sheets arrive): `Tools/sprite_pipeline.py` -> label
+  manifests -> `gen_content.py` -> `Tools/uepy.ps1 -Script Tools/import_assets.py`.

@@ -1,0 +1,40 @@
+# tour the meta screens (menu buttons: x=278, y = 228 + 73.3*i)
+wait 3
+shot s_menu
+click 278 448
+wait 1.5
+shot s_breeding
+click 90 55
+wait 1
+click 278 521
+wait 1.5
+shot s_vault
+click 150 265
+wait 0.8
+shot s_vault_detail
+click 90 55
+wait 1
+click 278 594
+wait 1.5
+shot s_enemylib
+click 90 55
+wait 1
+click 278 667
+wait 1.5
+shot s_milestones
+click 90 55
+wait 1
+click 278 814
+wait 1.5
+shot s_settings
+click 90 55
+wait 1
+click 1118 749
+wait 1.5
+shot s_squadpicker
+click 300 500
+click 500 500
+click 700 500
+wait 0.8
+shot s_squadpicked
+quit

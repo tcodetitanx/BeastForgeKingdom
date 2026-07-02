@@ -1,0 +1,4458 @@
+[
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_00.png",
+"asset": "crt_wolf_squire"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_01.png",
+"asset": "crt_moss_golem"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_02.png",
+"asset": "crt_owl_warden"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_03.png",
+"asset": "crt_azure_whelp"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_04.png",
+"asset": "crt_flower_stag"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_05.png",
+"asset": "crt_frost_wisp"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_06.png",
+"asset": "crt_shepherd_pup"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_07.png",
+"asset": "crt_house_turtle"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_08.png",
+"asset": "crt_lantern_hare"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_09.png",
+"asset": "crt_brook_drake"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_10.png",
+"asset": "crt_owl_oracle"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_11.png",
+"asset": "crt_wool_ram"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_12.png",
+"asset": "crt_frog_sage"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_13.png",
+"asset": "crt_badger_scout"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_14.png",
+"asset": "crt_twig_treant"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_15.png",
+"asset": "crt_corgi_courier"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_16.png",
+"asset": "crt_tide_wisp"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_17.png",
+"asset": "crt_wheel_golem"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_18.png",
+"asset": "crt_mouse_mage"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_19.png",
+"asset": "crt_crystal_fox"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_20.png",
+"asset": "crt_bell_goat"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_21.png",
+"asset": "crt_war_pony"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_22.png",
+"asset": "crt_fennec_scout"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_23.png",
+"asset": "crt_winged_talisman"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_24.png",
+"asset": "crt_miner_mole"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_25.png",
+"asset": "crt_courier_dove"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_26.png",
+"asset": "crt_burrow_drake"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_27.png",
+"asset": "crt_bloom_sprite"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_28.png",
+"asset": "crt_raccoon_porter"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_29.png",
+"asset": "crt_sapling_dryad"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_30.png",
+"asset": "crt_geode_beast"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_31.png",
+"asset": "crt_cat_acolyte"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_32.png",
+"asset": "crt_pack_bear"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_33.png",
+"asset": "crt_spirit_lantern"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/buddies/buddies_34.png",
+"asset": "crt_owl_sentinel"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_00.png",
+"asset": "crt_ridge_raptor"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_01.png",
+"asset": "crt_war_boar"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_02.png",
+"asset": "crt_crystal_dragon"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_03.png",
+"asset": "crt_shadow_cat"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_04.png",
+"asset": "crt_cottage_turtle"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_05.png",
+"asset": "crt_seafoam_steed"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_06.png",
+"asset": "crt_ember_phoenix"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_07.png",
+"asset": "crt_iron_mastiff"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_08.png",
+"asset": "crt_moss_warden"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_09.png",
+"asset": "crt_spirit_wolf"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_10.png",
+"asset": "crt_wisp_stag"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_11.png",
+"asset": "crt_fisher_otter"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_12.png",
+"asset": "crt_crystal_beetle"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_13.png",
+"asset": "crt_toad_shaman"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_14.png",
+"asset": "crt_snow_leopard"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_15.png",
+"asset": "crt_shark_mystic"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_16.png",
+"asset": "crt_wraith_hound"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_17.png",
+"asset": "crt_tawny_owl"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_18.png",
+"asset": "crt_basalt_tortoise"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_19.png",
+"asset": "crt_kitsune"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_20.png",
+"asset": "crt_rune_bear"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_21.png",
+"asset": "crt_crystal_golem"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_22.png",
+"asset": "crt_pack_ram"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_23.png",
+"asset": "crt_ladybug_knight"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_24.png",
+"asset": "crt_sea_serpent"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_25.png",
+"asset": "crt_hooded_raven"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_26.png",
+"asset": "crt_clockwork_talisman"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_27.png",
+"asset": "crt_void_kitten"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_28.png",
+"asset": "crt_bramble_bot"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_29.png",
+"asset": "crt_meadow_unicorn"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_30.png",
+"asset": "crt_croc_vanguard"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__1/sheet__PM__1_31.png",
+"asset": "crt_stump_sprite"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_00.png",
+"asset": "crt_scruff_hound"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_01.png",
+"asset": "crt_crest_raptor"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_02.png",
+"asset": "crt_phantom_elk"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_03.png",
+"asset": "crt_lantern_tortoise"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_04.png",
+"asset": "crt_sea_griffin"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_05.png",
+"asset": "crt_royal_unicorn"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_06.png",
+"asset": "crt_bone_steed"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_07.png",
+"asset": "crt_pack_otter"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_08.png",
+"asset": "crt_shark_brawler"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_09.png",
+"asset": "crt_moth_sprite"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_10.png",
+"asset": "crt_panda_monk"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_11.png",
+"asset": "crt_redwing_drake"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_12.png",
+"asset": "crt_tusked_vanguard"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_13.png",
+"asset": "crt_buckler_bird"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_14.png",
+"asset": "crt_glacier_drake"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_15.png",
+"asset": "crt_pirate_raccoon"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_16.png",
+"asset": "crt_nightmare_steed"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_17.png",
+"asset": "crt_moss_pangolin"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_18.png",
+"asset": "crt_minstrel_wolf"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_19.png",
+"asset": "crt_sky_jellyfish"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_20.png",
+"asset": "crt_dune_drake"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_21.png",
+"asset": "crt_cog_walker"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_22.png",
+"asset": "crt_war_goose"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_23.png",
+"asset": "crt_camo_chameleon"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_24.png",
+"asset": "crt_sky_hound"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_25.png",
+"asset": "crt_mountain_goat"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_26.png",
+"asset": "crt_flame_hart"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_27.png",
+"asset": "crt_harbor_seal"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_28.png",
+"asset": "crt_ghost_fox"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_29.png",
+"asset": "crt_wraith_steed"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__2/sheet__PM__2_30.png",
+"asset": "crt_hedgehog_scout"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_00.png",
+"asset": "crt_saddle_raptor"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_01.png",
+"asset": "crt_moon_bear"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_02.png",
+"asset": "crt_bone_elk"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_03.png",
+"asset": "crt_royal_griffin"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_04.png",
+"asset": "crt_lighthouse_tortoise"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_05.png",
+"asset": "crt_satchel_shark"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_06.png",
+"asset": "crt_dusk_wolf"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_07.png",
+"asset": "crt_caravan_goat"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_08.png",
+"asset": "crt_petal_stag"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_09.png",
+"asset": "crt_cog_hound"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_10.png",
+"asset": "crt_snow_pard"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_11.png",
+"asset": "crt_gilded_drake"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_12.png",
+"asset": "crt_trail_rabbit"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_13.png",
+"asset": "crt_magma_golem"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_14.png",
+"asset": "crt_war_crane"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_15.png",
+"asset": "crt_orb_strider"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_16.png",
+"asset": "crt_bristle_boar"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_17.png",
+"asset": "crt_wisp_vixen"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_18.png",
+"asset": "crt_spike_snapper"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_19.png",
+"asset": "crt_violet_charger"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_20.png",
+"asset": "crt_pilgrim_otter"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_21.png",
+"asset": "crt_flutter_pup"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_22.png",
+"asset": "crt_lizard_rogue"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_23.png",
+"asset": "crt_scarf_hound"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_24.png",
+"asset": "crt_coral_axolotl"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_25.png",
+"asset": "crt_granite_warden"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_26.png",
+"asset": "crt_war_raven"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_27.png",
+"asset": "crt_rune_elk"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_28.png",
+"asset": "crt_spirit_lion"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_29.png",
+"asset": "crt_pirate_pigeon"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_30.png",
+"asset": "crt_tusk_walrus"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__3/sheet__PM__3_31.png",
+"asset": "crt_kelp_dragon"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_00.png",
+"asset": "crt_phantom_wolf"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_01.png",
+"asset": "crt_shrine_tortoise"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_02.png",
+"asset": "crt_charm_stag"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_03.png",
+"asset": "crt_dusk_leopard"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_04.png",
+"asset": "crt_reef_shark"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_05.png",
+"asset": "crt_highland_griffin"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_06.png",
+"asset": "crt_lava_salamander"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_07.png",
+"asset": "crt_bighorn_ram"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_08.png",
+"asset": "crt_glacier_bear"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_09.png",
+"asset": "crt_wraith_raven"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_10.png",
+"asset": "crt_redpanda_porter"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_11.png",
+"asset": "crt_bolt_hound"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_12.png",
+"asset": "crt_amethyst_drake"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_13.png",
+"asset": "crt_shrine_fox"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_14.png",
+"asset": "crt_moss_anteater"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_15.png",
+"asset": "crt_abyss_jellyfish"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_16.png",
+"asset": "crt_feathered_rex"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_17.png",
+"asset": "crt_rune_golem"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_18.png",
+"asset": "crt_husky_scout"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_19.png",
+"asset": "crt_sky_manta"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_20.png",
+"asset": "crt_pack_yak"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_21.png",
+"asset": "crt_scholar_owl"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_22.png",
+"asset": "crt_chameleon_sage"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_23.png",
+"asset": "crt_wolverine_wanderer"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_24.png",
+"asset": "crt_cannon_strider"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_25.png",
+"asset": "crt_verdant_unicorn"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_26.png",
+"asset": "crt_bone_raptor"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_27.png",
+"asset": "crt_war_lion"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_28.png",
+"asset": "crt_brass_koi"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_29.png",
+"asset": "crt_gem_wasp"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_30.png",
+"asset": "crt_elder_treant"
+},
+{
+"src": "SourceArt/sprites/characters/allies/creatures/sheet__PM__4/sheet__PM__4_31.png",
+"asset": "crt_corsair_parrot"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_00.png",
+"asset": "hum_crimson_ronin"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_01.png",
+"asset": "hum_corsair_queen"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_02.png",
+"asset": "hum_horned_berserker"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_03.png",
+"asset": "hum_azure_wizard"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_04.png",
+"asset": "hum_violet_warlock"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_05.png",
+"asset": "hum_grim_sellsword"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_06.png",
+"asset": "hum_sun_paladin"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_07.png",
+"asset": "hum_elf_ranger"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_08.png",
+"asset": "hum_elf_sorceress"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_09.png",
+"asset": "hum_orc_vanguard"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_10.png",
+"asset": "hum_onyx_knight"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_11.png",
+"asset": "hum_dawn_priest"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_12.png",
+"asset": "hum_grave_scholar"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_13.png",
+"asset": "hum_fist_monk"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_14.png",
+"asset": "hum_veiled_assassin"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_15.png",
+"asset": "hum_wolf_hunter"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_16.png",
+"asset": "hum_dusk_gunslinger"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_17.png",
+"asset": "hum_plague_alchemist"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_18.png",
+"asset": "hum_elder_druid"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_19.png",
+"asset": "hum_storm_shaman"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_20.png",
+"asset": "hum_harp_bard"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_21.png",
+"asset": "hum_bounty_hunter"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_22.png",
+"asset": "hum_centurion"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_23.png",
+"asset": "hum_plague_doctor"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_24.png",
+"asset": "hum_beast_tamer"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_25.png",
+"asset": "hum_artificer"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_26.png",
+"asset": "hum_buccaneer"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_27.png",
+"asset": "hum_dune_wanderer"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_28.png",
+"asset": "hum_tide_lich"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__5/sheet__PM__5_29.png",
+"asset": "hum_crusader"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_00.png",
+"asset": "hum_iron_samurai"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_01.png",
+"asset": "hum_cutlass_duelist"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_02.png",
+"asset": "hum_sapphire_magus"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_03.png",
+"asset": "hum_horned_warlock"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_04.png",
+"asset": "hum_wandering_blade"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_05.png",
+"asset": "hum_sylvan_archer"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_06.png",
+"asset": "hum_dwarf_engineer"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_07.png",
+"asset": "hum_bastion_knight"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_08.png",
+"asset": "hum_veiled_priestess"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_09.png",
+"asset": "hum_antler_druid"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_10.png",
+"asset": "hum_temple_monk"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_11.png",
+"asset": "hum_shade_rogue"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_12.png",
+"asset": "hum_musketeer"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_13.png",
+"asset": "hum_lute_bard"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_14.png",
+"asset": "hum_raven_doctor"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_15.png",
+"asset": "hum_potion_matron"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_16.png",
+"asset": "hum_skull_shaman"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_17.png",
+"asset": "hum_wolf_witch"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_18.png",
+"asset": "hum_pale_necromancer"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_19.png",
+"asset": "hum_hook_captain"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_20.png",
+"asset": "hum_hill_reaver"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_21.png",
+"asset": "hum_sand_nomad"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_22.png",
+"asset": "hum_hood_huntress"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_23.png",
+"asset": "hum_aether_engineer"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_24.png",
+"asset": "hum_hex_witch"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_25.png",
+"asset": "hum_shield_templar"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_26.png",
+"asset": "hum_arcane_scholar"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_27.png",
+"asset": "hum_witch_doctor"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_28.png",
+"asset": "hum_steel_warden"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__6/sheet__PM__6_29.png",
+"asset": "hum_flame_dancer"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_00.png",
+"asset": "hum_grizzled_corsair"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_01.png",
+"asset": "hum_spear_sergeant"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_02.png",
+"asset": "hum_grove_queen"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_03.png",
+"asset": "hum_frost_sorceress"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_04.png",
+"asset": "hum_north_reaver"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_05.png",
+"asset": "hum_lion_knight"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_06.png",
+"asset": "hum_spear_chieftain"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_07.png",
+"asset": "hum_dune_assassin"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_08.png",
+"asset": "hum_void_sorcerer"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_09.png",
+"asset": "hum_rune_priest"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_10.png",
+"asset": "hum_swashbuckler"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_11.png",
+"asset": "hum_banner_paladin"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_12.png",
+"asset": "hum_pale_seer"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_13.png",
+"asset": "hum_chained_brute"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_14.png",
+"asset": "hum_forge_smith"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_15.png",
+"asset": "hum_wolf_rider"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_16.png",
+"asset": "hum_hood_ranger"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_17.png",
+"asset": "hum_hammer_crusader"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_18.png",
+"asset": "hum_occult_vicar"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_19.png",
+"asset": "hum_grave_keeper"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_20.png",
+"asset": "hum_standard_bearer"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_21.png",
+"asset": "hum_elder_pilgrim"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_22.png",
+"asset": "hum_ember_monk"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_23.png",
+"asset": "hum_chain_hermit"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_24.png",
+"asset": "hum_spyglass_captain"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_25.png",
+"asset": "hum_herb_maiden"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__7/sheet__PM__7_26.png",
+"asset": "hum_brine_lich"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_00.png",
+"asset": "hum_dwarf_bulwark"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_01.png",
+"asset": "hum_orc_paladin"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_02.png",
+"asset": "hum_goblin_alchemist"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_03.png",
+"asset": "hum_lich_captain"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_04.png",
+"asset": "hum_pistol_corsair"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_05.png",
+"asset": "hum_gilded_cleric"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_06.png",
+"asset": "hum_valkyrie"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_07.png",
+"asset": "hum_wolfpelt_ranger"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_08.png",
+"asset": "hum_dirge_bard"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_09.png",
+"asset": "hum_jade_monk"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_10.png",
+"asset": "hum_cheetah_mystic"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_11.png",
+"asset": "hum_witch_hunter"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_12.png",
+"asset": "hum_flame_magus"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_13.png",
+"asset": "hum_war_priest"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_14.png",
+"asset": "hum_steam_gunner"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_15.png",
+"asset": "hum_sea_admiral"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_16.png",
+"asset": "hum_shield_maiden"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_17.png",
+"asset": "hum_violet_witch"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_18.png",
+"asset": "hum_vampire_noble"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_19.png",
+"asset": "hum_pit_gladiator"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_20.png",
+"asset": "hum_pale_blade"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_21.png",
+"asset": "hum_anchor_reaver"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_22.png",
+"asset": "hum_tattooed_berserker"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_23.png",
+"asset": "hum_glacial_queen"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_24.png",
+"asset": "hum_emerald_knight"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_25.png",
+"asset": "hum_skull_druid"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_26.png",
+"asset": "hum_tempest_magus"
+},
+{
+"src": "SourceArt/sprites/characters/allies/humanoids/sheet__PM__8/sheet__PM__8_27.png",
+"asset": "hum_gilded_justicar"
+},
+{
+"src": "SourceArt/sprites/characters/allies/protagonists/protagonists_00.png",
+"asset": "pro_captain_blacktide"
+},
+{
+"src": "SourceArt/sprites/characters/allies/protagonists/protagonists_01.png",
+"asset": "pro_plague_warden"
+},
+{
+"src": "SourceArt/sprites/characters/allies/protagonists/protagonists_02.png",
+"asset": "pro_plate_champion"
+},
+{
+"src": "SourceArt/sprites/characters/allies/protagonists/protagonists_03.png",
+"asset": "pro_antler_ranger"
+},
+{
+"src": "SourceArt/sprites/characters/allies/protagonists/protagonists_04.png",
+"asset": "pro_swamp_witch"
+},
+{
+"src": "SourceArt/sprites/characters/allies/protagonists/protagonists_05.png",
+"asset": "pro_rat_cartographer"
+},
+{
+"src": "SourceArt/sprites/characters/allies/protagonists/protagonists_06.png",
+"asset": "pro_crystal_assassin"
+},
+{
+"src": "SourceArt/sprites/characters/allies/protagonists/protagonists_07.png",
+"asset": "pro_chain_warlock"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesOne/enemiesOne_00.png",
+"asset": "enm_rat_king_plaguecrown"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesOne/enemiesOne_01.png",
+"asset": "enm_plague_doctor_lanternblade"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesOne/enemiesOne_02.png",
+"asset": "enm_mushroom_troll_brute"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesOne/enemiesOne_03.png",
+"asset": "enm_hooded_blight_warden"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesOne/enemiesOne_04.png",
+"asset": "enm_spectral_stag_lanternhorn"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesOne/enemiesOne_05.png",
+"asset": "enm_goblin_boiler_alchemist"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesOne/enemiesOne_06.png",
+"asset": "enm_violet_shard_revenant"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesOne/enemiesOne_07.png",
+"asset": "enm_censer_plague_monk"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesTwo/enemiesTwo_00.png",
+"asset": "enm_soulfire_halberd_knight"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesTwo/enemiesTwo_01.png",
+"asset": "enm_chained_halo_wraith"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesTwo/enemiesTwo_02.png",
+"asset": "enm_spectral_chainwolf"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesTwo/enemiesTwo_03.png",
+"asset": "enm_obsidian_wing_fiend"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesTwo/enemiesTwo_04.png",
+"asset": "enm_mossbound_stone_priest"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesTwo/enemiesTwo_05.png",
+"asset": "enm_skullshield_grave_knight"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesTwo/enemiesTwo_06.png",
+"asset": "enm_magma_chain_golem"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesTwo/enemiesTwo_07.png",
+"asset": "enm_scarecrow_scythe_reaper"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesThree/enemiesThree_00.png",
+"asset": "enm_ghost_pirate_hookhand"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesThree/enemiesThree_01.png",
+"asset": "enm_skullface_crone_lantern"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesThree/enemiesThree_02.png",
+"asset": "enm_iron_mask_flesh_hulk"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesThree/enemiesThree_03.png",
+"asset": "enm_raven_skull_cutthroat"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesThree/enemiesThree_04.png",
+"asset": "enm_amethyst_crystal_shade"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesThree/enemiesThree_05.png",
+"asset": "enm_antlered_vermin_shaman"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesThree/enemiesThree_06.png",
+"asset": "enm_drowned_chain_phantom"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesThree/enemiesThree_07.png",
+"asset": "enm_cinder_shard_brute"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesFive/enemiesFive_00.png",
+"asset": "enm_cage_helm_juggernaut"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesFive/enemiesFive_01.png",
+"asset": "enm_white_hair_banshee"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesFive/enemiesFive_02.png",
+"asset": "enm_embervein_wyvern"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesFive/enemiesFive_03.png",
+"asset": "enm_anchor_drowned_monk"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesFive/enemiesFive_04.png",
+"asset": "enm_fungal_plague_troll"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesFive/enemiesFive_05.png",
+"asset": "enm_crowfeather_plague_reaper"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesFive/enemiesFive_06.png",
+"asset": "enm_gilded_bone_hierophant"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesFive/enemiesFive_07.png",
+"asset": "enm_wildfire_ghost_elk"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesSix/enemiesSix_00.png",
+"asset": "enm_skeleton_pirate_captain"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesSix/enemiesSix_01.png",
+"asset": "enm_warlion_and_crystal_sylph"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesSix/enemiesSix_02.png",
+"asset": "enm_swamp_hag_brewer"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesSix/enemiesSix_03.png",
+"asset": "enm_trio_magma_goblin_ratlord"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/enemiesSix/enemiesSix_04.png",
+"asset": "enm_leafmask_wild_shaman"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_00.png",
+"asset": "min_plague_crow_lanternbearer"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_01.png",
+"asset": "min_drowned_anchor_ogre"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_02.png",
+"asset": "min_skeleton_bow_scout"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_03.png",
+"asset": "min_teal_spear_shade"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_04.png",
+"asset": "min_pistol_deckhand_skeleton"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_05.png",
+"asset": "min_brass_diver_revenant"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_06.png",
+"asset": "min_halo_staff_cultist"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_07.png",
+"asset": "min_sharkman_cutthroat"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_08.png",
+"asset": "min_warpaint_skull_ghoul"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_09.png",
+"asset": "min_haunted_ghost_skiff"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_10.png",
+"asset": "min_strawhat_knife_stalker"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_11.png",
+"asset": "min_sludge_hood_shaman"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_12.png",
+"asset": "min_carrion_plague_vulture"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_13.png",
+"asset": "min_black_feather_knifebird"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_14.png",
+"asset": "min_goggle_vial_tinkerer"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_15.png",
+"asset": "min_skullcage_lantern_porter"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_16.png",
+"asset": "min_roundshield_hood_heavy"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_17.png",
+"asset": "min_redcloak_scythe_acolyte"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_18.png",
+"asset": "min_pallid_flesh_golem"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_19.png",
+"asset": "min_crystal_staff_bosun"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_20.png",
+"asset": "min_greenflame_skull_warlock"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_21.png",
+"asset": "min_bandana_zombie_swashbuckler"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_22.png",
+"asset": "min_fanged_mimic_chest"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_23.png",
+"asset": "min_teal_hood_wisp"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_24.png",
+"asset": "min_featherskull_witchdoctor"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_25.png",
+"asset": "min_runestone_golem"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_26.png",
+"asset": "min_hookblade_corsair_skeleton"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_27.png",
+"asset": "min_sporecap_lantern_shambler"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_28.png",
+"asset": "min_spikemace_armored_ghoul"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_29.png",
+"asset": "min_hooded_grave_archer"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_30.png",
+"asset": "min_mossmaw_lurker"
+},
+{
+"src": "SourceArt/sprites/characters/enemies/minionsOne/minionsOne_31.png",
+"asset": "min_purple_lich_acolyte"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_00.png",
+"asset": "card_phantom_slash"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_01.png",
+"asset": "card_flintlock_shot"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_02.png",
+"asset": "card_blight_bomb"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_03.png",
+"asset": "card_void_dart"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_04.png",
+"asset": "card_cinder_ball"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_05.png",
+"asset": "card_spirit_rend"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_06.png",
+"asset": "card_anchor_smash"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_07.png",
+"asset": "card_toxic_miasma"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_08.png",
+"asset": "card_curse_orb"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_09.png",
+"asset": "card_cannon_blast"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_10.png",
+"asset": "card_ice_shards"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_11.png",
+"asset": "card_bleeding_edge"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_12.png",
+"asset": "card_caltrop_scatter"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_13.png",
+"asset": "card_dread_comet"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_14.png",
+"asset": "card_eruption"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_15.png",
+"asset": "card_ghost_cannon"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_16.png",
+"asset": "card_plague_skull"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_17.png",
+"asset": "card_shard_volley"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_18.png",
+"asset": "card_flame_wave"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_19.png",
+"asset": "card_ghost_anchor"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_20.png",
+"asset": "card_void_spikes"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_21.png",
+"asset": "card_rotting_visage"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_22.png",
+"asset": "card_powder_bomb"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_23.png",
+"asset": "card_frost_trident"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_24.png",
+"asset": "card_arcane_lance"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_25.png",
+"asset": "card_noxious_vortex"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_26.png",
+"asset": "card_siege_barrage"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_27.png",
+"asset": "card_death_nova"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_28.png",
+"asset": "card_twin_wraiths"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_29.png",
+"asset": "card_thunderbolt"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_30.png",
+"asset": "card_void_maw"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetOne/cardSetOne_31.png",
+"asset": "card_blight_phantom"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_00.png",
+"asset": "card_ward_shield"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_01.png",
+"asset": "card_anchor_ward"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_02.png",
+"asset": "card_verdant_shroud"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_03.png",
+"asset": "card_void_shield"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_04.png",
+"asset": "card_guiding_lantern"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_05.png",
+"asset": "card_swift_step"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_06.png",
+"asset": "card_riposte_stance"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_07.png",
+"asset": "card_spore_cloud"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_08.png",
+"asset": "card_dark_mending"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_09.png",
+"asset": "card_golden_aegis"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_10.png",
+"asset": "card_ice_wall"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_11.png",
+"asset": "card_chained_anchor"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_12.png",
+"asset": "card_healing_tonic"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_13.png",
+"asset": "card_shadow_ambush"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_14.png",
+"asset": "card_bulwark_form"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_15.png",
+"asset": "card_frost_ward"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_16.png",
+"asset": "card_natures_renewal"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_17.png",
+"asset": "card_eye_of_the_void"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_18.png",
+"asset": "card_stalwart_guardian"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_19.png",
+"asset": "card_frost_parry"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_20.png",
+"asset": "card_spiked_palisade"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_21.png",
+"asset": "card_stone_shell"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_22.png",
+"asset": "card_wraith_form"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_23.png",
+"asset": "card_dread_banner"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_24.png",
+"asset": "card_tide_barrier"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_25.png",
+"asset": "card_golden_ascension"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_26.png",
+"asset": "card_ring_of_growth"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_27.png",
+"asset": "card_soul_shackle"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_28.png",
+"asset": "card_frost_dome"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_29.png",
+"asset": "card_forged_plate"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_30.png",
+"asset": "card_ironbark_skin"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetTwo/cardSetTwo_31.png",
+"asset": "card_chain_ward"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_00.png",
+"asset": "card_grave_lantern"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_01.png",
+"asset": "card_carrion_crow"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_02.png",
+"asset": "card_rat_swarm"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_03.png",
+"asset": "card_pale_owl"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_04.png",
+"asset": "card_crystal_spider"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_05.png",
+"asset": "card_bog_toad"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_06.png",
+"asset": "card_rune_golem"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_07.png",
+"asset": "card_glimmer_sprite"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_08.png",
+"asset": "card_bramble_stump"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_09.png",
+"asset": "card_crystal_turret"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_10.png",
+"asset": "card_restless_shade"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_11.png",
+"asset": "card_dusk_wolf"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_12.png",
+"asset": "card_strangler_vine"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_13.png",
+"asset": "card_gloomcap_cluster"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_14.png",
+"asset": "card_beacon_altar"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_15.png",
+"asset": "card_ward_totem"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_16.png",
+"asset": "card_iron_jaw_trap"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_17.png",
+"asset": "card_signal_flare"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_18.png",
+"asset": "card_mimic_chest"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_19.png",
+"asset": "card_bubble_slime"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_20.png",
+"asset": "card_skeleton_captain"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_21.png",
+"asset": "card_corsair_cannon"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_22.png",
+"asset": "card_drowned_deckhand"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_23.png",
+"asset": "card_phantom_galleon"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_24.png",
+"asset": "card_blight_sentry"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_25.png",
+"asset": "card_spirit_hound"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_26.png",
+"asset": "card_grave_standard"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_27.png",
+"asset": "card_ritual_altar"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_28.png",
+"asset": "card_pale_unicorn"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_29.png",
+"asset": "card_moss_golem"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_30.png",
+"asset": "card_mist_seraph"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetThree/cardSetThree_31.png",
+"asset": "card_soul_maelstrom"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_00.png",
+"asset": "card_hex_sigil"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_01.png",
+"asset": "card_slumber_cloud"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_02.png",
+"asset": "card_dazzle"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_03.png",
+"asset": "card_soulfire_skull"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_04.png",
+"asset": "card_nullify"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_05.png",
+"asset": "card_heartbreak"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_06.png",
+"asset": "card_venom_skull"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_07.png",
+"asset": "card_kindle_flame"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_08.png",
+"asset": "card_frost_nova"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_09.png",
+"asset": "card_shock_bolt"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_10.png",
+"asset": "card_mark_target"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_11.png",
+"asset": "card_banish_vortex"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_12.png",
+"asset": "card_evasive_burst"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_13.png",
+"asset": "card_lockdown"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_14.png",
+"asset": "card_grasping_thorns"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_15.png",
+"asset": "card_hypnotic_spiral"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_16.png",
+"asset": "card_voodoo_doll"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_17.png",
+"asset": "card_lich_skull"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_18.png",
+"asset": "card_fuse_bomb"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_19.png",
+"asset": "card_void_ring"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_20.png",
+"asset": "card_ghostflame"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_21.png",
+"asset": "card_unblinking_eye"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_22.png",
+"asset": "card_lucky_clover"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_23.png",
+"asset": "card_coin_shower"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_24.png",
+"asset": "card_dead_mans_hand"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_25.png",
+"asset": "card_shredded_fate"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_26.png",
+"asset": "card_frostfire_mend"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_27.png",
+"asset": "card_infernal_scream"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_28.png",
+"asset": "card_fleetfoot"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_29.png",
+"asset": "card_leaden_snail"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_30.png",
+"asset": "card_shield_break"
+},
+{
+"src": "SourceArt/sprites/cards/cardSetFour/cardSetFour_31.png",
+"asset": "card_weeping_eye"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_00.png",
+"asset": "wpn_iron_broadsword"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_01.png",
+"asset": "wpn_rusted_cutlass"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_02.png",
+"asset": "wpn_skull_poniard"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_03.png",
+"asset": "wpn_slab_greatsword"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_04.png",
+"asset": "wpn_tarnished_longsword"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_05.png",
+"asset": "wpn_bloodvein_blade"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_06.png",
+"asset": "wpn_bone_shank"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_07.png",
+"asset": "wpn_frost_crystal_dirk"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_08.png",
+"asset": "wpn_black_battleaxe"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_09.png",
+"asset": "wpn_skull_broadaxe"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_10.png",
+"asset": "wpn_spiked_morningstar"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_11.png",
+"asset": "wpn_emberforge_hammer"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_12.png",
+"asset": "wpn_furnace_mace"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_13.png",
+"asset": "wpn_dark_halberd"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_14.png",
+"asset": "wpn_tide_trident"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_15.png",
+"asset": "wpn_iron_pike"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_16.png",
+"asset": "wpn_reaper_scythe"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_17.png",
+"asset": "wpn_grave_lantern"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_18.png",
+"asset": "wpn_skullface_shield"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_19.png",
+"asset": "wpn_corsair_anchor"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_20.png",
+"asset": "wpn_thornback_blade"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_21.png",
+"asset": "wpn_eldritch_cleaver"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_22.png",
+"asset": "wpn_bonespike_club"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_23.png",
+"asset": "wpn_barbed_coral_blade"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_24.png",
+"asset": "wpn_ghostwood_bow"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_25.png",
+"asset": "wpn_heavy_crossbow"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_26.png",
+"asset": "wpn_flintlock_pistol"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_27.png",
+"asset": "wpn_corroded_blunderbuss"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_28.png",
+"asset": "wpn_amethyst_staff"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_29.png",
+"asset": "wpn_soul_lantern_staff"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_30.png",
+"asset": "wpn_bloodcrystal_wand"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__1/sheet__PM__1_31.png",
+"asset": "wpn_bone_skull_staff"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_00.png",
+"asset": "wpn_skullguard_sword"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_01.png",
+"asset": "wpn_dark_falchion"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_02.png",
+"asset": "wpn_thorned_rapier"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_03.png",
+"asset": "wpn_chainbound_slab_sword"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_04.png",
+"asset": "wpn_verdigris_longsword"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_05.png",
+"asset": "wpn_bloodvein_chainblade"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_06.png",
+"asset": "wpn_bonecarver_blade"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_07.png",
+"asset": "wpn_frost_shard_dagger"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_08.png",
+"asset": "wpn_iron_waraxe"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_09.png",
+"asset": "wpn_runeetched_axe"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_10.png",
+"asset": "wpn_chain_flail"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_11.png",
+"asset": "wpn_molten_crack_maul"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_12.png",
+"asset": "wpn_skull_morningstar"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_13.png",
+"asset": "wpn_crimson_halberd"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_14.png",
+"asset": "wpn_deepsea_trident"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_15.png",
+"asset": "wpn_winged_pike"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_16.png",
+"asset": "wpn_grim_sickle"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_17.png",
+"asset": "wpn_barbed_chain_whip"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_18.png",
+"asset": "wpn_horned_skull_shield"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_19.png",
+"asset": "wpn_hooked_chain_sickle"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_20.png",
+"asset": "wpn_jagged_cleaver"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_21.png",
+"asset": "wpn_seer_staff"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_22.png",
+"asset": "wpn_voidorb_staff"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_23.png",
+"asset": "wpn_sawtooth_blade"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_24.png",
+"asset": "wpn_duskthorn_bow"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_25.png",
+"asset": "wpn_siege_crossbow"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_26.png",
+"asset": "wpn_long_musket"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_27.png",
+"asset": "wpn_verdigris_hand_cannon"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_28.png",
+"asset": "wpn_bloodgem_staff"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_29.png",
+"asset": "wpn_chained_grave_lantern"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_30.png",
+"asset": "wpn_flaming_skull_staff"
+},
+{
+"src": "SourceArt/sprites/weapons/common/sheet__PM__2/sheet__PM__2_31.png",
+"asset": "wpn_glyph_wheel_mace"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_00.png",
+"asset": "wpn_soulfire_greatsword"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_01.png",
+"asset": "wpn_hellforged_cleaver"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_02.png",
+"asset": "wpn_riftfang_blade"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_03.png",
+"asset": "wpn_ghostforge_greatsword"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_04.png",
+"asset": "wpn_sungear_blade"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_05.png",
+"asset": "wpn_bloodshard_greatsword"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_06.png",
+"asset": "wpn_ossuary_blade"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_07.png",
+"asset": "wpn_spiritflame_dirk"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_08.png",
+"asset": "wpn_magmavein_battleaxe"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_09.png",
+"asset": "wpn_wraithskull_axe"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_10.png",
+"asset": "wpn_voidspike_morningstar"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_11.png",
+"asset": "wpn_volcanic_doommaul"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_12.png",
+"asset": "wpn_soulgem_mace"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_13.png",
+"asset": "wpn_bloodeye_halberd"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_14.png",
+"asset": "wpn_stormtide_trident"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_15.png",
+"asset": "wpn_duskchain_blade"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_16.png",
+"asset": "wpn_soulreaper_scythe"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_17.png",
+"asset": "wpn_spirit_censer_lantern"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_18.png",
+"asset": "wpn_dreadflame_shield"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_19.png",
+"asset": "wpn_soulhook_crook"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_20.png",
+"asset": "wpn_gilded_crescent_staff"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_21.png",
+"asset": "wpn_voidmaw_staff"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_22.png",
+"asset": "wpn_golden_spiral_scepter"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_23.png",
+"asset": "wpn_cinderfang_blade"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_24.png",
+"asset": "wpn_voidgaze_bow"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_25.png",
+"asset": "wpn_reaver_crossbow"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_26.png",
+"asset": "wpn_hexed_flintlock"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_27.png",
+"asset": "wpn_soulfire_blunderbuss"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_28.png",
+"asset": "wpn_voidcrystal_staff"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_29.png",
+"asset": "wpn_phantom_lantern"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_30.png",
+"asset": "wpn_infernal_skull_staff"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__1/sheet__PM__1_31.png",
+"asset": "wpn_runewheel_mace"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_00.png",
+"asset": "wpn_nightfall_greatsword"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_01.png",
+"asset": "wpn_furnace_executioner"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_02.png",
+"asset": "wpn_stormcrescent_staff"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_03.png",
+"asset": "wpn_doomforge_greatsword"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_04.png",
+"asset": "wpn_voidrune_greatsword"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_05.png",
+"asset": "wpn_spectral_chain_scythe"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_06.png",
+"asset": "wpn_voidspike_scepter"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_07.png",
+"asset": "wpn_seraph_wing_staff"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_08.png",
+"asset": "wpn_voidcore_warhammer"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_09.png",
+"asset": "wpn_skullcrusher_maul"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_10.png",
+"asset": "wpn_ember_eye_flail"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_11.png",
+"asset": "wpn_hellfire_blade"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_12.png",
+"asset": "wpn_stormrend_blade"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_13.png",
+"asset": "wpn_sunforged_trident"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_14.png",
+"asset": "wpn_ossuary_club"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_15.png",
+"asset": "wpn_dreadnought_anchor"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_16.png",
+"asset": "wpn_nether_bow"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_17.png",
+"asset": "wpn_ballista_crossbow"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_18.png",
+"asset": "wpn_void_cannon"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_19.png",
+"asset": "wpn_voidstar_shield"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_20.png",
+"asset": "wpn_demonface_shield"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_21.png",
+"asset": "wpn_duskmoon_staff"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_22.png",
+"asset": "wpn_tidemoon_staff"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_23.png",
+"asset": "wpn_azurelight_sword"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_24.png",
+"asset": "wpn_valkyrie_wing_scepter"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_25.png",
+"asset": "wpn_cinder_spike_mace"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_26.png",
+"asset": "wpn_banshee_skull_staff"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_27.png",
+"asset": "wpn_runeburn_waraxe"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_28.png",
+"asset": "wpn_tempest_greatsword"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_29.png",
+"asset": "wpn_meteor_orb_staff"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_30.png",
+"asset": "wpn_twinhook_reaper"
+},
+{
+"src": "SourceArt/sprites/weapons/legendary/sheet__PM__2/sheet__PM__2_31.png",
+"asset": "wpn_gilded_seraph_spear"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_00.png",
+"asset": "prj_skull_bomb"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_01.png",
+"asset": "prj_powder_keg"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_02.png",
+"asset": "prj_iron_grenade"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_03.png",
+"asset": "prj_corsair_cannonball"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_04.png",
+"asset": "prj_void_skull_orb"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_05.png",
+"asset": "prj_stone_chunk"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_06.png",
+"asset": "prj_frost_shard"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_07.png",
+"asset": "prj_ember_shard"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_08.png",
+"asset": "prj_iron_arrow"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_09.png",
+"asset": "prj_barbed_arrow"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_10.png",
+"asset": "prj_war_arrow"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_11.png",
+"asset": "prj_roped_harpoon"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_12.png",
+"asset": "prj_throwing_knife"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_13.png",
+"asset": "prj_throwing_axe"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_14.png",
+"asset": "prj_war_javelin"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_15.png",
+"asset": "prj_trident_javelin"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_16.png",
+"asset": "prj_iron_shuriken"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_17.png",
+"asset": "prj_spiked_chakram"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_18.png",
+"asset": "prj_spiked_iron_ball"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_19.png",
+"asset": "prj_chain_shot"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_20.png",
+"asset": "prj_magma_bomb"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_21.png",
+"asset": "prj_fire_flask"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_22.png",
+"asset": "prj_frost_flask"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_23.png",
+"asset": "prj_skull_grenade"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_24.png",
+"asset": "prj_toxin_bottle"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_25.png",
+"asset": "prj_night_toxin_flask"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_26.png",
+"asset": "prj_plague_brew"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_27.png",
+"asset": "prj_crimson_flask"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_28.png",
+"asset": "prj_soul_canister"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_29.png",
+"asset": "prj_spirit_flame"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_30.png",
+"asset": "prj_shadow_wisp"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_31.png",
+"asset": "prj_void_orb"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_32.png",
+"asset": "prj_storm_rocket"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_33.png",
+"asset": "prj_gilded_wing_arrow"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_34.png",
+"asset": "prj_lightning_bolt_arrow"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_35.png",
+"asset": "prj_chained_bomb"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_36.png",
+"asset": "prj_cursed_bottle"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_37.png",
+"asset": "prj_thorn_stake"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_38.png",
+"asset": "prj_blazing_meteor"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__1/sheet__PM__1_39.png",
+"asset": "prj_aqua_surge_orb"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_00.png",
+"asset": "prj_ember_skull_bomb"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_01.png",
+"asset": "prj_spiked_chain_ball"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_02.png",
+"asset": "prj_ghostflame_skull"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_03.png",
+"asset": "prj_swamp_flask"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_04.png",
+"asset": "prj_nether_potion"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_05.png",
+"asset": "prj_crystalvein_stone"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_06.png",
+"asset": "prj_glacial_ore"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_07.png",
+"asset": "prj_ice_crystal_shard"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_08.png",
+"asset": "prj_siege_bolt"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_09.png",
+"asset": "prj_barbed_harpoon"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_10.png",
+"asset": "prj_throwing_spear"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_11.png",
+"asset": "prj_jagged_arrow"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_12.png",
+"asset": "prj_iron_kunai"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_13.png",
+"asset": "prj_twinfang_dart"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_14.png",
+"asset": "prj_dart_bundle"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_15.png",
+"asset": "prj_bone_spike"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_16.png",
+"asset": "prj_serrated_chakram"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_17.png",
+"asset": "prj_skull_shuriken"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_18.png",
+"asset": "prj_sling_stones"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_19.png",
+"asset": "prj_conch_shell"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_20.png",
+"asset": "prj_smoke_bomb"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_21.png",
+"asset": "prj_mist_globe"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_22.png",
+"asset": "prj_acid_vial"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_23.png",
+"asset": "prj_shadow_vial"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_24.png",
+"asset": "prj_ember_brew"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_25.png",
+"asset": "prj_frost_tonic"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_26.png",
+"asset": "prj_skull_charge"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_27.png",
+"asset": "prj_voidmaw_orb"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_28.png",
+"asset": "prj_sunburst_javelin"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_29.png",
+"asset": "prj_venom_arrow"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_30.png",
+"asset": "prj_throwing_torch"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_31.png",
+"asset": "prj_soulflame_brand"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_32.png",
+"asset": "prj_amethyst_comet"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_33.png",
+"asset": "prj_cursed_runestone"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_34.png",
+"asset": "prj_water_globe"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_35.png",
+"asset": "prj_barrel_bomb"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_36.png",
+"asset": "prj_anchor_hook"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_37.png",
+"asset": "prj_grappling_chain"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_38.png",
+"asset": "prj_skull_harpoon"
+},
+{
+"src": "SourceArt/sprites/projectiles/sheet__PM__2/sheet__PM__2_39.png",
+"asset": "prj_umbral_drill"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_00.png",
+"asset": "rel_star_compass"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_01.png",
+"asset": "rel_verdigris_lantern"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_02.png",
+"asset": "rel_tidebound_crystal"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_03.png",
+"asset": "rel_sun_medallion"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_04.png",
+"asset": "rel_anchor_pennant"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_05.png",
+"asset": "rel_pearl_of_depths"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_06.png",
+"asset": "rel_navigators_ring"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_07.png",
+"asset": "rel_frost_quill"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_08.png",
+"asset": "rel_crusader_shield"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_09.png",
+"asset": "rel_winged_insignia"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_10.png",
+"asset": "rel_explorer_satchel"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_11.png",
+"asset": "rel_captains_cloak"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_12.png",
+"asset": "rel_signal_bell"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_13.png",
+"asset": "rel_wisp_lantern"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_14.png",
+"asset": "rel_aviator_goggles"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_15.png",
+"asset": "rel_gull_figurehead"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_16.png",
+"asset": "rel_medics_band"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_17.png",
+"asset": "rel_emerald_signet"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_18.png",
+"asset": "rel_star_grimoire"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_19.png",
+"asset": "rel_tide_sigil"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_20.png",
+"asset": "rel_glacier_shard"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_21.png",
+"asset": "rel_whispering_totem"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_22.png",
+"asset": "rel_tidal_diadem"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_23.png",
+"asset": "rel_corsair_bracer"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_24.png",
+"asset": "rel_pilgrims_cross"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_25.png",
+"asset": "rel_bottled_remedy"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_26.png",
+"asset": "rel_duelists_mask"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_27.png",
+"asset": "rel_kingfisher_charm"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_28.png",
+"asset": "rel_trident_shield"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_29.png",
+"asset": "rel_shardstone_ring"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_30.png",
+"asset": "rel_zealots_cape"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_31.png",
+"asset": "rel_orb_of_eddies"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_32.png",
+"asset": "rel_compass_rose_medal"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_33.png",
+"asset": "rel_wolf_totem"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_34.png",
+"asset": "rel_gloom_lantern"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_35.png",
+"asset": "rel_vanguard_pennon"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_36.png",
+"asset": "rel_heart_of_the_sea"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_37.png",
+"asset": "rel_chart_case"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_38.png",
+"asset": "rel_morningstar_brooch"
+},
+{
+"src": "SourceArt/sprites/relics/relicsOne/relicsOne_39.png",
+"asset": "rel_beast_collar"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_00.png",
+"asset": "rel_gilded_lyre"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_01.png",
+"asset": "rel_thornweave_cloak"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_02.png",
+"asset": "rel_wayfinder_medallion"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_03.png",
+"asset": "rel_bound_tusk"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_04.png",
+"asset": "rel_frostbloom_brooch"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_05.png",
+"asset": "rel_tidelight_lantern"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_06.png",
+"asset": "rel_wingshard_pendant"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_07.png",
+"asset": "rel_travelers_bedroll"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_08.png",
+"asset": "rel_stiletto_pin"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_09.png",
+"asset": "rel_falcon_helm"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_10.png",
+"asset": "rel_thorn_bangle"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_11.png",
+"asset": "rel_crescent_tear"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_12.png",
+"asset": "rel_pocket_grimoire"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_13.png",
+"asset": "rel_emerald_sunburst"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_14.png",
+"asset": "rel_owl_figurine"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_15.png",
+"asset": "rel_leafshard_charm"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_16.png",
+"asset": "rel_tideglass_bracer"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_17.png",
+"asset": "rel_heartwood_pendant"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_18.png",
+"asset": "rel_fang_chain"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_19.png",
+"asset": "rel_alchemist_pouch"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_20.png",
+"asset": "rel_leviathan_shard"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_21.png",
+"asset": "rel_valor_wings"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_22.png",
+"asset": "rel_moss_agate_ring"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_23.png",
+"asset": "rel_caged_hourglass"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_24.png",
+"asset": "rel_stag_mask"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_25.png",
+"asset": "rel_stormglass_orb"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_26.png",
+"asset": "rel_crystal_crown"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_27.png",
+"asset": "rel_star_buckle_belt"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_28.png",
+"asset": "rel_hearth_lantern"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_29.png",
+"asset": "rel_moon_sickle"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_30.png",
+"asset": "rel_sailors_knot"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_31.png",
+"asset": "rel_teardrop_ward"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_32.png",
+"asset": "rel_barkwood_bracer"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_33.png",
+"asset": "rel_sapphire_lantern"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_34.png",
+"asset": "rel_astrolabe_watch"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_35.png",
+"asset": "rel_verdant_plume"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_36.png",
+"asset": "rel_heartwood_shield"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_37.png",
+"asset": "rel_raven_skull_charm"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_38.png",
+"asset": "rel_starfall_banner"
+},
+{
+"src": "SourceArt/sprites/relics/relicsTwo/relicsTwo_39.png",
+"asset": "rel_wavecrest_amulet"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_00.png",
+"asset": "ui_panel_wide_skull_teal"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_01.png",
+"asset": "ui_panel_wide_gem_purple"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_02.png",
+"asset": "ui_panel_wide_chain_steel"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_03.png",
+"asset": "ui_panel_wide_ghostskull_green"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_04.png",
+"asset": "ui_panel_plain_skullflame_teal"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_05.png",
+"asset": "ui_panel_plain_star_purple"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_06.png",
+"asset": "ui_panel_plain_anchor_navy"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_07.png",
+"asset": "ui_panel_plain_compass_green"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_08.png",
+"asset": "ui_icon_compass_rose"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_09.png",
+"asset": "ui_icon_card_fan"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_10.png",
+"asset": "ui_icon_satchel"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_11.png",
+"asset": "ui_icon_gold_coin"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_12.png",
+"asset": "ui_icon_gear_round"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_13.png",
+"asset": "ui_icon_skull_banner"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_14.png",
+"asset": "ui_icon_treasure_map"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_15.png",
+"asset": "ui_icon_ship_wheel"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_16.png",
+"asset": "ui_arrow_left_gem"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_17.png",
+"asset": "ui_arrow_right_gem"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_18.png",
+"asset": "ui_button_plus_round"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_19.png",
+"asset": "ui_button_minus_round"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_20.png",
+"asset": "ui_button_confirm_diamond"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_21.png",
+"asset": "ui_button_cancel_diamond"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_22.png",
+"asset": "ui_button_undo_octagon"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_23.png",
+"asset": "ui_button_close_octagon"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_24.png",
+"asset": "ui_banner_header_skull"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_25.png",
+"asset": "ui_banner_header_star"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_26.png",
+"asset": "ui_banner_header_anchor"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_27.png",
+"asset": "ui_banner_header_lantern"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_28.png",
+"asset": "ui_frame_shield_skull"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_29.png",
+"asset": "ui_frame_round_spiked_gold"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_30.png",
+"asset": "ui_frame_round_silver_gem"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_31.png",
+"asset": "ui_frame_round_vine"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_32.png",
+"asset": "ui_frame_shield_gem_teal"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_33.png",
+"asset": "ui_frame_oval_gold_gem"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_34.png",
+"asset": "ui_frame_rope_skull"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_35.png",
+"asset": "ui_frame_round_gold_teal_gem"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_36.png",
+"asset": "ui_divider_ghostfire_skull"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_37.png",
+"asset": "ui_divider_bone_skull"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_38.png",
+"asset": "ui_divider_chain_compass"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_39.png",
+"asset": "ui_divider_crystal_purple"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_40.png",
+"asset": "ui_corner_ghostflame_teal"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_41.png",
+"asset": "ui_corner_gold_gems"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_42.png",
+"asset": "ui_corner_anchor_chain"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_43.png",
+"asset": "ui_corner_cloth_green"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_44.png",
+"asset": "ui_corner_torn_cloth"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_45.png",
+"asset": "ui_corner_lantern_chain"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_46.png",
+"asset": "ui_corner_ghostflame_large"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetOne/uiSetOne_47.png",
+"asset": "ui_corner_chain_steel"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_00.png",
+"asset": "ui_button_undo_large_round"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_01.png",
+"asset": "ui_button_check_skull"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_02.png",
+"asset": "ui_icon_deck_navy"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_03.png",
+"asset": "ui_icon_deck_purple"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_04.png",
+"asset": "ui_icon_skull_smoke"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_05.png",
+"asset": "ui_bar_health_heart"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_06.png",
+"asset": "ui_bar_shield_blue"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_07.png",
+"asset": "ui_bar_pips_teal"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_08.png",
+"asset": "ui_bar_pips_purple"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_09.png",
+"asset": "ui_badge_number_3_chain"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_10.png",
+"asset": "ui_badge_number_2_teal"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_11.png",
+"asset": "ui_slot_square_green"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_12.png",
+"asset": "ui_slot_square_purple"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_13.png",
+"asset": "ui_badge_skull_compass_dark"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_14.png",
+"asset": "ui_badge_skull_compass_teal"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_15.png",
+"asset": "ui_cursor_reticle_green"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_16.png",
+"asset": "ui_cursor_reticle_red"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_17.png",
+"asset": "ui_cursor_reticle_blue"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_18.png",
+"asset": "ui_frame_crystal_teal"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_19.png",
+"asset": "ui_frame_crystal_purple"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_20.png",
+"asset": "ui_icon_crystal_shard"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_21.png",
+"asset": "ui_icon_warning_skull"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_22.png",
+"asset": "ui_icon_rage_skull_burst"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_23.png",
+"asset": "ui_icon_crossed_swords"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_24.png",
+"asset": "ui_badge_number_2_gold"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_25.png",
+"asset": "ui_icon_status_poison"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_26.png",
+"asset": "ui_icon_status_burn"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_27.png",
+"asset": "ui_icon_status_bleed"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_28.png",
+"asset": "ui_icon_status_freeze"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_29.png",
+"asset": "ui_icon_status_heal"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_30.png",
+"asset": "ui_icon_status_shield"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_31.png",
+"asset": "ui_icon_status_stealth"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetTwo/uiSetTwo_32.png",
+"asset": "ui_icon_status_haste"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_00.png",
+"asset": "ui_frame_round_rope_skull_teal"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_01.png",
+"asset": "ui_frame_round_spiked_purple_gem"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_02.png",
+"asset": "ui_frame_round_rope_ghostflame"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_03.png",
+"asset": "ui_panel_rect_skull_gold"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_04.png",
+"asset": "ui_panel_rect_chained_gem"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_05.png",
+"asset": "ui_panel_tall_portrait"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_06.png",
+"asset": "ui_panel_small_skull_green"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_07.png",
+"asset": "ui_frame_compass_purple_gem"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_08.png",
+"asset": "ui_panel_small_anchor"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_09.png",
+"asset": "ui_cardback_skull_black"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_10.png",
+"asset": "ui_cardback_skull_teal"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_11.png",
+"asset": "ui_cardback_skull_navy"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_12.png",
+"asset": "ui_cardback_skull_purple"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_13.png",
+"asset": "ui_panel_shop_stall"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_14.png",
+"asset": "ui_panel_chain_tag"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_15.png",
+"asset": "ui_panel_loot_coins"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_16.png",
+"asset": "ui_graphic_treasure_chest_candles"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_17.png",
+"asset": "ui_panel_dialog_gem_teal"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_18.png",
+"asset": "ui_panel_speech_skull"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_19.png",
+"asset": "ui_panel_confirm_dialog"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_20.png",
+"asset": "ui_bar_progress_segmented"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_21.png",
+"asset": "ui_divider_thin_gem"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_22.png",
+"asset": "ui_divider_compass_gem"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_23.png",
+"asset": "ui_button_search"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_24.png",
+"asset": "ui_button_filter"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_25.png",
+"asset": "ui_bar_scroll_wide"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_26.png",
+"asset": "ui_bar_scroll_medium"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_27.png",
+"asset": "ui_bar_scroll_thin"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_28.png",
+"asset": "ui_icon_upgrade_arrows"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_29.png",
+"asset": "ui_icon_coin_bag"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_30.png",
+"asset": "ui_icon_skull_crystals"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_31.png",
+"asset": "ui_icon_crossed_hammers"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetThree/uiSetThree_32.png",
+"asset": "ui_graphic_skilltree_node_map"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_00.png",
+"asset": "ui_button_diamond_blank"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_01.png",
+"asset": "ui_button_check_diamond_green"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_02.png",
+"asset": "ui_button_round_blank"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_03.png",
+"asset": "ui_button_round_orb_teal"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_04.png",
+"asset": "ui_toggle_switch_off"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_05.png",
+"asset": "ui_toggle_switch_on"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_06.png",
+"asset": "ui_arrow_down_small"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_07.png",
+"asset": "ui_button_round_tiny"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_08.png",
+"asset": "ui_orb_radio_teal"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_09.png",
+"asset": "ui_arrow_left_triangle"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_10.png",
+"asset": "ui_arrow_right_triangle"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_11.png",
+"asset": "ui_icon_home"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_12.png",
+"asset": "ui_icon_save"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_13.png",
+"asset": "ui_icon_export_box"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_14.png",
+"asset": "ui_icon_gear_settings"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_15.png",
+"asset": "ui_icon_volume_on"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_16.png",
+"asset": "ui_icon_volume_mute"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_17.png",
+"asset": "ui_icon_music_note"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_18.png",
+"asset": "ui_icon_mouse"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_19.png",
+"asset": "ui_icon_keyboard"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_20.png",
+"asset": "ui_icon_gamepad"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_21.png",
+"asset": "ui_icon_lock_closed"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_22.png",
+"asset": "ui_icon_lock_open"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_23.png",
+"asset": "ui_badge_medal_first"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_24.png",
+"asset": "ui_badge_exclamation_purple"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_25.png",
+"asset": "ui_badge_question"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_26.png",
+"asset": "ui_badge_crest_skull_swords"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_27.png",
+"asset": "ui_badge_crest_trophy"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_28.png",
+"asset": "ui_icon_skull_medallion"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_29.png",
+"asset": "ui_icon_gem_hex_teal"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_30.png",
+"asset": "ui_icon_skull_key"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_31.png",
+"asset": "ui_cursor_pointer_gold"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_32.png",
+"asset": "ui_panel_tooltip_bubble"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_33.png",
+"asset": "ui_arrow_down_gem_pointer"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_34.png",
+"asset": "ui_icon_lantern_green"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_35.png",
+"asset": "ui_icon_compass_large_orb"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_36.png",
+"asset": "ui_icon_map_scroll"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_37.png",
+"asset": "ui_icon_anchor_rope"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_38.png",
+"asset": "ui_icon_coin_sack_skull"
+},
+{
+"src": "SourceArt/sprites/ui/uiSetFour/uiSetFour_39.png",
+"asset": "ui_icon_barrel_skull"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_00.png",
+"asset": "par_vfx_crystal_fountain_cyan"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_01.png",
+"asset": "par_vfx_vortex_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_02.png",
+"asset": "par_vfx_crystal_fountain_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_03.png",
+"asset": "par_vfx_flame_dark_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_04.png",
+"asset": "par_vfx_flame_green_wisp"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_05.png",
+"asset": "par_vfx_summon_ice_golem"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_06.png",
+"asset": "par_vfx_star_flare_cyan"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_07.png",
+"asset": "par_vfx_eye_sigil_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_09.png",
+"asset": "par_vfx_buff_arrow_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_10.png",
+"asset": "par_vfx_buff_arrow_gold"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_11.png",
+"asset": "par_vfx_buff_sword_blue"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_12.png",
+"asset": "par_vfx_heal_heart_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_14.png",
+"asset": "par_vfx_debuff_arrow_red"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_16.png",
+"asset": "par_vfx_crystal_spire_dark"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_17.png",
+"asset": "par_vfx_flaming_skull_orange"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_19.png",
+"asset": "par_vfx_flame_green_teardrop"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_20.png",
+"asset": "par_vfx_gold_blade_splash"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_21.png",
+"asset": "par_vfx_ring_eye_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_22.png",
+"asset": "par_vfx_ghost_hooded_grey"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_23.png",
+"asset": "par_vfx_smoke_wisp_teal"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_24.png",
+"asset": "par_vfx_crown_lightning_gold"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_25.png",
+"asset": "par_vfx_lightning_burst_blue"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_26.png",
+"asset": "par_vfx_chain_break_pink"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_27.png",
+"asset": "par_vfx_angel_revive_gold"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_28.png",
+"asset": "par_vfx_demon_face_red"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_29.png",
+"asset": "par_vfx_dash_wind_blue"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_30.png",
+"asset": "par_vfx_star_impact_gold"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_31.png",
+"asset": "par_vfx_confusion_swirl_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_32.png",
+"asset": "par_vfx_sleep_zzz_blue"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_33.png",
+"asset": "par_vfx_thorn_vine_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_34.png",
+"asset": "par_vfx_shield_shatter_grey"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_35.png",
+"asset": "par_vfx_skull_crumble_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_36.png",
+"asset": "par_vfx_coin_burst_gold"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_37.png",
+"asset": "par_vfx_chest_sparkle"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_39.png",
+"asset": "par_vfx_gem_sparkle_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_40.png",
+"asset": "par_vfx_potion_sparkle_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_41.png",
+"asset": "par_vfx_scroll_sparkle_blue"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_42.png",
+"asset": "par_vfx_key_sparkle_gold"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_43.png",
+"asset": "par_vfx_crystal_cluster_gold"
+},
+{
+"src": "SourceArt/sprites/particles/particlesOne/particlesOne_44.png",
+"asset": "par_vfx_coin_purse_sparkle"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_00.png",
+"asset": "par_vfx_spiral_flame_teal"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_01.png",
+"asset": "par_vfx_star_sparkle_gold"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_02.png",
+"asset": "par_vfx_nature_orb_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_03.png",
+"asset": "par_vfx_lantern_glow_warm"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_04.png",
+"asset": "par_vfx_leaf_tendril_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_05.png",
+"asset": "par_vfx_ice_splash_cyan"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_06.png",
+"asset": "par_vfx_heal_orb_bubbles"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_07.png",
+"asset": "par_vfx_light_pillar_gold"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_08.png",
+"asset": "par_vfx_sprout_seedling"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_09.png",
+"asset": "par_vfx_feather_white"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_10.png",
+"asset": "par_vfx_bellflower_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_11.png",
+"asset": "par_vfx_spirit_totem_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_12.png",
+"asset": "par_vfx_water_swirl_blue"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_13.png",
+"asset": "par_vfx_laurel_star_gold"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_15.png",
+"asset": "par_vfx_leaf_burst_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_16.png",
+"asset": "par_vfx_leaf_flame_teal"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_17.png",
+"asset": "par_vfx_heal_heart_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_18.png",
+"asset": "par_vfx_water_drop_ripple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_19.png",
+"asset": "par_vfx_heal_cross_burst"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_20.png",
+"asset": "par_vfx_vine_spiral_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_21.png",
+"asset": "par_vfx_shard_rain_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_22.png",
+"asset": "par_vfx_butterfly_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_23.png",
+"asset": "par_vfx_bubbles_blue"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_25.png",
+"asset": "par_vfx_lotus_white"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_26.png",
+"asset": "par_vfx_crystal_fountain_palegreen"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_27.png",
+"asset": "par_vfx_sprite_hooded_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_28.png",
+"asset": "par_vfx_flame_swirl_gold"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_29.png",
+"asset": "par_vfx_hand_rising_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_30.png",
+"asset": "par_vfx_shield_cross_blue"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_31.png",
+"asset": "par_vfx_flame_purple_bright"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_32.png",
+"asset": "par_vfx_thorn_heart_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesTwo/particlesTwo_34.png",
+"asset": "par_vfx_leaf_splash_teal"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_00.png",
+"asset": "par_vfx_eye_sigil_spiked_shadow"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_01.png",
+"asset": "par_vfx_skull_pillar_acid"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_02.png",
+"asset": "par_vfx_smoke_demon_face"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_03.png",
+"asset": "par_vfx_claw_slash_red"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_04.png",
+"asset": "par_vfx_void_portal_oval"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_05.png",
+"asset": "par_vfx_skull_flame_blight"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_06.png",
+"asset": "par_vfx_skull_flame_ghost_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_07.png",
+"asset": "par_vfx_rune_ring_red"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_08.png",
+"asset": "par_vfx_crystal_burst_darkpurple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_09.png",
+"asset": "par_vfx_slash_crescent_red"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_10.png",
+"asset": "par_vfx_fireball_blight_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_11.png",
+"asset": "par_vfx_skull_flame_purple_bright"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_12.png",
+"asset": "par_vfx_crystal_burst_acid"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_13.png",
+"asset": "par_vfx_eye_star_sigil_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_14.png",
+"asset": "par_vfx_dark_spire_pillar"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_15.png",
+"asset": "par_vfx_chain_whip_dark"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_16.png",
+"asset": "par_vfx_poison_goo_burst"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_17.png",
+"asset": "par_vfx_smoke_ring_portal_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_18.png",
+"asset": "par_vfx_blade_eruption_red"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_19.png",
+"asset": "par_vfx_skull_smoke_black"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_20.png",
+"asset": "par_vfx_rune_diamond_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_21.png",
+"asset": "par_vfx_slime_blob_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_22.png",
+"asset": "par_vfx_spike_eruption_red"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_23.png",
+"asset": "par_vfx_lightning_zigzag_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_24.png",
+"asset": "par_vfx_skull_burst_red"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_25.png",
+"asset": "par_vfx_rune_ring_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_26.png",
+"asset": "par_vfx_wraith_serpent_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_27.png",
+"asset": "par_vfx_ember_core_red"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_28.png",
+"asset": "par_vfx_skull_flame_poison"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_29.png",
+"asset": "par_vfx_tentacles_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_30.png",
+"asset": "par_vfx_chain_dark_burst"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_31.png",
+"asset": "par_vfx_rune_ring_red_eyes"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_32.png",
+"asset": "par_vfx_bat_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_33.png",
+"asset": "par_vfx_bones_eruption"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_34.png",
+"asset": "par_vfx_skull_flame_acid_small"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_35.png",
+"asset": "par_vfx_crystal_flame_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_36.png",
+"asset": "par_vfx_hand_undead_rising"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_37.png",
+"asset": "par_vfx_swirl_vortex_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_38.png",
+"asset": "par_vfx_wisp_small_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesThree/particlesThree_39.png",
+"asset": "par_vfx_skull_foliage_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_00.png",
+"asset": "par_vfx_crystal_eruption_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_01.png",
+"asset": "par_vfx_ice_shard_scatter"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_02.png",
+"asset": "par_vfx_ice_ring_star"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_03.png",
+"asset": "par_vfx_lightning_pillar_gold"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_04.png",
+"asset": "par_vfx_eye_rune_circle_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_06.png",
+"asset": "par_vfx_water_vortex_blue"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_07.png",
+"asset": "par_vfx_comet_orange"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_08.png",
+"asset": "par_vfx_rock_eruption_brown"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_09.png",
+"asset": "par_vfx_lava_rocks_orange"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_10.png",
+"asset": "par_vfx_ghost_skull_teal"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_11.png",
+"asset": "par_vfx_crystal_flower_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_13.png",
+"asset": "par_vfx_ice_spire_splash"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_14.png",
+"asset": "par_vfx_water_tendril_teal"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_15.png",
+"asset": "par_vfx_light_spire_gold_rings"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_16.png",
+"asset": "par_vfx_ice_fan_burst"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_17.png",
+"asset": "par_vfx_void_orb_dark"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_18.png",
+"asset": "par_vfx_vortex_swirl_blue"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_19.png",
+"asset": "par_vfx_campfire_orange"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_20.png",
+"asset": "par_vfx_crystal_spikes_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_21.png",
+"asset": "par_vfx_shard_projectile_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_22.png",
+"asset": "par_vfx_rune_tower_ice"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_23.png",
+"asset": "par_vfx_crystal_cluster_pink"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_24.png",
+"asset": "par_vfx_compass_rune_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_25.png",
+"asset": "par_vfx_shard_projectile_cyan"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_26.png",
+"asset": "par_vfx_smoke_column_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_27.png",
+"asset": "par_vfx_geyser_ice_blue"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_28.png",
+"asset": "par_vfx_lava_spire_orange"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_29.png",
+"asset": "par_vfx_snow_cloud_puff"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_30.png",
+"asset": "par_vfx_rune_diamond_arcane"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_31.png",
+"asset": "par_vfx_sprout_beam_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_32.png",
+"asset": "par_vfx_ice_star_burst"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFour/particlesFour_33.png",
+"asset": "par_vfx_fire_rock_explosion"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_00.png",
+"asset": "par_vfx_ghost_flame_face_teal"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_01.png",
+"asset": "par_vfx_heal_burst_leaves"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_03.png",
+"asset": "par_vfx_lantern_orb_glow"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_04.png",
+"asset": "par_vfx_star_flare_gold_shards"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_05.png",
+"asset": "par_vfx_shield_ward_teal"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_06.png",
+"asset": "par_vfx_slash_crescent_orange"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_07.png",
+"asset": "par_vfx_impact_spark_smoke"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_08.png",
+"asset": "par_vfx_poison_cloud_skull"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_09.png",
+"asset": "par_vfx_crystal_cluster_purple_tall"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_10.png",
+"asset": "par_vfx_ice_fan_shards"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_11.png",
+"asset": "par_vfx_lightning_column_gold"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_12.png",
+"asset": "par_vfx_thorn_coil_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_13.png",
+"asset": "par_vfx_wind_swirl_leaf_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_14.png",
+"asset": "par_vfx_smoke_wisp_dark"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_15.png",
+"asset": "par_vfx_smoke_skull_mossy"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_16.png",
+"asset": "par_vfx_potion_bottle_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_17.png",
+"asset": "par_vfx_summon_sprite_green"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_18.png",
+"asset": "par_vfx_summon_figure_ice"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_19.png",
+"asset": "par_vfx_rock_spikes_grey"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_20.png",
+"asset": "par_vfx_crystal_shards_cyan"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_21.png",
+"asset": "par_vfx_chain_links_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_22.png",
+"asset": "par_vfx_vortex_ring_teal"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_23.png",
+"asset": "par_vfx_fire_burst_embers"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_24.png",
+"asset": "par_vfx_rune_diamond_bright_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_25.png",
+"asset": "par_vfx_buff_arrow_green_sparkle"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_26.png",
+"asset": "par_vfx_debuff_arrow_rocks_red"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_27.png",
+"asset": "par_vfx_spiral_swirl_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_28.png",
+"asset": "par_vfx_ring_portal_teal"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_29.png",
+"asset": "par_vfx_explosion_plume_orange"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_30.png",
+"asset": "par_vfx_flame_streak_purple"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_31.png",
+"asset": "par_vfx_frost_column_snowflake"
+},
+{
+"src": "SourceArt/sprites/particles/particlesFive/particlesFive_32.png",
+"asset": "par_vfx_ghost_wisp_serpent_pale"
+},
+{
+"src": "SourceArt/exported/areas/crystalCove.png",
+"asset": "bg_crystalcove"
+},
+{
+"src": "SourceArt/exported/areas/darkDocks.png",
+"asset": "bg_darkdocks"
+},
+{
+"src": "SourceArt/exported/areas/darkForest.png",
+"asset": "bg_darkforest"
+},
+{
+"src": "SourceArt/exported/areas/shadowIsle.png",
+"asset": "bg_shadowisle"
+},
+{
+"src": "SourceArt/exported/areas/ChatGPT_Image_Jul_1__2026__04_37_00_PM__1_.png",
+"asset": "bg_area1"
+},
+{
+"src": "SourceArt/exported/areas/ChatGPT_Image_Jul_1__2026__04_37_01_PM__2_.png",
+"asset": "bg_area2"
+},
+{
+"src": "SourceArt/exported/areas/ChatGPT_Image_Jul_1__2026__04_37_01_PM__3_.png",
+"asset": "bg_area3"
+},
+{
+"src": "SourceArt/exported/areas/ChatGPT_Image_Jul_1__2026__04_37_01_PM__4_.png",
+"asset": "bg_area4"
+},
+{
+"src": "SourceArt/exported/areas/ChatGPT_Image_Jul_1__2026__04_37_01_PM__5_.png",
+"asset": "bg_area5"
+},
+{
+"src": "SourceArt/exported/areas/ChatGPT_Image_Jul_1__2026__04_37_02_PM__6_.png",
+"asset": "bg_area6"
+},
+{
+"src": "SourceArt/exported/areas/ChatGPT_Image_Jul_1__2026__04_37_03_PM__7_.png",
+"asset": "bg_area7"
+},
+{
+"src": "SourceArt/exported/areas/ChatGPT_Image_Jul_1__2026__04_37_03_PM__8_.png",
+"asset": "bg_area8"
+},
+{
+"src": "SourceArt/exported/areas/ChatGPT_Image_Jul_1__2026__04_37_03_PM__9_.png",
+"asset": "bg_area9"
+},
+{
+"src": "SourceArt/exported/main_menu/main_menu.png",
+"asset": "bg_main_menu"
+}
+]

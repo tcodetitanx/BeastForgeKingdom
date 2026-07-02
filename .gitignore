@@ -1,0 +1,27 @@
+# --- secrets ---
+Content/keys/
+keys/
+
+# --- Unreal Engine generated ---
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+Build/
+.vs/
+.vsconfig
+*.sln
+*.slnx
+*.suo
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.opendb
+
+# --- local workbench (regenerable via Tools/) ---
+SourceArt/exported/
+SourceArt/contact_sheets/
+SourceArt/verify_edges.png
+
+# --- unity leftovers from the audio pack ---
+*.meta

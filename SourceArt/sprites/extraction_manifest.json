@@ -1,0 +1,13506 @@
+{
+ "cards/cardSetFour": [
+  {
+   "index": 0,
+   "file": "cards/cardSetFour/cardSetFour_00.png",
+   "box": [
+    18,
+    29,
+    179,
+    278
+   ],
+   "w": 161,
+   "h": 249
+  },
+  {
+   "index": 1,
+   "file": "cards/cardSetFour/cardSetFour_01.png",
+   "box": [
+    197,
+    29,
+    357,
+    278
+   ],
+   "w": 160,
+   "h": 249
+  },
+  {
+   "index": 2,
+   "file": "cards/cardSetFour/cardSetFour_02.png",
+   "box": [
+    375,
+    30,
+    534,
+    278
+   ],
+   "w": 159,
+   "h": 248
+  },
+  {
+   "index": 3,
+   "file": "cards/cardSetFour/cardSetFour_03.png",
+   "box": [
+    552,
+    29,
+    714,
+    278
+   ],
+   "w": 162,
+   "h": 249
+  },
+  {
+   "index": 4,
+   "file": "cards/cardSetFour/cardSetFour_04.png",
+   "box": [
+    732,
+    29,
+    892,
+    278
+   ],
+   "w": 160,
+   "h": 249
+  },
+  {
+   "index": 5,
+   "file": "cards/cardSetFour/cardSetFour_05.png",
+   "box": [
+    910,
+    29,
+    1072,
+    278
+   ],
+   "w": 162,
+   "h": 249
+  },
+  {
+   "index": 6,
+   "file": "cards/cardSetFour/cardSetFour_06.png",
+   "box": [
+    1088,
+    29,
+    1250,
+    278
+   ],
+   "w": 162,
+   "h": 249
+  },
+  {
+   "index": 7,
+   "file": "cards/cardSetFour/cardSetFour_07.png",
+   "box": [
+    1266,
+    29,
+    1427,
+    278
+   ],
+   "w": 161,
+   "h": 249
+  },
+  {
+   "index": 8,
+   "file": "cards/cardSetFour/cardSetFour_08.png",
+   "box": [
+    18,
+    294,
+    178,
+    543
+   ],
+   "w": 160,
+   "h": 249
+  },
+  {
+   "index": 9,
+   "file": "cards/cardSetFour/cardSetFour_09.png",
+   "box": [
+    196,
+    294,
+    357,
+    543
+   ],
+   "w": 161,
+   "h": 249
+  },
+  {
+   "index": 10,
+   "file": "cards/cardSetFour/cardSetFour_10.png",
+   "box": [
+    375,
+    294,
+    535,
+    543
+   ],
+   "w": 160,
+   "h": 249
+  },
+  {
+   "index": 11,
+   "file": "cards/cardSetFour/cardSetFour_11.png",
+   "box": [
+    552,
+    294,
+    714,
+    543
+   ],
+   "w": 162,
+   "h": 249
+  },
+  {
+   "index": 12,
+   "file": "cards/cardSetFour/cardSetFour_12.png",
+   "box": [
+    732,
+    294,
+    893,
+    543
+   ],
+   "w": 161,
+   "h": 249
+  },
+  {
+   "index": 13,
+   "file": "cards/cardSetFour/cardSetFour_13.png",
+   "box": [
+    910,
+    294,
+    1071,
+    543
+   ],
+   "w": 161,
+   "h": 249
+  },
+  {
+   "index": 14,
+   "file": "cards/cardSetFour/cardSetFour_14.png",
+   "box": [
+    1088,
+    294,
+    1249,
+    543
+   ],
+   "w": 161,
+   "h": 249
+  },
+  {
+   "index": 15,
+   "file": "cards/cardSetFour/cardSetFour_15.png",
+   "box": [
+    1266,
+    294,
+    1427,
+    543
+   ],
+   "w": 161,
+   "h": 249
+  },
+  {
+   "index": 16,
+   "file": "cards/cardSetFour/cardSetFour_16.png",
+   "box": [
+    17,
+    562,
+    178,
+    812
+   ],
+   "w": 161,
+   "h": 250
+  },
+  {
+   "index": 17,
+   "file": "cards/cardSetFour/cardSetFour_17.png",
+   "box": [
+    196,
+    562,
+    357,
+    812
+   ],
+   "w": 161,
+   "h": 250
+  },
+  {
+   "index": 18,
+   "file": "cards/cardSetFour/cardSetFour_18.png",
+   "box": [
+    375,
+    562,
+    536,
+    812
+   ],
+   "w": 161,
+   "h": 250
+  },
+  {
+   "index": 19,
+   "file": "cards/cardSetFour/cardSetFour_19.png",
+   "box": [
+    552,
+    562,
+    714,
+    812
+   ],
+   "w": 162,
+   "h": 250
+  },
+  {
+   "index": 20,
+   "file": "cards/cardSetFour/cardSetFour_20.png",
+   "box": [
+    732,
+    562,
+    893,
+    812
+   ],
+   "w": 161,
+   "h": 250
+  },
+  {
+   "index": 21,
+   "file": "cards/cardSetFour/cardSetFour_21.png",
+   "box": [
+    910,
+    562,
+    1072,
+    812
+   ],
+   "w": 162,
+   "h": 250
+  },
+  {
+   "index": 22,
+   "file": "cards/cardSetFour/cardSetFour_22.png",
+   "box": [
+    1088,
+    562,
+    1249,
+    812
+   ],
+   "w": 161,
+   "h": 250
+  },
+  {
+   "index": 23,
+   "file": "cards/cardSetFour/cardSetFour_23.png",
+   "box": [
+    1266,
+    562,
+    1427,
+    812
+   ],
+   "w": 161,
+   "h": 250
+  },
+  {
+   "index": 24,
+   "file": "cards/cardSetFour/cardSetFour_24.png",
+   "box": [
+    17,
+    825,
+    178,
+    1072
+   ],
+   "w": 161,
+   "h": 247
+  },
+  {
+   "index": 25,
+   "file": "cards/cardSetFour/cardSetFour_25.png",
+   "box": [
+    196,
+    825,
+    357,
+    1073
+   ],
+   "w": 161,
+   "h": 248
+  },
+  {
+   "index": 26,
+   "file": "cards/cardSetFour/cardSetFour_26.png",
+   "box": [
+    375,
+    825,
+    535,
+    1073
+   ],
+   "w": 160,
+   "h": 248
+  },
+  {
+   "index": 27,
+   "file": "cards/cardSetFour/cardSetFour_27.png",
+   "box": [
+    552,
+    825,
+    714,
+    1073
+   ],
+   "w": 162,
+   "h": 248
+  },
+  {
+   "index": 28,
+   "file": "cards/cardSetFour/cardSetFour_28.png",
+   "box": [
+    732,
+    825,
+    892,
+    1073
+   ],
+   "w": 160,
+   "h": 248
+  },
+  {
+   "index": 29,
+   "file": "cards/cardSetFour/cardSetFour_29.png",
+   "box": [
+    910,
+    825,
+    1071,
+    1073
+   ],
+   "w": 161,
+   "h": 248
+  },
+  {
+   "index": 30,
+   "file": "cards/cardSetFour/cardSetFour_30.png",
+   "box": [
+    1088,
+    825,
+    1249,
+    1073
+   ],
+   "w": 161,
+   "h": 248
+  },
+  {
+   "index": 31,
+   "file": "cards/cardSetFour/cardSetFour_31.png",
+   "box": [
+    1266,
+    825,
+    1427,
+    1073
+   ],
+   "w": 161,
+   "h": 248
+  }
+ ],
+ "cards/cardSetOne": [
+  {
+   "index": 0,
+   "file": "cards/cardSetOne/cardSetOne_00.png",
+   "box": [
+    15,
+    28,
+    177,
+    275
+   ],
+   "w": 162,
+   "h": 247
+  },
+  {
+   "index": 1,
+   "file": "cards/cardSetOne/cardSetOne_01.png",
+   "box": [
+    193,
+    28,
+    354,
+    275
+   ],
+   "w": 161,
+   "h": 247
+  },
+  {
+   "index": 2,
+   "file": "cards/cardSetOne/cardSetOne_02.png",
+   "box": [
+    372,
+    28,
+    533,
+    275
+   ],
+   "w": 161,
+   "h": 247
+  },
+  {
+   "index": 3,
+   "file": "cards/cardSetOne/cardSetOne_03.png",
+   "box": [
+    550,
+    28,
+    711,
+    275
+   ],
+   "w": 161,
+   "h": 247
+  },
+  {
+   "index": 4,
+   "file": "cards/cardSetOne/cardSetOne_04.png",
+   "box": [
+    728,
+    28,
+    889,
+    275
+   ],
+   "w": 161,
+   "h": 247
+  },
+  {
+   "index": 5,
+   "file": "cards/cardSetOne/cardSetOne_05.png",
+   "box": [
+    906,
+    28,
+    1067,
+    275
+   ],
+   "w": 161,
+   "h": 247
+  },
+  {
+   "index": 6,
+   "file": "cards/cardSetOne/cardSetOne_06.png",
+   "box": [
+    1084,
+    27,
+    1245,
+    275
+   ],
+   "w": 161,
+   "h": 248
+  },
+  {
+   "index": 7,
+   "file": "cards/cardSetOne/cardSetOne_07.png",
+   "box": [
+    1261,
+    28,
+    1422,
+    275
+   ],
+   "w": 161,
+   "h": 247
+  },
+  {
+   "index": 8,
+   "file": "cards/cardSetOne/cardSetOne_08.png",
+   "box": [
+    16,
+    288,
+    177,
+    535
+   ],
+   "w": 161,
+   "h": 247
+  },
+  {
+   "index": 9,
+   "file": "cards/cardSetOne/cardSetOne_09.png",
+   "box": [
+    193,
+    288,
+    354,
+    535
+   ],
+   "w": 161,
+   "h": 247
+  },
+  {
+   "index": 10,
+   "file": "cards/cardSetOne/cardSetOne_10.png",
+   "box": [
+    372,
+    288,
+    533,
+    535
+   ],
+   "w": 161,
+   "h": 247
+  },
+  {
+   "index": 11,
+   "file": "cards/cardSetOne/cardSetOne_11.png",
+   "box": [
+    550,
+    288,
+    711,
+    535
+   ],
+   "w": 161,
+   "h": 247
+  },
+  {
+   "index": 12,
+   "file": "cards/cardSetOne/cardSetOne_12.png",
+   "box": [
+    728,
+    288,
+    889,
+    535
+   ],
+   "w": 161,
+   "h": 247
+  },
+  {
+   "index": 13,
+   "file": "cards/cardSetOne/cardSetOne_13.png",
+   "box": [
+    906,
+    288,
+    1067,
+    535
+   ],
+   "w": 161,
+   "h": 247
+  },
+  {
+   "index": 14,
+   "file": "cards/cardSetOne/cardSetOne_14.png",
+   "box": [
+    1084,
+    288,
+    1245,
+    535
+   ],
+   "w": 161,
+   "h": 247
+  },
+  {
+   "index": 15,
+   "file": "cards/cardSetOne/cardSetOne_15.png",
+   "box": [
+    1261,
+    288,
+    1422,
+    535
+   ],
+   "w": 161,
+   "h": 247
+  },
+  {
+   "index": 16,
+   "file": "cards/cardSetOne/cardSetOne_16.png",
+   "box": [
+    16,
+    549,
+    177,
+    796
+   ],
+   "w": 161,
+   "h": 247
+  },
+  {
+   "index": 17,
+   "file": "cards/cardSetOne/cardSetOne_17.png",
+   "box": [
+    193,
+    549,
+    354,
+    796
+   ],
+   "w": 161,
+   "h": 247
+  },
+  {
+   "index": 18,
+   "file": "cards/cardSetOne/cardSetOne_18.png",
+   "box": [
+    372,
+    549,
+    533,
+    796
+   ],
+   "w": 161,
+   "h": 247
+  },
+  {
+   "index": 19,
+   "file": "cards/cardSetOne/cardSetOne_19.png",
+   "box": [
+    550,
+    549,
+    711,
+    796
+   ],
+   "w": 161,
+   "h": 247
+  },
+  {
+   "index": 20,
+   "file": "cards/cardSetOne/cardSetOne_20.png",
+   "box": [
+    728,
+    549,
+    889,
+    796
+   ],
+   "w": 161,
+   "h": 247
+  },
+  {
+   "index": 21,
+   "file": "cards/cardSetOne/cardSetOne_21.png",
+   "box": [
+    906,
+    549,
+    1067,
+    796
+   ],
+   "w": 161,
+   "h": 247
+  },
+  {
+   "index": 22,
+   "file": "cards/cardSetOne/cardSetOne_22.png",
+   "box": [
+    1084,
+    549,
+    1245,
+    796
+   ],
+   "w": 161,
+   "h": 247
+  },
+  {
+   "index": 23,
+   "file": "cards/cardSetOne/cardSetOne_23.png",
+   "box": [
+    1262,
+    549,
+    1422,
+    797
+   ],
+   "w": 160,
+   "h": 248
+  },
+  {
+   "index": 24,
+   "file": "cards/cardSetOne/cardSetOne_24.png",
+   "box": [
+    16,
+    809,
+    177,
+    1057
+   ],
+   "w": 161,
+   "h": 248
+  },
+  {
+   "index": 25,
+   "file": "cards/cardSetOne/cardSetOne_25.png",
+   "box": [
+    193,
+    809,
+    354,
+    1057
+   ],
+   "w": 161,
+   "h": 248
+  },
+  {
+   "index": 26,
+   "file": "cards/cardSetOne/cardSetOne_26.png",
+   "box": [
+    372,
+    809,
+    533,
+    1057
+   ],
+   "w": 161,
+   "h": 248
+  },
+  {
+   "index": 27,
+   "file": "cards/cardSetOne/cardSetOne_27.png",
+   "box": [
+    550,
+    809,
+    711,
+    1057
+   ],
+   "w": 161,
+   "h": 248
+  },
+  {
+   "index": 28,
+   "file": "cards/cardSetOne/cardSetOne_28.png",
+   "box": [
+    728,
+    809,
+    889,
+    1057
+   ],
+   "w": 161,
+   "h": 248
+  },
+  {
+   "index": 29,
+   "file": "cards/cardSetOne/cardSetOne_29.png",
+   "box": [
+    906,
+    809,
+    1067,
+    1057
+   ],
+   "w": 161,
+   "h": 248
+  },
+  {
+   "index": 30,
+   "file": "cards/cardSetOne/cardSetOne_30.png",
+   "box": [
+    1084,
+    809,
+    1245,
+    1057
+   ],
+   "w": 161,
+   "h": 248
+  },
+  {
+   "index": 31,
+   "file": "cards/cardSetOne/cardSetOne_31.png",
+   "box": [
+    1262,
+    809,
+    1422,
+    1057
+   ],
+   "w": 160,
+   "h": 248
+  }
+ ],
+ "cards/cardSetThree": [
+  {
+   "index": 0,
+   "file": "cards/cardSetThree/cardSetThree_00.png",
+   "box": [
+    15,
+    27,
+    176,
+    273
+   ],
+   "w": 161,
+   "h": 246
+  },
+  {
+   "index": 1,
+   "file": "cards/cardSetThree/cardSetThree_01.png",
+   "box": [
+    192,
+    27,
+    353,
+    273
+   ],
+   "w": 161,
+   "h": 246
+  },
+  {
+   "index": 2,
+   "file": "cards/cardSetThree/cardSetThree_02.png",
+   "box": [
+    370,
+    27,
+    532,
+    273
+   ],
+   "w": 162,
+   "h": 246
+  },
+  {
+   "index": 3,
+   "file": "cards/cardSetThree/cardSetThree_03.png",
+   "box": [
+    549,
+    27,
+    710,
+    273
+   ],
+   "w": 161,
+   "h": 246
+  },
+  {
+   "index": 4,
+   "file": "cards/cardSetThree/cardSetThree_04.png",
+   "box": [
+    726,
+    27,
+    887,
+    273
+   ],
+   "w": 161,
+   "h": 246
+  },
+  {
+   "index": 5,
+   "file": "cards/cardSetThree/cardSetThree_05.png",
+   "box": [
+    903,
+    27,
+    1064,
+    273
+   ],
+   "w": 161,
+   "h": 246
+  },
+  {
+   "index": 6,
+   "file": "cards/cardSetThree/cardSetThree_06.png",
+   "box": [
+    1079,
+    27,
+    1240,
+    273
+   ],
+   "w": 161,
+   "h": 246
+  },
+  {
+   "index": 7,
+   "file": "cards/cardSetThree/cardSetThree_07.png",
+   "box": [
+    1256,
+    27,
+    1416,
+    273
+   ],
+   "w": 160,
+   "h": 246
+  },
+  {
+   "index": 8,
+   "file": "cards/cardSetThree/cardSetThree_08.png",
+   "box": [
+    15,
+    296,
+    176,
+    541
+   ],
+   "w": 161,
+   "h": 245
+  },
+  {
+   "index": 9,
+   "file": "cards/cardSetThree/cardSetThree_09.png",
+   "box": [
+    192,
+    296,
+    353,
+    541
+   ],
+   "w": 161,
+   "h": 245
+  },
+  {
+   "index": 10,
+   "file": "cards/cardSetThree/cardSetThree_10.png",
+   "box": [
+    370,
+    296,
+    532,
+    541
+   ],
+   "w": 162,
+   "h": 245
+  },
+  {
+   "index": 11,
+   "file": "cards/cardSetThree/cardSetThree_11.png",
+   "box": [
+    549,
+    296,
+    710,
+    541
+   ],
+   "w": 161,
+   "h": 245
+  },
+  {
+   "index": 12,
+   "file": "cards/cardSetThree/cardSetThree_12.png",
+   "box": [
+    726,
+    296,
+    887,
+    541
+   ],
+   "w": 161,
+   "h": 245
+  },
+  {
+   "index": 13,
+   "file": "cards/cardSetThree/cardSetThree_13.png",
+   "box": [
+    903,
+    296,
+    1064,
+    541
+   ],
+   "w": 161,
+   "h": 245
+  },
+  {
+   "index": 14,
+   "file": "cards/cardSetThree/cardSetThree_14.png",
+   "box": [
+    1079,
+    296,
+    1240,
+    541
+   ],
+   "w": 161,
+   "h": 245
+  },
+  {
+   "index": 15,
+   "file": "cards/cardSetThree/cardSetThree_15.png",
+   "box": [
+    1256,
+    296,
+    1416,
+    541
+   ],
+   "w": 160,
+   "h": 245
+  },
+  {
+   "index": 16,
+   "file": "cards/cardSetThree/cardSetThree_16.png",
+   "box": [
+    15,
+    566,
+    176,
+    811
+   ],
+   "w": 161,
+   "h": 245
+  },
+  {
+   "index": 17,
+   "file": "cards/cardSetThree/cardSetThree_17.png",
+   "box": [
+    192,
+    566,
+    353,
+    811
+   ],
+   "w": 161,
+   "h": 245
+  },
+  {
+   "index": 18,
+   "file": "cards/cardSetThree/cardSetThree_18.png",
+   "box": [
+    370,
+    566,
+    532,
+    811
+   ],
+   "w": 162,
+   "h": 245
+  },
+  {
+   "index": 19,
+   "file": "cards/cardSetThree/cardSetThree_19.png",
+   "box": [
+    549,
+    566,
+    710,
+    811
+   ],
+   "w": 161,
+   "h": 245
+  },
+  {
+   "index": 20,
+   "file": "cards/cardSetThree/cardSetThree_20.png",
+   "box": [
+    726,
+    566,
+    887,
+    811
+   ],
+   "w": 161,
+   "h": 245
+  },
+  {
+   "index": 21,
+   "file": "cards/cardSetThree/cardSetThree_21.png",
+   "box": [
+    903,
+    566,
+    1064,
+    810
+   ],
+   "w": 161,
+   "h": 244
+  },
+  {
+   "index": 22,
+   "file": "cards/cardSetThree/cardSetThree_22.png",
+   "box": [
+    1079,
+    566,
+    1239,
+    811
+   ],
+   "w": 160,
+   "h": 245
+  },
+  {
+   "index": 23,
+   "file": "cards/cardSetThree/cardSetThree_23.png",
+   "box": [
+    1255,
+    566,
+    1416,
+    811
+   ],
+   "w": 161,
+   "h": 245
+  },
+  {
+   "index": 24,
+   "file": "cards/cardSetThree/cardSetThree_24.png",
+   "box": [
+    15,
+    833,
+    176,
+    1077
+   ],
+   "w": 161,
+   "h": 244
+  },
+  {
+   "index": 25,
+   "file": "cards/cardSetThree/cardSetThree_25.png",
+   "box": [
+    192,
+    833,
+    353,
+    1077
+   ],
+   "w": 161,
+   "h": 244
+  },
+  {
+   "index": 26,
+   "file": "cards/cardSetThree/cardSetThree_26.png",
+   "box": [
+    370,
+    833,
+    532,
+    1077
+   ],
+   "w": 162,
+   "h": 244
+  },
+  {
+   "index": 27,
+   "file": "cards/cardSetThree/cardSetThree_27.png",
+   "box": [
+    549,
+    833,
+    710,
+    1077
+   ],
+   "w": 161,
+   "h": 244
+  },
+  {
+   "index": 28,
+   "file": "cards/cardSetThree/cardSetThree_28.png",
+   "box": [
+    726,
+    833,
+    887,
+    1077
+   ],
+   "w": 161,
+   "h": 244
+  },
+  {
+   "index": 29,
+   "file": "cards/cardSetThree/cardSetThree_29.png",
+   "box": [
+    903,
+    833,
+    1064,
+    1077
+   ],
+   "w": 161,
+   "h": 244
+  },
+  {
+   "index": 30,
+   "file": "cards/cardSetThree/cardSetThree_30.png",
+   "box": [
+    1079,
+    833,
+    1239,
+    1077
+   ],
+   "w": 160,
+   "h": 244
+  },
+  {
+   "index": 31,
+   "file": "cards/cardSetThree/cardSetThree_31.png",
+   "box": [
+    1256,
+    833,
+    1416,
+    1077
+   ],
+   "w": 160,
+   "h": 244
+  }
+ ],
+ "cards/cardSetTwo": [
+  {
+   "index": 0,
+   "file": "cards/cardSetTwo/cardSetTwo_00.png",
+   "box": [
+    15,
+    27,
+    178,
+    276
+   ],
+   "w": 163,
+   "h": 249
+  },
+  {
+   "index": 1,
+   "file": "cards/cardSetTwo/cardSetTwo_01.png",
+   "box": [
+    193,
+    28,
+    356,
+    277
+   ],
+   "w": 163,
+   "h": 249
+  },
+  {
+   "index": 2,
+   "file": "cards/cardSetTwo/cardSetTwo_02.png",
+   "box": [
+    372,
+    28,
+    535,
+    277
+   ],
+   "w": 163,
+   "h": 249
+  },
+  {
+   "index": 3,
+   "file": "cards/cardSetTwo/cardSetTwo_03.png",
+   "box": [
+    550,
+    28,
+    713,
+    277
+   ],
+   "w": 163,
+   "h": 249
+  },
+  {
+   "index": 4,
+   "file": "cards/cardSetTwo/cardSetTwo_04.png",
+   "box": [
+    730,
+    28,
+    892,
+    277
+   ],
+   "w": 162,
+   "h": 249
+  },
+  {
+   "index": 5,
+   "file": "cards/cardSetTwo/cardSetTwo_05.png",
+   "box": [
+    908,
+    28,
+    1071,
+    277
+   ],
+   "w": 163,
+   "h": 249
+  },
+  {
+   "index": 6,
+   "file": "cards/cardSetTwo/cardSetTwo_06.png",
+   "box": [
+    1087,
+    28,
+    1250,
+    277
+   ],
+   "w": 163,
+   "h": 249
+  },
+  {
+   "index": 7,
+   "file": "cards/cardSetTwo/cardSetTwo_07.png",
+   "box": [
+    1265,
+    28,
+    1427,
+    277
+   ],
+   "w": 162,
+   "h": 249
+  },
+  {
+   "index": 8,
+   "file": "cards/cardSetTwo/cardSetTwo_08.png",
+   "box": [
+    15,
+    294,
+    178,
+    543
+   ],
+   "w": 163,
+   "h": 249
+  },
+  {
+   "index": 9,
+   "file": "cards/cardSetTwo/cardSetTwo_09.png",
+   "box": [
+    193,
+    294,
+    356,
+    543
+   ],
+   "w": 163,
+   "h": 249
+  },
+  {
+   "index": 10,
+   "file": "cards/cardSetTwo/cardSetTwo_10.png",
+   "box": [
+    372,
+    294,
+    534,
+    543
+   ],
+   "w": 162,
+   "h": 249
+  },
+  {
+   "index": 11,
+   "file": "cards/cardSetTwo/cardSetTwo_11.png",
+   "box": [
+    550,
+    294,
+    713,
+    543
+   ],
+   "w": 163,
+   "h": 249
+  },
+  {
+   "index": 12,
+   "file": "cards/cardSetTwo/cardSetTwo_12.png",
+   "box": [
+    729,
+    294,
+    892,
+    543
+   ],
+   "w": 163,
+   "h": 249
+  },
+  {
+   "index": 13,
+   "file": "cards/cardSetTwo/cardSetTwo_13.png",
+   "box": [
+    908,
+    294,
+    1071,
+    543
+   ],
+   "w": 163,
+   "h": 249
+  },
+  {
+   "index": 14,
+   "file": "cards/cardSetTwo/cardSetTwo_14.png",
+   "box": [
+    1086,
+    294,
+    1250,
+    543
+   ],
+   "w": 164,
+   "h": 249
+  },
+  {
+   "index": 15,
+   "file": "cards/cardSetTwo/cardSetTwo_15.png",
+   "box": [
+    1265,
+    294,
+    1427,
+    543
+   ],
+   "w": 162,
+   "h": 249
+  },
+  {
+   "index": 16,
+   "file": "cards/cardSetTwo/cardSetTwo_16.png",
+   "box": [
+    15,
+    562,
+    178,
+    811
+   ],
+   "w": 163,
+   "h": 249
+  },
+  {
+   "index": 17,
+   "file": "cards/cardSetTwo/cardSetTwo_17.png",
+   "box": [
+    193,
+    562,
+    356,
+    811
+   ],
+   "w": 163,
+   "h": 249
+  },
+  {
+   "index": 18,
+   "file": "cards/cardSetTwo/cardSetTwo_18.png",
+   "box": [
+    372,
+    562,
+    535,
+    811
+   ],
+   "w": 163,
+   "h": 249
+  },
+  {
+   "index": 19,
+   "file": "cards/cardSetTwo/cardSetTwo_19.png",
+   "box": [
+    550,
+    562,
+    713,
+    811
+   ],
+   "w": 163,
+   "h": 249
+  },
+  {
+   "index": 20,
+   "file": "cards/cardSetTwo/cardSetTwo_20.png",
+   "box": [
+    730,
+    562,
+    892,
+    811
+   ],
+   "w": 162,
+   "h": 249
+  },
+  {
+   "index": 21,
+   "file": "cards/cardSetTwo/cardSetTwo_21.png",
+   "box": [
+    909,
+    562,
+    1071,
+    811
+   ],
+   "w": 162,
+   "h": 249
+  },
+  {
+   "index": 22,
+   "file": "cards/cardSetTwo/cardSetTwo_22.png",
+   "box": [
+    1087,
+    562,
+    1250,
+    811
+   ],
+   "w": 163,
+   "h": 249
+  },
+  {
+   "index": 23,
+   "file": "cards/cardSetTwo/cardSetTwo_23.png",
+   "box": [
+    1265,
+    562,
+    1427,
+    811
+   ],
+   "w": 162,
+   "h": 249
+  },
+  {
+   "index": 24,
+   "file": "cards/cardSetTwo/cardSetTwo_24.png",
+   "box": [
+    15,
+    828,
+    178,
+    1077
+   ],
+   "w": 163,
+   "h": 249
+  },
+  {
+   "index": 25,
+   "file": "cards/cardSetTwo/cardSetTwo_25.png",
+   "box": [
+    193,
+    829,
+    356,
+    1077
+   ],
+   "w": 163,
+   "h": 248
+  },
+  {
+   "index": 26,
+   "file": "cards/cardSetTwo/cardSetTwo_26.png",
+   "box": [
+    372,
+    829,
+    534,
+    1077
+   ],
+   "w": 162,
+   "h": 248
+  },
+  {
+   "index": 27,
+   "file": "cards/cardSetTwo/cardSetTwo_27.png",
+   "box": [
+    550,
+    829,
+    713,
+    1077
+   ],
+   "w": 163,
+   "h": 248
+  },
+  {
+   "index": 28,
+   "file": "cards/cardSetTwo/cardSetTwo_28.png",
+   "box": [
+    730,
+    829,
+    892,
+    1077
+   ],
+   "w": 162,
+   "h": 248
+  },
+  {
+   "index": 29,
+   "file": "cards/cardSetTwo/cardSetTwo_29.png",
+   "box": [
+    908,
+    829,
+    1071,
+    1078
+   ],
+   "w": 163,
+   "h": 249
+  },
+  {
+   "index": 30,
+   "file": "cards/cardSetTwo/cardSetTwo_30.png",
+   "box": [
+    1087,
+    829,
+    1250,
+    1078
+   ],
+   "w": 163,
+   "h": 249
+  },
+  {
+   "index": 31,
+   "file": "cards/cardSetTwo/cardSetTwo_31.png",
+   "box": [
+    1265,
+    829,
+    1427,
+    1078
+   ],
+   "w": 162,
+   "h": 249
+  }
+ ],
+ "characters/allies/protagonists": [
+  {
+   "index": 0,
+   "file": "characters/allies/protagonists/protagonists_00.png",
+   "box": [
+    50,
+    62,
+    379,
+    517
+   ],
+   "w": 329,
+   "h": 455
+  },
+  {
+   "index": 1,
+   "file": "characters/allies/protagonists/protagonists_01.png",
+   "box": [
+    399,
+    96,
+    694,
+    523
+   ],
+   "w": 295,
+   "h": 427
+  },
+  {
+   "index": 2,
+   "file": "characters/allies/protagonists/protagonists_02.png",
+   "box": [
+    713,
+    70,
+    1059,
+    526
+   ],
+   "w": 346,
+   "h": 456
+  },
+  {
+   "index": 3,
+   "file": "characters/allies/protagonists/protagonists_03.png",
+   "box": [
+    1074,
+    62,
+    1390,
+    527
+   ],
+   "w": 316,
+   "h": 465
+  },
+  {
+   "index": 4,
+   "file": "characters/allies/protagonists/protagonists_04.png",
+   "box": [
+    34,
+    551,
+    387,
+    1002
+   ],
+   "w": 353,
+   "h": 451
+  },
+  {
+   "index": 5,
+   "file": "characters/allies/protagonists/protagonists_05.png",
+   "box": [
+    404,
+    603,
+    683,
+    1003
+   ],
+   "w": 279,
+   "h": 400
+  },
+  {
+   "index": 6,
+   "file": "characters/allies/protagonists/protagonists_06.png",
+   "box": [
+    703,
+    574,
+    1022,
+    1023
+   ],
+   "w": 319,
+   "h": 449
+  },
+  {
+   "index": 7,
+   "file": "characters/allies/protagonists/protagonists_07.png",
+   "box": [
+    1065,
+    567,
+    1413,
+    1015
+   ],
+   "w": 348,
+   "h": 448
+  }
+ ],
+ "characters/allies/creatures/buddies": [
+  {
+   "index": 0,
+   "file": "characters/allies/creatures/buddies/buddies_00.png",
+   "box": [
+    50,
+    54,
+    219,
+    270
+   ],
+   "w": 169,
+   "h": 216
+  },
+  {
+   "index": 1,
+   "file": "characters/allies/creatures/buddies/buddies_01.png",
+   "box": [
+    230,
+    37,
+    382,
+    277
+   ],
+   "w": 152,
+   "h": 240
+  },
+  {
+   "index": 2,
+   "file": "characters/allies/creatures/buddies/buddies_02.png",
+   "box": [
+    411,
+    64,
+    556,
+    276
+   ],
+   "w": 145,
+   "h": 212
+  },
+  {
+   "index": 3,
+   "file": "characters/allies/creatures/buddies/buddies_03.png",
+   "box": [
+    569,
+    75,
+    726,
+    271
+   ],
+   "w": 157,
+   "h": 196
+  },
+  {
+   "index": 4,
+   "file": "characters/allies/creatures/buddies/buddies_04.png",
+   "box": [
+    754,
+    31,
+    898,
+    283
+   ],
+   "w": 144,
+   "h": 252
+  },
+  {
+   "index": 5,
+   "file": "characters/allies/creatures/buddies/buddies_05.png",
+   "box": [
+    920,
+    55,
+    1029,
+    253
+   ],
+   "w": 109,
+   "h": 198
+  },
+  {
+   "index": 6,
+   "file": "characters/allies/creatures/buddies/buddies_06.png",
+   "box": [
+    1069,
+    56,
+    1220,
+    274
+   ],
+   "w": 151,
+   "h": 218
+  },
+  {
+   "index": 7,
+   "file": "characters/allies/creatures/buddies/buddies_07.png",
+   "box": [
+    26,
+    308,
+    211,
+    513
+   ],
+   "w": 185,
+   "h": 205
+  },
+  {
+   "index": 8,
+   "file": "characters/allies/creatures/buddies/buddies_08.png",
+   "box": [
+    241,
+    304,
+    378,
+    516
+   ],
+   "w": 137,
+   "h": 212
+  },
+  {
+   "index": 9,
+   "file": "characters/allies/creatures/buddies/buddies_09.png",
+   "box": [
+    400,
+    321,
+    543,
+    509
+   ],
+   "w": 143,
+   "h": 188
+  },
+  {
+   "index": 10,
+   "file": "characters/allies/creatures/buddies/buddies_10.png",
+   "box": [
+    553,
+    305,
+    747,
+    518
+   ],
+   "w": 194,
+   "h": 213
+  },
+  {
+   "index": 11,
+   "file": "characters/allies/creatures/buddies/buddies_11.png",
+   "box": [
+    758,
+    328,
+    888,
+    512
+   ],
+   "w": 130,
+   "h": 184
+  },
+  {
+   "index": 12,
+   "file": "characters/allies/creatures/buddies/buddies_12.png",
+   "box": [
+    888,
+    304,
+    1052,
+    516
+   ],
+   "w": 164,
+   "h": 212
+  },
+  {
+   "index": 13,
+   "file": "characters/allies/creatures/buddies/buddies_13.png",
+   "box": [
+    1072,
+    325,
+    1227,
+    512
+   ],
+   "w": 155,
+   "h": 187
+  },
+  {
+   "index": 14,
+   "file": "characters/allies/creatures/buddies/buddies_14.png",
+   "box": [
+    28,
+    546,
+    213,
+    761
+   ],
+   "w": 185,
+   "h": 215
+  },
+  {
+   "index": 15,
+   "file": "characters/allies/creatures/buddies/buddies_15.png",
+   "box": [
+    235,
+    569,
+    393,
+    760
+   ],
+   "w": 158,
+   "h": 191
+  },
+  {
+   "index": 16,
+   "file": "characters/allies/creatures/buddies/buddies_16.png",
+   "box": [
+    399,
+    558,
+    502,
+    748
+   ],
+   "w": 103,
+   "h": 190
+  },
+  {
+   "index": 17,
+   "file": "characters/allies/creatures/buddies/buddies_17.png",
+   "box": [
+    526,
+    556,
+    696,
+    758
+   ],
+   "w": 170,
+   "h": 202
+  },
+  {
+   "index": 18,
+   "file": "characters/allies/creatures/buddies/buddies_18.png",
+   "box": [
+    712,
+    564,
+    876,
+    757
+   ],
+   "w": 164,
+   "h": 193
+  },
+  {
+   "index": 19,
+   "file": "characters/allies/creatures/buddies/buddies_19.png",
+   "box": [
+    893,
+    558,
+    1064,
+    762
+   ],
+   "w": 171,
+   "h": 204
+  },
+  {
+   "index": 20,
+   "file": "characters/allies/creatures/buddies/buddies_20.png",
+   "box": [
+    1074,
+    560,
+    1217,
+    760
+   ],
+   "w": 143,
+   "h": 200
+  },
+  {
+   "index": 21,
+   "file": "characters/allies/creatures/buddies/buddies_21.png",
+   "box": [
+    38,
+    785,
+    215,
+    984
+   ],
+   "w": 177,
+   "h": 199
+  },
+  {
+   "index": 22,
+   "file": "characters/allies/creatures/buddies/buddies_22.png",
+   "box": [
+    231,
+    811,
+    363,
+    978
+   ],
+   "w": 132,
+   "h": 167
+  },
+  {
+   "index": 23,
+   "file": "characters/allies/creatures/buddies/buddies_23.png",
+   "box": [
+    365,
+    789,
+    523,
+    968
+   ],
+   "w": 158,
+   "h": 179
+  },
+  {
+   "index": 24,
+   "file": "characters/allies/creatures/buddies/buddies_24.png",
+   "box": [
+    531,
+    812,
+    711,
+    981
+   ],
+   "w": 180,
+   "h": 169
+  },
+  {
+   "index": 25,
+   "file": "characters/allies/creatures/buddies/buddies_25.png",
+   "box": [
+    732,
+    814,
+    875,
+    959
+   ],
+   "w": 143,
+   "h": 145
+  },
+  {
+   "index": 26,
+   "file": "characters/allies/creatures/buddies/buddies_26.png",
+   "box": [
+    915,
+    800,
+    1081,
+    980
+   ],
+   "w": 166,
+   "h": 180
+  },
+  {
+   "index": 27,
+   "file": "characters/allies/creatures/buddies/buddies_27.png",
+   "box": [
+    1079,
+    804,
+    1209,
+    973
+   ],
+   "w": 130,
+   "h": 169
+  },
+  {
+   "index": 28,
+   "file": "characters/allies/creatures/buddies/buddies_28.png",
+   "box": [
+    52,
+    1016,
+    197,
+    1208
+   ],
+   "w": 145,
+   "h": 192
+  },
+  {
+   "index": 29,
+   "file": "characters/allies/creatures/buddies/buddies_29.png",
+   "box": [
+    210,
+    1009,
+    351,
+    1210
+   ],
+   "w": 141,
+   "h": 201
+  },
+  {
+   "index": 30,
+   "file": "characters/allies/creatures/buddies/buddies_30.png",
+   "box": [
+    372,
+    1016,
+    525,
+    1207
+   ],
+   "w": 153,
+   "h": 191
+  },
+  {
+   "index": 31,
+   "file": "characters/allies/creatures/buddies/buddies_31.png",
+   "box": [
+    546,
+    1029,
+    709,
+    1210
+   ],
+   "w": 163,
+   "h": 181
+  },
+  {
+   "index": 32,
+   "file": "characters/allies/creatures/buddies/buddies_32.png",
+   "box": [
+    725,
+    1038,
+    901,
+    1208
+   ],
+   "w": 176,
+   "h": 170
+  },
+  {
+   "index": 33,
+   "file": "characters/allies/creatures/buddies/buddies_33.png",
+   "box": [
+    911,
+    1017,
+    1050,
+    1211
+   ],
+   "w": 139,
+   "h": 194
+  },
+  {
+   "index": 34,
+   "file": "characters/allies/creatures/buddies/buddies_34.png",
+   "box": [
+    1069,
+    1011,
+    1216,
+    1214
+   ],
+   "w": 147,
+   "h": 203
+  }
+ ],
+ "characters/enemies/enemiesFive": [
+  {
+   "index": 0,
+   "file": "characters/enemies/enemiesFive/enemiesFive_00.png",
+   "box": [
+    13,
+    114,
+    331,
+    618
+   ],
+   "w": 318,
+   "h": 504
+  },
+  {
+   "index": 1,
+   "file": "characters/enemies/enemiesFive/enemiesFive_01.png",
+   "box": [
+    346,
+    134,
+    623,
+    617
+   ],
+   "w": 277,
+   "h": 483
+  },
+  {
+   "index": 2,
+   "file": "characters/enemies/enemiesFive/enemiesFive_02.png",
+   "box": [
+    630,
+    86,
+    965,
+    618
+   ],
+   "w": 335,
+   "h": 532
+  },
+  {
+   "index": 3,
+   "file": "characters/enemies/enemiesFive/enemiesFive_03.png",
+   "box": [
+    896,
+    168,
+    1241,
+    609
+   ],
+   "w": 345,
+   "h": 441
+  },
+  {
+   "index": 4,
+   "file": "characters/enemies/enemiesFive/enemiesFive_04.png",
+   "box": [
+    23,
+    662,
+    337,
+    1130
+   ],
+   "w": 314,
+   "h": 468
+  },
+  {
+   "index": 5,
+   "file": "characters/enemies/enemiesFive/enemiesFive_05.png",
+   "box": [
+    356,
+    714,
+    625,
+    1122
+   ],
+   "w": 269,
+   "h": 408
+  },
+  {
+   "index": 6,
+   "file": "characters/enemies/enemiesFive/enemiesFive_06.png",
+   "box": [
+    630,
+    658,
+    900,
+    1130
+   ],
+   "w": 270,
+   "h": 472
+  },
+  {
+   "index": 7,
+   "file": "characters/enemies/enemiesFive/enemiesFive_07.png",
+   "box": [
+    919,
+    654,
+    1230,
+    1123
+   ],
+   "w": 311,
+   "h": 469
+  }
+ ],
+ "characters/enemies/enemiesFour": [
+  {
+   "index": 0,
+   "file": "characters/enemies/enemiesFour/enemiesFour_00.png",
+   "box": [
+    10,
+    56,
+    325,
+    595
+   ],
+   "w": 315,
+   "h": 539
+  },
+  {
+   "index": 1,
+   "file": "characters/enemies/enemiesFour/enemiesFour_01.png",
+   "box": [
+    325,
+    111,
+    603,
+    594
+   ],
+   "w": 278,
+   "h": 483
+  },
+  {
+   "index": 2,
+   "file": "characters/enemies/enemiesFour/enemiesFour_02.png",
+   "box": [
+    607,
+    147,
+    922,
+    581
+   ],
+   "w": 315,
+   "h": 434
+  },
+  {
+   "index": 3,
+   "file": "characters/enemies/enemiesFour/enemiesFour_03.png",
+   "box": [
+    937,
+    83,
+    1252,
+    578
+   ],
+   "w": 315,
+   "h": 495
+  },
+  {
+   "index": 4,
+   "file": "characters/enemies/enemiesFour/enemiesFour_04.png",
+   "box": [
+    7,
+    666,
+    293,
+    1138
+   ],
+   "w": 286,
+   "h": 472
+  },
+  {
+   "index": 5,
+   "file": "characters/enemies/enemiesFour/enemiesFour_05.png",
+   "box": [
+    308,
+    659,
+    612,
+    1154
+   ],
+   "w": 304,
+   "h": 495
+  },
+  {
+   "index": 6,
+   "file": "characters/enemies/enemiesFour/enemiesFour_06.png",
+   "box": [
+    626,
+    659,
+    919,
+    1152
+   ],
+   "w": 293,
+   "h": 493
+  },
+  {
+   "index": 7,
+   "file": "characters/enemies/enemiesFour/enemiesFour_07.png",
+   "box": [
+    919,
+    650,
+    1240,
+    1145
+   ],
+   "w": 321,
+   "h": 495
+  }
+ ],
+ "characters/enemies/enemiesOne": [
+  {
+   "index": 0,
+   "file": "characters/enemies/enemiesOne/enemiesOne_00.png",
+   "box": [
+    17,
+    95,
+    356,
+    609
+   ],
+   "w": 339,
+   "h": 514
+  },
+  {
+   "index": 1,
+   "file": "characters/enemies/enemiesOne/enemiesOne_01.png",
+   "box": [
+    358,
+    143,
+    628,
+    603
+   ],
+   "w": 270,
+   "h": 460
+  },
+  {
+   "index": 2,
+   "file": "characters/enemies/enemiesOne/enemiesOne_02.png",
+   "box": [
+    620,
+    119,
+    943,
+    608
+   ],
+   "w": 323,
+   "h": 489
+  },
+  {
+   "index": 3,
+   "file": "characters/enemies/enemiesOne/enemiesOne_03.png",
+   "box": [
+    947,
+    87,
+    1238,
+    594
+   ],
+   "w": 291,
+   "h": 507
+  },
+  {
+   "index": 4,
+   "file": "characters/enemies/enemiesOne/enemiesOne_04.png",
+   "box": [
+    30,
+    638,
+    309,
+    1157
+   ],
+   "w": 279,
+   "h": 519
+  },
+  {
+   "index": 5,
+   "file": "characters/enemies/enemiesOne/enemiesOne_05.png",
+   "box": [
+    309,
+    695,
+    608,
+    1147
+   ],
+   "w": 299,
+   "h": 452
+  },
+  {
+   "index": 6,
+   "file": "characters/enemies/enemiesOne/enemiesOne_06.png",
+   "box": [
+    626,
+    645,
+    899,
+    1158
+   ],
+   "w": 273,
+   "h": 513
+  },
+  {
+   "index": 7,
+   "file": "characters/enemies/enemiesOne/enemiesOne_07.png",
+   "box": [
+    904,
+    666,
+    1230,
+    1158
+   ],
+   "w": 326,
+   "h": 492
+  }
+ ],
+ "characters/enemies/enemiesSix": [
+  {
+   "index": 0,
+   "file": "characters/enemies/enemiesSix/enemiesSix_00.png",
+   "box": [
+    0,
+    32,
+    310,
+    555
+   ],
+   "w": 310,
+   "h": 523
+  },
+  {
+   "index": 1,
+   "file": "characters/enemies/enemiesSix/enemiesSix_01.png",
+   "box": [
+    330,
+    52,
+    924,
+    572
+   ],
+   "w": 594,
+   "h": 520
+  },
+  {
+   "index": 2,
+   "file": "characters/enemies/enemiesSix/enemiesSix_02.png",
+   "box": [
+    952,
+    48,
+    1254,
+    563
+   ],
+   "w": 302,
+   "h": 515
+  },
+  {
+   "index": 3,
+   "file": "characters/enemies/enemiesSix/enemiesSix_03.png",
+   "box": [
+    9,
+    645,
+    944,
+    1174
+   ],
+   "w": 935,
+   "h": 529
+  },
+  {
+   "index": 4,
+   "file": "characters/enemies/enemiesSix/enemiesSix_04.png",
+   "box": [
+    956,
+    631,
+    1252,
+    1165
+   ],
+   "w": 296,
+   "h": 534
+  }
+ ],
+ "characters/enemies/enemiesThree": [
+  {
+   "index": 0,
+   "file": "characters/enemies/enemiesThree/enemiesThree_00.png",
+   "box": [
+    21,
+    88,
+    307,
+    583
+   ],
+   "w": 286,
+   "h": 495
+  },
+  {
+   "index": 1,
+   "file": "characters/enemies/enemiesThree/enemiesThree_01.png",
+   "box": [
+    332,
+    98,
+    589,
+    592
+   ],
+   "w": 257,
+   "h": 494
+  },
+  {
+   "index": 2,
+   "file": "characters/enemies/enemiesThree/enemiesThree_02.png",
+   "box": [
+    639,
+    102,
+    918,
+    584
+   ],
+   "w": 279,
+   "h": 482
+  },
+  {
+   "index": 3,
+   "file": "characters/enemies/enemiesThree/enemiesThree_03.png",
+   "box": [
+    921,
+    131,
+    1234,
+    579
+   ],
+   "w": 313,
+   "h": 448
+  },
+  {
+   "index": 4,
+   "file": "characters/enemies/enemiesThree/enemiesThree_04.png",
+   "box": [
+    31,
+    638,
+    279,
+    1151
+   ],
+   "w": 248,
+   "h": 513
+  },
+  {
+   "index": 5,
+   "file": "characters/enemies/enemiesThree/enemiesThree_05.png",
+   "box": [
+    298,
+    658,
+    607,
+    1153
+   ],
+   "w": 309,
+   "h": 495
+  },
+  {
+   "index": 6,
+   "file": "characters/enemies/enemiesThree/enemiesThree_06.png",
+   "box": [
+    624,
+    659,
+    924,
+    1148
+   ],
+   "w": 300,
+   "h": 489
+  },
+  {
+   "index": 7,
+   "file": "characters/enemies/enemiesThree/enemiesThree_07.png",
+   "box": [
+    931,
+    643,
+    1235,
+    1149
+   ],
+   "w": 304,
+   "h": 506
+  }
+ ],
+ "characters/enemies/enemiesTwo": [
+  {
+   "index": 0,
+   "file": "characters/enemies/enemiesTwo/enemiesTwo_00.png",
+   "box": [
+    10,
+    56,
+    325,
+    595
+   ],
+   "w": 315,
+   "h": 539
+  },
+  {
+   "index": 1,
+   "file": "characters/enemies/enemiesTwo/enemiesTwo_01.png",
+   "box": [
+    325,
+    111,
+    603,
+    594
+   ],
+   "w": 278,
+   "h": 483
+  },
+  {
+   "index": 2,
+   "file": "characters/enemies/enemiesTwo/enemiesTwo_02.png",
+   "box": [
+    607,
+    147,
+    922,
+    581
+   ],
+   "w": 315,
+   "h": 434
+  },
+  {
+   "index": 3,
+   "file": "characters/enemies/enemiesTwo/enemiesTwo_03.png",
+   "box": [
+    937,
+    83,
+    1252,
+    578
+   ],
+   "w": 315,
+   "h": 495
+  },
+  {
+   "index": 4,
+   "file": "characters/enemies/enemiesTwo/enemiesTwo_04.png",
+   "box": [
+    7,
+    666,
+    293,
+    1138
+   ],
+   "w": 286,
+   "h": 472
+  },
+  {
+   "index": 5,
+   "file": "characters/enemies/enemiesTwo/enemiesTwo_05.png",
+   "box": [
+    308,
+    659,
+    612,
+    1154
+   ],
+   "w": 304,
+   "h": 495
+  },
+  {
+   "index": 6,
+   "file": "characters/enemies/enemiesTwo/enemiesTwo_06.png",
+   "box": [
+    626,
+    659,
+    919,
+    1152
+   ],
+   "w": 293,
+   "h": 493
+  },
+  {
+   "index": 7,
+   "file": "characters/enemies/enemiesTwo/enemiesTwo_07.png",
+   "box": [
+    919,
+    650,
+    1240,
+    1145
+   ],
+   "w": 321,
+   "h": 495
+  }
+ ],
+ "characters/enemies/minionsOne": [
+  {
+   "index": 0,
+   "file": "characters/enemies/minionsOne/minionsOne_00.png",
+   "box": [
+    5,
+    65,
+    154,
+    356
+   ],
+   "w": 149,
+   "h": 291
+  },
+  {
+   "index": 1,
+   "file": "characters/enemies/minionsOne/minionsOne_01.png",
+   "box": [
+    175,
+    89,
+    319,
+    357
+   ],
+   "w": 144,
+   "h": 268
+  },
+  {
+   "index": 2,
+   "file": "characters/enemies/minionsOne/minionsOne_02.png",
+   "box": [
+    330,
+    94,
+    484,
+    354
+   ],
+   "w": 154,
+   "h": 260
+  },
+  {
+   "index": 3,
+   "file": "characters/enemies/minionsOne/minionsOne_03.png",
+   "box": [
+    502,
+    76,
+    658,
+    348
+   ],
+   "w": 156,
+   "h": 272
+  },
+  {
+   "index": 4,
+   "file": "characters/enemies/minionsOne/minionsOne_04.png",
+   "box": [
+    669,
+    89,
+    793,
+    356
+   ],
+   "w": 124,
+   "h": 267
+  },
+  {
+   "index": 5,
+   "file": "characters/enemies/minionsOne/minionsOne_05.png",
+   "box": [
+    809,
+    118,
+    947,
+    357
+   ],
+   "w": 138,
+   "h": 239
+  },
+  {
+   "index": 6,
+   "file": "characters/enemies/minionsOne/minionsOne_06.png",
+   "box": [
+    963,
+    112,
+    1092,
+    354
+   ],
+   "w": 129,
+   "h": 242
+  },
+  {
+   "index": 7,
+   "file": "characters/enemies/minionsOne/minionsOne_07.png",
+   "box": [
+    1117,
+    127,
+    1247,
+    356
+   ],
+   "w": 130,
+   "h": 229
+  },
+  {
+   "index": 8,
+   "file": "characters/enemies/minionsOne/minionsOne_08.png",
+   "box": [
+    4,
+    423,
+    139,
+    642
+   ],
+   "w": 135,
+   "h": 219
+  },
+  {
+   "index": 9,
+   "file": "characters/enemies/minionsOne/minionsOne_09.png",
+   "box": [
+    163,
+    404,
+    327,
+    634
+   ],
+   "w": 164,
+   "h": 230
+  },
+  {
+   "index": 10,
+   "file": "characters/enemies/minionsOne/minionsOne_10.png",
+   "box": [
+    333,
+    433,
+    477,
+    639
+   ],
+   "w": 144,
+   "h": 206
+  },
+  {
+   "index": 11,
+   "file": "characters/enemies/minionsOne/minionsOne_11.png",
+   "box": [
+    488,
+    413,
+    656,
+    635
+   ],
+   "w": 168,
+   "h": 222
+  },
+  {
+   "index": 12,
+   "file": "characters/enemies/minionsOne/minionsOne_12.png",
+   "box": [
+    672,
+    438,
+    806,
+    631
+   ],
+   "w": 134,
+   "h": 193
+  },
+  {
+   "index": 13,
+   "file": "characters/enemies/minionsOne/minionsOne_13.png",
+   "box": [
+    804,
+    435,
+    943,
+    639
+   ],
+   "w": 139,
+   "h": 204
+  },
+  {
+   "index": 14,
+   "file": "characters/enemies/minionsOne/minionsOne_14.png",
+   "box": [
+    960,
+    444,
+    1072,
+    639
+   ],
+   "w": 112,
+   "h": 195
+  },
+  {
+   "index": 15,
+   "file": "characters/enemies/minionsOne/minionsOne_15.png",
+   "box": [
+    1094,
+    429,
+    1243,
+    639
+   ],
+   "w": 149,
+   "h": 210
+  },
+  {
+   "index": 16,
+   "file": "characters/enemies/minionsOne/minionsOne_16.png",
+   "box": [
+    8,
+    698,
+    168,
+    909
+   ],
+   "w": 160,
+   "h": 211
+  },
+  {
+   "index": 17,
+   "file": "characters/enemies/minionsOne/minionsOne_17.png",
+   "box": [
+    166,
+    697,
+    320,
+    903
+   ],
+   "w": 154,
+   "h": 206
+  },
+  {
+   "index": 18,
+   "file": "characters/enemies/minionsOne/minionsOne_18.png",
+   "box": [
+    337,
+    709,
+    477,
+    911
+   ],
+   "w": 140,
+   "h": 202
+  },
+  {
+   "index": 19,
+   "file": "characters/enemies/minionsOne/minionsOne_19.png",
+   "box": [
+    484,
+    705,
+    647,
+    917
+   ],
+   "w": 163,
+   "h": 212
+  },
+  {
+   "index": 20,
+   "file": "characters/enemies/minionsOne/minionsOne_20.png",
+   "box": [
+    654,
+    693,
+    795,
+    916
+   ],
+   "w": 141,
+   "h": 223
+  },
+  {
+   "index": 21,
+   "file": "characters/enemies/minionsOne/minionsOne_21.png",
+   "box": [
+    807,
+    712,
+    929,
+    919
+   ],
+   "w": 122,
+   "h": 207
+  },
+  {
+   "index": 22,
+   "file": "characters/enemies/minionsOne/minionsOne_22.png",
+   "box": [
+    952,
+    771,
+    1089,
+    912
+   ],
+   "w": 137,
+   "h": 141
+  },
+  {
+   "index": 23,
+   "file": "characters/enemies/minionsOne/minionsOne_23.png",
+   "box": [
+    1104,
+    701,
+    1235,
+    910
+   ],
+   "w": 131,
+   "h": 209
+  },
+  {
+   "index": 24,
+   "file": "characters/enemies/minionsOne/minionsOne_24.png",
+   "box": [
+    14,
+    955,
+    147,
+    1179
+   ],
+   "w": 133,
+   "h": 224
+  },
+  {
+   "index": 25,
+   "file": "characters/enemies/minionsOne/minionsOne_25.png",
+   "box": [
+    173,
+    962,
+    337,
+    1183
+   ],
+   "w": 164,
+   "h": 221
+  },
+  {
+   "index": 26,
+   "file": "characters/enemies/minionsOne/minionsOne_26.png",
+   "box": [
+    352,
+    973,
+    466,
+    1183
+   ],
+   "w": 114,
+   "h": 210
+  },
+  {
+   "index": 27,
+   "file": "characters/enemies/minionsOne/minionsOne_27.png",
+   "box": [
+    491,
+    975,
+    609,
+    1184
+   ],
+   "w": 118,
+   "h": 209
+  },
+  {
+   "index": 28,
+   "file": "characters/enemies/minionsOne/minionsOne_28.png",
+   "box": [
+    630,
+    971,
+    786,
+    1185
+   ],
+   "w": 156,
+   "h": 214
+  },
+  {
+   "index": 29,
+   "file": "characters/enemies/minionsOne/minionsOne_29.png",
+   "box": [
+    803,
+    975,
+    931,
+    1188
+   ],
+   "w": 128,
+   "h": 213
+  },
+  {
+   "index": 30,
+   "file": "characters/enemies/minionsOne/minionsOne_30.png",
+   "box": [
+    956,
+    980,
+    1081,
+    1182
+   ],
+   "w": 125,
+   "h": 202
+  },
+  {
+   "index": 31,
+   "file": "characters/enemies/minionsOne/minionsOne_31.png",
+   "box": [
+    1109,
+    971,
+    1243,
+    1184
+   ],
+   "w": 134,
+   "h": 213
+  }
+ ],
+ "particles/particlesFive": [
+  {
+   "index": 0,
+   "file": "particles/particlesFive/particlesFive_00.png",
+   "box": [
+    24,
+    73,
+    143,
+    298
+   ],
+   "w": 119,
+   "h": 225
+  },
+  {
+   "index": 1,
+   "file": "particles/particlesFive/particlesFive_01.png",
+   "box": [
+    179,
+    108,
+    313,
+    300
+   ],
+   "w": 134,
+   "h": 192
+  },
+  {
+   "index": 2,
+   "file": "particles/particlesFive/particlesFive_02.png",
+   "box": [
+    216,
+    173,
+    276,
+    242
+   ],
+   "w": 60,
+   "h": 69
+  },
+  {
+   "index": 3,
+   "file": "particles/particlesFive/particlesFive_03.png",
+   "box": [
+    341,
+    100,
+    461,
+    295
+   ],
+   "w": 120,
+   "h": 195
+  },
+  {
+   "index": 4,
+   "file": "particles/particlesFive/particlesFive_04.png",
+   "box": [
+    490,
+    85,
+    621,
+    301
+   ],
+   "w": 131,
+   "h": 216
+  },
+  {
+   "index": 5,
+   "file": "particles/particlesFive/particlesFive_05.png",
+   "box": [
+    642,
+    97,
+    780,
+    296
+   ],
+   "w": 138,
+   "h": 199
+  },
+  {
+   "index": 6,
+   "file": "particles/particlesFive/particlesFive_06.png",
+   "box": [
+    797,
+    116,
+    937,
+    301
+   ],
+   "w": 140,
+   "h": 185
+  },
+  {
+   "index": 7,
+   "file": "particles/particlesFive/particlesFive_07.png",
+   "box": [
+    946,
+    113,
+    1091,
+    282
+   ],
+   "w": 145,
+   "h": 169
+  },
+  {
+   "index": 8,
+   "file": "particles/particlesFive/particlesFive_08.png",
+   "box": [
+    1110,
+    93,
+    1233,
+    299
+   ],
+   "w": 123,
+   "h": 206
+  },
+  {
+   "index": 9,
+   "file": "particles/particlesFive/particlesFive_09.png",
+   "box": [
+    18,
+    377,
+    142,
+    576
+   ],
+   "w": 124,
+   "h": 199
+  },
+  {
+   "index": 10,
+   "file": "particles/particlesFive/particlesFive_10.png",
+   "box": [
+    169,
+    388,
+    313,
+    579
+   ],
+   "w": 144,
+   "h": 191
+  },
+  {
+   "index": 11,
+   "file": "particles/particlesFive/particlesFive_11.png",
+   "box": [
+    341,
+    330,
+    453,
+    575
+   ],
+   "w": 112,
+   "h": 245
+  },
+  {
+   "index": 12,
+   "file": "particles/particlesFive/particlesFive_12.png",
+   "box": [
+    484,
+    388,
+    619,
+    578
+   ],
+   "w": 135,
+   "h": 190
+  },
+  {
+   "index": 13,
+   "file": "particles/particlesFive/particlesFive_13.png",
+   "box": [
+    644,
+    387,
+    774,
+    578
+   ],
+   "w": 130,
+   "h": 191
+  },
+  {
+   "index": 14,
+   "file": "particles/particlesFive/particlesFive_14.png",
+   "box": [
+    802,
+    389,
+    925,
+    577
+   ],
+   "w": 123,
+   "h": 188
+  },
+  {
+   "index": 15,
+   "file": "particles/particlesFive/particlesFive_15.png",
+   "box": [
+    955,
+    381,
+    1079,
+    578
+   ],
+   "w": 124,
+   "h": 197
+  },
+  {
+   "index": 16,
+   "file": "particles/particlesFive/particlesFive_16.png",
+   "box": [
+    1106,
+    386,
+    1234,
+    577
+   ],
+   "w": 128,
+   "h": 191
+  },
+  {
+   "index": 17,
+   "file": "particles/particlesFive/particlesFive_17.png",
+   "box": [
+    21,
+    651,
+    141,
+    856
+   ],
+   "w": 120,
+   "h": 205
+  },
+  {
+   "index": 18,
+   "file": "particles/particlesFive/particlesFive_18.png",
+   "box": [
+    171,
+    652,
+    305,
+    857
+   ],
+   "w": 134,
+   "h": 205
+  },
+  {
+   "index": 19,
+   "file": "particles/particlesFive/particlesFive_19.png",
+   "box": [
+    336,
+    673,
+    463,
+    855
+   ],
+   "w": 127,
+   "h": 182
+  },
+  {
+   "index": 20,
+   "file": "particles/particlesFive/particlesFive_20.png",
+   "box": [
+    490,
+    652,
+    609,
+    858
+   ],
+   "w": 119,
+   "h": 206
+  },
+  {
+   "index": 21,
+   "file": "particles/particlesFive/particlesFive_21.png",
+   "box": [
+    636,
+    664,
+    765,
+    854
+   ],
+   "w": 129,
+   "h": 190
+  },
+  {
+   "index": 22,
+   "file": "particles/particlesFive/particlesFive_22.png",
+   "box": [
+    802,
+    676,
+    914,
+    859
+   ],
+   "w": 112,
+   "h": 183
+  },
+  {
+   "index": 23,
+   "file": "particles/particlesFive/particlesFive_23.png",
+   "box": [
+    953,
+    667,
+    1077,
+    856
+   ],
+   "w": 124,
+   "h": 189
+  },
+  {
+   "index": 24,
+   "file": "particles/particlesFive/particlesFive_24.png",
+   "box": [
+    1106,
+    673,
+    1227,
+    855
+   ],
+   "w": 121,
+   "h": 182
+  },
+  {
+   "index": 25,
+   "file": "particles/particlesFive/particlesFive_25.png",
+   "box": [
+    17,
+    963,
+    140,
+    1143
+   ],
+   "w": 123,
+   "h": 180
+  },
+  {
+   "index": 26,
+   "file": "particles/particlesFive/particlesFive_26.png",
+   "box": [
+    174,
+    1002,
+    300,
+    1143
+   ],
+   "w": 126,
+   "h": 141
+  },
+  {
+   "index": 27,
+   "file": "particles/particlesFive/particlesFive_27.png",
+   "box": [
+    328,
+    942,
+    455,
+    1143
+   ],
+   "w": 127,
+   "h": 201
+  },
+  {
+   "index": 28,
+   "file": "particles/particlesFive/particlesFive_28.png",
+   "box": [
+    483,
+    950,
+    608,
+    1142
+   ],
+   "w": 125,
+   "h": 192
+  },
+  {
+   "index": 29,
+   "file": "particles/particlesFive/particlesFive_29.png",
+   "box": [
+    639,
+    951,
+    771,
+    1144
+   ],
+   "w": 132,
+   "h": 193
+  },
+  {
+   "index": 30,
+   "file": "particles/particlesFive/particlesFive_30.png",
+   "box": [
+    794,
+    970,
+    923,
+    1139
+   ],
+   "w": 129,
+   "h": 169
+  },
+  {
+   "index": 31,
+   "file": "particles/particlesFive/particlesFive_31.png",
+   "box": [
+    956,
+    963,
+    1079,
+    1144
+   ],
+   "w": 123,
+   "h": 181
+  },
+  {
+   "index": 32,
+   "file": "particles/particlesFive/particlesFive_32.png",
+   "box": [
+    1110,
+    956,
+    1228,
+    1141
+   ],
+   "w": 118,
+   "h": 185
+  }
+ ],
+ "particles/particlesFour": [
+  {
+   "index": 0,
+   "file": "particles/particlesFour/particlesFour_00.png",
+   "box": [
+    19,
+    120,
+    154,
+    339
+   ],
+   "w": 135,
+   "h": 219
+  },
+  {
+   "index": 1,
+   "file": "particles/particlesFour/particlesFour_01.png",
+   "box": [
+    180,
+    131,
+    301,
+    339
+   ],
+   "w": 121,
+   "h": 208
+  },
+  {
+   "index": 2,
+   "file": "particles/particlesFour/particlesFour_02.png",
+   "box": [
+    332,
+    132,
+    481,
+    337
+   ],
+   "w": 149,
+   "h": 205
+  },
+  {
+   "index": 3,
+   "file": "particles/particlesFour/particlesFour_03.png",
+   "box": [
+    491,
+    115,
+    624,
+    341
+   ],
+   "w": 133,
+   "h": 226
+  },
+  {
+   "index": 4,
+   "file": "particles/particlesFour/particlesFour_04.png",
+   "box": [
+    641,
+    132,
+    771,
+    305
+   ],
+   "w": 130,
+   "h": 173
+  },
+  {
+   "index": 5,
+   "file": "particles/particlesFour/particlesFour_05.png",
+   "box": [
+    652,
+    301,
+    759,
+    338
+   ],
+   "w": 107,
+   "h": 37
+  },
+  {
+   "index": 6,
+   "file": "particles/particlesFour/particlesFour_06.png",
+   "box": [
+    796,
+    143,
+    927,
+    337
+   ],
+   "w": 131,
+   "h": 194
+  },
+  {
+   "index": 7,
+   "file": "particles/particlesFour/particlesFour_07.png",
+   "box": [
+    948,
+    121,
+    1086,
+    338
+   ],
+   "w": 138,
+   "h": 217
+  },
+  {
+   "index": 8,
+   "file": "particles/particlesFour/particlesFour_08.png",
+   "box": [
+    1094,
+    135,
+    1245,
+    342
+   ],
+   "w": 151,
+   "h": 207
+  },
+  {
+   "index": 9,
+   "file": "particles/particlesFour/particlesFour_09.png",
+   "box": [
+    8,
+    430,
+    171,
+    609
+   ],
+   "w": 163,
+   "h": 179
+  },
+  {
+   "index": 10,
+   "file": "particles/particlesFour/particlesFour_10.png",
+   "box": [
+    187,
+    411,
+    307,
+    606
+   ],
+   "w": 120,
+   "h": 195
+  },
+  {
+   "index": 11,
+   "file": "particles/particlesFour/particlesFour_11.png",
+   "box": [
+    332,
+    488,
+    475,
+    613
+   ],
+   "w": 143,
+   "h": 125
+  },
+  {
+   "index": 12,
+   "file": "particles/particlesFour/particlesFour_12.png",
+   "box": [
+    347,
+    414,
+    453,
+    543
+   ],
+   "w": 106,
+   "h": 129
+  },
+  {
+   "index": 13,
+   "file": "particles/particlesFour/particlesFour_13.png",
+   "box": [
+    491,
+    413,
+    623,
+    611
+   ],
+   "w": 132,
+   "h": 198
+  },
+  {
+   "index": 14,
+   "file": "particles/particlesFour/particlesFour_14.png",
+   "box": [
+    639,
+    406,
+    779,
+    611
+   ],
+   "w": 140,
+   "h": 205
+  },
+  {
+   "index": 15,
+   "file": "particles/particlesFour/particlesFour_15.png",
+   "box": [
+    792,
+    384,
+    921,
+    615
+   ],
+   "w": 129,
+   "h": 231
+  },
+  {
+   "index": 16,
+   "file": "particles/particlesFour/particlesFour_16.png",
+   "box": [
+    937,
+    405,
+    1075,
+    611
+   ],
+   "w": 138,
+   "h": 206
+  },
+  {
+   "index": 17,
+   "file": "particles/particlesFour/particlesFour_17.png",
+   "box": [
+    1089,
+    419,
+    1239,
+    609
+   ],
+   "w": 150,
+   "h": 190
+  },
+  {
+   "index": 18,
+   "file": "particles/particlesFour/particlesFour_18.png",
+   "box": [
+    20,
+    676,
+    159,
+    880
+   ],
+   "w": 139,
+   "h": 204
+  },
+  {
+   "index": 19,
+   "file": "particles/particlesFour/particlesFour_19.png",
+   "box": [
+    175,
+    684,
+    328,
+    882
+   ],
+   "w": 153,
+   "h": 198
+  },
+  {
+   "index": 20,
+   "file": "particles/particlesFour/particlesFour_20.png",
+   "box": [
+    344,
+    670,
+    472,
+    881
+   ],
+   "w": 128,
+   "h": 211
+  },
+  {
+   "index": 21,
+   "file": "particles/particlesFour/particlesFour_21.png",
+   "box": [
+    492,
+    665,
+    625,
+    877
+   ],
+   "w": 133,
+   "h": 212
+  },
+  {
+   "index": 22,
+   "file": "particles/particlesFour/particlesFour_22.png",
+   "box": [
+    643,
+    661,
+    770,
+    882
+   ],
+   "w": 127,
+   "h": 221
+  },
+  {
+   "index": 23,
+   "file": "particles/particlesFour/particlesFour_23.png",
+   "box": [
+    794,
+    684,
+    930,
+    882
+   ],
+   "w": 136,
+   "h": 198
+  },
+  {
+   "index": 24,
+   "file": "particles/particlesFour/particlesFour_24.png",
+   "box": [
+    943,
+    674,
+    1094,
+    882
+   ],
+   "w": 151,
+   "h": 208
+  },
+  {
+   "index": 25,
+   "file": "particles/particlesFour/particlesFour_25.png",
+   "box": [
+    1106,
+    694,
+    1222,
+    880
+   ],
+   "w": 116,
+   "h": 186
+  },
+  {
+   "index": 26,
+   "file": "particles/particlesFour/particlesFour_26.png",
+   "box": [
+    13,
+    923,
+    150,
+    1139
+   ],
+   "w": 137,
+   "h": 216
+  },
+  {
+   "index": 27,
+   "file": "particles/particlesFour/particlesFour_27.png",
+   "box": [
+    164,
+    939,
+    310,
+    1141
+   ],
+   "w": 146,
+   "h": 202
+  },
+  {
+   "index": 28,
+   "file": "particles/particlesFour/particlesFour_28.png",
+   "box": [
+    323,
+    925,
+    464,
+    1141
+   ],
+   "w": 141,
+   "h": 216
+  },
+  {
+   "index": 29,
+   "file": "particles/particlesFour/particlesFour_29.png",
+   "box": [
+    476,
+    948,
+    624,
+    1139
+   ],
+   "w": 148,
+   "h": 191
+  },
+  {
+   "index": 30,
+   "file": "particles/particlesFour/particlesFour_30.png",
+   "box": [
+    642,
+    937,
+    772,
+    1138
+   ],
+   "w": 130,
+   "h": 201
+  },
+  {
+   "index": 31,
+   "file": "particles/particlesFour/particlesFour_31.png",
+   "box": [
+    784,
+    948,
+    925,
+    1141
+   ],
+   "w": 141,
+   "h": 193
+  },
+  {
+   "index": 32,
+   "file": "particles/particlesFour/particlesFour_32.png",
+   "box": [
+    934,
+    963,
+    1086,
+    1139
+   ],
+   "w": 152,
+   "h": 176
+  },
+  {
+   "index": 33,
+   "file": "particles/particlesFour/particlesFour_33.png",
+   "box": [
+    1099,
+    950,
+    1240,
+    1140
+   ],
+   "w": 141,
+   "h": 190
+  }
+ ],
+ "particles/particlesOne": [
+  {
+   "index": 0,
+   "file": "particles/particlesOne/particlesOne_00.png",
+   "box": [
+    24,
+    87,
+    159,
+    289
+   ],
+   "w": 135,
+   "h": 202
+  },
+  {
+   "index": 1,
+   "file": "particles/particlesOne/particlesOne_01.png",
+   "box": [
+    186,
+    98,
+    296,
+    288
+   ],
+   "w": 110,
+   "h": 190
+  },
+  {
+   "index": 2,
+   "file": "particles/particlesOne/particlesOne_02.png",
+   "box": [
+    329,
+    95,
+    461,
+    294
+   ],
+   "w": 132,
+   "h": 199
+  },
+  {
+   "index": 3,
+   "file": "particles/particlesOne/particlesOne_03.png",
+   "box": [
+    495,
+    101,
+    611,
+    290
+   ],
+   "w": 116,
+   "h": 189
+  },
+  {
+   "index": 4,
+   "file": "particles/particlesOne/particlesOne_04.png",
+   "box": [
+    644,
+    89,
+    768,
+    293
+   ],
+   "w": 124,
+   "h": 204
+  },
+  {
+   "index": 5,
+   "file": "particles/particlesOne/particlesOne_05.png",
+   "box": [
+    802,
+    116,
+    922,
+    293
+   ],
+   "w": 120,
+   "h": 177
+  },
+  {
+   "index": 6,
+   "file": "particles/particlesOne/particlesOne_06.png",
+   "box": [
+    953,
+    95,
+    1095,
+    291
+   ],
+   "w": 142,
+   "h": 196
+  },
+  {
+   "index": 7,
+   "file": "particles/particlesOne/particlesOne_07.png",
+   "box": [
+    1111,
+    124,
+    1238,
+    292
+   ],
+   "w": 127,
+   "h": 168
+  },
+  {
+   "index": 8,
+   "file": "particles/particlesOne/particlesOne_08.png",
+   "box": [
+    200,
+    373,
+    280,
+    431
+   ],
+   "w": 80,
+   "h": 58
+  },
+  {
+   "index": 9,
+   "file": "particles/particlesOne/particlesOne_09.png",
+   "box": [
+    17,
+    353,
+    166,
+    556
+   ],
+   "w": 149,
+   "h": 203
+  },
+  {
+   "index": 10,
+   "file": "particles/particlesOne/particlesOne_10.png",
+   "box": [
+    183,
+    419,
+    306,
+    556
+   ],
+   "w": 123,
+   "h": 137
+  },
+  {
+   "index": 11,
+   "file": "particles/particlesOne/particlesOne_11.png",
+   "box": [
+    333,
+    366,
+    463,
+    552
+   ],
+   "w": 130,
+   "h": 186
+  },
+  {
+   "index": 12,
+   "file": "particles/particlesOne/particlesOne_12.png",
+   "box": [
+    487,
+    370,
+    617,
+    556
+   ],
+   "w": 130,
+   "h": 186
+  },
+  {
+   "index": 13,
+   "file": "particles/particlesOne/particlesOne_13.png",
+   "box": [
+    643,
+    484,
+    768,
+    558
+   ],
+   "w": 125,
+   "h": 74
+  },
+  {
+   "index": 14,
+   "file": "particles/particlesOne/particlesOne_14.png",
+   "box": [
+    661,
+    371,
+    747,
+    527
+   ],
+   "w": 86,
+   "h": 156
+  },
+  {
+   "index": 15,
+   "file": "particles/particlesOne/particlesOne_15.png",
+   "box": [
+    804,
+    514,
+    919,
+    559
+   ],
+   "w": 115,
+   "h": 45
+  },
+  {
+   "index": 16,
+   "file": "particles/particlesOne/particlesOne_16.png",
+   "box": [
+    807,
+    378,
+    918,
+    534
+   ],
+   "w": 111,
+   "h": 156
+  },
+  {
+   "index": 17,
+   "file": "particles/particlesOne/particlesOne_17.png",
+   "box": [
+    959,
+    371,
+    1084,
+    561
+   ],
+   "w": 125,
+   "h": 190
+  },
+  {
+   "index": 18,
+   "file": "particles/particlesOne/particlesOne_18.png",
+   "box": [
+    1111,
+    510,
+    1226,
+    560
+   ],
+   "w": 115,
+   "h": 50
+  },
+  {
+   "index": 19,
+   "file": "particles/particlesOne/particlesOne_19.png",
+   "box": [
+    1121,
+    371,
+    1214,
+    528
+   ],
+   "w": 93,
+   "h": 157
+  },
+  {
+   "index": 20,
+   "file": "particles/particlesOne/particlesOne_20.png",
+   "box": [
+    20,
+    617,
+    159,
+    801
+   ],
+   "w": 139,
+   "h": 184
+  },
+  {
+   "index": 21,
+   "file": "particles/particlesOne/particlesOne_21.png",
+   "box": [
+    173,
+    641,
+    313,
+    787
+   ],
+   "w": 140,
+   "h": 146
+  },
+  {
+   "index": 22,
+   "file": "particles/particlesOne/particlesOne_22.png",
+   "box": [
+    337,
+    625,
+    457,
+    803
+   ],
+   "w": 120,
+   "h": 178
+  },
+  {
+   "index": 23,
+   "file": "particles/particlesOne/particlesOne_23.png",
+   "box": [
+    489,
+    641,
+    607,
+    802
+   ],
+   "w": 118,
+   "h": 161
+  },
+  {
+   "index": 24,
+   "file": "particles/particlesOne/particlesOne_24.png",
+   "box": [
+    634,
+    649,
+    771,
+    797
+   ],
+   "w": 137,
+   "h": 148
+  },
+  {
+   "index": 25,
+   "file": "particles/particlesOne/particlesOne_25.png",
+   "box": [
+    800,
+    622,
+    927,
+    799
+   ],
+   "w": 127,
+   "h": 177
+  },
+  {
+   "index": 26,
+   "file": "particles/particlesOne/particlesOne_26.png",
+   "box": [
+    959,
+    664,
+    1073,
+    795
+   ],
+   "w": 114,
+   "h": 131
+  },
+  {
+   "index": 27,
+   "file": "particles/particlesOne/particlesOne_27.png",
+   "box": [
+    1107,
+    657,
+    1224,
+    801
+   ],
+   "w": 117,
+   "h": 144
+  },
+  {
+   "index": 28,
+   "file": "particles/particlesOne/particlesOne_28.png",
+   "box": [
+    25,
+    862,
+    157,
+    1016
+   ],
+   "w": 132,
+   "h": 154
+  },
+  {
+   "index": 29,
+   "file": "particles/particlesOne/particlesOne_29.png",
+   "box": [
+    180,
+    891,
+    303,
+    1010
+   ],
+   "w": 123,
+   "h": 119
+  },
+  {
+   "index": 30,
+   "file": "particles/particlesOne/particlesOne_30.png",
+   "box": [
+    339,
+    875,
+    452,
+    1013
+   ],
+   "w": 113,
+   "h": 138
+  },
+  {
+   "index": 31,
+   "file": "particles/particlesOne/particlesOne_31.png",
+   "box": [
+    488,
+    891,
+    603,
+    1017
+   ],
+   "w": 115,
+   "h": 126
+  },
+  {
+   "index": 32,
+   "file": "particles/particlesOne/particlesOne_32.png",
+   "box": [
+    640,
+    878,
+    756,
+    1018
+   ],
+   "w": 116,
+   "h": 140
+  },
+  {
+   "index": 33,
+   "file": "particles/particlesOne/particlesOne_33.png",
+   "box": [
+    791,
+    880,
+    923,
+    1019
+   ],
+   "w": 132,
+   "h": 139
+  },
+  {
+   "index": 34,
+   "file": "particles/particlesOne/particlesOne_34.png",
+   "box": [
+    953,
+    879,
+    1071,
+    1019
+   ],
+   "w": 118,
+   "h": 140
+  },
+  {
+   "index": 35,
+   "file": "particles/particlesOne/particlesOne_35.png",
+   "box": [
+    1104,
+    878,
+    1214,
+    1021
+   ],
+   "w": 110,
+   "h": 143
+  },
+  {
+   "index": 36,
+   "file": "particles/particlesOne/particlesOne_36.png",
+   "box": [
+    33,
+    1072,
+    140,
+    1214
+   ],
+   "w": 107,
+   "h": 142
+  },
+  {
+   "index": 37,
+   "file": "particles/particlesOne/particlesOne_37.png",
+   "box": [
+    177,
+    1068,
+    301,
+    1215
+   ],
+   "w": 124,
+   "h": 147
+  },
+  {
+   "index": 38,
+   "file": "particles/particlesOne/particlesOne_38.png",
+   "box": [
+    336,
+    1135,
+    437,
+    1214
+   ],
+   "w": 101,
+   "h": 79
+  },
+  {
+   "index": 39,
+   "file": "particles/particlesOne/particlesOne_39.png",
+   "box": [
+    361,
+    1094,
+    427,
+    1189
+   ],
+   "w": 66,
+   "h": 95
+  },
+  {
+   "index": 40,
+   "file": "particles/particlesOne/particlesOne_40.png",
+   "box": [
+    490,
+    1083,
+    598,
+    1218
+   ],
+   "w": 108,
+   "h": 135
+  },
+  {
+   "index": 41,
+   "file": "particles/particlesOne/particlesOne_41.png",
+   "box": [
+    648,
+    1082,
+    742,
+    1216
+   ],
+   "w": 94,
+   "h": 134
+  },
+  {
+   "index": 42,
+   "file": "particles/particlesOne/particlesOne_42.png",
+   "box": [
+    796,
+    1099,
+    902,
+    1216
+   ],
+   "w": 106,
+   "h": 117
+  },
+  {
+   "index": 43,
+   "file": "particles/particlesOne/particlesOne_43.png",
+   "box": [
+    943,
+    1103,
+    1059,
+    1216
+   ],
+   "w": 116,
+   "h": 113
+  },
+  {
+   "index": 44,
+   "file": "particles/particlesOne/particlesOne_44.png",
+   "box": [
+    1096,
+    1090,
+    1218,
+    1215
+   ],
+   "w": 122,
+   "h": 125
+  }
+ ],
+ "particles/particlesThree": [
+  {
+   "index": 0,
+   "file": "particles/particlesThree/particlesThree_00.png",
+   "box": [
+    16,
+    76,
+    161,
+    268
+   ],
+   "w": 145,
+   "h": 192
+  },
+  {
+   "index": 1,
+   "file": "particles/particlesThree/particlesThree_01.png",
+   "box": [
+    185,
+    82,
+    305,
+    262
+   ],
+   "w": 120,
+   "h": 180
+  },
+  {
+   "index": 2,
+   "file": "particles/particlesThree/particlesThree_02.png",
+   "box": [
+    338,
+    77,
+    463,
+    263
+   ],
+   "w": 125,
+   "h": 186
+  },
+  {
+   "index": 3,
+   "file": "particles/particlesThree/particlesThree_03.png",
+   "box": [
+    502,
+    80,
+    611,
+    265
+   ],
+   "w": 109,
+   "h": 185
+  },
+  {
+   "index": 4,
+   "file": "particles/particlesThree/particlesThree_04.png",
+   "box": [
+    645,
+    74,
+    763,
+    263
+   ],
+   "w": 118,
+   "h": 189
+  },
+  {
+   "index": 5,
+   "file": "particles/particlesThree/particlesThree_05.png",
+   "box": [
+    795,
+    103,
+    927,
+    264
+   ],
+   "w": 132,
+   "h": 161
+  },
+  {
+   "index": 6,
+   "file": "particles/particlesThree/particlesThree_06.png",
+   "box": [
+    960,
+    73,
+    1066,
+    262
+   ],
+   "w": 106,
+   "h": 189
+  },
+  {
+   "index": 7,
+   "file": "particles/particlesThree/particlesThree_07.png",
+   "box": [
+    1099,
+    83,
+    1237,
+    267
+   ],
+   "w": 138,
+   "h": 184
+  },
+  {
+   "index": 8,
+   "file": "particles/particlesThree/particlesThree_08.png",
+   "box": [
+    20,
+    322,
+    150,
+    494
+   ],
+   "w": 130,
+   "h": 172
+  },
+  {
+   "index": 9,
+   "file": "particles/particlesThree/particlesThree_09.png",
+   "box": [
+    171,
+    343,
+    308,
+    493
+   ],
+   "w": 137,
+   "h": 150
+  },
+  {
+   "index": 10,
+   "file": "particles/particlesThree/particlesThree_10.png",
+   "box": [
+    336,
+    336,
+    462,
+    494
+   ],
+   "w": 126,
+   "h": 158
+  },
+  {
+   "index": 11,
+   "file": "particles/particlesThree/particlesThree_11.png",
+   "box": [
+    500,
+    312,
+    604,
+    495
+   ],
+   "w": 104,
+   "h": 183
+  },
+  {
+   "index": 12,
+   "file": "particles/particlesThree/particlesThree_12.png",
+   "box": [
+    642,
+    324,
+    766,
+    495
+   ],
+   "w": 124,
+   "h": 171
+  },
+  {
+   "index": 13,
+   "file": "particles/particlesThree/particlesThree_13.png",
+   "box": [
+    795,
+    322,
+    921,
+    498
+   ],
+   "w": 126,
+   "h": 176
+  },
+  {
+   "index": 14,
+   "file": "particles/particlesThree/particlesThree_14.png",
+   "box": [
+    957,
+    318,
+    1074,
+    497
+   ],
+   "w": 117,
+   "h": 179
+  },
+  {
+   "index": 15,
+   "file": "particles/particlesThree/particlesThree_15.png",
+   "box": [
+    1106,
+    322,
+    1229,
+    496
+   ],
+   "w": 123,
+   "h": 174
+  },
+  {
+   "index": 16,
+   "file": "particles/particlesThree/particlesThree_16.png",
+   "box": [
+    19,
+    567,
+    151,
+    713
+   ],
+   "w": 132,
+   "h": 146
+  },
+  {
+   "index": 17,
+   "file": "particles/particlesThree/particlesThree_17.png",
+   "box": [
+    177,
+    557,
+    307,
+    711
+   ],
+   "w": 130,
+   "h": 154
+  },
+  {
+   "index": 18,
+   "file": "particles/particlesThree/particlesThree_18.png",
+   "box": [
+    335,
+    546,
+    462,
+    714
+   ],
+   "w": 127,
+   "h": 168
+  },
+  {
+   "index": 19,
+   "file": "particles/particlesThree/particlesThree_19.png",
+   "box": [
+    494,
+    545,
+    608,
+    714
+   ],
+   "w": 114,
+   "h": 169
+  },
+  {
+   "index": 20,
+   "file": "particles/particlesThree/particlesThree_20.png",
+   "box": [
+    644,
+    551,
+    763,
+    714
+   ],
+   "w": 119,
+   "h": 163
+  },
+  {
+   "index": 21,
+   "file": "particles/particlesThree/particlesThree_21.png",
+   "box": [
+    794,
+    560,
+    924,
+    714
+   ],
+   "w": 130,
+   "h": 154
+  },
+  {
+   "index": 22,
+   "file": "particles/particlesThree/particlesThree_22.png",
+   "box": [
+    953,
+    544,
+    1070,
+    714
+   ],
+   "w": 117,
+   "h": 170
+  },
+  {
+   "index": 23,
+   "file": "particles/particlesThree/particlesThree_23.png",
+   "box": [
+    1104,
+    543,
+    1230,
+    715
+   ],
+   "w": 126,
+   "h": 172
+  },
+  {
+   "index": 24,
+   "file": "particles/particlesThree/particlesThree_24.png",
+   "box": [
+    22,
+    762,
+    145,
+    935
+   ],
+   "w": 123,
+   "h": 173
+  },
+  {
+   "index": 25,
+   "file": "particles/particlesThree/particlesThree_25.png",
+   "box": [
+    182,
+    763,
+    302,
+    938
+   ],
+   "w": 120,
+   "h": 175
+  },
+  {
+   "index": 26,
+   "file": "particles/particlesThree/particlesThree_26.png",
+   "box": [
+    338,
+    766,
+    456,
+    935
+   ],
+   "w": 118,
+   "h": 169
+  },
+  {
+   "index": 27,
+   "file": "particles/particlesThree/particlesThree_27.png",
+   "box": [
+    491,
+    789,
+    613,
+    937
+   ],
+   "w": 122,
+   "h": 148
+  },
+  {
+   "index": 28,
+   "file": "particles/particlesThree/particlesThree_28.png",
+   "box": [
+    650,
+    774,
+    763,
+    935
+   ],
+   "w": 113,
+   "h": 161
+  },
+  {
+   "index": 29,
+   "file": "particles/particlesThree/particlesThree_29.png",
+   "box": [
+    794,
+    781,
+    922,
+    938
+   ],
+   "w": 128,
+   "h": 157
+  },
+  {
+   "index": 30,
+   "file": "particles/particlesThree/particlesThree_30.png",
+   "box": [
+    953,
+    784,
+    1075,
+    937
+   ],
+   "w": 122,
+   "h": 153
+  },
+  {
+   "index": 31,
+   "file": "particles/particlesThree/particlesThree_31.png",
+   "box": [
+    1106,
+    770,
+    1231,
+    941
+   ],
+   "w": 125,
+   "h": 171
+  },
+  {
+   "index": 32,
+   "file": "particles/particlesThree/particlesThree_32.png",
+   "box": [
+    16,
+    1002,
+    149,
+    1154
+   ],
+   "w": 133,
+   "h": 152
+  },
+  {
+   "index": 33,
+   "file": "particles/particlesThree/particlesThree_33.png",
+   "box": [
+    176,
+    988,
+    310,
+    1160
+   ],
+   "w": 134,
+   "h": 172
+  },
+  {
+   "index": 34,
+   "file": "particles/particlesThree/particlesThree_34.png",
+   "box": [
+    342,
+    998,
+    454,
+    1159
+   ],
+   "w": 112,
+   "h": 161
+  },
+  {
+   "index": 35,
+   "file": "particles/particlesThree/particlesThree_35.png",
+   "box": [
+    498,
+    993,
+    610,
+    1159
+   ],
+   "w": 112,
+   "h": 166
+  },
+  {
+   "index": 36,
+   "file": "particles/particlesThree/particlesThree_36.png",
+   "box": [
+    644,
+    996,
+    761,
+    1158
+   ],
+   "w": 117,
+   "h": 162
+  },
+  {
+   "index": 37,
+   "file": "particles/particlesThree/particlesThree_37.png",
+   "box": [
+    792,
+    1015,
+    927,
+    1157
+   ],
+   "w": 135,
+   "h": 142
+  },
+  {
+   "index": 38,
+   "file": "particles/particlesThree/particlesThree_38.png",
+   "box": [
+    953,
+    1009,
+    1075,
+    1159
+   ],
+   "w": 122,
+   "h": 150
+  },
+  {
+   "index": 39,
+   "file": "particles/particlesThree/particlesThree_39.png",
+   "box": [
+    1108,
+    1000,
+    1227,
+    1158
+   ],
+   "w": 119,
+   "h": 158
+  }
+ ],
+ "particles/particlesTwo": [
+  {
+   "index": 0,
+   "file": "particles/particlesTwo/particlesTwo_00.png",
+   "box": [
+    29,
+    107,
+    139,
+    318
+   ],
+   "w": 110,
+   "h": 211
+  },
+  {
+   "index": 1,
+   "file": "particles/particlesTwo/particlesTwo_01.png",
+   "box": [
+    172,
+    105,
+    310,
+    320
+   ],
+   "w": 138,
+   "h": 215
+  },
+  {
+   "index": 2,
+   "file": "particles/particlesTwo/particlesTwo_02.png",
+   "box": [
+    336,
+    99,
+    466,
+    320
+   ],
+   "w": 130,
+   "h": 221
+  },
+  {
+   "index": 3,
+   "file": "particles/particlesTwo/particlesTwo_03.png",
+   "box": [
+    500,
+    118,
+    611,
+    320
+   ],
+   "w": 111,
+   "h": 202
+  },
+  {
+   "index": 4,
+   "file": "particles/particlesTwo/particlesTwo_04.png",
+   "box": [
+    645,
+    139,
+    776,
+    319
+   ],
+   "w": 131,
+   "h": 180
+  },
+  {
+   "index": 5,
+   "file": "particles/particlesTwo/particlesTwo_05.png",
+   "box": [
+    794,
+    116,
+    930,
+    319
+   ],
+   "w": 136,
+   "h": 203
+  },
+  {
+   "index": 6,
+   "file": "particles/particlesTwo/particlesTwo_06.png",
+   "box": [
+    953,
+    126,
+    1074,
+    315
+   ],
+   "w": 121,
+   "h": 189
+  },
+  {
+   "index": 7,
+   "file": "particles/particlesTwo/particlesTwo_07.png",
+   "box": [
+    1098,
+    98,
+    1232,
+    320
+   ],
+   "w": 134,
+   "h": 222
+  },
+  {
+   "index": 8,
+   "file": "particles/particlesTwo/particlesTwo_08.png",
+   "box": [
+    20,
+    411,
+    146,
+    595
+   ],
+   "w": 126,
+   "h": 184
+  },
+  {
+   "index": 9,
+   "file": "particles/particlesTwo/particlesTwo_09.png",
+   "box": [
+    182,
+    417,
+    299,
+    591
+   ],
+   "w": 117,
+   "h": 174
+  },
+  {
+   "index": 10,
+   "file": "particles/particlesTwo/particlesTwo_10.png",
+   "box": [
+    332,
+    418,
+    466,
+    601
+   ],
+   "w": 134,
+   "h": 183
+  },
+  {
+   "index": 11,
+   "file": "particles/particlesTwo/particlesTwo_11.png",
+   "box": [
+    490,
+    398,
+    621,
+    601
+   ],
+   "w": 131,
+   "h": 203
+  },
+  {
+   "index": 12,
+   "file": "particles/particlesTwo/particlesTwo_12.png",
+   "box": [
+    647,
+    415,
+    770,
+    598
+   ],
+   "w": 123,
+   "h": 183
+  },
+  {
+   "index": 13,
+   "file": "particles/particlesTwo/particlesTwo_13.png",
+   "box": [
+    793,
+    448,
+    927,
+    594
+   ],
+   "w": 134,
+   "h": 146
+  },
+  {
+   "index": 14,
+   "file": "particles/particlesTwo/particlesTwo_14.png",
+   "box": [
+    822,
+    423,
+    897,
+    556
+   ],
+   "w": 75,
+   "h": 133
+  },
+  {
+   "index": 15,
+   "file": "particles/particlesTwo/particlesTwo_15.png",
+   "box": [
+    954,
+    413,
+    1072,
+    597
+   ],
+   "w": 118,
+   "h": 184
+  },
+  {
+   "index": 16,
+   "file": "particles/particlesTwo/particlesTwo_16.png",
+   "box": [
+    1107,
+    416,
+    1222,
+    596
+   ],
+   "w": 115,
+   "h": 180
+  },
+  {
+   "index": 17,
+   "file": "particles/particlesTwo/particlesTwo_17.png",
+   "box": [
+    20,
+    698,
+    148,
+    864
+   ],
+   "w": 128,
+   "h": 166
+  },
+  {
+   "index": 18,
+   "file": "particles/particlesTwo/particlesTwo_18.png",
+   "box": [
+    170,
+    683,
+    308,
+    868
+   ],
+   "w": 138,
+   "h": 185
+  },
+  {
+   "index": 19,
+   "file": "particles/particlesTwo/particlesTwo_19.png",
+   "box": [
+    335,
+    692,
+    465,
+    870
+   ],
+   "w": 130,
+   "h": 178
+  },
+  {
+   "index": 20,
+   "file": "particles/particlesTwo/particlesTwo_20.png",
+   "box": [
+    491,
+    688,
+    615,
+    866
+   ],
+   "w": 124,
+   "h": 178
+  },
+  {
+   "index": 21,
+   "file": "particles/particlesTwo/particlesTwo_21.png",
+   "box": [
+    640,
+    710,
+    777,
+    867
+   ],
+   "w": 137,
+   "h": 157
+  },
+  {
+   "index": 22,
+   "file": "particles/particlesTwo/particlesTwo_22.png",
+   "box": [
+    802,
+    712,
+    924,
+    857
+   ],
+   "w": 122,
+   "h": 145
+  },
+  {
+   "index": 23,
+   "file": "particles/particlesTwo/particlesTwo_23.png",
+   "box": [
+    956,
+    697,
+    1077,
+    837
+   ],
+   "w": 121,
+   "h": 140
+  },
+  {
+   "index": 24,
+   "file": "particles/particlesTwo/particlesTwo_24.png",
+   "box": [
+    968,
+    836,
+    1067,
+    865
+   ],
+   "w": 99,
+   "h": 29
+  },
+  {
+   "index": 25,
+   "file": "particles/particlesTwo/particlesTwo_25.png",
+   "box": [
+    1105,
+    701,
+    1230,
+    867
+   ],
+   "w": 125,
+   "h": 166
+  },
+  {
+   "index": 26,
+   "file": "particles/particlesTwo/particlesTwo_26.png",
+   "box": [
+    24,
+    940,
+    145,
+    1145
+   ],
+   "w": 121,
+   "h": 205
+  },
+  {
+   "index": 27,
+   "file": "particles/particlesTwo/particlesTwo_27.png",
+   "box": [
+    172,
+    958,
+    307,
+    1145
+   ],
+   "w": 135,
+   "h": 187
+  },
+  {
+   "index": 28,
+   "file": "particles/particlesTwo/particlesTwo_28.png",
+   "box": [
+    343,
+    953,
+    454,
+    1148
+   ],
+   "w": 111,
+   "h": 195
+  },
+  {
+   "index": 29,
+   "file": "particles/particlesTwo/particlesTwo_29.png",
+   "box": [
+    495,
+    968,
+    594,
+    1144
+   ],
+   "w": 99,
+   "h": 176
+  },
+  {
+   "index": 30,
+   "file": "particles/particlesTwo/particlesTwo_30.png",
+   "box": [
+    641,
+    963,
+    771,
+    1145
+   ],
+   "w": 130,
+   "h": 182
+  },
+  {
+   "index": 31,
+   "file": "particles/particlesTwo/particlesTwo_31.png",
+   "box": [
+    797,
+    953,
+    914,
+    1144
+   ],
+   "w": 117,
+   "h": 191
+  },
+  {
+   "index": 32,
+   "file": "particles/particlesTwo/particlesTwo_32.png",
+   "box": [
+    950,
+    982,
+    1072,
+    1143
+   ],
+   "w": 122,
+   "h": 161
+  },
+  {
+   "index": 33,
+   "file": "particles/particlesTwo/particlesTwo_33.png",
+   "box": [
+    1098,
+    1025,
+    1224,
+    1144
+   ],
+   "w": 126,
+   "h": 119
+  },
+  {
+   "index": 34,
+   "file": "particles/particlesTwo/particlesTwo_34.png",
+   "box": [
+    1099,
+    968,
+    1222,
+    1092
+   ],
+   "w": 123,
+   "h": 124
+  }
+ ],
+ "relics/relicsOne": [
+  {
+   "index": 0,
+   "file": "relics/relicsOne/relicsOne_00.png",
+   "box": [
+    34,
+    38,
+    183,
+    242
+   ],
+   "w": 149,
+   "h": 204
+  },
+  {
+   "index": 1,
+   "file": "relics/relicsOne/relicsOne_01.png",
+   "box": [
+    233,
+    35,
+    337,
+    248
+   ],
+   "w": 104,
+   "h": 213
+  },
+  {
+   "index": 2,
+   "file": "relics/relicsOne/relicsOne_02.png",
+   "box": [
+    393,
+    34,
+    488,
+    254
+   ],
+   "w": 95,
+   "h": 220
+  },
+  {
+   "index": 3,
+   "file": "relics/relicsOne/relicsOne_03.png",
+   "box": [
+    524,
+    49,
+    671,
+    253
+   ],
+   "w": 147,
+   "h": 204
+  },
+  {
+   "index": 4,
+   "file": "relics/relicsOne/relicsOne_04.png",
+   "box": [
+    689,
+    39,
+    813,
+    254
+   ],
+   "w": 124,
+   "h": 215
+  },
+  {
+   "index": 5,
+   "file": "relics/relicsOne/relicsOne_05.png",
+   "box": [
+    816,
+    75,
+    949,
+    241
+   ],
+   "w": 133,
+   "h": 166
+  },
+  {
+   "index": 6,
+   "file": "relics/relicsOne/relicsOne_06.png",
+   "box": [
+    974,
+    85,
+    1092,
+    232
+   ],
+   "w": 118,
+   "h": 147
+  },
+  {
+   "index": 7,
+   "file": "relics/relicsOne/relicsOne_07.png",
+   "box": [
+    1116,
+    39,
+    1224,
+    246
+   ],
+   "w": 108,
+   "h": 207
+  },
+  {
+   "index": 8,
+   "file": "relics/relicsOne/relicsOne_08.png",
+   "box": [
+    36,
+    294,
+    184,
+    499
+   ],
+   "w": 148,
+   "h": 205
+  },
+  {
+   "index": 9,
+   "file": "relics/relicsOne/relicsOne_09.png",
+   "box": [
+    203,
+    284,
+    354,
+    499
+   ],
+   "w": 151,
+   "h": 215
+  },
+  {
+   "index": 10,
+   "file": "relics/relicsOne/relicsOne_10.png",
+   "box": [
+    351,
+    307,
+    490,
+    484
+   ],
+   "w": 139,
+   "h": 177
+  },
+  {
+   "index": 11,
+   "file": "relics/relicsOne/relicsOne_11.png",
+   "box": [
+    510,
+    303,
+    662,
+    485
+   ],
+   "w": 152,
+   "h": 182
+  },
+  {
+   "index": 12,
+   "file": "relics/relicsOne/relicsOne_12.png",
+   "box": [
+    680,
+    291,
+    799,
+    487
+   ],
+   "w": 119,
+   "h": 196
+  },
+  {
+   "index": 13,
+   "file": "relics/relicsOne/relicsOne_13.png",
+   "box": [
+    838,
+    294,
+    945,
+    499
+   ],
+   "w": 107,
+   "h": 205
+  },
+  {
+   "index": 14,
+   "file": "relics/relicsOne/relicsOne_14.png",
+   "box": [
+    953,
+    356,
+    1102,
+    473
+   ],
+   "w": 149,
+   "h": 117
+  },
+  {
+   "index": 15,
+   "file": "relics/relicsOne/relicsOne_15.png",
+   "box": [
+    1128,
+    312,
+    1227,
+    494
+   ],
+   "w": 99,
+   "h": 182
+  },
+  {
+   "index": 16,
+   "file": "relics/relicsOne/relicsOne_16.png",
+   "box": [
+    28,
+    567,
+    171,
+    714
+   ],
+   "w": 143,
+   "h": 147
+  },
+  {
+   "index": 17,
+   "file": "relics/relicsOne/relicsOne_17.png",
+   "box": [
+    189,
+    568,
+    316,
+    710
+   ],
+   "w": 127,
+   "h": 142
+  },
+  {
+   "index": 18,
+   "file": "relics/relicsOne/relicsOne_18.png",
+   "box": [
+    337,
+    550,
+    486,
+    724
+   ],
+   "w": 149,
+   "h": 174
+  },
+  {
+   "index": 19,
+   "file": "relics/relicsOne/relicsOne_19.png",
+   "box": [
+    510,
+    546,
+    650,
+    731
+   ],
+   "w": 140,
+   "h": 185
+  },
+  {
+   "index": 20,
+   "file": "relics/relicsOne/relicsOne_20.png",
+   "box": [
+    674,
+    537,
+    799,
+    734
+   ],
+   "w": 125,
+   "h": 197
+  },
+  {
+   "index": 21,
+   "file": "relics/relicsOne/relicsOne_21.png",
+   "box": [
+    812,
+    539,
+    958,
+    734
+   ],
+   "w": 146,
+   "h": 195
+  },
+  {
+   "index": 22,
+   "file": "relics/relicsOne/relicsOne_22.png",
+   "box": [
+    961,
+    597,
+    1099,
+    717
+   ],
+   "w": 138,
+   "h": 120
+  },
+  {
+   "index": 23,
+   "file": "relics/relicsOne/relicsOne_23.png",
+   "box": [
+    1110,
+    542,
+    1232,
+    730
+   ],
+   "w": 122,
+   "h": 188
+  },
+  {
+   "index": 24,
+   "file": "relics/relicsOne/relicsOne_24.png",
+   "box": [
+    32,
+    762,
+    146,
+    963
+   ],
+   "w": 114,
+   "h": 201
+  },
+  {
+   "index": 25,
+   "file": "relics/relicsOne/relicsOne_25.png",
+   "box": [
+    175,
+    764,
+    294,
+    961
+   ],
+   "w": 119,
+   "h": 197
+  },
+  {
+   "index": 26,
+   "file": "relics/relicsOne/relicsOne_26.png",
+   "box": [
+    332,
+    791,
+    487,
+    938
+   ],
+   "w": 155,
+   "h": 147
+  },
+  {
+   "index": 27,
+   "file": "relics/relicsOne/relicsOne_27.png",
+   "box": [
+    514,
+    768,
+    615,
+    982
+   ],
+   "w": 101,
+   "h": 214
+  },
+  {
+   "index": 28,
+   "file": "relics/relicsOne/relicsOne_28.png",
+   "box": [
+    666,
+    787,
+    798,
+    961
+   ],
+   "w": 132,
+   "h": 174
+  },
+  {
+   "index": 29,
+   "file": "relics/relicsOne/relicsOne_29.png",
+   "box": [
+    822,
+    811,
+    945,
+    951
+   ],
+   "w": 123,
+   "h": 140
+  },
+  {
+   "index": 30,
+   "file": "relics/relicsOne/relicsOne_30.png",
+   "box": [
+    969,
+    782,
+    1081,
+    964
+   ],
+   "w": 112,
+   "h": 182
+  },
+  {
+   "index": 31,
+   "file": "relics/relicsOne/relicsOne_31.png",
+   "box": [
+    1105,
+    776,
+    1229,
+    972
+   ],
+   "w": 124,
+   "h": 196
+  },
+  {
+   "index": 32,
+   "file": "relics/relicsOne/relicsOne_32.png",
+   "box": [
+    19,
+    1013,
+    148,
+    1192
+   ],
+   "w": 129,
+   "h": 179
+  },
+  {
+   "index": 33,
+   "file": "relics/relicsOne/relicsOne_33.png",
+   "box": [
+    167,
+    1008,
+    290,
+    1203
+   ],
+   "w": 123,
+   "h": 195
+  },
+  {
+   "index": 34,
+   "file": "relics/relicsOne/relicsOne_34.png",
+   "box": [
+    334,
+    986,
+    457,
+    1208
+   ],
+   "w": 123,
+   "h": 222
+  },
+  {
+   "index": 35,
+   "file": "relics/relicsOne/relicsOne_35.png",
+   "box": [
+    494,
+    1006,
+    615,
+    1203
+   ],
+   "w": 121,
+   "h": 197
+  },
+  {
+   "index": 36,
+   "file": "relics/relicsOne/relicsOne_36.png",
+   "box": [
+    654,
+    1009,
+    789,
+    1201
+   ],
+   "w": 135,
+   "h": 192
+  },
+  {
+   "index": 37,
+   "file": "relics/relicsOne/relicsOne_37.png",
+   "box": [
+    805,
+    1004,
+    918,
+    1206
+   ],
+   "w": 113,
+   "h": 202
+  },
+  {
+   "index": 38,
+   "file": "relics/relicsOne/relicsOne_38.png",
+   "box": [
+    925,
+    1030,
+    1079,
+    1190
+   ],
+   "w": 154,
+   "h": 160
+  },
+  {
+   "index": 39,
+   "file": "relics/relicsOne/relicsOne_39.png",
+   "box": [
+    1088,
+    1046,
+    1231,
+    1195
+   ],
+   "w": 143,
+   "h": 149
+  }
+ ],
+ "relics/relicsTwo": [
+  {
+   "index": 0,
+   "file": "relics/relicsTwo/relicsTwo_00.png",
+   "box": [
+    36,
+    37,
+    163,
+    262
+   ],
+   "w": 127,
+   "h": 225
+  },
+  {
+   "index": 1,
+   "file": "relics/relicsTwo/relicsTwo_01.png",
+   "box": [
+    194,
+    54,
+    345,
+    259
+   ],
+   "w": 151,
+   "h": 205
+  },
+  {
+   "index": 2,
+   "file": "relics/relicsTwo/relicsTwo_02.png",
+   "box": [
+    366,
+    44,
+    505,
+    255
+   ],
+   "w": 139,
+   "h": 211
+  },
+  {
+   "index": 3,
+   "file": "relics/relicsTwo/relicsTwo_03.png",
+   "box": [
+    530,
+    50,
+    650,
+    261
+   ],
+   "w": 120,
+   "h": 211
+  },
+  {
+   "index": 4,
+   "file": "relics/relicsTwo/relicsTwo_04.png",
+   "box": [
+    677,
+    70,
+    823,
+    247
+   ],
+   "w": 146,
+   "h": 177
+  },
+  {
+   "index": 5,
+   "file": "relics/relicsTwo/relicsTwo_05.png",
+   "box": [
+    854,
+    39,
+    956,
+    261
+   ],
+   "w": 102,
+   "h": 222
+  },
+  {
+   "index": 6,
+   "file": "relics/relicsTwo/relicsTwo_06.png",
+   "box": [
+    982,
+    48,
+    1073,
+    271
+   ],
+   "w": 91,
+   "h": 223
+  },
+  {
+   "index": 7,
+   "file": "relics/relicsTwo/relicsTwo_07.png",
+   "box": [
+    1089,
+    119,
+    1231,
+    251
+   ],
+   "w": 142,
+   "h": 132
+  },
+  {
+   "index": 8,
+   "file": "relics/relicsTwo/relicsTwo_08.png",
+   "box": [
+    50,
+    290,
+    144,
+    507
+   ],
+   "w": 94,
+   "h": 217
+  },
+  {
+   "index": 9,
+   "file": "relics/relicsTwo/relicsTwo_09.png",
+   "box": [
+    175,
+    314,
+    318,
+    497
+   ],
+   "w": 143,
+   "h": 183
+  },
+  {
+   "index": 10,
+   "file": "relics/relicsTwo/relicsTwo_10.png",
+   "box": [
+    339,
+    334,
+    489,
+    472
+   ],
+   "w": 150,
+   "h": 138
+  },
+  {
+   "index": 11,
+   "file": "relics/relicsTwo/relicsTwo_11.png",
+   "box": [
+    533,
+    298,
+    627,
+    485
+   ],
+   "w": 94,
+   "h": 187
+  },
+  {
+   "index": 12,
+   "file": "relics/relicsTwo/relicsTwo_12.png",
+   "box": [
+    659,
+    305,
+    778,
+    504
+   ],
+   "w": 119,
+   "h": 199
+  },
+  {
+   "index": 13,
+   "file": "relics/relicsTwo/relicsTwo_13.png",
+   "box": [
+    806,
+    309,
+    945,
+    513
+   ],
+   "w": 139,
+   "h": 204
+  },
+  {
+   "index": 14,
+   "file": "relics/relicsTwo/relicsTwo_14.png",
+   "box": [
+    978,
+    301,
+    1066,
+    503
+   ],
+   "w": 88,
+   "h": 202
+  },
+  {
+   "index": 15,
+   "file": "relics/relicsTwo/relicsTwo_15.png",
+   "box": [
+    1098,
+    290,
+    1228,
+    503
+   ],
+   "w": 130,
+   "h": 213
+  },
+  {
+   "index": 16,
+   "file": "relics/relicsTwo/relicsTwo_16.png",
+   "box": [
+    19,
+    582,
+    173,
+    717
+   ],
+   "w": 154,
+   "h": 135
+  },
+  {
+   "index": 17,
+   "file": "relics/relicsTwo/relicsTwo_17.png",
+   "box": [
+    197,
+    547,
+    322,
+    725
+   ],
+   "w": 125,
+   "h": 178
+  },
+  {
+   "index": 18,
+   "file": "relics/relicsTwo/relicsTwo_18.png",
+   "box": [
+    334,
+    539,
+    486,
+    736
+   ],
+   "w": 152,
+   "h": 197
+  },
+  {
+   "index": 19,
+   "file": "relics/relicsTwo/relicsTwo_19.png",
+   "box": [
+    495,
+    540,
+    643,
+    738
+   ],
+   "w": 148,
+   "h": 198
+  },
+  {
+   "index": 20,
+   "file": "relics/relicsTwo/relicsTwo_20.png",
+   "box": [
+    670,
+    548,
+    796,
+    730
+   ],
+   "w": 126,
+   "h": 182
+  },
+  {
+   "index": 21,
+   "file": "relics/relicsTwo/relicsTwo_21.png",
+   "box": [
+    813,
+    557,
+    944,
+    742
+   ],
+   "w": 131,
+   "h": 185
+  },
+  {
+   "index": 22,
+   "file": "relics/relicsTwo/relicsTwo_22.png",
+   "box": [
+    970,
+    572,
+    1097,
+    725
+   ],
+   "w": 127,
+   "h": 153
+  },
+  {
+   "index": 23,
+   "file": "relics/relicsTwo/relicsTwo_23.png",
+   "box": [
+    1115,
+    540,
+    1202,
+    744
+   ],
+   "w": 87,
+   "h": 204
+  },
+  {
+   "index": 24,
+   "file": "relics/relicsTwo/relicsTwo_24.png",
+   "box": [
+    24,
+    768,
+    168,
+    965
+   ],
+   "w": 144,
+   "h": 197
+  },
+  {
+   "index": 25,
+   "file": "relics/relicsTwo/relicsTwo_25.png",
+   "box": [
+    190,
+    774,
+    290,
+    972
+   ],
+   "w": 100,
+   "h": 198
+  },
+  {
+   "index": 26,
+   "file": "relics/relicsTwo/relicsTwo_26.png",
+   "box": [
+    330,
+    783,
+    429,
+    977
+   ],
+   "w": 99,
+   "h": 194
+  },
+  {
+   "index": 27,
+   "file": "relics/relicsTwo/relicsTwo_27.png",
+   "box": [
+    471,
+    811,
+    637,
+    967
+   ],
+   "w": 166,
+   "h": 156
+  },
+  {
+   "index": 28,
+   "file": "relics/relicsTwo/relicsTwo_28.png",
+   "box": [
+    667,
+    766,
+    757,
+    981
+   ],
+   "w": 90,
+   "h": 215
+  },
+  {
+   "index": 29,
+   "file": "relics/relicsTwo/relicsTwo_29.png",
+   "box": [
+    789,
+    810,
+    944,
+    942
+   ],
+   "w": 155,
+   "h": 132
+  },
+  {
+   "index": 30,
+   "file": "relics/relicsTwo/relicsTwo_30.png",
+   "box": [
+    984,
+    765,
+    1063,
+    981
+   ],
+   "w": 79,
+   "h": 216
+  },
+  {
+   "index": 31,
+   "file": "relics/relicsTwo/relicsTwo_31.png",
+   "box": [
+    1115,
+    779,
+    1204,
+    977
+   ],
+   "w": 89,
+   "h": 198
+  },
+  {
+   "index": 32,
+   "file": "relics/relicsTwo/relicsTwo_32.png",
+   "box": [
+    16,
+    1018,
+    155,
+    1198
+   ],
+   "w": 139,
+   "h": 180
+  },
+  {
+   "index": 33,
+   "file": "relics/relicsTwo/relicsTwo_33.png",
+   "box": [
+    199,
+    1009,
+    284,
+    1213
+   ],
+   "w": 85,
+   "h": 204
+  },
+  {
+   "index": 34,
+   "file": "relics/relicsTwo/relicsTwo_34.png",
+   "box": [
+    322,
+    1015,
+    457,
+    1200
+   ],
+   "w": 135,
+   "h": 185
+  },
+  {
+   "index": 35,
+   "file": "relics/relicsTwo/relicsTwo_35.png",
+   "box": [
+    492,
+    1012,
+    573,
+    1211
+   ],
+   "w": 81,
+   "h": 199
+  },
+  {
+   "index": 36,
+   "file": "relics/relicsTwo/relicsTwo_36.png",
+   "box": [
+    621,
+    1025,
+    757,
+    1203
+   ],
+   "w": 136,
+   "h": 178
+  },
+  {
+   "index": 37,
+   "file": "relics/relicsTwo/relicsTwo_37.png",
+   "box": [
+    805,
+    1004,
+    893,
+    1202
+   ],
+   "w": 88,
+   "h": 198
+  },
+  {
+   "index": 38,
+   "file": "relics/relicsTwo/relicsTwo_38.png",
+   "box": [
+    935,
+    1020,
+    1058,
+    1214
+   ],
+   "w": 123,
+   "h": 194
+  },
+  {
+   "index": 39,
+   "file": "relics/relicsTwo/relicsTwo_39.png",
+   "box": [
+    1087,
+    1018,
+    1200,
+    1192
+   ],
+   "w": 113,
+   "h": 174
+  }
+ ],
+ "ui/uiSetFour": [
+  {
+   "index": 0,
+   "file": "ui/uiSetFour/uiSetFour_00.png",
+   "box": [
+    28,
+    129,
+    147,
+    257
+   ],
+   "w": 119,
+   "h": 128
+  },
+  {
+   "index": 1,
+   "file": "ui/uiSetFour/uiSetFour_01.png",
+   "box": [
+    195,
+    126,
+    319,
+    256
+   ],
+   "w": 124,
+   "h": 130
+  },
+  {
+   "index": 2,
+   "file": "ui/uiSetFour/uiSetFour_02.png",
+   "box": [
+    361,
+    140,
+    464,
+    245
+   ],
+   "w": 103,
+   "h": 105
+  },
+  {
+   "index": 3,
+   "file": "ui/uiSetFour/uiSetFour_03.png",
+   "box": [
+    508,
+    142,
+    611,
+    246
+   ],
+   "w": 103,
+   "h": 104
+  },
+  {
+   "index": 4,
+   "file": "ui/uiSetFour/uiSetFour_04.png",
+   "box": [
+    646,
+    162,
+    791,
+    236
+   ],
+   "w": 145,
+   "h": 74
+  },
+  {
+   "index": 5,
+   "file": "ui/uiSetFour/uiSetFour_05.png",
+   "box": [
+    824,
+    162,
+    970,
+    236
+   ],
+   "w": 146,
+   "h": 74
+  },
+  {
+   "index": 6,
+   "file": "ui/uiSetFour/uiSetFour_06.png",
+   "box": [
+    1002,
+    166,
+    1104,
+    239
+   ],
+   "w": 102,
+   "h": 73
+  },
+  {
+   "index": 7,
+   "file": "ui/uiSetFour/uiSetFour_07.png",
+   "box": [
+    1149,
+    161,
+    1219,
+    231
+   ],
+   "w": 70,
+   "h": 70
+  },
+  {
+   "index": 8,
+   "file": "ui/uiSetFour/uiSetFour_08.png",
+   "box": [
+    43,
+    368,
+    116,
+    442
+   ],
+   "w": 73,
+   "h": 74
+  },
+  {
+   "index": 9,
+   "file": "ui/uiSetFour/uiSetFour_09.png",
+   "box": [
+    170,
+    347,
+    253,
+    464
+   ],
+   "w": 83,
+   "h": 117
+  },
+  {
+   "index": 10,
+   "file": "ui/uiSetFour/uiSetFour_10.png",
+   "box": [
+    349,
+    346,
+    432,
+    464
+   ],
+   "w": 83,
+   "h": 118
+  },
+  {
+   "index": 11,
+   "file": "ui/uiSetFour/uiSetFour_11.png",
+   "box": [
+    471,
+    334,
+    605,
+    468
+   ],
+   "w": 134,
+   "h": 134
+  },
+  {
+   "index": 12,
+   "file": "ui/uiSetFour/uiSetFour_12.png",
+   "box": [
+    651,
+    351,
+    766,
+    470
+   ],
+   "w": 115,
+   "h": 119
+  },
+  {
+   "index": 13,
+   "file": "ui/uiSetFour/uiSetFour_13.png",
+   "box": [
+    806,
+    342,
+    918,
+    472
+   ],
+   "w": 112,
+   "h": 130
+  },
+  {
+   "index": 14,
+   "file": "ui/uiSetFour/uiSetFour_14.png",
+   "box": [
+    964,
+    347,
+    1079,
+    468
+   ],
+   "w": 115,
+   "h": 121
+  },
+  {
+   "index": 15,
+   "file": "ui/uiSetFour/uiSetFour_15.png",
+   "box": [
+    1112,
+    350,
+    1231,
+    471
+   ],
+   "w": 119,
+   "h": 121
+  },
+  {
+   "index": 16,
+   "file": "ui/uiSetFour/uiSetFour_16.png",
+   "box": [
+    19,
+    561,
+    143,
+    688
+   ],
+   "w": 124,
+   "h": 127
+  },
+  {
+   "index": 17,
+   "file": "ui/uiSetFour/uiSetFour_17.png",
+   "box": [
+    174,
+    565,
+    296,
+    690
+   ],
+   "w": 122,
+   "h": 125
+  },
+  {
+   "index": 18,
+   "file": "ui/uiSetFour/uiSetFour_18.png",
+   "box": [
+    331,
+    566,
+    452,
+    690
+   ],
+   "w": 121,
+   "h": 124
+  },
+  {
+   "index": 19,
+   "file": "ui/uiSetFour/uiSetFour_19.png",
+   "box": [
+    485,
+    564,
+    608,
+    690
+   ],
+   "w": 123,
+   "h": 126
+  },
+  {
+   "index": 20,
+   "file": "ui/uiSetFour/uiSetFour_20.png",
+   "box": [
+    644,
+    564,
+    767,
+    692
+   ],
+   "w": 123,
+   "h": 128
+  },
+  {
+   "index": 21,
+   "file": "ui/uiSetFour/uiSetFour_21.png",
+   "box": [
+    817,
+    550,
+    918,
+    705
+   ],
+   "w": 101,
+   "h": 155
+  },
+  {
+   "index": 22,
+   "file": "ui/uiSetFour/uiSetFour_22.png",
+   "box": [
+    968,
+    553,
+    1068,
+    709
+   ],
+   "w": 100,
+   "h": 156
+  },
+  {
+   "index": 23,
+   "file": "ui/uiSetFour/uiSetFour_23.png",
+   "box": [
+    1118,
+    563,
+    1225,
+    710
+   ],
+   "w": 107,
+   "h": 147
+  },
+  {
+   "index": 24,
+   "file": "ui/uiSetFour/uiSetFour_24.png",
+   "box": [
+    18,
+    772,
+    146,
+    929
+   ],
+   "w": 128,
+   "h": 157
+  },
+  {
+   "index": 25,
+   "file": "ui/uiSetFour/uiSetFour_25.png",
+   "box": [
+    170,
+    780,
+    294,
+    923
+   ],
+   "w": 124,
+   "h": 143
+  },
+  {
+   "index": 26,
+   "file": "ui/uiSetFour/uiSetFour_26.png",
+   "box": [
+    318,
+    776,
+    463,
+    925
+   ],
+   "w": 145,
+   "h": 149
+  },
+  {
+   "index": 27,
+   "file": "ui/uiSetFour/uiSetFour_27.png",
+   "box": [
+    493,
+    775,
+    603,
+    945
+   ],
+   "w": 110,
+   "h": 170
+  },
+  {
+   "index": 28,
+   "file": "ui/uiSetFour/uiSetFour_28.png",
+   "box": [
+    645,
+    799,
+    769,
+    924
+   ],
+   "w": 124,
+   "h": 125
+  },
+  {
+   "index": 29,
+   "file": "ui/uiSetFour/uiSetFour_29.png",
+   "box": [
+    804,
+    804,
+    928,
+    913
+   ],
+   "w": 124,
+   "h": 109
+  },
+  {
+   "index": 30,
+   "file": "ui/uiSetFour/uiSetFour_30.png",
+   "box": [
+    955,
+    775,
+    1074,
+    928
+   ],
+   "w": 119,
+   "h": 153
+  },
+  {
+   "index": 31,
+   "file": "ui/uiSetFour/uiSetFour_31.png",
+   "box": [
+    1127,
+    798,
+    1232,
+    918
+   ],
+   "w": 105,
+   "h": 120
+  },
+  {
+   "index": 32,
+   "file": "ui/uiSetFour/uiSetFour_32.png",
+   "box": [
+    8,
+    1040,
+    161,
+    1161
+   ],
+   "w": 153,
+   "h": 121
+  },
+  {
+   "index": 33,
+   "file": "ui/uiSetFour/uiSetFour_33.png",
+   "box": [
+    202,
+    1042,
+    277,
+    1126
+   ],
+   "w": 75,
+   "h": 84
+  },
+  {
+   "index": 34,
+   "file": "ui/uiSetFour/uiSetFour_34.png",
+   "box": [
+    312,
+    989,
+    417,
+    1167
+   ],
+   "w": 105,
+   "h": 178
+  },
+  {
+   "index": 35,
+   "file": "ui/uiSetFour/uiSetFour_35.png",
+   "box": [
+    447,
+    996,
+    618,
+    1176
+   ],
+   "w": 171,
+   "h": 180
+  },
+  {
+   "index": 36,
+   "file": "ui/uiSetFour/uiSetFour_36.png",
+   "box": [
+    644,
+    1020,
+    764,
+    1167
+   ],
+   "w": 120,
+   "h": 147
+  },
+  {
+   "index": 37,
+   "file": "ui/uiSetFour/uiSetFour_37.png",
+   "box": [
+    798,
+    992,
+    926,
+    1167
+   ],
+   "w": 128,
+   "h": 175
+  },
+  {
+   "index": 38,
+   "file": "ui/uiSetFour/uiSetFour_38.png",
+   "box": [
+    961,
+    1005,
+    1083,
+    1165
+   ],
+   "w": 122,
+   "h": 160
+  },
+  {
+   "index": 39,
+   "file": "ui/uiSetFour/uiSetFour_39.png",
+   "box": [
+    1110,
+    1012,
+    1232,
+    1163
+   ],
+   "w": 122,
+   "h": 151
+  }
+ ],
+ "ui/uiSetOne": [
+  {
+   "index": 0,
+   "file": "ui/uiSetOne/uiSetOne_00.png",
+   "box": [
+    37,
+    30,
+    342,
+    187
+   ],
+   "w": 305,
+   "h": 157
+  },
+  {
+   "index": 1,
+   "file": "ui/uiSetOne/uiSetOne_01.png",
+   "box": [
+    365,
+    30,
+    641,
+    186
+   ],
+   "w": 276,
+   "h": 156
+  },
+  {
+   "index": 2,
+   "file": "ui/uiSetOne/uiSetOne_02.png",
+   "box": [
+    665,
+    35,
+    935,
+    185
+   ],
+   "w": 270,
+   "h": 150
+  },
+  {
+   "index": 3,
+   "file": "ui/uiSetOne/uiSetOne_03.png",
+   "box": [
+    957,
+    32,
+    1232,
+    188
+   ],
+   "w": 275,
+   "h": 156
+  },
+  {
+   "index": 4,
+   "file": "ui/uiSetOne/uiSetOne_04.png",
+   "box": [
+    39,
+    225,
+    303,
+    349
+   ],
+   "w": 264,
+   "h": 124
+  },
+  {
+   "index": 5,
+   "file": "ui/uiSetOne/uiSetOne_05.png",
+   "box": [
+    335,
+    228,
+    583,
+    348
+   ],
+   "w": 248,
+   "h": 120
+  },
+  {
+   "index": 6,
+   "file": "ui/uiSetOne/uiSetOne_06.png",
+   "box": [
+    621,
+    229,
+    879,
+    348
+   ],
+   "w": 258,
+   "h": 119
+  },
+  {
+   "index": 7,
+   "file": "ui/uiSetOne/uiSetOne_07.png",
+   "box": [
+    923,
+    228,
+    1205,
+    348
+   ],
+   "w": 282,
+   "h": 120
+  },
+  {
+   "index": 8,
+   "file": "ui/uiSetOne/uiSetOne_08.png",
+   "box": [
+    25,
+    389,
+    158,
+    523
+   ],
+   "w": 133,
+   "h": 134
+  },
+  {
+   "index": 9,
+   "file": "ui/uiSetOne/uiSetOne_09.png",
+   "box": [
+    187,
+    389,
+    320,
+    523
+   ],
+   "w": 133,
+   "h": 134
+  },
+  {
+   "index": 10,
+   "file": "ui/uiSetOne/uiSetOne_10.png",
+   "box": [
+    348,
+    389,
+    482,
+    523
+   ],
+   "w": 134,
+   "h": 134
+  },
+  {
+   "index": 11,
+   "file": "ui/uiSetOne/uiSetOne_11.png",
+   "box": [
+    511,
+    389,
+    643,
+    523
+   ],
+   "w": 132,
+   "h": 134
+  },
+  {
+   "index": 12,
+   "file": "ui/uiSetOne/uiSetOne_12.png",
+   "box": [
+    673,
+    389,
+    804,
+    523
+   ],
+   "w": 131,
+   "h": 134
+  },
+  {
+   "index": 13,
+   "file": "ui/uiSetOne/uiSetOne_13.png",
+   "box": [
+    823,
+    391,
+    949,
+    521
+   ],
+   "w": 126,
+   "h": 130
+  },
+  {
+   "index": 14,
+   "file": "ui/uiSetOne/uiSetOne_14.png",
+   "box": [
+    963,
+    392,
+    1088,
+    521
+   ],
+   "w": 125,
+   "h": 129
+  },
+  {
+   "index": 15,
+   "file": "ui/uiSetOne/uiSetOne_15.png",
+   "box": [
+    1101,
+    392,
+    1226,
+    521
+   ],
+   "w": 125,
+   "h": 129
+  },
+  {
+   "index": 16,
+   "file": "ui/uiSetOne/uiSetOne_16.png",
+   "box": [
+    22,
+    558,
+    130,
+    678
+   ],
+   "w": 108,
+   "h": 120
+  },
+  {
+   "index": 17,
+   "file": "ui/uiSetOne/uiSetOne_17.png",
+   "box": [
+    187,
+    559,
+    296,
+    679
+   ],
+   "w": 109,
+   "h": 120
+  },
+  {
+   "index": 18,
+   "file": "ui/uiSetOne/uiSetOne_18.png",
+   "box": [
+    325,
+    560,
+    440,
+    676
+   ],
+   "w": 115,
+   "h": 116
+  },
+  {
+   "index": 19,
+   "file": "ui/uiSetOne/uiSetOne_19.png",
+   "box": [
+    483,
+    560,
+    598,
+    676
+   ],
+   "w": 115,
+   "h": 116
+  },
+  {
+   "index": 20,
+   "file": "ui/uiSetOne/uiSetOne_20.png",
+   "box": [
+    634,
+    552,
+    763,
+    689
+   ],
+   "w": 129,
+   "h": 137
+  },
+  {
+   "index": 21,
+   "file": "ui/uiSetOne/uiSetOne_21.png",
+   "box": [
+    791,
+    552,
+    921,
+    689
+   ],
+   "w": 130,
+   "h": 137
+  },
+  {
+   "index": 22,
+   "file": "ui/uiSetOne/uiSetOne_22.png",
+   "box": [
+    960,
+    561,
+    1079,
+    680
+   ],
+   "w": 119,
+   "h": 119
+  },
+  {
+   "index": 23,
+   "file": "ui/uiSetOne/uiSetOne_23.png",
+   "box": [
+    1110,
+    561,
+    1229,
+    680
+   ],
+   "w": 119,
+   "h": 119
+  },
+  {
+   "index": 24,
+   "file": "ui/uiSetOne/uiSetOne_24.png",
+   "box": [
+    20,
+    715,
+    300,
+    802
+   ],
+   "w": 280,
+   "h": 87
+  },
+  {
+   "index": 25,
+   "file": "ui/uiSetOne/uiSetOne_25.png",
+   "box": [
+    327,
+    717,
+    609,
+    803
+   ],
+   "w": 282,
+   "h": 86
+  },
+  {
+   "index": 26,
+   "file": "ui/uiSetOne/uiSetOne_26.png",
+   "box": [
+    644,
+    720,
+    924,
+    805
+   ],
+   "w": 280,
+   "h": 85
+  },
+  {
+   "index": 27,
+   "file": "ui/uiSetOne/uiSetOne_27.png",
+   "box": [
+    955,
+    721,
+    1234,
+    807
+   ],
+   "w": 279,
+   "h": 86
+  },
+  {
+   "index": 28,
+   "file": "ui/uiSetOne/uiSetOne_28.png",
+   "box": [
+    26,
+    833,
+    135,
+    969
+   ],
+   "w": 109,
+   "h": 136
+  },
+  {
+   "index": 29,
+   "file": "ui/uiSetOne/uiSetOne_29.png",
+   "box": [
+    175,
+    834,
+    291,
+    971
+   ],
+   "w": 116,
+   "h": 137
+  },
+  {
+   "index": 30,
+   "file": "ui/uiSetOne/uiSetOne_30.png",
+   "box": [
+    333,
+    839,
+    440,
+    962
+   ],
+   "w": 107,
+   "h": 123
+  },
+  {
+   "index": 31,
+   "file": "ui/uiSetOne/uiSetOne_31.png",
+   "box": [
+    492,
+    852,
+    600,
+    963
+   ],
+   "w": 108,
+   "h": 111
+  },
+  {
+   "index": 32,
+   "file": "ui/uiSetOne/uiSetOne_32.png",
+   "box": [
+    661,
+    840,
+    769,
+    968
+   ],
+   "w": 108,
+   "h": 128
+  },
+  {
+   "index": 33,
+   "file": "ui/uiSetOne/uiSetOne_33.png",
+   "box": [
+    808,
+    844,
+    927,
+    969
+   ],
+   "w": 119,
+   "h": 125
+  },
+  {
+   "index": 34,
+   "file": "ui/uiSetOne/uiSetOne_34.png",
+   "box": [
+    967,
+    851,
+    1071,
+    963
+   ],
+   "w": 104,
+   "h": 112
+  },
+  {
+   "index": 35,
+   "file": "ui/uiSetOne/uiSetOne_35.png",
+   "box": [
+    1116,
+    848,
+    1214,
+    969
+   ],
+   "w": 98,
+   "h": 121
+  },
+  {
+   "index": 36,
+   "file": "ui/uiSetOne/uiSetOne_36.png",
+   "box": [
+    12,
+    995,
+    307,
+    1074
+   ],
+   "w": 295,
+   "h": 79
+  },
+  {
+   "index": 37,
+   "file": "ui/uiSetOne/uiSetOne_37.png",
+   "box": [
+    327,
+    1003,
+    604,
+    1068
+   ],
+   "w": 277,
+   "h": 65
+  },
+  {
+   "index": 38,
+   "file": "ui/uiSetOne/uiSetOne_38.png",
+   "box": [
+    630,
+    996,
+    912,
+    1085
+   ],
+   "w": 282,
+   "h": 89
+  },
+  {
+   "index": 39,
+   "file": "ui/uiSetOne/uiSetOne_39.png",
+   "box": [
+    930,
+    1000,
+    1231,
+    1079
+   ],
+   "w": 301,
+   "h": 79
+  },
+  {
+   "index": 40,
+   "file": "ui/uiSetOne/uiSetOne_40.png",
+   "box": [
+    19,
+    1105,
+    151,
+    1226
+   ],
+   "w": 132,
+   "h": 121
+  },
+  {
+   "index": 41,
+   "file": "ui/uiSetOne/uiSetOne_41.png",
+   "box": [
+    178,
+    1105,
+    311,
+    1226
+   ],
+   "w": 133,
+   "h": 121
+  },
+  {
+   "index": 42,
+   "file": "ui/uiSetOne/uiSetOne_42.png",
+   "box": [
+    338,
+    1104,
+    439,
+    1225
+   ],
+   "w": 101,
+   "h": 121
+  },
+  {
+   "index": 43,
+   "file": "ui/uiSetOne/uiSetOne_43.png",
+   "box": [
+    484,
+    1104,
+    604,
+    1226
+   ],
+   "w": 120,
+   "h": 122
+  },
+  {
+   "index": 44,
+   "file": "ui/uiSetOne/uiSetOne_44.png",
+   "box": [
+    635,
+    1104,
+    764,
+    1225
+   ],
+   "w": 129,
+   "h": 121
+  },
+  {
+   "index": 45,
+   "file": "ui/uiSetOne/uiSetOne_45.png",
+   "box": [
+    800,
+    1104,
+    921,
+    1226
+   ],
+   "w": 121,
+   "h": 122
+  },
+  {
+   "index": 46,
+   "file": "ui/uiSetOne/uiSetOne_46.png",
+   "box": [
+    954,
+    1105,
+    1075,
+    1225
+   ],
+   "w": 121,
+   "h": 120
+  },
+  {
+   "index": 47,
+   "file": "ui/uiSetOne/uiSetOne_47.png",
+   "box": [
+    1111,
+    1105,
+    1230,
+    1226
+   ],
+   "w": 119,
+   "h": 121
+  }
+ ],
+ "ui/uiSetThree": [
+  {
+   "index": 0,
+   "file": "ui/uiSetThree/uiSetThree_00.png",
+   "box": [
+    28,
+    49,
+    213,
+    244
+   ],
+   "w": 185,
+   "h": 195
+  },
+  {
+   "index": 1,
+   "file": "ui/uiSetThree/uiSetThree_01.png",
+   "box": [
+    235,
+    25,
+    407,
+    239
+   ],
+   "w": 172,
+   "h": 214
+  },
+  {
+   "index": 2,
+   "file": "ui/uiSetThree/uiSetThree_02.png",
+   "box": [
+    434,
+    36,
+    605,
+    229
+   ],
+   "w": 171,
+   "h": 193
+  },
+  {
+   "index": 3,
+   "file": "ui/uiSetThree/uiSetThree_03.png",
+   "box": [
+    634,
+    42,
+    901,
+    234
+   ],
+   "w": 267,
+   "h": 192
+  },
+  {
+   "index": 4,
+   "file": "ui/uiSetThree/uiSetThree_04.png",
+   "box": [
+    930,
+    39,
+    1228,
+    231
+   ],
+   "w": 298,
+   "h": 192
+  },
+  {
+   "index": 5,
+   "file": "ui/uiSetThree/uiSetThree_05.png",
+   "box": [
+    28,
+    275,
+    128,
+    454
+   ],
+   "w": 100,
+   "h": 179
+  },
+  {
+   "index": 6,
+   "file": "ui/uiSetThree/uiSetThree_06.png",
+   "box": [
+    159,
+    283,
+    287,
+    432
+   ],
+   "w": 128,
+   "h": 149
+  },
+  {
+   "index": 7,
+   "file": "ui/uiSetThree/uiSetThree_07.png",
+   "box": [
+    299,
+    270,
+    454,
+    458
+   ],
+   "w": 155,
+   "h": 188
+  },
+  {
+   "index": 8,
+   "file": "ui/uiSetThree/uiSetThree_08.png",
+   "box": [
+    473,
+    280,
+    615,
+    441
+   ],
+   "w": 142,
+   "h": 161
+  },
+  {
+   "index": 9,
+   "file": "ui/uiSetThree/uiSetThree_09.png",
+   "box": [
+    643,
+    270,
+    776,
+    473
+   ],
+   "w": 133,
+   "h": 203
+  },
+  {
+   "index": 10,
+   "file": "ui/uiSetThree/uiSetThree_10.png",
+   "box": [
+    794,
+    270,
+    933,
+    480
+   ],
+   "w": 139,
+   "h": 210
+  },
+  {
+   "index": 11,
+   "file": "ui/uiSetThree/uiSetThree_11.png",
+   "box": [
+    949,
+    260,
+    1085,
+    474
+   ],
+   "w": 136,
+   "h": 214
+  },
+  {
+   "index": 12,
+   "file": "ui/uiSetThree/uiSetThree_12.png",
+   "box": [
+    1099,
+    260,
+    1236,
+    480
+   ],
+   "w": 137,
+   "h": 220
+  },
+  {
+   "index": 13,
+   "file": "ui/uiSetThree/uiSetThree_13.png",
+   "box": [
+    24,
+    487,
+    359,
+    712
+   ],
+   "w": 335,
+   "h": 225
+  },
+  {
+   "index": 14,
+   "file": "ui/uiSetThree/uiSetThree_14.png",
+   "box": [
+    383,
+    497,
+    612,
+    713
+   ],
+   "w": 229,
+   "h": 216
+  },
+  {
+   "index": 15,
+   "file": "ui/uiSetThree/uiSetThree_15.png",
+   "box": [
+    641,
+    497,
+    872,
+    719
+   ],
+   "w": 231,
+   "h": 222
+  },
+  {
+   "index": 16,
+   "file": "ui/uiSetThree/uiSetThree_16.png",
+   "box": [
+    885,
+    488,
+    1231,
+    716
+   ],
+   "w": 346,
+   "h": 228
+  },
+  {
+   "index": 17,
+   "file": "ui/uiSetThree/uiSetThree_17.png",
+   "box": [
+    27,
+    747,
+    284,
+    905
+   ],
+   "w": 257,
+   "h": 158
+  },
+  {
+   "index": 18,
+   "file": "ui/uiSetThree/uiSetThree_18.png",
+   "box": [
+    307,
+    748,
+    620,
+    916
+   ],
+   "w": 313,
+   "h": 168
+  },
+  {
+   "index": 19,
+   "file": "ui/uiSetThree/uiSetThree_19.png",
+   "box": [
+    647,
+    734,
+    885,
+    916
+   ],
+   "w": 238,
+   "h": 182
+  },
+  {
+   "index": 20,
+   "file": "ui/uiSetThree/uiSetThree_20.png",
+   "box": [
+    904,
+    782,
+    1238,
+    863
+   ],
+   "w": 334,
+   "h": 81
+  },
+  {
+   "index": 21,
+   "file": "ui/uiSetThree/uiSetThree_21.png",
+   "box": [
+    245,
+    966,
+    592,
+    1014
+   ],
+   "w": 347,
+   "h": 48
+  },
+  {
+   "index": 22,
+   "file": "ui/uiSetThree/uiSetThree_22.png",
+   "box": [
+    637,
+    955,
+    867,
+    1030
+   ],
+   "w": 230,
+   "h": 75
+  },
+  {
+   "index": 23,
+   "file": "ui/uiSetThree/uiSetThree_23.png",
+   "box": [
+    927,
+    942,
+    1051,
+    1031
+   ],
+   "w": 124,
+   "h": 89
+  },
+  {
+   "index": 24,
+   "file": "ui/uiSetThree/uiSetThree_24.png",
+   "box": [
+    1099,
+    944,
+    1210,
+    1031
+   ],
+   "w": 111,
+   "h": 87
+  },
+  {
+   "index": 25,
+   "file": "ui/uiSetThree/uiSetThree_25.png",
+   "box": [
+    43,
+    918,
+    79,
+    1224
+   ],
+   "w": 36,
+   "h": 306
+  },
+  {
+   "index": 26,
+   "file": "ui/uiSetThree/uiSetThree_26.png",
+   "box": [
+    115,
+    942,
+    154,
+    1212
+   ],
+   "w": 39,
+   "h": 270
+  },
+  {
+   "index": 27,
+   "file": "ui/uiSetThree/uiSetThree_27.png",
+   "box": [
+    187,
+    955,
+    221,
+    1205
+   ],
+   "w": 34,
+   "h": 250
+  },
+  {
+   "index": 28,
+   "file": "ui/uiSetThree/uiSetThree_28.png",
+   "box": [
+    263,
+    1072,
+    397,
+    1211
+   ],
+   "w": 134,
+   "h": 139
+  },
+  {
+   "index": 29,
+   "file": "ui/uiSetThree/uiSetThree_29.png",
+   "box": [
+    434,
+    1071,
+    571,
+    1213
+   ],
+   "w": 137,
+   "h": 142
+  },
+  {
+   "index": 30,
+   "file": "ui/uiSetThree/uiSetThree_30.png",
+   "box": [
+    606,
+    1071,
+    743,
+    1213
+   ],
+   "w": 137,
+   "h": 142
+  },
+  {
+   "index": 31,
+   "file": "ui/uiSetThree/uiSetThree_31.png",
+   "box": [
+    776,
+    1071,
+    914,
+    1213
+   ],
+   "w": 138,
+   "h": 142
+  },
+  {
+   "index": 32,
+   "file": "ui/uiSetThree/uiSetThree_32.png",
+   "box": [
+    956,
+    1031,
+    1190,
+    1241
+   ],
+   "w": 234,
+   "h": 210
+  }
+ ],
+ "ui/uiSetTwo": [
+  {
+   "index": 0,
+   "file": "ui/uiSetTwo/uiSetTwo_00.png",
+   "box": [
+    23,
+    27,
+    271,
+    281
+   ],
+   "w": 248,
+   "h": 254
+  },
+  {
+   "index": 1,
+   "file": "ui/uiSetTwo/uiSetTwo_01.png",
+   "box": [
+    302,
+    80,
+    472,
+    258
+   ],
+   "w": 170,
+   "h": 178
+  },
+  {
+   "index": 2,
+   "file": "ui/uiSetTwo/uiSetTwo_02.png",
+   "box": [
+    524,
+    68,
+    720,
+    266
+   ],
+   "w": 196,
+   "h": 198
+  },
+  {
+   "index": 3,
+   "file": "ui/uiSetTwo/uiSetTwo_03.png",
+   "box": [
+    766,
+    62,
+    965,
+    266
+   ],
+   "w": 199,
+   "h": 204
+  },
+  {
+   "index": 4,
+   "file": "ui/uiSetTwo/uiSetTwo_04.png",
+   "box": [
+    1013,
+    66,
+    1194,
+    264
+   ],
+   "w": 181,
+   "h": 198
+  },
+  {
+   "index": 5,
+   "file": "ui/uiSetTwo/uiSetTwo_05.png",
+   "box": [
+    23,
+    317,
+    317,
+    450
+   ],
+   "w": 294,
+   "h": 133
+  },
+  {
+   "index": 6,
+   "file": "ui/uiSetTwo/uiSetTwo_06.png",
+   "box": [
+    339,
+    324,
+    613,
+    449
+   ],
+   "w": 274,
+   "h": 125
+  },
+  {
+   "index": 7,
+   "file": "ui/uiSetTwo/uiSetTwo_07.png",
+   "box": [
+    629,
+    327,
+    928,
+    443
+   ],
+   "w": 299,
+   "h": 116
+  },
+  {
+   "index": 8,
+   "file": "ui/uiSetTwo/uiSetTwo_08.png",
+   "box": [
+    945,
+    325,
+    1241,
+    448
+   ],
+   "w": 296,
+   "h": 123
+  },
+  {
+   "index": 9,
+   "file": "ui/uiSetTwo/uiSetTwo_09.png",
+   "box": [
+    34,
+    485,
+    167,
+    644
+   ],
+   "w": 133,
+   "h": 159
+  },
+  {
+   "index": 10,
+   "file": "ui/uiSetTwo/uiSetTwo_10.png",
+   "box": [
+    219,
+    484,
+    392,
+    652
+   ],
+   "w": 173,
+   "h": 168
+  },
+  {
+   "index": 11,
+   "file": "ui/uiSetTwo/uiSetTwo_11.png",
+   "box": [
+    448,
+    485,
+    594,
+    656
+   ],
+   "w": 146,
+   "h": 171
+  },
+  {
+   "index": 12,
+   "file": "ui/uiSetTwo/uiSetTwo_12.png",
+   "box": [
+    653,
+    486,
+    795,
+    669
+   ],
+   "w": 142,
+   "h": 183
+  },
+  {
+   "index": 13,
+   "file": "ui/uiSetTwo/uiSetTwo_13.png",
+   "box": [
+    835,
+    476,
+    1014,
+    650
+   ],
+   "w": 179,
+   "h": 174
+  },
+  {
+   "index": 14,
+   "file": "ui/uiSetTwo/uiSetTwo_14.png",
+   "box": [
+    1046,
+    476,
+    1225,
+    657
+   ],
+   "w": 179,
+   "h": 181
+  },
+  {
+   "index": 15,
+   "file": "ui/uiSetTwo/uiSetTwo_15.png",
+   "box": [
+    21,
+    681,
+    184,
+    841
+   ],
+   "w": 163,
+   "h": 160
+  },
+  {
+   "index": 16,
+   "file": "ui/uiSetTwo/uiSetTwo_16.png",
+   "box": [
+    222,
+    681,
+    385,
+    841
+   ],
+   "w": 163,
+   "h": 160
+  },
+  {
+   "index": 17,
+   "file": "ui/uiSetTwo/uiSetTwo_17.png",
+   "box": [
+    420,
+    681,
+    581,
+    840
+   ],
+   "w": 161,
+   "h": 159
+  },
+  {
+   "index": 18,
+   "file": "ui/uiSetTwo/uiSetTwo_18.png",
+   "box": [
+    610,
+    702,
+    788,
+    842
+   ],
+   "w": 178,
+   "h": 140
+  },
+  {
+   "index": 19,
+   "file": "ui/uiSetTwo/uiSetTwo_19.png",
+   "box": [
+    836,
+    693,
+    1012,
+    844
+   ],
+   "w": 176,
+   "h": 151
+  },
+  {
+   "index": 20,
+   "file": "ui/uiSetTwo/uiSetTwo_20.png",
+   "box": [
+    1061,
+    667,
+    1218,
+    837
+   ],
+   "w": 157,
+   "h": 170
+  },
+  {
+   "index": 21,
+   "file": "ui/uiSetTwo/uiSetTwo_21.png",
+   "box": [
+    25,
+    874,
+    183,
+    1034
+   ],
+   "w": 158,
+   "h": 160
+  },
+  {
+   "index": 22,
+   "file": "ui/uiSetTwo/uiSetTwo_22.png",
+   "box": [
+    206,
+    874,
+    354,
+    1036
+   ],
+   "w": 148,
+   "h": 162
+  },
+  {
+   "index": 23,
+   "file": "ui/uiSetTwo/uiSetTwo_23.png",
+   "box": [
+    384,
+    869,
+    530,
+    1037
+   ],
+   "w": 146,
+   "h": 168
+  },
+  {
+   "index": 24,
+   "file": "ui/uiSetTwo/uiSetTwo_24.png",
+   "box": [
+    559,
+    890,
+    686,
+    1021
+   ],
+   "w": 127,
+   "h": 131
+  },
+  {
+   "index": 25,
+   "file": "ui/uiSetTwo/uiSetTwo_25.png",
+   "box": [
+    722,
+    898,
+    831,
+    1030
+   ],
+   "w": 109,
+   "h": 132
+  },
+  {
+   "index": 26,
+   "file": "ui/uiSetTwo/uiSetTwo_26.png",
+   "box": [
+    861,
+    898,
+    971,
+    1032
+   ],
+   "w": 110,
+   "h": 134
+  },
+  {
+   "index": 27,
+   "file": "ui/uiSetTwo/uiSetTwo_27.png",
+   "box": [
+    999,
+    899,
+    1098,
+    1029
+   ],
+   "w": 99,
+   "h": 130
+  },
+  {
+   "index": 28,
+   "file": "ui/uiSetTwo/uiSetTwo_28.png",
+   "box": [
+    1127,
+    899,
+    1227,
+    1032
+   ],
+   "w": 100,
+   "h": 133
+  },
+  {
+   "index": 29,
+   "file": "ui/uiSetTwo/uiSetTwo_29.png",
+   "box": [
+    176,
+    1076,
+    306,
+    1217
+   ],
+   "w": 130,
+   "h": 141
+  },
+  {
+   "index": 30,
+   "file": "ui/uiSetTwo/uiSetTwo_30.png",
+   "box": [
+    369,
+    1076,
+    503,
+    1219
+   ],
+   "w": 134,
+   "h": 143
+  },
+  {
+   "index": 31,
+   "file": "ui/uiSetTwo/uiSetTwo_31.png",
+   "box": [
+    564,
+    1075,
+    692,
+    1219
+   ],
+   "w": 128,
+   "h": 144
+  },
+  {
+   "index": 32,
+   "file": "ui/uiSetTwo/uiSetTwo_32.png",
+   "box": [
+    756,
+    1075,
+    880,
+    1218
+   ],
+   "w": 124,
+   "h": 143
+  }
+ ],
+ "weapons/common/sheet__PM__1": [
+  {
+   "index": 0,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_00.png",
+   "box": [
+    39,
+    19,
+    172,
+    306
+   ],
+   "w": 133,
+   "h": 287
+  },
+  {
+   "index": 1,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_01.png",
+   "box": [
+    190,
+    42,
+    329,
+    298
+   ],
+   "w": 139,
+   "h": 256
+  },
+  {
+   "index": 2,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_02.png",
+   "box": [
+    365,
+    47,
+    461,
+    304
+   ],
+   "w": 96,
+   "h": 257
+  },
+  {
+   "index": 3,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_03.png",
+   "box": [
+    497,
+    46,
+    630,
+    306
+   ],
+   "w": 133,
+   "h": 260
+  },
+  {
+   "index": 4,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_04.png",
+   "box": [
+    649,
+    25,
+    771,
+    304
+   ],
+   "w": 122,
+   "h": 279
+  },
+  {
+   "index": 5,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_05.png",
+   "box": [
+    791,
+    19,
+    929,
+    301
+   ],
+   "w": 138,
+   "h": 282
+  },
+  {
+   "index": 6,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_06.png",
+   "box": [
+    955,
+    50,
+    1060,
+    299
+   ],
+   "w": 105,
+   "h": 249
+  },
+  {
+   "index": 7,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_07.png",
+   "box": [
+    1097,
+    39,
+    1205,
+    301
+   ],
+   "w": 108,
+   "h": 262
+  },
+  {
+   "index": 8,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_08.png",
+   "box": [
+    27,
+    347,
+    163,
+    614
+   ],
+   "w": 136,
+   "h": 267
+  },
+  {
+   "index": 9,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_09.png",
+   "box": [
+    185,
+    350,
+    307,
+    615
+   ],
+   "w": 122,
+   "h": 265
+  },
+  {
+   "index": 10,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_10.png",
+   "box": [
+    333,
+    355,
+    467,
+    618
+   ],
+   "w": 134,
+   "h": 263
+  },
+  {
+   "index": 11,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_11.png",
+   "box": [
+    490,
+    370,
+    627,
+    609
+   ],
+   "w": 137,
+   "h": 239
+  },
+  {
+   "index": 12,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_12.png",
+   "box": [
+    659,
+    346,
+    800,
+    617
+   ],
+   "w": 141,
+   "h": 271
+  },
+  {
+   "index": 13,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_13.png",
+   "box": [
+    816,
+    341,
+    923,
+    612
+   ],
+   "w": 107,
+   "h": 271
+  },
+  {
+   "index": 14,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_14.png",
+   "box": [
+    956,
+    350,
+    1061,
+    614
+   ],
+   "w": 105,
+   "h": 264
+  },
+  {
+   "index": 15,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_15.png",
+   "box": [
+    1100,
+    345,
+    1213,
+    613
+   ],
+   "w": 113,
+   "h": 268
+  },
+  {
+   "index": 16,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_16.png",
+   "box": [
+    33,
+    659,
+    179,
+    933
+   ],
+   "w": 146,
+   "h": 274
+  },
+  {
+   "index": 17,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_17.png",
+   "box": [
+    173,
+    658,
+    297,
+    922
+   ],
+   "w": 124,
+   "h": 264
+  },
+  {
+   "index": 18,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_18.png",
+   "box": [
+    328,
+    679,
+    487,
+    898
+   ],
+   "w": 159,
+   "h": 219
+  },
+  {
+   "index": 19,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_19.png",
+   "box": [
+    499,
+    670,
+    634,
+    917
+   ],
+   "w": 135,
+   "h": 247
+  },
+  {
+   "index": 20,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_20.png",
+   "box": [
+    667,
+    666,
+    759,
+    917
+   ],
+   "w": 92,
+   "h": 251
+  },
+  {
+   "index": 21,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_21.png",
+   "box": [
+    807,
+    653,
+    908,
+    928
+   ],
+   "w": 101,
+   "h": 275
+  },
+  {
+   "index": 22,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_22.png",
+   "box": [
+    949,
+    672,
+    1070,
+    919
+   ],
+   "w": 121,
+   "h": 247
+  },
+  {
+   "index": 23,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_23.png",
+   "box": [
+    1091,
+    659,
+    1209,
+    919
+   ],
+   "w": 118,
+   "h": 260
+  },
+  {
+   "index": 24,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_24.png",
+   "box": [
+    38,
+    954,
+    153,
+    1225
+   ],
+   "w": 115,
+   "h": 271
+  },
+  {
+   "index": 25,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_25.png",
+   "box": [
+    191,
+    991,
+    337,
+    1215
+   ],
+   "w": 146,
+   "h": 224
+  },
+  {
+   "index": 26,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_26.png",
+   "box": [
+    371,
+    976,
+    463,
+    1215
+   ],
+   "w": 92,
+   "h": 239
+  },
+  {
+   "index": 27,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_27.png",
+   "box": [
+    517,
+    983,
+    622,
+    1216
+   ],
+   "w": 105,
+   "h": 233
+  },
+  {
+   "index": 28,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_28.png",
+   "box": [
+    667,
+    968,
+    783,
+    1219
+   ],
+   "w": 116,
+   "h": 251
+  },
+  {
+   "index": 29,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_29.png",
+   "box": [
+    817,
+    956,
+    933,
+    1222
+   ],
+   "w": 116,
+   "h": 266
+  },
+  {
+   "index": 30,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_30.png",
+   "box": [
+    958,
+    958,
+    1050,
+    1222
+   ],
+   "w": 92,
+   "h": 264
+  },
+  {
+   "index": 31,
+   "file": "weapons/common/sheet__PM__1/sheet__PM__1_31.png",
+   "box": [
+    1097,
+    967,
+    1203,
+    1222
+   ],
+   "w": 106,
+   "h": 255
+  }
+ ],
+ "weapons/common/sheet__PM__2": [
+  {
+   "index": 0,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_00.png",
+   "box": [
+    43,
+    15,
+    162,
+    313
+   ],
+   "w": 119,
+   "h": 298
+  },
+  {
+   "index": 1,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_01.png",
+   "box": [
+    191,
+    21,
+    322,
+    307
+   ],
+   "w": 131,
+   "h": 286
+  },
+  {
+   "index": 2,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_02.png",
+   "box": [
+    350,
+    23,
+    460,
+    312
+   ],
+   "w": 110,
+   "h": 289
+  },
+  {
+   "index": 3,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_03.png",
+   "box": [
+    495,
+    32,
+    635,
+    313
+   ],
+   "w": 140,
+   "h": 281
+  },
+  {
+   "index": 4,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_04.png",
+   "box": [
+    657,
+    16,
+    774,
+    308
+   ],
+   "w": 117,
+   "h": 292
+  },
+  {
+   "index": 5,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_05.png",
+   "box": [
+    796,
+    16,
+    919,
+    310
+   ],
+   "w": 123,
+   "h": 294
+  },
+  {
+   "index": 6,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_06.png",
+   "box": [
+    957,
+    23,
+    1078,
+    310
+   ],
+   "w": 121,
+   "h": 287
+  },
+  {
+   "index": 7,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_07.png",
+   "box": [
+    1102,
+    22,
+    1215,
+    310
+   ],
+   "w": 113,
+   "h": 288
+  },
+  {
+   "index": 8,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_08.png",
+   "box": [
+    29,
+    356,
+    164,
+    611
+   ],
+   "w": 135,
+   "h": 255
+  },
+  {
+   "index": 9,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_09.png",
+   "box": [
+    184,
+    356,
+    311,
+    614
+   ],
+   "w": 127,
+   "h": 258
+  },
+  {
+   "index": 10,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_10.png",
+   "box": [
+    334,
+    353,
+    491,
+    611
+   ],
+   "w": 157,
+   "h": 258
+  },
+  {
+   "index": 11,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_11.png",
+   "box": [
+    495,
+    365,
+    627,
+    614
+   ],
+   "w": 132,
+   "h": 249
+  },
+  {
+   "index": 12,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_12.png",
+   "box": [
+    670,
+    341,
+    790,
+    614
+   ],
+   "w": 120,
+   "h": 273
+  },
+  {
+   "index": 13,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_13.png",
+   "box": [
+    811,
+    352,
+    934,
+    617
+   ],
+   "w": 123,
+   "h": 265
+  },
+  {
+   "index": 14,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_14.png",
+   "box": [
+    957,
+    346,
+    1062,
+    619
+   ],
+   "w": 105,
+   "h": 273
+  },
+  {
+   "index": 15,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_15.png",
+   "box": [
+    1109,
+    346,
+    1216,
+    615
+   ],
+   "w": 107,
+   "h": 269
+  },
+  {
+   "index": 16,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_16.png",
+   "box": [
+    37,
+    655,
+    166,
+    918
+   ],
+   "w": 129,
+   "h": 263
+  },
+  {
+   "index": 17,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_17.png",
+   "box": [
+    171,
+    659,
+    295,
+    918
+   ],
+   "w": 124,
+   "h": 259
+  },
+  {
+   "index": 18,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_18.png",
+   "box": [
+    333,
+    667,
+    490,
+    911
+   ],
+   "w": 157,
+   "h": 244
+  },
+  {
+   "index": 19,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_19.png",
+   "box": [
+    522,
+    667,
+    630,
+    909
+   ],
+   "w": 108,
+   "h": 242
+  },
+  {
+   "index": 20,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_20.png",
+   "box": [
+    671,
+    665,
+    763,
+    917
+   ],
+   "w": 92,
+   "h": 252
+  },
+  {
+   "index": 21,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_21.png",
+   "box": [
+    812,
+    655,
+    920,
+    921
+   ],
+   "w": 108,
+   "h": 266
+  },
+  {
+   "index": 22,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_22.png",
+   "box": [
+    956,
+    658,
+    1059,
+    921
+   ],
+   "w": 103,
+   "h": 263
+  },
+  {
+   "index": 23,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_23.png",
+   "box": [
+    1100,
+    654,
+    1205,
+    916
+   ],
+   "w": 105,
+   "h": 262
+  },
+  {
+   "index": 24,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_24.png",
+   "box": [
+    20,
+    945,
+    136,
+    1217
+   ],
+   "w": 116,
+   "h": 272
+  },
+  {
+   "index": 25,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_25.png",
+   "box": [
+    170,
+    984,
+    346,
+    1213
+   ],
+   "w": 176,
+   "h": 229
+  },
+  {
+   "index": 26,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_26.png",
+   "box": [
+    364,
+    969,
+    465,
+    1216
+   ],
+   "w": 101,
+   "h": 247
+  },
+  {
+   "index": 27,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_27.png",
+   "box": [
+    515,
+    966,
+    619,
+    1217
+   ],
+   "w": 104,
+   "h": 251
+  },
+  {
+   "index": 28,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_28.png",
+   "box": [
+    668,
+    958,
+    787,
+    1220
+   ],
+   "w": 119,
+   "h": 262
+  },
+  {
+   "index": 29,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_29.png",
+   "box": [
+    815,
+    948,
+    933,
+    1223
+   ],
+   "w": 118,
+   "h": 275
+  },
+  {
+   "index": 30,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_30.png",
+   "box": [
+    964,
+    938,
+    1076,
+    1225
+   ],
+   "w": 112,
+   "h": 287
+  },
+  {
+   "index": 31,
+   "file": "weapons/common/sheet__PM__2/sheet__PM__2_31.png",
+   "box": [
+    1102,
+    953,
+    1220,
+    1222
+   ],
+   "w": 118,
+   "h": 269
+  }
+ ],
+ "weapons/legendary/sheet__PM__1": [
+  {
+   "index": 0,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_00.png",
+   "box": [
+    21,
+    13,
+    189,
+    318
+   ],
+   "w": 168,
+   "h": 305
+  },
+  {
+   "index": 1,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_01.png",
+   "box": [
+    194,
+    13,
+    347,
+    315
+   ],
+   "w": 153,
+   "h": 302
+  },
+  {
+   "index": 2,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_02.png",
+   "box": [
+    386,
+    13,
+    494,
+    318
+   ],
+   "w": 108,
+   "h": 305
+  },
+  {
+   "index": 3,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_03.png",
+   "box": [
+    524,
+    16,
+    680,
+    318
+   ],
+   "w": 156,
+   "h": 302
+  },
+  {
+   "index": 4,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_04.png",
+   "box": [
+    684,
+    20,
+    836,
+    313
+   ],
+   "w": 152,
+   "h": 293
+  },
+  {
+   "index": 5,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_05.png",
+   "box": [
+    821,
+    13,
+    944,
+    319
+   ],
+   "w": 123,
+   "h": 306
+  },
+  {
+   "index": 6,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_06.png",
+   "box": [
+    954,
+    18,
+    1095,
+    317
+   ],
+   "w": 141,
+   "h": 299
+  },
+  {
+   "index": 7,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_07.png",
+   "box": [
+    1104,
+    13,
+    1219,
+    319
+   ],
+   "w": 115,
+   "h": 306
+  },
+  {
+   "index": 8,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_08.png",
+   "box": [
+    17,
+    344,
+    182,
+    614
+   ],
+   "w": 165,
+   "h": 270
+  },
+  {
+   "index": 9,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_09.png",
+   "box": [
+    179,
+    356,
+    333,
+    617
+   ],
+   "w": 154,
+   "h": 261
+  },
+  {
+   "index": 10,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_10.png",
+   "box": [
+    331,
+    355,
+    474,
+    617
+   ],
+   "w": 143,
+   "h": 262
+  },
+  {
+   "index": 11,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_11.png",
+   "box": [
+    493,
+    348,
+    661,
+    615
+   ],
+   "w": 168,
+   "h": 267
+  },
+  {
+   "index": 12,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_12.png",
+   "box": [
+    670,
+    351,
+    807,
+    617
+   ],
+   "w": 137,
+   "h": 266
+  },
+  {
+   "index": 13,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_13.png",
+   "box": [
+    819,
+    342,
+    968,
+    619
+   ],
+   "w": 149,
+   "h": 277
+  },
+  {
+   "index": 14,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_14.png",
+   "box": [
+    967,
+    337,
+    1068,
+    618
+   ],
+   "w": 101,
+   "h": 281
+  },
+  {
+   "index": 15,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_15.png",
+   "box": [
+    1101,
+    338,
+    1212,
+    614
+   ],
+   "w": 111,
+   "h": 276
+  },
+  {
+   "index": 16,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_16.png",
+   "box": [
+    31,
+    646,
+    182,
+    921
+   ],
+   "w": 151,
+   "h": 275
+  },
+  {
+   "index": 17,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_17.png",
+   "box": [
+    173,
+    654,
+    303,
+    917
+   ],
+   "w": 130,
+   "h": 263
+  },
+  {
+   "index": 18,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_18.png",
+   "box": [
+    322,
+    639,
+    480,
+    919
+   ],
+   "w": 158,
+   "h": 280
+  },
+  {
+   "index": 19,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_19.png",
+   "box": [
+    499,
+    643,
+    631,
+    919
+   ],
+   "w": 132,
+   "h": 276
+  },
+  {
+   "index": 20,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_20.png",
+   "box": [
+    660,
+    633,
+    792,
+    920
+   ],
+   "w": 132,
+   "h": 287
+  },
+  {
+   "index": 21,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_21.png",
+   "box": [
+    809,
+    632,
+    951,
+    924
+   ],
+   "w": 142,
+   "h": 292
+  },
+  {
+   "index": 22,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_22.png",
+   "box": [
+    950,
+    635,
+    1074,
+    919
+   ],
+   "w": 124,
+   "h": 284
+  },
+  {
+   "index": 23,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_23.png",
+   "box": [
+    1087,
+    633,
+    1195,
+    922
+   ],
+   "w": 108,
+   "h": 289
+  },
+  {
+   "index": 24,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_24.png",
+   "box": [
+    2,
+    935,
+    148,
+    1214
+   ],
+   "w": 146,
+   "h": 279
+  },
+  {
+   "index": 25,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_25.png",
+   "box": [
+    169,
+    971,
+    351,
+    1218
+   ],
+   "w": 182,
+   "h": 247
+  },
+  {
+   "index": 26,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_26.png",
+   "box": [
+    362,
+    956,
+    482,
+    1219
+   ],
+   "w": 120,
+   "h": 263
+  },
+  {
+   "index": 27,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_27.png",
+   "box": [
+    515,
+    951,
+    629,
+    1219
+   ],
+   "w": 114,
+   "h": 268
+  },
+  {
+   "index": 28,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_28.png",
+   "box": [
+    675,
+    938,
+    794,
+    1221
+   ],
+   "w": 119,
+   "h": 283
+  },
+  {
+   "index": 29,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_29.png",
+   "box": [
+    824,
+    938,
+    949,
+    1225
+   ],
+   "w": 125,
+   "h": 287
+  },
+  {
+   "index": 30,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_30.png",
+   "box": [
+    971,
+    936,
+    1084,
+    1225
+   ],
+   "w": 113,
+   "h": 289
+  },
+  {
+   "index": 31,
+   "file": "weapons/legendary/sheet__PM__1/sheet__PM__1_31.png",
+   "box": [
+    1100,
+    945,
+    1223,
+    1224
+   ],
+   "w": 123,
+   "h": 279
+  }
+ ],
+ "weapons/legendary/sheet__PM__2": [
+  {
+   "index": 0,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_00.png",
+   "box": [
+    26,
+    16,
+    163,
+    316
+   ],
+   "w": 137,
+   "h": 300
+  },
+  {
+   "index": 1,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_01.png",
+   "box": [
+    168,
+    24,
+    322,
+    312
+   ],
+   "w": 154,
+   "h": 288
+  },
+  {
+   "index": 2,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_02.png",
+   "box": [
+    350,
+    17,
+    471,
+    316
+   ],
+   "w": 121,
+   "h": 299
+  },
+  {
+   "index": 3,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_03.png",
+   "box": [
+    491,
+    24,
+    637,
+    312
+   ],
+   "w": 146,
+   "h": 288
+  },
+  {
+   "index": 4,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_04.png",
+   "box": [
+    634,
+    17,
+    765,
+    315
+   ],
+   "w": 131,
+   "h": 298
+  },
+  {
+   "index": 5,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_05.png",
+   "box": [
+    783,
+    20,
+    966,
+    311
+   ],
+   "w": 183,
+   "h": 291
+  },
+  {
+   "index": 6,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_06.png",
+   "box": [
+    948,
+    19,
+    1087,
+    318
+   ],
+   "w": 139,
+   "h": 299
+  },
+  {
+   "index": 7,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_07.png",
+   "box": [
+    1102,
+    15,
+    1240,
+    318
+   ],
+   "w": 138,
+   "h": 303
+  },
+  {
+   "index": 8,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_08.png",
+   "box": [
+    16,
+    350,
+    149,
+    612
+   ],
+   "w": 133,
+   "h": 262
+  },
+  {
+   "index": 9,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_09.png",
+   "box": [
+    160,
+    355,
+    315,
+    615
+   ],
+   "w": 155,
+   "h": 260
+  },
+  {
+   "index": 10,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_10.png",
+   "box": [
+    292,
+    351,
+    431,
+    614
+   ],
+   "w": 139,
+   "h": 263
+  },
+  {
+   "index": 11,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_11.png",
+   "box": [
+    456,
+    346,
+    577,
+    620
+   ],
+   "w": 121,
+   "h": 274
+  },
+  {
+   "index": 12,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_12.png",
+   "box": [
+    627,
+    331,
+    726,
+    616
+   ],
+   "w": 99,
+   "h": 285
+  },
+  {
+   "index": 13,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_13.png",
+   "box": [
+    767,
+    330,
+    895,
+    620
+   ],
+   "w": 128,
+   "h": 290
+  },
+  {
+   "index": 14,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_14.png",
+   "box": [
+    929,
+    349,
+    1068,
+    620
+   ],
+   "w": 139,
+   "h": 271
+  },
+  {
+   "index": 15,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_15.png",
+   "box": [
+    1050,
+    351,
+    1232,
+    620
+   ],
+   "w": 182,
+   "h": 269
+  },
+  {
+   "index": 16,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_16.png",
+   "box": [
+    15,
+    639,
+    139,
+    917
+   ],
+   "w": 124,
+   "h": 278
+  },
+  {
+   "index": 17,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_17.png",
+   "box": [
+    159,
+    649,
+    298,
+    911
+   ],
+   "w": 139,
+   "h": 262
+  },
+  {
+   "index": 18,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_18.png",
+   "box": [
+    317,
+    668,
+    494,
+    910
+   ],
+   "w": 177,
+   "h": 242
+  },
+  {
+   "index": 19,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_19.png",
+   "box": [
+    517,
+    658,
+    660,
+    910
+   ],
+   "w": 143,
+   "h": 252
+  },
+  {
+   "index": 20,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_20.png",
+   "box": [
+    684,
+    658,
+    814,
+    913
+   ],
+   "w": 130,
+   "h": 255
+  },
+  {
+   "index": 21,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_21.png",
+   "box": [
+    833,
+    651,
+    964,
+    916
+   ],
+   "w": 131,
+   "h": 265
+  },
+  {
+   "index": 22,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_22.png",
+   "box": [
+    970,
+    646,
+    1085,
+    916
+   ],
+   "w": 115,
+   "h": 270
+  },
+  {
+   "index": 23,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_23.png",
+   "box": [
+    1111,
+    646,
+    1222,
+    915
+   ],
+   "w": 111,
+   "h": 269
+  },
+  {
+   "index": 24,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_24.png",
+   "box": [
+    12,
+    949,
+    139,
+    1226
+   ],
+   "w": 127,
+   "h": 277
+  },
+  {
+   "index": 25,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_25.png",
+   "box": [
+    147,
+    922,
+    266,
+    1226
+   ],
+   "w": 119,
+   "h": 304
+  },
+  {
+   "index": 26,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_26.png",
+   "box": [
+    304,
+    940,
+    430,
+    1226
+   ],
+   "w": 126,
+   "h": 286
+  },
+  {
+   "index": 27,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_27.png",
+   "box": [
+    466,
+    941,
+    632,
+    1226
+   ],
+   "w": 166,
+   "h": 285
+  },
+  {
+   "index": 28,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_28.png",
+   "box": [
+    646,
+    937,
+    777,
+    1226
+   ],
+   "w": 131,
+   "h": 289
+  },
+  {
+   "index": 29,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_29.png",
+   "box": [
+    796,
+    953,
+    924,
+    1223
+   ],
+   "w": 128,
+   "h": 270
+  },
+  {
+   "index": 30,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_30.png",
+   "box": [
+    943,
+    946,
+    1091,
+    1226
+   ],
+   "w": 148,
+   "h": 280
+  },
+  {
+   "index": 31,
+   "file": "weapons/legendary/sheet__PM__2/sheet__PM__2_31.png",
+   "box": [
+    1109,
+    940,
+    1227,
+    1226
+   ],
+   "w": 118,
+   "h": 286
+  }
+ ],
+ "characters/allies/creatures/sheet__PM__1": [
+  {
+   "index": 0,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_00.png",
+   "box": [
+    24,
+    163,
+    202,
+    361
+   ],
+   "w": 178,
+   "h": 198
+  },
+  {
+   "index": 1,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_01.png",
+   "box": [
+    165,
+    172,
+    334,
+    362
+   ],
+   "w": 169,
+   "h": 190
+  },
+  {
+   "index": 2,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_02.png",
+   "box": [
+    319,
+    144,
+    483,
+    368
+   ],
+   "w": 164,
+   "h": 224
+  },
+  {
+   "index": 3,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_03.png",
+   "box": [
+    488,
+    184,
+    614,
+    361
+   ],
+   "w": 126,
+   "h": 177
+  },
+  {
+   "index": 4,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_04.png",
+   "box": [
+    618,
+    145,
+    803,
+    366
+   ],
+   "w": 185,
+   "h": 221
+  },
+  {
+   "index": 5,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_05.png",
+   "box": [
+    807,
+    147,
+    939,
+    365
+   ],
+   "w": 132,
+   "h": 218
+  },
+  {
+   "index": 6,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_06.png",
+   "box": [
+    941,
+    134,
+    1091,
+    368
+   ],
+   "w": 150,
+   "h": 234
+  },
+  {
+   "index": 7,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_07.png",
+   "box": [
+    1098,
+    163,
+    1234,
+    367
+   ],
+   "w": 136,
+   "h": 204
+  },
+  {
+   "index": 8,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_08.png",
+   "box": [
+    13,
+    386,
+    177,
+    622
+   ],
+   "w": 164,
+   "h": 236
+  },
+  {
+   "index": 9,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_09.png",
+   "box": [
+    189,
+    402,
+    335,
+    618
+   ],
+   "w": 146,
+   "h": 216
+  },
+  {
+   "index": 10,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_10.png",
+   "box": [
+    350,
+    394,
+    488,
+    620
+   ],
+   "w": 138,
+   "h": 226
+  },
+  {
+   "index": 11,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_11.png",
+   "box": [
+    505,
+    438,
+    637,
+    620
+   ],
+   "w": 132,
+   "h": 182
+  },
+  {
+   "index": 12,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_12.png",
+   "box": [
+    648,
+    387,
+    787,
+    625
+   ],
+   "w": 139,
+   "h": 238
+  },
+  {
+   "index": 13,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_13.png",
+   "box": [
+    778,
+    432,
+    937,
+    618
+   ],
+   "w": 159,
+   "h": 186
+  },
+  {
+   "index": 14,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_14.png",
+   "box": [
+    944,
+    419,
+    1103,
+    619
+   ],
+   "w": 159,
+   "h": 200
+  },
+  {
+   "index": 15,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_15.png",
+   "box": [
+    1079,
+    384,
+    1239,
+    624
+   ],
+   "w": 160,
+   "h": 240
+  },
+  {
+   "index": 16,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_16.png",
+   "box": [
+    10,
+    659,
+    198,
+    858
+   ],
+   "w": 188,
+   "h": 199
+  },
+  {
+   "index": 17,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_17.png",
+   "box": [
+    171,
+    665,
+    344,
+    839
+   ],
+   "w": 173,
+   "h": 174
+  },
+  {
+   "index": 18,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_18.png",
+   "box": [
+    337,
+    695,
+    518,
+    856
+   ],
+   "w": 181,
+   "h": 161
+  },
+  {
+   "index": 19,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_19.png",
+   "box": [
+    517,
+    681,
+    667,
+    857
+   ],
+   "w": 150,
+   "h": 176
+  },
+  {
+   "index": 20,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_20.png",
+   "box": [
+    670,
+    664,
+    801,
+    856
+   ],
+   "w": 131,
+   "h": 192
+  },
+  {
+   "index": 21,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_21.png",
+   "box": [
+    814,
+    653,
+    946,
+    857
+   ],
+   "w": 132,
+   "h": 204
+  },
+  {
+   "index": 22,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_22.png",
+   "box": [
+    954,
+    673,
+    1086,
+    854
+   ],
+   "w": 132,
+   "h": 181
+  },
+  {
+   "index": 23,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_23.png",
+   "box": [
+    1078,
+    703,
+    1232,
+    854
+   ],
+   "w": 154,
+   "h": 151
+  },
+  {
+   "index": 24,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_24.png",
+   "box": [
+    22,
+    880,
+    171,
+    1092
+   ],
+   "w": 149,
+   "h": 212
+  },
+  {
+   "index": 25,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_25.png",
+   "box": [
+    165,
+    907,
+    335,
+    1091
+   ],
+   "w": 170,
+   "h": 184
+  },
+  {
+   "index": 26,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_26.png",
+   "box": [
+    328,
+    922,
+    457,
+    1086
+   ],
+   "w": 129,
+   "h": 164
+  },
+  {
+   "index": 27,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_27.png",
+   "box": [
+    476,
+    897,
+    598,
+    1092
+   ],
+   "w": 122,
+   "h": 195
+  },
+  {
+   "index": 28,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_28.png",
+   "box": [
+    613,
+    917,
+    753,
+    1091
+   ],
+   "w": 140,
+   "h": 174
+  },
+  {
+   "index": 29,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_29.png",
+   "box": [
+    773,
+    896,
+    918,
+    1093
+   ],
+   "w": 145,
+   "h": 197
+  },
+  {
+   "index": 30,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_30.png",
+   "box": [
+    925,
+    931,
+    1079,
+    1091
+   ],
+   "w": 154,
+   "h": 160
+  },
+  {
+   "index": 31,
+   "file": "characters/allies/creatures/sheet__PM__1/sheet__PM__1_31.png",
+   "box": [
+    1077,
+    913,
+    1231,
+    1090
+   ],
+   "w": 154,
+   "h": 177
+  }
+ ],
+ "characters/allies/creatures/sheet__PM__2": [
+  {
+   "index": 0,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_00.png",
+   "box": [
+    20,
+    212,
+    174,
+    371
+   ],
+   "w": 154,
+   "h": 159
+  },
+  {
+   "index": 1,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_01.png",
+   "box": [
+    175,
+    177,
+    338,
+    369
+   ],
+   "w": 163,
+   "h": 192
+  },
+  {
+   "index": 2,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_02.png",
+   "box": [
+    343,
+    161,
+    474,
+    370
+   ],
+   "w": 131,
+   "h": 209
+  },
+  {
+   "index": 3,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_03.png",
+   "box": [
+    483,
+    191,
+    629,
+    369
+   ],
+   "w": 146,
+   "h": 178
+  },
+  {
+   "index": 4,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_04.png",
+   "box": [
+    658,
+    183,
+    830,
+    371
+   ],
+   "w": 172,
+   "h": 188
+  },
+  {
+   "index": 5,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_05.png",
+   "box": [
+    854,
+    161,
+    978,
+    370
+   ],
+   "w": 124,
+   "h": 209
+  },
+  {
+   "index": 6,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_06.png",
+   "box": [
+    988,
+    185,
+    1094,
+    369
+   ],
+   "w": 106,
+   "h": 184
+  },
+  {
+   "index": 7,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_07.png",
+   "box": [
+    1115,
+    200,
+    1237,
+    369
+   ],
+   "w": 122,
+   "h": 169
+  },
+  {
+   "index": 8,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_08.png",
+   "box": [
+    9,
+    404,
+    314,
+    619
+   ],
+   "w": 305,
+   "h": 215
+  },
+  {
+   "index": 9,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_09.png",
+   "box": [
+    326,
+    437,
+    470,
+    616
+   ],
+   "w": 144,
+   "h": 179
+  },
+  {
+   "index": 10,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_10.png",
+   "box": [
+    495,
+    434,
+    637,
+    617
+   ],
+   "w": 142,
+   "h": 183
+  },
+  {
+   "index": 11,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_11.png",
+   "box": [
+    654,
+    431,
+    810,
+    618
+   ],
+   "w": 156,
+   "h": 187
+  },
+  {
+   "index": 12,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_12.png",
+   "box": [
+    812,
+    448,
+    970,
+    618
+   ],
+   "w": 158,
+   "h": 170
+  },
+  {
+   "index": 13,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_13.png",
+   "box": [
+    988,
+    467,
+    1095,
+    617
+   ],
+   "w": 107,
+   "h": 150
+  },
+  {
+   "index": 14,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_14.png",
+   "box": [
+    1101,
+    439,
+    1239,
+    620
+   ],
+   "w": 138,
+   "h": 181
+  },
+  {
+   "index": 15,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_15.png",
+   "box": [
+    13,
+    670,
+    162,
+    844
+   ],
+   "w": 149,
+   "h": 174
+  },
+  {
+   "index": 16,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_16.png",
+   "box": [
+    175,
+    660,
+    303,
+    845
+   ],
+   "w": 128,
+   "h": 185
+  },
+  {
+   "index": 17,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_17.png",
+   "box": [
+    322,
+    695,
+    485,
+    834
+   ],
+   "w": 163,
+   "h": 139
+  },
+  {
+   "index": 18,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_18.png",
+   "box": [
+    488,
+    682,
+    624,
+    844
+   ],
+   "w": 136,
+   "h": 162
+  },
+  {
+   "index": 19,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_19.png",
+   "box": [
+    652,
+    674,
+    768,
+    843
+   ],
+   "w": 116,
+   "h": 169
+  },
+  {
+   "index": 20,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_20.png",
+   "box": [
+    780,
+    668,
+    949,
+    845
+   ],
+   "w": 169,
+   "h": 177
+  },
+  {
+   "index": 21,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_21.png",
+   "box": [
+    965,
+    693,
+    1076,
+    845
+   ],
+   "w": 111,
+   "h": 152
+  },
+  {
+   "index": 22,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_22.png",
+   "box": [
+    1111,
+    684,
+    1237,
+    843
+   ],
+   "w": 126,
+   "h": 159
+  },
+  {
+   "index": 23,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_23.png",
+   "box": [
+    16,
+    918,
+    142,
+    1083
+   ],
+   "w": 126,
+   "h": 165
+  },
+  {
+   "index": 24,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_24.png",
+   "box": [
+    152,
+    910,
+    313,
+    1085
+   ],
+   "w": 161,
+   "h": 175
+  },
+  {
+   "index": 25,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_25.png",
+   "box": [
+    334,
+    906,
+    467,
+    1087
+   ],
+   "w": 133,
+   "h": 181
+  },
+  {
+   "index": 26,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_26.png",
+   "box": [
+    480,
+    892,
+    616,
+    1086
+   ],
+   "w": 136,
+   "h": 194
+  },
+  {
+   "index": 27,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_27.png",
+   "box": [
+    636,
+    933,
+    800,
+    1086
+   ],
+   "w": 164,
+   "h": 153
+  },
+  {
+   "index": 28,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_28.png",
+   "box": [
+    798,
+    891,
+    939,
+    1086
+   ],
+   "w": 141,
+   "h": 195
+  },
+  {
+   "index": 29,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_29.png",
+   "box": [
+    954,
+    903,
+    1094,
+    1087
+   ],
+   "w": 140,
+   "h": 184
+  },
+  {
+   "index": 30,
+   "file": "characters/allies/creatures/sheet__PM__2/sheet__PM__2_30.png",
+   "box": [
+    1112,
+    936,
+    1237,
+    1086
+   ],
+   "w": 125,
+   "h": 150
+  }
+ ],
+ "characters/allies/creatures/sheet__PM__3": [
+  {
+   "index": 0,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_00.png",
+   "box": [
+    14,
+    206,
+    171,
+    374
+   ],
+   "w": 157,
+   "h": 168
+  },
+  {
+   "index": 1,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_01.png",
+   "box": [
+    179,
+    221,
+    328,
+    371
+   ],
+   "w": 149,
+   "h": 150
+  },
+  {
+   "index": 2,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_02.png",
+   "box": [
+    334,
+    162,
+    469,
+    373
+   ],
+   "w": 135,
+   "h": 211
+  },
+  {
+   "index": 3,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_03.png",
+   "box": [
+    484,
+    159,
+    667,
+    373
+   ],
+   "w": 183,
+   "h": 214
+  },
+  {
+   "index": 4,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_04.png",
+   "box": [
+    646,
+    189,
+    792,
+    372
+   ],
+   "w": 146,
+   "h": 183
+  },
+  {
+   "index": 5,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_05.png",
+   "box": [
+    795,
+    222,
+    961,
+    370
+   ],
+   "w": 166,
+   "h": 148
+  },
+  {
+   "index": 6,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_06.png",
+   "box": [
+    965,
+    176,
+    1103,
+    372
+   ],
+   "w": 138,
+   "h": 196
+  },
+  {
+   "index": 7,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_07.png",
+   "box": [
+    1113,
+    186,
+    1239,
+    376
+   ],
+   "w": 126,
+   "h": 190
+  },
+  {
+   "index": 8,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_08.png",
+   "box": [
+    27,
+    416,
+    152,
+    626
+   ],
+   "w": 125,
+   "h": 210
+  },
+  {
+   "index": 9,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_09.png",
+   "box": [
+    180,
+    433,
+    309,
+    624
+   ],
+   "w": 129,
+   "h": 191
+  },
+  {
+   "index": 10,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_10.png",
+   "box": [
+    321,
+    449,
+    471,
+    621
+   ],
+   "w": 150,
+   "h": 172
+  },
+  {
+   "index": 11,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_11.png",
+   "box": [
+    458,
+    431,
+    656,
+    625
+   ],
+   "w": 198,
+   "h": 194
+  },
+  {
+   "index": 12,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_12.png",
+   "box": [
+    661,
+    444,
+    783,
+    625
+   ],
+   "w": 122,
+   "h": 181
+  },
+  {
+   "index": 13,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_13.png",
+   "box": [
+    802,
+    427,
+    946,
+    625
+   ],
+   "w": 144,
+   "h": 198
+  },
+  {
+   "index": 14,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_14.png",
+   "box": [
+    961,
+    416,
+    1065,
+    627
+   ],
+   "w": 104,
+   "h": 211
+  },
+  {
+   "index": 15,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_15.png",
+   "box": [
+    1079,
+    460,
+    1240,
+    626
+   ],
+   "w": 161,
+   "h": 166
+  },
+  {
+   "index": 16,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_16.png",
+   "box": [
+    9,
+    709,
+    164,
+    856
+   ],
+   "w": 155,
+   "h": 147
+  },
+  {
+   "index": 17,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_17.png",
+   "box": [
+    175,
+    674,
+    296,
+    861
+   ],
+   "w": 121,
+   "h": 187
+  },
+  {
+   "index": 18,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_18.png",
+   "box": [
+    295,
+    707,
+    499,
+    858
+   ],
+   "w": 204,
+   "h": 151
+  },
+  {
+   "index": 19,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_19.png",
+   "box": [
+    482,
+    678,
+    637,
+    862
+   ],
+   "w": 155,
+   "h": 184
+  },
+  {
+   "index": 20,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_20.png",
+   "box": [
+    638,
+    700,
+    790,
+    858
+   ],
+   "w": 152,
+   "h": 158
+  },
+  {
+   "index": 21,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_21.png",
+   "box": [
+    791,
+    669,
+    944,
+    859
+   ],
+   "w": 153,
+   "h": 190
+  },
+  {
+   "index": 22,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_22.png",
+   "box": [
+    957,
+    680,
+    1099,
+    859
+   ],
+   "w": 142,
+   "h": 179
+  },
+  {
+   "index": 23,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_23.png",
+   "box": [
+    1105,
+    697,
+    1240,
+    856
+   ],
+   "w": 135,
+   "h": 159
+  },
+  {
+   "index": 24,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_24.png",
+   "box": [
+    23,
+    933,
+    160,
+    1104
+   ],
+   "w": 137,
+   "h": 171
+  },
+  {
+   "index": 25,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_25.png",
+   "box": [
+    175,
+    909,
+    306,
+    1104
+   ],
+   "w": 131,
+   "h": 195
+  },
+  {
+   "index": 26,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_26.png",
+   "box": [
+    327,
+    943,
+    476,
+    1107
+   ],
+   "w": 149,
+   "h": 164
+  },
+  {
+   "index": 27,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_27.png",
+   "box": [
+    476,
+    897,
+    633,
+    1109
+   ],
+   "w": 157,
+   "h": 212
+  },
+  {
+   "index": 28,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_28.png",
+   "box": [
+    640,
+    906,
+    778,
+    1110
+   ],
+   "w": 138,
+   "h": 204
+  },
+  {
+   "index": 29,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_29.png",
+   "box": [
+    797,
+    922,
+    925,
+    1109
+   ],
+   "w": 128,
+   "h": 187
+  },
+  {
+   "index": 30,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_30.png",
+   "box": [
+    936,
+    955,
+    1096,
+    1109
+   ],
+   "w": 160,
+   "h": 154
+  },
+  {
+   "index": 31,
+   "file": "characters/allies/creatures/sheet__PM__3/sheet__PM__3_31.png",
+   "box": [
+    1094,
+    901,
+    1233,
+    1111
+   ],
+   "w": 139,
+   "h": 210
+  }
+ ],
+ "characters/allies/creatures/sheet__PM__4": [
+  {
+   "index": 0,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_00.png",
+   "box": [
+    14,
+    175,
+    164,
+    370
+   ],
+   "w": 150,
+   "h": 195
+  },
+  {
+   "index": 1,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_01.png",
+   "box": [
+    164,
+    195,
+    330,
+    370
+   ],
+   "w": 166,
+   "h": 175
+  },
+  {
+   "index": 2,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_02.png",
+   "box": [
+    330,
+    133,
+    457,
+    369
+   ],
+   "w": 127,
+   "h": 236
+  },
+  {
+   "index": 3,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_03.png",
+   "box": [
+    473,
+    175,
+    638,
+    368
+   ],
+   "w": 165,
+   "h": 193
+  },
+  {
+   "index": 4,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_04.png",
+   "box": [
+    619,
+    213,
+    792,
+    362
+   ],
+   "w": 173,
+   "h": 149
+  },
+  {
+   "index": 5,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_05.png",
+   "box": [
+    794,
+    160,
+    950,
+    369
+   ],
+   "w": 156,
+   "h": 209
+  },
+  {
+   "index": 6,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_06.png",
+   "box": [
+    943,
+    240,
+    1111,
+    370
+   ],
+   "w": 168,
+   "h": 130
+  },
+  {
+   "index": 7,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_07.png",
+   "box": [
+    1084,
+    202,
+    1231,
+    370
+   ],
+   "w": 147,
+   "h": 168
+  },
+  {
+   "index": 8,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_08.png",
+   "box": [
+    10,
+    432,
+    171,
+    617
+   ],
+   "w": 161,
+   "h": 185
+  },
+  {
+   "index": 9,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_09.png",
+   "box": [
+    176,
+    433,
+    322,
+    616
+   ],
+   "w": 146,
+   "h": 183
+  },
+  {
+   "index": 10,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_10.png",
+   "box": [
+    325,
+    450,
+    480,
+    617
+   ],
+   "w": 155,
+   "h": 167
+  },
+  {
+   "index": 11,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_11.png",
+   "box": [
+    473,
+    445,
+    623,
+    618
+   ],
+   "w": 150,
+   "h": 173
+  },
+  {
+   "index": 12,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_12.png",
+   "box": [
+    620,
+    417,
+    792,
+    619
+   ],
+   "w": 172,
+   "h": 202
+  },
+  {
+   "index": 13,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_13.png",
+   "box": [
+    792,
+    432,
+    937,
+    618
+   ],
+   "w": 145,
+   "h": 186
+  },
+  {
+   "index": 14,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_14.png",
+   "box": [
+    942,
+    451,
+    1110,
+    616
+   ],
+   "w": 168,
+   "h": 165
+  },
+  {
+   "index": 15,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_15.png",
+   "box": [
+    1124,
+    445,
+    1234,
+    618
+   ],
+   "w": 110,
+   "h": 173
+  },
+  {
+   "index": 16,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_16.png",
+   "box": [
+    15,
+    693,
+    165,
+    862
+   ],
+   "w": 150,
+   "h": 169
+  },
+  {
+   "index": 17,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_17.png",
+   "box": [
+    158,
+    683,
+    321,
+    862
+   ],
+   "w": 163,
+   "h": 179
+  },
+  {
+   "index": 18,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_18.png",
+   "box": [
+    336,
+    694,
+    480,
+    864
+   ],
+   "w": 144,
+   "h": 170
+  },
+  {
+   "index": 19,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_19.png",
+   "box": [
+    464,
+    714,
+    645,
+    852
+   ],
+   "w": 181,
+   "h": 138
+  },
+  {
+   "index": 20,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_20.png",
+   "box": [
+    635,
+    691,
+    807,
+    862
+   ],
+   "w": 172,
+   "h": 171
+  },
+  {
+   "index": 21,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_21.png",
+   "box": [
+    811,
+    692,
+    949,
+    864
+   ],
+   "w": 138,
+   "h": 172
+  },
+  {
+   "index": 22,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_22.png",
+   "box": [
+    947,
+    684,
+    1094,
+    859
+   ],
+   "w": 147,
+   "h": 175
+  },
+  {
+   "index": 23,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_23.png",
+   "box": [
+    1112,
+    706,
+    1242,
+    862
+   ],
+   "w": 130,
+   "h": 156
+  },
+  {
+   "index": 24,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_24.png",
+   "box": [
+    8,
+    946,
+    180,
+    1120
+   ],
+   "w": 172,
+   "h": 174
+  },
+  {
+   "index": 25,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_25.png",
+   "box": [
+    168,
+    914,
+    329,
+    1122
+   ],
+   "w": 161,
+   "h": 208
+  },
+  {
+   "index": 26,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_26.png",
+   "box": [
+    324,
+    931,
+    496,
+    1122
+   ],
+   "w": 172,
+   "h": 191
+  },
+  {
+   "index": 27,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_27.png",
+   "box": [
+    493,
+    920,
+    668,
+    1122
+   ],
+   "w": 175,
+   "h": 202
+  },
+  {
+   "index": 28,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_28.png",
+   "box": [
+    637,
+    944,
+    780,
+    1117
+   ],
+   "w": 143,
+   "h": 173
+  },
+  {
+   "index": 29,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_29.png",
+   "box": [
+    791,
+    937,
+    929,
+    1113
+   ],
+   "w": 138,
+   "h": 176
+  },
+  {
+   "index": 30,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_30.png",
+   "box": [
+    934,
+    905,
+    1092,
+    1118
+   ],
+   "w": 158,
+   "h": 213
+  },
+  {
+   "index": 31,
+   "file": "characters/allies/creatures/sheet__PM__4/sheet__PM__4_31.png",
+   "box": [
+    1115,
+    920,
+    1241,
+    1115
+   ],
+   "w": 126,
+   "h": 195
+  }
+ ],
+ "characters/allies/humanoids/sheet__PM__5": [
+  {
+   "index": 0,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_00.png",
+   "box": [
+    15,
+    38,
+    191,
+    287
+   ],
+   "w": 176,
+   "h": 249
+  },
+  {
+   "index": 1,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_01.png",
+   "box": [
+    189,
+    37,
+    343,
+    291
+   ],
+   "w": 154,
+   "h": 254
+  },
+  {
+   "index": 2,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_02.png",
+   "box": [
+    349,
+    30,
+    517,
+    291
+   ],
+   "w": 168,
+   "h": 261
+  },
+  {
+   "index": 3,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_03.png",
+   "box": [
+    529,
+    12,
+    666,
+    293
+   ],
+   "w": 137,
+   "h": 281
+  },
+  {
+   "index": 4,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_04.png",
+   "box": [
+    690,
+    45,
+    821,
+    292
+   ],
+   "w": 131,
+   "h": 247
+  },
+  {
+   "index": 5,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_05.png",
+   "box": [
+    825,
+    42,
+    958,
+    291
+   ],
+   "w": 133,
+   "h": 249
+  },
+  {
+   "index": 6,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_06.png",
+   "box": [
+    943,
+    30,
+    1237,
+    293
+   ],
+   "w": 294,
+   "h": 263
+  },
+  {
+   "index": 7,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_07.png",
+   "box": [
+    13,
+    356,
+    182,
+    602
+   ],
+   "w": 169,
+   "h": 246
+  },
+  {
+   "index": 8,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_08.png",
+   "box": [
+    181,
+    325,
+    322,
+    600
+   ],
+   "w": 141,
+   "h": 275
+  },
+  {
+   "index": 9,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_09.png",
+   "box": [
+    342,
+    335,
+    500,
+    604
+   ],
+   "w": 158,
+   "h": 269
+  },
+  {
+   "index": 10,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_10.png",
+   "box": [
+    500,
+    352,
+    665,
+    602
+   ],
+   "w": 165,
+   "h": 250
+  },
+  {
+   "index": 11,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_11.png",
+   "box": [
+    682,
+    343,
+    820,
+    600
+   ],
+   "w": 138,
+   "h": 257
+  },
+  {
+   "index": 12,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_12.png",
+   "box": [
+    835,
+    348,
+    974,
+    600
+   ],
+   "w": 139,
+   "h": 252
+  },
+  {
+   "index": 13,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_13.png",
+   "box": [
+    995,
+    364,
+    1088,
+    599
+   ],
+   "w": 93,
+   "h": 235
+  },
+  {
+   "index": 14,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_14.png",
+   "box": [
+    1106,
+    360,
+    1233,
+    602
+   ],
+   "w": 127,
+   "h": 242
+  },
+  {
+   "index": 15,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_15.png",
+   "box": [
+    14,
+    658,
+    174,
+    905
+   ],
+   "w": 160,
+   "h": 247
+  },
+  {
+   "index": 16,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_16.png",
+   "box": [
+    168,
+    659,
+    315,
+    905
+   ],
+   "w": 147,
+   "h": 246
+  },
+  {
+   "index": 17,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_17.png",
+   "box": [
+    330,
+    668,
+    451,
+    904
+   ],
+   "w": 121,
+   "h": 236
+  },
+  {
+   "index": 18,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_18.png",
+   "box": [
+    465,
+    645,
+    772,
+    905
+   ],
+   "w": 307,
+   "h": 260
+  },
+  {
+   "index": 19,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_19.png",
+   "box": [
+    789,
+    653,
+    938,
+    904
+   ],
+   "w": 149,
+   "h": 251
+  },
+  {
+   "index": 20,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_20.png",
+   "box": [
+    938,
+    666,
+    1087,
+    905
+   ],
+   "w": 149,
+   "h": 239
+  },
+  {
+   "index": 21,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_21.png",
+   "box": [
+    1093,
+    660,
+    1235,
+    906
+   ],
+   "w": 142,
+   "h": 246
+  },
+  {
+   "index": 22,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_22.png",
+   "box": [
+    22,
+    946,
+    143,
+    1213
+   ],
+   "w": 121,
+   "h": 267
+  },
+  {
+   "index": 23,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_23.png",
+   "box": [
+    161,
+    963,
+    293,
+    1214
+   ],
+   "w": 132,
+   "h": 251
+  },
+  {
+   "index": 24,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_24.png",
+   "box": [
+    311,
+    961,
+    467,
+    1213
+   ],
+   "w": 156,
+   "h": 252
+  },
+  {
+   "index": 25,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_25.png",
+   "box": [
+    478,
+    970,
+    619,
+    1213
+   ],
+   "w": 141,
+   "h": 243
+  },
+  {
+   "index": 26,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_26.png",
+   "box": [
+    638,
+    960,
+    768,
+    1213
+   ],
+   "w": 130,
+   "h": 253
+  },
+  {
+   "index": 27,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_27.png",
+   "box": [
+    775,
+    963,
+    938,
+    1213
+   ],
+   "w": 163,
+   "h": 250
+  },
+  {
+   "index": 28,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_28.png",
+   "box": [
+    944,
+    947,
+    1077,
+    1214
+   ],
+   "w": 133,
+   "h": 267
+  },
+  {
+   "index": 29,
+   "file": "characters/allies/humanoids/sheet__PM__5/sheet__PM__5_29.png",
+   "box": [
+    1087,
+    954,
+    1238,
+    1213
+   ],
+   "w": 151,
+   "h": 259
+  }
+ ],
+ "characters/allies/humanoids/sheet__PM__6": [
+  {
+   "index": 0,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_00.png",
+   "box": [
+    12,
+    26,
+    194,
+    311
+   ],
+   "w": 182,
+   "h": 285
+  },
+  {
+   "index": 1,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_01.png",
+   "box": [
+    208,
+    47,
+    487,
+    312
+   ],
+   "w": 279,
+   "h": 265
+  },
+  {
+   "index": 2,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_02.png",
+   "box": [
+    500,
+    17,
+    641,
+    312
+   ],
+   "w": 141,
+   "h": 295
+  },
+  {
+   "index": 3,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_03.png",
+   "box": [
+    652,
+    43,
+    788,
+    313
+   ],
+   "w": 136,
+   "h": 270
+  },
+  {
+   "index": 4,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_04.png",
+   "box": [
+    797,
+    52,
+    949,
+    311
+   ],
+   "w": 152,
+   "h": 259
+  },
+  {
+   "index": 5,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_05.png",
+   "box": [
+    952,
+    47,
+    1093,
+    310
+   ],
+   "w": 141,
+   "h": 263
+  },
+  {
+   "index": 6,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_06.png",
+   "box": [
+    1092,
+    74,
+    1234,
+    308
+   ],
+   "w": 142,
+   "h": 234
+  },
+  {
+   "index": 7,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_07.png",
+   "box": [
+    12,
+    350,
+    167,
+    611
+   ],
+   "w": 155,
+   "h": 261
+  },
+  {
+   "index": 8,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_08.png",
+   "box": [
+    186,
+    365,
+    323,
+    609
+   ],
+   "w": 137,
+   "h": 244
+  },
+  {
+   "index": 9,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_09.png",
+   "box": [
+    337,
+    341,
+    473,
+    609
+   ],
+   "w": 136,
+   "h": 268
+  },
+  {
+   "index": 10,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_10.png",
+   "box": [
+    485,
+    368,
+    618,
+    609
+   ],
+   "w": 133,
+   "h": 241
+  },
+  {
+   "index": 11,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_11.png",
+   "box": [
+    645,
+    370,
+    755,
+    611
+   ],
+   "w": 110,
+   "h": 241
+  },
+  {
+   "index": 12,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_12.png",
+   "box": [
+    784,
+    348,
+    939,
+    611
+   ],
+   "w": 155,
+   "h": 263
+  },
+  {
+   "index": 13,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_13.png",
+   "box": [
+    972,
+    357,
+    1093,
+    611
+   ],
+   "w": 121,
+   "h": 254
+  },
+  {
+   "index": 14,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_14.png",
+   "box": [
+    1112,
+    361,
+    1241,
+    611
+   ],
+   "w": 129,
+   "h": 250
+  },
+  {
+   "index": 15,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_15.png",
+   "box": [
+    29,
+    666,
+    145,
+    905
+   ],
+   "w": 116,
+   "h": 239
+  },
+  {
+   "index": 16,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_16.png",
+   "box": [
+    173,
+    640,
+    306,
+    905
+   ],
+   "w": 133,
+   "h": 265
+  },
+  {
+   "index": 17,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_17.png",
+   "box": [
+    314,
+    651,
+    624,
+    907
+   ],
+   "w": 310,
+   "h": 256
+  },
+  {
+   "index": 18,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_18.png",
+   "box": [
+    642,
+    649,
+    791,
+    903
+   ],
+   "w": 149,
+   "h": 254
+  },
+  {
+   "index": 19,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_19.png",
+   "box": [
+    818,
+    660,
+    946,
+    905
+   ],
+   "w": 128,
+   "h": 245
+  },
+  {
+   "index": 20,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_20.png",
+   "box": [
+    941,
+    661,
+    1085,
+    905
+   ],
+   "w": 144,
+   "h": 244
+  },
+  {
+   "index": 21,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_21.png",
+   "box": [
+    1104,
+    662,
+    1239,
+    906
+   ],
+   "w": 135,
+   "h": 244
+  },
+  {
+   "index": 22,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_22.png",
+   "box": [
+    13,
+    951,
+    177,
+    1202
+   ],
+   "w": 164,
+   "h": 251
+  },
+  {
+   "index": 23,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_23.png",
+   "box": [
+    174,
+    942,
+    314,
+    1202
+   ],
+   "w": 140,
+   "h": 260
+  },
+  {
+   "index": 24,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_24.png",
+   "box": [
+    329,
+    939,
+    461,
+    1202
+   ],
+   "w": 132,
+   "h": 263
+  },
+  {
+   "index": 25,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_25.png",
+   "box": [
+    460,
+    944,
+    624,
+    1203
+   ],
+   "w": 164,
+   "h": 259
+  },
+  {
+   "index": 26,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_26.png",
+   "box": [
+    644,
+    948,
+    777,
+    1204
+   ],
+   "w": 133,
+   "h": 256
+  },
+  {
+   "index": 27,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_27.png",
+   "box": [
+    798,
+    944,
+    919,
+    1203
+   ],
+   "w": 121,
+   "h": 259
+  },
+  {
+   "index": 28,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_28.png",
+   "box": [
+    930,
+    943,
+    1080,
+    1203
+   ],
+   "w": 150,
+   "h": 260
+  },
+  {
+   "index": 29,
+   "file": "characters/allies/humanoids/sheet__PM__6/sheet__PM__6_29.png",
+   "box": [
+    1102,
+    953,
+    1237,
+    1204
+   ],
+   "w": 135,
+   "h": 251
+  }
+ ],
+ "characters/allies/humanoids/sheet__PM__7": [
+  {
+   "index": 0,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_00.png",
+   "box": [
+    12,
+    58,
+    180,
+    328
+   ],
+   "w": 168,
+   "h": 270
+  },
+  {
+   "index": 1,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_01.png",
+   "box": [
+    180,
+    55,
+    332,
+    328
+   ],
+   "w": 152,
+   "h": 273
+  },
+  {
+   "index": 2,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_02.png",
+   "box": [
+    339,
+    31,
+    498,
+    328
+   ],
+   "w": 159,
+   "h": 297
+  },
+  {
+   "index": 3,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_03.png",
+   "box": [
+    504,
+    58,
+    627,
+    329
+   ],
+   "w": 123,
+   "h": 271
+  },
+  {
+   "index": 4,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_04.png",
+   "box": [
+    640,
+    63,
+    794,
+    330
+   ],
+   "w": 154,
+   "h": 267
+  },
+  {
+   "index": 5,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_05.png",
+   "box": [
+    766,
+    70,
+    944,
+    330
+   ],
+   "w": 178,
+   "h": 260
+  },
+  {
+   "index": 6,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_06.png",
+   "box": [
+    966,
+    58,
+    1238,
+    330
+   ],
+   "w": 272,
+   "h": 272
+  },
+  {
+   "index": 7,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_07.png",
+   "box": [
+    27,
+    384,
+    174,
+    634
+   ],
+   "w": 147,
+   "h": 250
+  },
+  {
+   "index": 8,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_08.png",
+   "box": [
+    189,
+    373,
+    359,
+    635
+   ],
+   "w": 170,
+   "h": 262
+  },
+  {
+   "index": 9,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_09.png",
+   "box": [
+    328,
+    365,
+    497,
+    633
+   ],
+   "w": 169,
+   "h": 268
+  },
+  {
+   "index": 10,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_10.png",
+   "box": [
+    510,
+    388,
+    651,
+    635
+   ],
+   "w": 141,
+   "h": 247
+  },
+  {
+   "index": 11,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_11.png",
+   "box": [
+    654,
+    347,
+    793,
+    634
+   ],
+   "w": 139,
+   "h": 287
+  },
+  {
+   "index": 12,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_12.png",
+   "box": [
+    802,
+    379,
+    948,
+    636
+   ],
+   "w": 146,
+   "h": 257
+  },
+  {
+   "index": 13,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_13.png",
+   "box": [
+    944,
+    383,
+    1055,
+    634
+   ],
+   "w": 111,
+   "h": 251
+  },
+  {
+   "index": 14,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_14.png",
+   "box": [
+    1059,
+    385,
+    1211,
+    635
+   ],
+   "w": 152,
+   "h": 250
+  },
+  {
+   "index": 15,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_15.png",
+   "box": [
+    8,
+    665,
+    216,
+    923
+   ],
+   "w": 208,
+   "h": 258
+  },
+  {
+   "index": 16,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_16.png",
+   "box": [
+    214,
+    683,
+    508,
+    929
+   ],
+   "w": 294,
+   "h": 246
+  },
+  {
+   "index": 17,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_17.png",
+   "box": [
+    478,
+    679,
+    657,
+    929
+   ],
+   "w": 179,
+   "h": 250
+  },
+  {
+   "index": 18,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_18.png",
+   "box": [
+    655,
+    681,
+    791,
+    930
+   ],
+   "w": 136,
+   "h": 249
+  },
+  {
+   "index": 19,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_19.png",
+   "box": [
+    800,
+    684,
+    969,
+    929
+   ],
+   "w": 169,
+   "h": 245
+  },
+  {
+   "index": 20,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_20.png",
+   "box": [
+    1089,
+    643,
+    1237,
+    933
+   ],
+   "w": 148,
+   "h": 290
+  },
+  {
+   "index": 21,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_21.png",
+   "box": [
+    41,
+    947,
+    187,
+    1211
+   ],
+   "w": 146,
+   "h": 264
+  },
+  {
+   "index": 22,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_22.png",
+   "box": [
+    206,
+    964,
+    515,
+    1212
+   ],
+   "w": 309,
+   "h": 248
+  },
+  {
+   "index": 23,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_23.png",
+   "box": [
+    515,
+    974,
+    661,
+    1209
+   ],
+   "w": 146,
+   "h": 235
+  },
+  {
+   "index": 24,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_24.png",
+   "box": [
+    683,
+    967,
+    834,
+    1211
+   ],
+   "w": 151,
+   "h": 244
+  },
+  {
+   "index": 25,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_25.png",
+   "box": [
+    877,
+    974,
+    1022,
+    1212
+   ],
+   "w": 145,
+   "h": 238
+  },
+  {
+   "index": 26,
+   "file": "characters/allies/humanoids/sheet__PM__7/sheet__PM__7_26.png",
+   "box": [
+    971,
+    671,
+    1218,
+    1212
+   ],
+   "w": 247,
+   "h": 541
+  }
+ ],
+ "characters/allies/humanoids/sheet__PM__8": [
+  {
+   "index": 0,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_00.png",
+   "box": [
+    14,
+    75,
+    336,
+    323
+   ],
+   "w": 322,
+   "h": 248
+  },
+  {
+   "index": 1,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_01.png",
+   "box": [
+    326,
+    59,
+    525,
+    324
+   ],
+   "w": 199,
+   "h": 265
+  },
+  {
+   "index": 2,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_02.png",
+   "box": [
+    528,
+    114,
+    647,
+    321
+   ],
+   "w": 119,
+   "h": 207
+  },
+  {
+   "index": 3,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_03.png",
+   "box": [
+    658,
+    41,
+    949,
+    324
+   ],
+   "w": 291,
+   "h": 283
+  },
+  {
+   "index": 4,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_04.png",
+   "box": [
+    949,
+    79,
+    1088,
+    322
+   ],
+   "w": 139,
+   "h": 243
+  },
+  {
+   "index": 5,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_05.png",
+   "box": [
+    1093,
+    57,
+    1241,
+    323
+   ],
+   "w": 148,
+   "h": 266
+  },
+  {
+   "index": 6,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_06.png",
+   "box": [
+    25,
+    355,
+    164,
+    647
+   ],
+   "w": 139,
+   "h": 292
+  },
+  {
+   "index": 7,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_07.png",
+   "box": [
+    164,
+    391,
+    337,
+    647
+   ],
+   "w": 173,
+   "h": 256
+  },
+  {
+   "index": 8,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_08.png",
+   "box": [
+    325,
+    377,
+    489,
+    648
+   ],
+   "w": 164,
+   "h": 271
+  },
+  {
+   "index": 9,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_09.png",
+   "box": [
+    495,
+    395,
+    630,
+    647
+   ],
+   "w": 135,
+   "h": 252
+  },
+  {
+   "index": 10,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_10.png",
+   "box": [
+    640,
+    369,
+    812,
+    649
+   ],
+   "w": 172,
+   "h": 280
+  },
+  {
+   "index": 11,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_11.png",
+   "box": [
+    776,
+    408,
+    926,
+    649
+   ],
+   "w": 150,
+   "h": 241
+  },
+  {
+   "index": 12,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_12.png",
+   "box": [
+    931,
+    356,
+    1081,
+    650
+   ],
+   "w": 150,
+   "h": 294
+  },
+  {
+   "index": 13,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_13.png",
+   "box": [
+    1087,
+    393,
+    1242,
+    648
+   ],
+   "w": 155,
+   "h": 255
+  },
+  {
+   "index": 14,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_14.png",
+   "box": [
+    7,
+    726,
+    166,
+    936
+   ],
+   "w": 159,
+   "h": 210
+  },
+  {
+   "index": 15,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_15.png",
+   "box": [
+    177,
+    684,
+    311,
+    941
+   ],
+   "w": 134,
+   "h": 257
+  },
+  {
+   "index": 16,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_16.png",
+   "box": [
+    312,
+    696,
+    473,
+    944
+   ],
+   "w": 161,
+   "h": 248
+  },
+  {
+   "index": 17,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_17.png",
+   "box": [
+    487,
+    686,
+    631,
+    944
+   ],
+   "w": 144,
+   "h": 258
+  },
+  {
+   "index": 18,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_18.png",
+   "box": [
+    651,
+    686,
+    943,
+    945
+   ],
+   "w": 292,
+   "h": 259
+  },
+  {
+   "index": 19,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_19.png",
+   "box": [
+    947,
+    698,
+    1076,
+    944
+   ],
+   "w": 129,
+   "h": 246
+  },
+  {
+   "index": 20,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_20.png",
+   "box": [
+    1083,
+    681,
+    1237,
+    947
+   ],
+   "w": 154,
+   "h": 266
+  },
+  {
+   "index": 21,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_21.png",
+   "box": [
+    18,
+    977,
+    181,
+    1223
+   ],
+   "w": 163,
+   "h": 246
+  },
+  {
+   "index": 22,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_22.png",
+   "box": [
+    162,
+    975,
+    324,
+    1225
+   ],
+   "w": 162,
+   "h": 250
+  },
+  {
+   "index": 23,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_23.png",
+   "box": [
+    335,
+    974,
+    631,
+    1227
+   ],
+   "w": 296,
+   "h": 253
+  },
+  {
+   "index": 24,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_24.png",
+   "box": [
+    646,
+    957,
+    783,
+    1226
+   ],
+   "w": 137,
+   "h": 269
+  },
+  {
+   "index": 25,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_25.png",
+   "box": [
+    785,
+    976,
+    936,
+    1226
+   ],
+   "w": 151,
+   "h": 250
+  },
+  {
+   "index": 26,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_26.png",
+   "box": [
+    929,
+    967,
+    1089,
+    1227
+   ],
+   "w": 160,
+   "h": 260
+  },
+  {
+   "index": 27,
+   "file": "characters/allies/humanoids/sheet__PM__8/sheet__PM__8_27.png",
+   "box": [
+    1089,
+    981,
+    1239,
+    1226
+   ],
+   "w": 150,
+   "h": 245
+  }
+ ],
+ "projectiles/sheet__PM__1": [
+  {
+   "index": 0,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_00.png",
+   "box": [
+    30,
+    28,
+    180,
+    221
+   ],
+   "w": 150,
+   "h": 193
+  },
+  {
+   "index": 1,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_01.png",
+   "box": [
+    213,
+    35,
+    338,
+    235
+   ],
+   "w": 125,
+   "h": 200
+  },
+  {
+   "index": 2,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_02.png",
+   "box": [
+    376,
+    49,
+    503,
+    219
+   ],
+   "w": 127,
+   "h": 170
+  },
+  {
+   "index": 3,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_03.png",
+   "box": [
+    534,
+    79,
+    664,
+    212
+   ],
+   "w": 130,
+   "h": 133
+  },
+  {
+   "index": 4,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_04.png",
+   "box": [
+    682,
+    41,
+    830,
+    221
+   ],
+   "w": 148,
+   "h": 180
+  },
+  {
+   "index": 5,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_05.png",
+   "box": [
+    853,
+    81,
+    968,
+    215
+   ],
+   "w": 115,
+   "h": 134
+  },
+  {
+   "index": 6,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_06.png",
+   "box": [
+    1003,
+    51,
+    1093,
+    226
+   ],
+   "w": 90,
+   "h": 175
+  },
+  {
+   "index": 7,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_07.png",
+   "box": [
+    1124,
+    54,
+    1219,
+    229
+   ],
+   "w": 95,
+   "h": 175
+  },
+  {
+   "index": 8,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_08.png",
+   "box": [
+    21,
+    270,
+    175,
+    491
+   ],
+   "w": 154,
+   "h": 221
+  },
+  {
+   "index": 9,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_09.png",
+   "box": [
+    181,
+    265,
+    339,
+    499
+   ],
+   "w": 158,
+   "h": 234
+  },
+  {
+   "index": 10,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_10.png",
+   "box": [
+    340,
+    289,
+    496,
+    493
+   ],
+   "w": 156,
+   "h": 204
+  },
+  {
+   "index": 11,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_11.png",
+   "box": [
+    519,
+    266,
+    645,
+    492
+   ],
+   "w": 126,
+   "h": 226
+  },
+  {
+   "index": 12,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_12.png",
+   "box": [
+    659,
+    279,
+    801,
+    488
+   ],
+   "w": 142,
+   "h": 209
+  },
+  {
+   "index": 13,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_13.png",
+   "box": [
+    799,
+    284,
+    945,
+    490
+   ],
+   "w": 146,
+   "h": 206
+  },
+  {
+   "index": 14,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_14.png",
+   "box": [
+    941,
+    268,
+    1095,
+    499
+   ],
+   "w": 154,
+   "h": 231
+  },
+  {
+   "index": 15,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_15.png",
+   "box": [
+    1090,
+    275,
+    1229,
+    500
+   ],
+   "w": 139,
+   "h": 225
+  },
+  {
+   "index": 16,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_16.png",
+   "box": [
+    16,
+    560,
+    152,
+    706
+   ],
+   "w": 136,
+   "h": 146
+  },
+  {
+   "index": 17,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_17.png",
+   "box": [
+    169,
+    555,
+    315,
+    725
+   ],
+   "w": 146,
+   "h": 170
+  },
+  {
+   "index": 18,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_18.png",
+   "box": [
+    341,
+    563,
+    483,
+    721
+   ],
+   "w": 142,
+   "h": 158
+  },
+  {
+   "index": 19,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_19.png",
+   "box": [
+    501,
+    543,
+    634,
+    724
+   ],
+   "w": 133,
+   "h": 181
+  },
+  {
+   "index": 20,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_20.png",
+   "box": [
+    646,
+    544,
+    779,
+    729
+   ],
+   "w": 133,
+   "h": 185
+  },
+  {
+   "index": 21,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_21.png",
+   "box": [
+    805,
+    543,
+    928,
+    726
+   ],
+   "w": 123,
+   "h": 183
+  },
+  {
+   "index": 22,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_22.png",
+   "box": [
+    951,
+    545,
+    1075,
+    726
+   ],
+   "w": 124,
+   "h": 181
+  },
+  {
+   "index": 23,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_23.png",
+   "box": [
+    1106,
+    529,
+    1227,
+    729
+   ],
+   "w": 121,
+   "h": 200
+  },
+  {
+   "index": 24,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_24.png",
+   "box": [
+    22,
+    780,
+    143,
+    969
+   ],
+   "w": 121,
+   "h": 189
+  },
+  {
+   "index": 25,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_25.png",
+   "box": [
+    172,
+    777,
+    296,
+    969
+   ],
+   "w": 124,
+   "h": 192
+  },
+  {
+   "index": 26,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_26.png",
+   "box": [
+    334,
+    767,
+    451,
+    968
+   ],
+   "w": 117,
+   "h": 201
+  },
+  {
+   "index": 27,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_27.png",
+   "box": [
+    492,
+    783,
+    613,
+    962
+   ],
+   "w": 121,
+   "h": 179
+  },
+  {
+   "index": 28,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_28.png",
+   "box": [
+    643,
+    782,
+    760,
+    966
+   ],
+   "w": 117,
+   "h": 184
+  },
+  {
+   "index": 29,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_29.png",
+   "box": [
+    796,
+    767,
+    890,
+    964
+   ],
+   "w": 94,
+   "h": 197
+  },
+  {
+   "index": 30,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_30.png",
+   "box": [
+    919,
+    773,
+    1068,
+    958
+   ],
+   "w": 149,
+   "h": 185
+  },
+  {
+   "index": 31,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_31.png",
+   "box": [
+    1074,
+    795,
+    1235,
+    965
+   ],
+   "w": 161,
+   "h": 170
+  },
+  {
+   "index": 32,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_32.png",
+   "box": [
+    30,
+    1007,
+    166,
+    1208
+   ],
+   "w": 136,
+   "h": 201
+  },
+  {
+   "index": 33,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_33.png",
+   "box": [
+    175,
+    1018,
+    314,
+    1208
+   ],
+   "w": 139,
+   "h": 190
+  },
+  {
+   "index": 34,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_34.png",
+   "box": [
+    327,
+    1014,
+    454,
+    1209
+   ],
+   "w": 127,
+   "h": 195
+  },
+  {
+   "index": 35,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_35.png",
+   "box": [
+    473,
+    1019,
+    620,
+    1207
+   ],
+   "w": 147,
+   "h": 188
+  },
+  {
+   "index": 36,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_36.png",
+   "box": [
+    629,
+    1009,
+    766,
+    1211
+   ],
+   "w": 137,
+   "h": 202
+  },
+  {
+   "index": 37,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_37.png",
+   "box": [
+    797,
+    1009,
+    889,
+    1208
+   ],
+   "w": 92,
+   "h": 199
+  },
+  {
+   "index": 38,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_38.png",
+   "box": [
+    930,
+    1017,
+    1093,
+    1206
+   ],
+   "w": 163,
+   "h": 189
+  },
+  {
+   "index": 39,
+   "file": "projectiles/sheet__PM__1/sheet__PM__1_39.png",
+   "box": [
+    1092,
+    1007,
+    1223,
+    1208
+   ],
+   "w": 131,
+   "h": 201
+  }
+ ],
+ "projectiles/sheet__PM__2": [
+  {
+   "index": 0,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_00.png",
+   "box": [
+    15,
+    63,
+    147,
+    243
+   ],
+   "w": 132,
+   "h": 180
+  },
+  {
+   "index": 1,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_01.png",
+   "box": [
+    162,
+    65,
+    334,
+    252
+   ],
+   "w": 172,
+   "h": 187
+  },
+  {
+   "index": 2,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_02.png",
+   "box": [
+    350,
+    33,
+    488,
+    253
+   ],
+   "w": 138,
+   "h": 220
+  },
+  {
+   "index": 3,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_03.png",
+   "box": [
+    508,
+    62,
+    631,
+    246
+   ],
+   "w": 123,
+   "h": 184
+  },
+  {
+   "index": 4,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_04.png",
+   "box": [
+    659,
+    69,
+    788,
+    248
+   ],
+   "w": 129,
+   "h": 179
+  },
+  {
+   "index": 5,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_05.png",
+   "box": [
+    820,
+    101,
+    953,
+    246
+   ],
+   "w": 133,
+   "h": 145
+  },
+  {
+   "index": 6,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_06.png",
+   "box": [
+    986,
+    74,
+    1088,
+    248
+   ],
+   "w": 102,
+   "h": 174
+  },
+  {
+   "index": 7,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_07.png",
+   "box": [
+    1120,
+    64,
+    1229,
+    246
+   ],
+   "w": 109,
+   "h": 182
+  },
+  {
+   "index": 8,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_08.png",
+   "box": [
+    15,
+    294,
+    168,
+    505
+   ],
+   "w": 153,
+   "h": 211
+  },
+  {
+   "index": 9,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_09.png",
+   "box": [
+    193,
+    299,
+    335,
+    516
+   ],
+   "w": 142,
+   "h": 217
+  },
+  {
+   "index": 10,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_10.png",
+   "box": [
+    341,
+    293,
+    485,
+    502
+   ],
+   "w": 144,
+   "h": 209
+  },
+  {
+   "index": 11,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_11.png",
+   "box": [
+    499,
+    294,
+    633,
+    505
+   ],
+   "w": 134,
+   "h": 211
+  },
+  {
+   "index": 12,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_12.png",
+   "box": [
+    652,
+    317,
+    784,
+    510
+   ],
+   "w": 132,
+   "h": 193
+  },
+  {
+   "index": 13,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_13.png",
+   "box": [
+    809,
+    296,
+    915,
+    512
+   ],
+   "w": 106,
+   "h": 216
+  },
+  {
+   "index": 14,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_14.png",
+   "box": [
+    954,
+    322,
+    1101,
+    508
+   ],
+   "w": 147,
+   "h": 186
+  },
+  {
+   "index": 15,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_15.png",
+   "box": [
+    1109,
+    302,
+    1226,
+    509
+   ],
+   "w": 117,
+   "h": 207
+  },
+  {
+   "index": 16,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_16.png",
+   "box": [
+    16,
+    576,
+    158,
+    734
+   ],
+   "w": 142,
+   "h": 158
+  },
+  {
+   "index": 17,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_17.png",
+   "box": [
+    179,
+    570,
+    323,
+    726
+   ],
+   "w": 144,
+   "h": 156
+  },
+  {
+   "index": 18,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_18.png",
+   "box": [
+    343,
+    603,
+    479,
+    733
+   ],
+   "w": 136,
+   "h": 130
+  },
+  {
+   "index": 19,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_19.png",
+   "box": [
+    509,
+    585,
+    641,
+    734
+   ],
+   "w": 132,
+   "h": 149
+  },
+  {
+   "index": 20,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_20.png",
+   "box": [
+    668,
+    553,
+    794,
+    739
+   ],
+   "w": 126,
+   "h": 186
+  },
+  {
+   "index": 21,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_21.png",
+   "box": [
+    812,
+    565,
+    937,
+    741
+   ],
+   "w": 125,
+   "h": 176
+  },
+  {
+   "index": 22,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_22.png",
+   "box": [
+    973,
+    559,
+    1067,
+    740
+   ],
+   "w": 94,
+   "h": 181
+  },
+  {
+   "index": 23,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_23.png",
+   "box": [
+    1111,
+    557,
+    1213,
+    742
+   ],
+   "w": 102,
+   "h": 185
+  },
+  {
+   "index": 24,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_24.png",
+   "box": [
+    19,
+    793,
+    134,
+    972
+   ],
+   "w": 115,
+   "h": 179
+  },
+  {
+   "index": 25,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_25.png",
+   "box": [
+    157,
+    785,
+    270,
+    970
+   ],
+   "w": 113,
+   "h": 185
+  },
+  {
+   "index": 26,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_26.png",
+   "box": [
+    312,
+    789,
+    437,
+    972
+   ],
+   "w": 125,
+   "h": 183
+  },
+  {
+   "index": 27,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_27.png",
+   "box": [
+    470,
+    779,
+    608,
+    973
+   ],
+   "w": 138,
+   "h": 194
+  },
+  {
+   "index": 28,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_28.png",
+   "box": [
+    651,
+    781,
+    788,
+    978
+   ],
+   "w": 137,
+   "h": 197
+  },
+  {
+   "index": 29,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_29.png",
+   "box": [
+    809,
+    785,
+    926,
+    972
+   ],
+   "w": 117,
+   "h": 187
+  },
+  {
+   "index": 30,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_30.png",
+   "box": [
+    964,
+    781,
+    1082,
+    976
+   ],
+   "w": 118,
+   "h": 195
+  },
+  {
+   "index": 31,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_31.png",
+   "box": [
+    1116,
+    780,
+    1231,
+    977
+   ],
+   "w": 115,
+   "h": 197
+  },
+  {
+   "index": 32,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_32.png",
+   "box": [
+    19,
+    1002,
+    166,
+    1198
+   ],
+   "w": 147,
+   "h": 196
+  },
+  {
+   "index": 33,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_33.png",
+   "box": [
+    191,
+    1022,
+    301,
+    1194
+   ],
+   "w": 110,
+   "h": 172
+  },
+  {
+   "index": 34,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_34.png",
+   "box": [
+    336,
+    1022,
+    469,
+    1192
+   ],
+   "w": 133,
+   "h": 170
+  },
+  {
+   "index": 35,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_35.png",
+   "box": [
+    489,
+    1024,
+    640,
+    1198
+   ],
+   "w": 151,
+   "h": 174
+  },
+  {
+   "index": 36,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_36.png",
+   "box": [
+    647,
+    1020,
+    777,
+    1199
+   ],
+   "w": 130,
+   "h": 179
+  },
+  {
+   "index": 37,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_37.png",
+   "box": [
+    801,
+    1012,
+    938,
+    1199
+   ],
+   "w": 137,
+   "h": 187
+  },
+  {
+   "index": 38,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_38.png",
+   "box": [
+    954,
+    1010,
+    1067,
+    1197
+   ],
+   "w": 113,
+   "h": 187
+  },
+  {
+   "index": 39,
+   "file": "projectiles/sheet__PM__2/sheet__PM__2_39.png",
+   "box": [
+    1086,
+    1017,
+    1218,
+    1202
+   ],
+   "w": 132,
+   "h": 185
+  }
+ ]
+}

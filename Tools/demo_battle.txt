@@ -1,0 +1,36 @@
+# deterministic gameplay tour: run -> map -> battle -> play cards
+wait 3
+shot t_menu
+exec Bfk.NewRun 12345
+wait 2
+shot t_map
+exec Bfk.Enter battle
+wait 3
+shot t_battle_start
+# select the middle card in hand and target the first enemy area
+click 960 960
+wait 0.6
+shot t_card_selected
+click 1300 300
+wait 2.5
+shot t_card_played
+# another card, target lane / enemy mid
+click 860 960
+wait 0.6
+click 1300 480
+wait 2.5
+shot t_card_played2
+rclick 960 500
+click 1060 960
+wait 0.6
+click 1560 480
+wait 2.5
+shot t_card_played3
+# end turn, watch the enemy act
+click 1760 927
+wait 4.5
+shot t_enemy_turn_done
+click 1760 927
+wait 4.5
+shot t_turn3
+quit

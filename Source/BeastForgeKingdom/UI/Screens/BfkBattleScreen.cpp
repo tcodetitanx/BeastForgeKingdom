@@ -123,7 +123,7 @@ void UBfkUnitToken::BuildToken(const FBfkUnitState& U)
 	BfkUi::AddToCanvas(C, IntentText, FVector2D(0, 16), FVector2D(230, 20));
 
 	// body sprite — allies flipped to face right (art faces left)
-	const float SpriteH = (Sp && Sp->bBoss) ? 190.f : (Sp && Sp->Quality >= 3 ? 160.f : 138.f);
+	const float SpriteH = (Sp && Sp->bBoss) ? 165.f : (Sp && Sp->Quality >= 3 ? 132.f : 112.f);
 	Body = BfkUi::Sprite(this, Sp ? Sp->SpriteSlug : NAME_None, FVector2D(SpriteH, SpriteH), !U.bEnemySide);
 	if (UTexture2D* T = BfkUi::Tex(Sp ? Sp->SpriteSlug : NAME_None))
 	{
@@ -144,6 +144,19 @@ void UBfkUnitToken::BuildToken(const FBfkUnitState& U)
 	Reticle = BfkUi::Sprite(this, TEXT("ui_cursor_reticle_red"), FVector2D(90, 90));
 	Reticle->SetVisibility(ESlateVisibility::Collapsed);
 	BfkUi::AddToCanvas(C, Reticle, FVector2D(70, 55), FVector2D(90, 90));
+
+	// equipped weapon hovers beside the fighter
+	if (const FBfkWeaponDef* WD = FBfkContent::Weapon(U.Weapon))
+	{
+		if (!WD->SpriteSlug.IsNone())
+		{
+			WeaponImg = BfkUi::SpriteFit(this, WD->SpriteSlug, FVector2D(46, 46));
+			WeaponImg->SetVisibility(ESlateVisibility::HitTestInvisible);
+			WeaponImg->SetToolTipText(FText::FromString(WD->Display + TEXT(" — ") + WD->Desc));
+			BfkUi::AddToCanvas(C, WeaponImg, FVector2D(U.bEnemySide ? 32.f : 152.f, 30.f), FVector2D(46, 46));
+			WeaponBobT = (U.Id % 7) * 0.9f;   // desync the bobbing between units
+		}
+	}
 
 	NameText = BfkUi::Text(this, U.Display, 13, BfkUi::Parchment, true);
 	NameText->SetJustification(ETextJustify::Center);
@@ -228,6 +241,21 @@ FReply UBfkUnitToken::NativeOnMouseButtonDown(const FGeometry& Geo, const FPoint
 	return Super::NativeOnMouseButtonDown(Geo, Ev);
 }
 
+void UBfkUnitToken::NativeTick(const FGeometry& Geo, float Dt)
+{
+	Super::NativeTick(Geo, Dt);
+	if (WeaponImg)
+	{
+		// lazy orbit-and-bob: the weapon drifts around its bearer
+		WeaponBobT += Dt;
+		FWidgetTransform Tr;
+		Tr.Translation = FVector2D(FMath::Sin(WeaponBobT * 0.9f) * 12.f,
+		                           FMath::Sin(WeaponBobT * 1.7f) * 7.f);
+		Tr.Angle = FMath::Sin(WeaponBobT * 1.1f) * 8.f;
+		WeaponImg->SetRenderTransform(Tr);
+	}
+}
+
 // ============================================================== screen build
 
 float UBfkBattleScreen::AnimSpeed() const
@@ -237,13 +265,12 @@ float UBfkBattleScreen::AnimSpeed() const
 
 FVector2D UBfkBattleScreen::CellCenter(int32 Row, int32 Col) const
 {
-	// isometric diamond projection: allies flow down-left, enemies down-right.
-	// extra half-tile gap between the two sides keeps the front line readable.
-	const FVector2D Origin(885.f, 250.f);
-	const float Gap = (Col >= 2) ? 0.5f : 0.f;
+	// pointy-top hex grid, iso-squashed; odd rows shift half a hex right.
+	// pan/zoom camera makes the big field navigable.
+	const FVector2D Origin(160.f, 235.f);
 	return Origin + FVector2D(
-		(Col + Gap - Row) * TileW * 0.5f,
-		(Col + Gap + Row) * TileH * 0.5f);
+		Col * HexW + (Row & 1) * (HexW * 0.5f),
+		Row * (HexH * 0.75f));
 }
 
 FVector2D UBfkBattleScreen::CellPos(int32 Row, int32 Col) const
@@ -283,10 +310,18 @@ void UBfkBattleScreen::Build()
 	EnergyOrb->SetPadding(FMargin(0, 28, 0, 0));
 	BfkUi::AddToCanvas(Canvas, EnergyOrb, FVector2D(120, 870), FVector2D(120, 120));
 
+	// draw/discard piles — click to inspect
+	TWeakObjectPtr<UBfkBattleScreen> WeakThis = this;
 	DrawText = BfkUi::Text(this, TEXT("Draw: 0"), 16, BfkUi::Dim, true);
-	BfkUi::AddToCanvas(Canvas, DrawText, FVector2D(120, 1000), FVector2D(160, 22));
+	UBfkTagButton* DrawBtn = BfkUi::FlatTagButton(this, FLinearColor(0, 0, 0, 0.15f), FLinearColor(0.2f, 0.3f, 0.35f, 0.5f),
+		[WeakThis](UBfkTagButton*) { if (WeakThis.IsValid()) { WeakThis->Click(); WeakThis->ShowPileViewer(false); } }, 8.f);
+	DrawBtn->AddChild(DrawText);
+	BfkUi::AddToCanvas(Canvas, DrawBtn, FVector2D(110, 994), FVector2D(170, 32));
 	DiscardText = BfkUi::Text(this, TEXT("Discard: 0"), 16, BfkUi::Dim, true);
-	BfkUi::AddToCanvas(Canvas, DiscardText, FVector2D(1660, 1000), FVector2D(180, 22));
+	UBfkTagButton* DiscBtn = BfkUi::FlatTagButton(this, FLinearColor(0, 0, 0, 0.15f), FLinearColor(0.2f, 0.3f, 0.35f, 0.5f),
+		[WeakThis](UBfkTagButton*) { if (WeakThis.IsValid()) { WeakThis->Click(); WeakThis->ShowPileViewer(true); } }, 8.f);
+	DiscBtn->AddChild(DiscardText);
+	BfkUi::AddToCanvas(Canvas, DiscBtn, FVector2D(1650, 994), FVector2D(190, 32));
 
 	EndTurnBtn = BfkUi::MakeButton(this, TEXT("End Turn"), 24, BfkUi::Gold);
 	EndTurnBtn->OnClicked.AddDynamic(this, &UBfkBattleScreen::OnEndTurnClicked);
@@ -347,42 +382,153 @@ void UBfkBattleScreen::Build()
 	RefreshAll();
 	RefreshIntents();
 	RefreshPiles();
+	BuildIntroSplash();
+}
+
+void UBfkBattleScreen::BuildIntroSplash()
+{
+	UBfkBattle* B = Gi()->ActiveBattle();
+	if (!B || B->GetConfig().bPvp) return;
+
+	// boss first, else the meanest elite in the encounter
+	const FBfkUnitState* Star = nullptr;
+	const FBfkSpeciesDef* StarSp = nullptr;
+	for (const FBfkUnitState& U : B->GetUnits())
+	{
+		if (!U.bEnemySide) continue;
+		const FBfkSpeciesDef* Sp = FBfkContent::Species(U.Species);
+		if (!Sp) continue;
+		if (Sp->bBoss) { Star = &U; StarSp = Sp; break; }
+		if (Sp->Quality >= 2 && !Star) { Star = &U; StarSp = Sp; }
+	}
+	if (!Star) return;
+
+	IntroSplash = WidgetTree->ConstructWidget<UBorder>();
+	IntroSplash->SetBrush(BfkUi::SolidBrush(FLinearColor(0.01f, 0.015f, 0.03f, 0.82f), 2.f));
+	IntroSplash->SetHorizontalAlignment(HAlign_Center);
+	IntroSplash->SetVerticalAlignment(VAlign_Center);
+	IntroSplash->SetVisibility(ESlateVisibility::HitTestInvisible);
+
+	UVerticalBox* V = WidgetTree->ConstructWidget<UVerticalBox>();
+	UImage* Big = BfkUi::SpriteFit(this, StarSp->SpriteSlug, FVector2D(460, 460));
+	V->AddChildToVerticalBox(Big)->SetHorizontalAlignment(HAlign_Center);
+	UTextBlock* Name = BfkUi::Text(this, StarSp->Display, 48, StarSp->bBoss ? BfkUi::Gold : BfkUi::Blood, true, true);
+	Name->SetJustification(ETextJustify::Center);
+	V->AddChildToVerticalBox(Name)->SetPadding(FMargin(0, 14, 0, 4));
+	UTextBlock* Sub = BfkUi::Text(this, StarSp->bBoss ? TEXT("~ WARDEN-THAT-WAS ~") : TEXT("~ ELITE ~"), 20, BfkUi::GhostTeal, false, true);
+	Sub->SetJustification(ETextJustify::Center);
+	V->AddChildToVerticalBox(Sub)->SetHorizontalAlignment(HAlign_Center);
+	IntroSplash->SetContent(V);
+	BfkUi::FillCanvas(Root, IntroSplash)->SetZOrder(900);
+
+	// hold, then fade out and release
+	FBfkTween& Tw = Tweener.Add(IntroSplash, 0.5f);
+	Tw.Delay = StarSp->bBoss ? 2.2f : 1.5f;
+	Tw.bOpacity = true; Tw.FromOpacity = 1.f; Tw.ToOpacity = 0.f;
+	TWeakObjectPtr<UBfkBattleScreen> Weak = this;
+	Tw.OnDone = [Weak]()
+	{
+		if (Weak.IsValid() && Weak->IntroSplash) Weak->IntroSplash->SetVisibility(ESlateVisibility::Collapsed);
+	};
+}
+
+void UBfkBattleScreen::ShowPileViewer(bool bDiscard)
+{
+	UBfkBattle* B = Gi()->ActiveBattle();
+	if (!B) return;
+	if (PileViewer)
+	{
+		PileViewer->RemoveFromParent();
+		PileViewer = nullptr;
+	}
+	const int32 Side = B->GetConfig().bPvp ? B->GetActiveSide() : 0;
+	const TArray<FBfkCardInstance>& Pile = bDiscard ? B->GetDiscardPile(Side) : B->GetDrawPile(Side);
+
+	PileViewer = BfkUi::Panel(this, BfkUi::PanelDark);
+	UVerticalBox* V = WidgetTree->ConstructWidget<UVerticalBox>();
+	UOverlay* Head = WidgetTree->ConstructWidget<UOverlay>();
+	UTextBlock* Title = BfkUi::Text(this, FString::Printf(TEXT("%s — %d cards"), bDiscard ? TEXT("Discard pile") : TEXT("Draw pile (order hidden)"), Pile.Num()), 24, BfkUi::Gold, true, true);
+	UOverlaySlot* TS = Head->AddChildToOverlay(Title);
+	TS->SetHorizontalAlignment(HAlign_Center);
+	TWeakObjectPtr<UBfkBattleScreen> Weak = this;
+	UBfkTagButton* CloseBtn = BfkUi::TagButton(this, [Weak](UBfkTagButton*)
+	{
+		if (Weak.IsValid() && Weak->PileViewer)
+		{
+			Weak->Click();
+			Weak->PileViewer->RemoveFromParent();
+			Weak->PileViewer = nullptr;
+		}
+	});
+	CloseBtn->AddChild(BfkUi::Text(this, TEXT("Close"), 16, BfkUi::Parchment, true));
+	UOverlaySlot* CS = Head->AddChildToOverlay(CloseBtn);
+	CS->SetHorizontalAlignment(HAlign_Right);
+	V->AddChildToVerticalBox(Head)->SetPadding(FMargin(0, 0, 0, 10));
+
+	UScrollBox* Scroll = WidgetTree->ConstructWidget<UScrollBox>();
+	// group by slug, alphabetical — the draw pile must not leak its order
+	TMap<FName, int32> Counts;
+	for (const FBfkCardInstance& CI : Pile) Counts.FindOrAdd(CI.CardSlug)++;
+	TArray<FName> Slugs;
+	Counts.GenerateKeyArray(Slugs);
+	Slugs.Sort([](const FName& L, const FName& R) { return L.LexicalLess(R); });
+	for (FName Slug : Slugs)
+	{
+		const FBfkCardDef* D = FBfkContent::Card(Slug);
+		if (!D) continue;
+		UHorizontalBox* H = WidgetTree->ConstructWidget<UHorizontalBox>();
+		UTextBlock* N = BfkUi::Text(this, FString::Printf(TEXT("%dx %s"), Counts[Slug], *D->Display), 17, BfkUi::Parchment, true);
+		UHorizontalBoxSlot* NS = H->AddChildToHorizontalBox(N);
+		NS->SetPadding(FMargin(0, 0, 14, 0));
+		UTextBlock* Rules = BfkUi::Text(this, FString::Printf(TEXT("(%d) %s"), D->Cost, *BfkUi::CardRulesText(*D, false)), 15, BfkUi::Dim);
+		Rules->SetAutoWrapText(true);
+		UHorizontalBoxSlot* RS = H->AddChildToHorizontalBox(Rules);
+		RS->SetSize(ESlateSizeRule::Fill);
+		Scroll->AddChild(H);
+	}
+	USizeBox* SB = WidgetTree->ConstructWidget<USizeBox>();
+	SB->SetHeightOverride(560);
+	SB->AddChild(Scroll);
+	V->AddChildToVerticalBox(SB);
+	PileViewer->SetContent(V);
+	BfkUi::AddToCanvas(Root, PileViewer, FVector2D(960, 480), FVector2D(880, 660), FVector2D(0.5f, 0.5f));
 }
 
 void UBfkBattleScreen::BuildBoard()
 {
 	UBfkBattle* B = Gi()->ActiveBattle();
 
-	// iso diamond tiles, painter's order (near rows draw over far rows)
-	for (int32 R = 0; R < 3; ++R)
+	// hex tiles, painter's order (near rows draw over far rows)
+	for (int32 R = 0; R < Bfk::BoardRows; ++R)
 	{
-		for (int32 Col = 0; Col < 4; ++Col)
+		for (int32 Col = 0; Col < Bfk::BoardCols; ++Col)
 		{
 			const FVector2D Center = CellCenter(R, Col);
 			const int32 Code = R * 10 + Col;
 			const int32 Depth = CellDepth(R, Col);
 
 			UImage* Cell = WidgetTree->ConstructWidget<UImage>();
-			const bool bAllySide = Col <= 1;
-			const FLinearColor CC = bAllySide ? FLinearColor(0.16f, 0.30f, 0.32f, 0.42f) : FLinearColor(0.34f, 0.14f, 0.16f, 0.42f);
-			Cell->SetBrush(BfkUi::Brush(TEXT("ui_iso_tile"), FVector2D(TileW, TileH)));
+			const FLinearColor CC = (Col <= 3) ? FLinearColor(0.16f, 0.30f, 0.32f, 0.40f)
+			                : (Col >= 5)      ? FLinearColor(0.34f, 0.14f, 0.16f, 0.40f)
+			                                  : FLinearColor(0.24f, 0.22f, 0.18f, 0.36f);   // contested middle
+			Cell->SetBrush(BfkUi::Brush(TEXT("ui_hex_tile"), FVector2D(HexW, HexH)));
 			Cell->SetColorAndOpacity(CC);
-			BfkUi::AddToCanvas(BoardLayer, Cell, Center - FVector2D(TileW / 2, TileH / 2), FVector2D(TileW, TileH))->SetZOrder(Depth);
+			BfkUi::AddToCanvas(BoardLayer, Cell, Center - FVector2D(HexW / 2, HexH / 2), FVector2D(HexW, HexH))->SetZOrder(Depth);
 
 			UImage* Hz = WidgetTree->ConstructWidget<UImage>();
 			Hz->SetVisibility(ESlateVisibility::Collapsed);
-			BfkUi::AddToCanvas(BoardLayer, Hz, Center - FVector2D(44, 54), FVector2D(88, 88))->SetZOrder(20 + Depth);
+			BfkUi::AddToCanvas(BoardLayer, Hz, Center - FVector2D(40, 46), FVector2D(80, 80))->SetZOrder(20 + Depth);
 			HazardIcons.Add(Code, Hz);
 
-			// highlight diamond, tinted per use (threat red / target green)
+			// highlight hex, tinted per use (threat red / target green / move teal)
 			UImage* Hl = WidgetTree->ConstructWidget<UImage>();
-			Hl->SetBrush(BfkUi::Brush(TEXT("ui_iso_tile"), FVector2D(TileW, TileH)));
+			Hl->SetBrush(BfkUi::Brush(TEXT("ui_hex_tile"), FVector2D(HexW, HexH)));
 			Hl->SetVisibility(ESlateVisibility::Collapsed);
-			BfkUi::AddToCanvas(BoardLayer, Hl, Center - FVector2D(TileW / 2, TileH / 2), FVector2D(TileW, TileH))->SetZOrder(40 + Depth);
+			BfkUi::AddToCanvas(BoardLayer, Hl, Center - FVector2D(HexW / 2, HexH / 2), FVector2D(HexW, HexH))->SetZOrder(40 + Depth);
 			CellHighlights.Add(Code, Hl);
 
-			// invisible click-catcher — rect inscribed in the diamond so any
-			// click it accepts is genuinely inside the tile
+			// invisible click-catcher — rect inscribed in the hex so any click
+			// it accepts is genuinely inside the tile
 			TWeakObjectPtr<UBfkBattleScreen> Weak = this;
 			UBfkTagButton* CellBtn = BfkUi::FlatTagButton(this,
 				FLinearColor(0, 0, 0, 0.01f), FLinearColor(1, 1, 1, 0.07f),
@@ -392,7 +538,7 @@ void UBfkBattleScreen::BuildBoard()
 				}, 12.f);
 			CellBtn->TagInt = Code;
 			CellBtn->SetVisibility(ESlateVisibility::Collapsed);
-			BfkUi::AddToCanvas(BoardLayer, CellBtn, Center - FVector2D(TileW / 4, TileH / 4), FVector2D(TileW / 2, TileH / 2))->SetZOrder(60);
+			BfkUi::AddToCanvas(BoardLayer, CellBtn, Center - FVector2D(HexW * 0.32f, HexH * 0.28f), FVector2D(HexW * 0.64f, HexH * 0.56f))->SetZOrder(60);
 			CellButtons.Add(Code, CellBtn);
 		}
 	}
@@ -487,9 +633,9 @@ void UBfkBattleScreen::RefreshAll()
 		}
 	}
 	// hazards
-	for (int32 R = 0; R < 3; ++R)
+	for (int32 R = 0; R < Bfk::BoardRows; ++R)
 	{
-		for (int32 Col = 0; Col < 4; ++Col)
+		for (int32 Col = 0; Col < Bfk::BoardCols; ++Col)
 		{
 			const int32 Code = R * 10 + Col;
 			const EBfkHazard H = B->HazardAt(FBfkCell(R, Col));
@@ -534,9 +680,14 @@ void UBfkBattleScreen::RefreshIntents()
 		UBfkUnitToken* T = Token(U.Id);
 		if (!T) continue;
 		if (!U.bEnemySide || !U.bAlive) { if (T) T->SetIntent(TEXT("")); continue; }
-		FName CardSlug; int32 TargetCode = -1;
-		if (B->GetIntent(U.Id, CardSlug, TargetCode))
+		FName CardSlug; int32 TargetCode = -1; bool bAdvance = false;
+		if (B->GetIntent(U.Id, CardSlug, TargetCode, bAdvance))
 		{
+			if (bAdvance)
+			{
+				T->SetIntent(TEXT("Advances"));
+				continue;
+			}
 			const FBfkCardDef* D = FBfkContent::Card(CardSlug);
 			FString Line = D ? D->Display : CardSlug.ToString();
 			if (D)
@@ -561,7 +712,7 @@ void UBfkBattleScreen::RefreshIntents()
 					if (D->Target == EBfkTarget::Lane)
 					{
 						const int32 Row = TargetCode / 10;
-						for (int32 CCol = 0; CCol < 2; ++CCol) Threat.Add(Row * 10 + CCol);
+						for (int32 CCol = 0; CCol <= 4; ++CCol) Threat.Add(Row * 10 + CCol);
 					}
 					else Threat.Add(TargetCode);
 					for (int32 Code : Threat)
@@ -628,9 +779,9 @@ void UBfkBattleScreen::OnCardClicked(UBfkCardWidget* Card)
 	{
 		if (D->Target == EBfkTarget::Lane)
 		{
-			// lane pick: light the whole row on the enemy side
+			// lane pick: light the whole row
 			const int32 Row = Code / 10;
-			for (int32 Col = 0; Col < 4; ++Col)
+			for (int32 Col = 0; Col < Bfk::BoardCols; ++Col)
 			{
 				if (UImage** Hl = CellHighlights.Find(Row * 10 + Col))
 				{
@@ -653,20 +804,62 @@ void UBfkBattleScreen::OnCardClicked(UBfkCardWidget* Card)
 
 void UBfkBattleScreen::OnTokenClicked(UBfkUnitToken* T)
 {
-	if (SelectedCard < 0 || bAnimating || bEnded) return;
+	if (bAnimating || bEnded) return;
 	UBfkBattle* B = Gi()->ActiveBattle();
 	if (!B) return;
-	if (B->GetValidUnitTargets(SelectedCard).Contains(T->UnitId))
+
+	if (SelectedCard >= 0)
 	{
-		TryPlayOn(T->UnitId);
+		if (B->GetValidUnitTargets(SelectedCard).Contains(T->UnitId))
+		{
+			TryPlayOn(T->UnitId);
+		}
+		return;
+	}
+
+	// no card selected: pick the unit up for a voluntary move
+	if (B->CanUnitMove(T->UnitId))
+	{
+		ClearTargeting();
+		MovingUnit = T->UnitId;
+		T->SetTargetable(2);
+		Gi()->UiSound(TEXT("sfx_ui_select"), 0.6f);
+		for (int32 Code : B->GetMoveCells(T->UnitId))
+		{
+			if (UImage** Hl = CellHighlights.Find(Code))
+			{
+				(*Hl)->SetColorAndOpacity(FLinearColor(0.35f, 0.8f, 0.9f, 0.45f));
+				(*Hl)->SetVisibility(ESlateVisibility::HitTestInvisible);
+			}
+			if (UBfkTagButton** Btn = CellButtons.Find(Code))
+			{
+				(*Btn)->SetVisibility(ESlateVisibility::Visible);
+			}
+		}
 	}
 }
 
 void UBfkBattleScreen::OnCellClicked(int32 CellCode)
 {
-	if (SelectedCard < 0 || bAnimating || bEnded) return;
+	if (bAnimating || bEnded) return;
 	UBfkBattle* B = Gi()->ActiveBattle();
 	if (!B) return;
+
+	// voluntary move destination
+	if (MovingUnit >= 0 && SelectedCard < 0)
+	{
+		const int32 Unit = MovingUnit;
+		ClearTargeting();
+		if (B->MoveCommand(Unit, CellCode))
+		{
+			Gi()->UiSound(TEXT("sfx_shove"), 0.4f);
+			PumpEvents();
+			RefreshAll();
+		}
+		return;
+	}
+
+	if (SelectedCard < 0) return;
 	const FBfkCardInstance* CI = B->FindCard(SelectedCard);
 	const FBfkCardDef* D = CI ? FBfkContent::Card(CI->CardSlug) : nullptr;
 	int32 Code = CellCode;
@@ -680,6 +873,7 @@ void UBfkBattleScreen::OnCellClicked(int32 CellCode)
 void UBfkBattleScreen::ClearTargeting()
 {
 	SelectedCard = -1;
+	MovingUnit = -1;
 	for (UBfkUnitToken* T : Tokens) T->SetTargetable(0);
 	for (auto& KV : CellHighlights) KV.Value->SetVisibility(ESlateVisibility::Collapsed);
 	for (auto& KV : CellButtons) KV.Value->SetVisibility(ESlateVisibility::Collapsed);
@@ -711,9 +905,49 @@ void UBfkBattleScreen::OnEndTurnClicked()
 	if (!B || bAnimating || bEnded) return;
 	Click();
 	ClearTargeting();
+
+	// nothing to keep? just end. otherwise: keep or discard, captain's call
+	const int32 Side = B->GetConfig().bPvp ? B->GetActiveSide() : 0;
+	if (B->GetHand(Side).Num() == 0)
+	{
+		DoEndTurn(false);
+		return;
+	}
+	if (!EndChoice)
+	{
+		EndChoice = BfkUi::Panel(this, BfkUi::PanelDark);
+		UVerticalBox* V = WidgetTree->ConstructWidget<UVerticalBox>();
+		UTextBlock* Q = BfkUi::Text(this, TEXT("Your remaining hand?"), 18, BfkUi::Parchment, true);
+		Q->SetJustification(ETextJustify::Center);
+		V->AddChildToVerticalBox(Q)->SetPadding(FMargin(0, 0, 0, 10));
+		UButton* Keep = BfkUi::MakeButton(this, TEXT("Keep it"), 18, BfkUi::GhostTeal);
+		Keep->OnClicked.AddDynamic(this, &UBfkBattleScreen::OnEndKeepClicked);
+		V->AddChildToVerticalBox(Keep)->SetPadding(FMargin(0, 4));
+		UButton* Toss = BfkUi::MakeButton(this, TEXT("Discard it"), 18);
+		Toss->OnClicked.AddDynamic(this, &UBfkBattleScreen::OnEndDiscardClicked);
+		V->AddChildToVerticalBox(Toss)->SetPadding(FMargin(0, 4));
+		UTextBlock* Hint = BfkUi::Text(this, TEXT("Kept cards count toward next turn's 5."), 12, BfkUi::Dim);
+		Hint->SetJustification(ETextJustify::Center);
+		V->AddChildToVerticalBox(Hint)->SetPadding(FMargin(0, 8, 0, 0));
+		EndChoice->SetContent(V);
+		EndChoice->SetVisibility(ESlateVisibility::Collapsed);   // fresh borders default Visible; toggle below
+		BfkUi::AddToCanvas(Root, EndChoice, FVector2D(1595, 640), FVector2D(300, 220));
+	}
+	EndChoice->SetVisibility(
+		EndChoice->GetVisibility() == ESlateVisibility::Collapsed ? ESlateVisibility::Visible : ESlateVisibility::Collapsed);
+}
+
+void UBfkBattleScreen::OnEndKeepClicked()    { Click(); DoEndTurn(true); }
+void UBfkBattleScreen::OnEndDiscardClicked() { Click(); DoEndTurn(false); }
+
+void UBfkBattleScreen::DoEndTurn(bool bKeepHand)
+{
+	UBfkBattle* B = Gi()->ActiveBattle();
+	if (!B || bAnimating || bEnded) return;
+	if (EndChoice) EndChoice->SetVisibility(ESlateVisibility::Collapsed);
 	const bool bPvp = B->GetConfig().bPvp;
 	const int32 PrevSide = B->GetActiveSide();
-	B->EndTurn();
+	B->EndTurn(bKeepHand);
 	PumpEvents();
 	if (bPvp && !B->IsOver())
 	{
@@ -1228,14 +1462,14 @@ void UBfkBattleScreen::ApplyBoardTransform(FVector2D Shake)
 
 FVector2D UBfkBattleScreen::ClampPan(FVector2D Pan) const
 {
-	const float MaxX = 520.f * BoardZoom;
-	const float MaxY = 340.f * BoardZoom;
+	const float MaxX = 720.f * BoardZoom;
+	const float MaxY = 420.f * BoardZoom;
 	return FVector2D(FMath::Clamp(Pan.X, -MaxX, MaxX), FMath::Clamp(Pan.Y, -MaxY, MaxY));
 }
 
 void UBfkBattleScreen::CancelTargeting()
 {
-	if (SelectedCard >= 0)
+	if (SelectedCard >= 0 || MovingUnit >= 0)
 	{
 		Gi()->UiSound(TEXT("sfx_ui_cancel"), 0.5f);
 		ClearTargeting();
@@ -1244,7 +1478,7 @@ void UBfkBattleScreen::CancelTargeting()
 
 FReply UBfkBattleScreen::NativeOnMouseButtonDown(const FGeometry& Geo, const FPointerEvent& Ev)
 {
-	if (Ev.GetEffectingButton() == EKeys::RightMouseButton && SelectedCard >= 0)
+	if (Ev.GetEffectingButton() == EKeys::RightMouseButton && (SelectedCard >= 0 || MovingUnit >= 0))
 	{
 		Gi()->UiSound(TEXT("sfx_ui_cancel"), 0.5f);
 		ClearTargeting();
@@ -1292,7 +1526,7 @@ FReply UBfkBattleScreen::NativeOnMouseButtonUp(const FGeometry& Geo, const FPoin
 FReply UBfkBattleScreen::NativeOnMouseWheel(const FGeometry& Geo, const FPointerEvent& Ev)
 {
 	const float Old = BoardZoom;
-	BoardZoom = FMath::Clamp(BoardZoom * (Ev.GetWheelDelta() > 0.f ? 1.15f : 1.f / 1.15f), 0.8f, 2.4f);
+	BoardZoom = FMath::Clamp(BoardZoom * (Ev.GetWheelDelta() > 0.f ? 1.15f : 1.f / 1.15f), 0.6f, 2.6f);
 	if (!FMath::IsNearlyEqual(Old, BoardZoom))
 	{
 		// zoom toward the cursor so what you point at stays put

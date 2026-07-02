@@ -604,17 +604,23 @@ TArray<FName> FBfkContent::RollEncounter(int32 Act, bool bElite, FRandomStream& 
 	}
 	TArray<FName> Out;
 	auto PickFrom = [&Rng](const TArray<FName>& Arr) { return Arr[Rng.RandRange(0, Arr.Num() - 1)]; };
+	// 5v5 board: field up to five foes (act 1 regulars come a beast short)
 	if (bElite)
 	{
 		Out.Add(PickFrom(Elites));
+		Out.Add(PickFrom(Elites));
 		if (Act >= 4) Out.Add(PickFrom(Elites)); else Out.Add(PickFrom(Minions));
+		Out.Add(PickFrom(Minions));
 		Out.Add(PickFrom(Minions));
 	}
 	else
 	{
 		Out.Add(PickFrom(Minions));
 		Out.Add(PickFrom(Minions));
-		if (Act >= 3) Out.Add(PickFrom(Elites)); else Out.Add(PickFrom(Minions));
+		Out.Add(PickFrom(Minions));
+		if (Act >= 2) Out.Add(PickFrom(Minions));
+		if (Act >= 3) Out.Add(PickFrom(Elites));
+		else if (Act >= 2) Out.Add(PickFrom(Minions));
 	}
 	return Out;
 }
@@ -633,16 +639,18 @@ FName FBfkContent::BossFor(int32 Act)
 TArray<FName> FBfkContent::BossMinions(FName BossSlug)
 {
 	EnsureInit();
-	if (BossSlug == TEXT("rot-shepherd")) return { GAliasSporeling, GAliasSporeling };
-	if (BossSlug == TEXT("ghostwake")) return { GAliasDeckhand, GAliasDeckhand };
-	// later bosses bring a random minion pair
+	if (BossSlug == TEXT("rot-shepherd")) return { GAliasSporeling, GAliasSporeling, GAliasSporeling, GAliasSporeling };
+	if (BossSlug == TEXT("ghostwake")) return { GAliasDeckhand, GAliasDeckhand, GAliasDeckhand, GAliasDeckhand };
+	// later bosses bring a random minion retinue (boss + 4 = a full 5v5 line)
 	TArray<FName> Minions;
 	for (FName S : GSpeciesOrder)
 	{
 		const FBfkSpeciesDef& Sp = GSpecies[S];
 		if (Sp.bEnemyOnly && Sp.bMinion) Minions.Add(S);
 	}
-	return { Minions[GetTypeHash(BossSlug) % Minions.Num()], Minions[(GetTypeHash(BossSlug) / 3) % Minions.Num()] };
+	const uint32 H = GetTypeHash(BossSlug);
+	return { Minions[H % Minions.Num()], Minions[(H / 3) % Minions.Num()],
+	         Minions[(H / 7) % Minions.Num()], Minions[(H / 11) % Minions.Num()] };
 }
 
 FString FBfkContent::ActName(int32 Act)
@@ -740,13 +748,25 @@ TArray<FName> FBfkContent::StarterSquad()
 			Out.Add(S);
 		}
 	}
-	while (Out.Num() < 3)
+	// round the roster to a 5v5 squad: a tank and a support next, then anything
+	for (EBfkArchetype Want : {EBfkArchetype::Tank, EBfkArchetype::Support})
 	{
+		if (Out.Num() >= Bfk::SquadSize) break;
 		for (FName S : GSpeciesOrder)
 		{
 			const FBfkSpeciesDef& Sp = GSpecies[S];
-			if (Sp.bBeast && !Sp.bEnemyOnly && !Out.Contains(S)) { Out.Add(S); break; }
+			if (Sp.bBeast && !Sp.bEnemyOnly && Sp.Archetype == Want && !Out.Contains(S)) { Out.Add(S); break; }
 		}
+	}
+	while (Out.Num() < Bfk::SquadSize)
+	{
+		bool bAdded = false;
+		for (FName S : GSpeciesOrder)
+		{
+			const FBfkSpeciesDef& Sp = GSpecies[S];
+			if (Sp.bBeast && !Sp.bEnemyOnly && !Out.Contains(S)) { Out.Add(S); bAdded = true; break; }
+		}
+		if (!bAdded) break;
 	}
 	return Out;
 }

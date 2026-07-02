@@ -258,8 +258,9 @@ for i, n in enumerate(extra_areas, 1):
     imports.append({"src": f"{EXPORTED}/areas/{n}.png", "asset": f"bg_area{i}"})
 imports.append({"src": f"{EXPORTED}/main_menu/main_menu.png", "asset": "bg_main_menu"})
 
-# procedurally generated ui textures (Tools/make_iso_tile.py)
+# procedurally generated ui textures (Tools/make_iso_tile.py, make_hex_tile.py)
 imports.append({"src": "SourceArt/generated/ui_iso_tile.png", "asset": "ui_iso_tile"})
+imports.append({"src": "SourceArt/generated/ui_hex_tile.png", "asset": "ui_hex_tile"})
 
 # ---------------------------------------------------------------- write outputs
 

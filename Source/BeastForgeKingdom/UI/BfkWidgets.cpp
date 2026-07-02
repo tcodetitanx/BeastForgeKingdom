@@ -569,16 +569,16 @@ UWidget* UBfkScreen::CodexPage()
 	};
 
 	Section(TEXT("The Squad is the Deck"));
-	Para(TEXT("You field exactly 3 units. Each contributes its signature cards to one shared battle deck; weapons add their own cards, relics warp a unit's abilities. Card rewards are drawn only from your squad's pools — change the squad, change the game. If a unit dies, its cards are severed (unplayable) until it is revived."));
+	Para(TEXT("You field 5 units. Each contributes its signature cards to one shared battle deck; weapons add their own cards, relics warp a unit's abilities. Card rewards are drawn only from your squad's pools — change the squad, change the game. If a unit dies, its cards are severed (unplayable) until it is revived."));
 
 	Section(TEXT("Turns & Energy"));
-	Para(TEXT("Each turn you get 3 energy (weapons and relics can modify this) and draw 5 cards. Unplayed cards are discarded at end of turn. When the draw pile empties, the discard pile is shuffled back in."));
+	Para(TEXT("Each turn you get 3 energy (weapons and relics can modify this). UNSPENT energy is banked and carried into your next turn (up to 3). At end of turn you choose to KEEP your remaining hand or DISCARD it; either way you draw back up to 5 cards. When the draw pile empties, the discard pile is shuffled back in."));
 
-	Section(TEXT("The Board, Lanes & Range"));
-	Para(TEXT("Battles are fought on a 3x4 board: 3 lanes (rows), your side on the left two columns, the enemy's on the right two. Most attacks are LANE attacks — they hit the first enemy in the attacker's lane. Melee-only cards (crossed swords icon) need the attacker in the front column. Ranged and spell cards reach anywhere."));
+	Section(TEXT("The Hex Field, Movement & Range"));
+	Para(TEXT("Battles are fought on a big hex field: 5 lanes deep, your half on the left, theirs on the right, a contested middle between. Every unit can MOVE once per turn — click a unit, then a highlighted hex (Move stat = how far). Every unit has a RANGE: attacks only reach foes within it. Melee-only cards (crossed swords) need a foe in an adjacent hex — walk up to them. Casters strike from 4 hexes; enemies out of reach will telegraph an ADVANCE and close in. Drag to pan the field, mouse wheel to zoom."));
 
 	Section(TEXT("Shoves & Collisions"));
-	Para(TEXT("Cards can push, pull and swap units. Shoving a unit into the board edge or into another unit deals collision damage to both. Shoving an enemy out of its telegraphed attack lane WASTES its attack — positioning is half the fight."));
+	Para(TEXT("Cards can push, pull and swap units. Shoving a unit into the field edge or into another unit deals collision damage to both. Shoving an enemy out of its telegraphed attack lane WASTES its attack — positioning is half the fight."));
 
 	Section(TEXT("Intents"));
 	Para(TEXT("Every enemy telegraphs its next card above its head, with the damage and the threatened cells glowing red. Dodge it, shove them off the line, body-block with a tank, or kill them before it fires."));
@@ -610,7 +610,42 @@ UWidget* UBfkScreen::CodexPage()
 	Entry(Bfk::WeatherName(EBfkWeather::Gloom),   Bfk::WeatherDesc(EBfkWeather::Gloom));
 
 	Section(TEXT("Weapons & Relics"));
-	Para(TEXT("Each unit can hold one weapon (adds 2-3 weapon cards to the deck plus a stat modifier) and one relic (a permanent power with a price — read the fine print). Equip them in the squad muster or from battle rewards."));
+	Para(TEXT("Each unit can hold one weapon (adds 2-3 weapon cards to the deck plus a stat modifier; bows, crossbows, staves and wands also add +1 Range) and one relic (a permanent power with a price — read the fine print). Equip them in the squad muster."));
+	if (UBfkGameInstance* GI = Gi())
+	{
+		UBfkSaveGame* Save = GI->Profile();
+		if (Save && Save->OwnedWeapons.Num() > 0)
+		{
+			Section(TEXT("Your Armory — Weapons"));
+			TArray<FName> Ws = Save->OwnedWeapons.Array();
+			Ws.Sort([](const FName& L, const FName& R) { return L.LexicalLess(R); });
+			for (FName W : Ws)
+			{
+				if (const FBfkWeaponDef* D = FBfkContent::Weapon(W))
+				{
+					FString Desc = D->Desc;
+					if (D->HpMod || D->PowerMod)
+					{
+						Desc += FString::Printf(TEXT("  [%+d HP, %+d PWR]"), D->HpMod, D->PowerMod);
+					}
+					Entry(D->Display, Desc, D->SpriteSlug, Bfk::RarityColor(D->Rarity));
+				}
+			}
+		}
+		if (Save && Save->OwnedRelics.Num() > 0)
+		{
+			Section(TEXT("Your Armory — Relics"));
+			TArray<FName> Rs = Save->OwnedRelics.Array();
+			Rs.Sort([](const FName& L, const FName& R) { return L.LexicalLess(R); });
+			for (FName Rl : Rs)
+			{
+				if (const FBfkRelicDef* D = FBfkContent::Relic(Rl))
+				{
+					Entry(D->Display, D->Desc, D->SpriteSlug, Bfk::RarityColor(D->Rarity));
+				}
+			}
+		}
+	}
 
 	Section(TEXT("Death, Runs & the Vault"));
 	Para(TEXT("Death ends the run — but everything you captured, bred, hatched and unlocked stays. The Beast Vault is your permanent collection; squads are drafted from it. Breeding pairs two compatible beasts (matching element or archetype) into an egg that hatches after enough victories, inheriting stats and sometimes a mutated signature card."));
@@ -619,6 +654,7 @@ UWidget* UBfkScreen::CodexPage()
 	Entry(TEXT("Gold"),       TEXT("In-run only. Spend it at peddlers; lost when the run ends."), TEXT("ui_icon_coin_bag"));
 	Entry(TEXT("Soulshards"), TEXT("Permanent. Earned each run; spent on meta unlocks."));
 	Entry(TEXT("Emberglass"), TEXT("Rare breeding catalyst from bosses and elites."));
+	Entry(TEXT("Forgedust"),  TEXT("Permanent. Earned from every victory. Spend it in the Vault to LEVEL UP a beast (+2 HP, +1 Power) — progression without the egg timer."));
 
 	Section(TEXT("Forge & Milestones"));
 	Para(TEXT("Forge nodes upgrade a card for the rest of the run. Forge Milestones are permanent achievements that unlock new weapons, relics, spells and starting heroes — check the Milestones screen from the main menu."));

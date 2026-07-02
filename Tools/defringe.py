@@ -35,14 +35,16 @@ def lum(rgb):
 def defringe(img, aggressive=False):
     """img: HxWx4 float32 0..255. Returns (img, n_removed, n_softened).
 
-    aggressive (characters/creatures): first shave the outermost boundary ring
-    unconditionally — any pixel that ever touched the white sheet goes — then
-    run the relative passes on what remains.
+    aggressive (characters/creatures): first shave the TWO outermost boundary
+    rings unconditionally — any pixel that ever touched the white sheet goes —
+    then run the relative passes on what remains.
     """
     removed = 0
     if aggressive:
-        a = img[..., 3] > 8
-        if a.any():
+        for _ in range(2):
+            a = img[..., 3] > 8
+            if not a.any():
+                break
             boundary = a & ~ndimage.binary_erosion(a, structure=CROSS, border_value=0)
             img[..., 3][boundary] = 0
             removed += int(boundary.sum())
@@ -80,8 +82,13 @@ def defringe(img, aggressive=False):
         for c in range(3):
             ch = img[..., c]
             ch[halo] = ch[halo] * 0.45 + imean[..., c][halo] * 0.55
-        # light feather on the whole boundary for a cleaner composite
-        img[..., 3][boundary] = img[..., 3][boundary] * 0.85
+        # 2px transparency feather: outer ring fades hard, second ring gently —
+        # composites the silhouette smoothly into any backdrop
+        ring1 = boundary
+        inner = a & ~ring1
+        ring2 = inner & ~ndimage.binary_erosion(inner, structure=CROSS, border_value=0)
+        img[..., 3][ring1] = img[..., 3][ring1] * 0.45
+        img[..., 3][ring2] = img[..., 3][ring2] * 0.80
     return img, removed, softened
 
 

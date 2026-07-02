@@ -45,6 +45,8 @@ struct FBfkRunState
 	UPROPERTY() int32 Gold = 60;
 	UPROPERTY() int32 BattlesWon = 0;
 	UPROPERTY() int32 ElitesSlain = 0;
+	UPROPERTY() int32 CapturesThisRun = 0;
+	UPROPERTY() bool bBoonPending = false;       // pick a starting boon on the first map visit
 	UPROPERTY() bool bBossDefeated = false;
 	UPROPERTY() EBfkWeather ForcedWeather = EBfkWeather::Gloom;
 	UPROPERTY() bool bHasForcedWeather = false;

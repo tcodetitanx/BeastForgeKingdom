@@ -31,6 +31,9 @@ struct FBfkUnitState
 	UPROPERTY() bool bBeast = true;
 	UPROPERTY() bool bOriginal = true;   // false = summoned mid-battle reinforcement
 	UPROPERTY() FGuid VaultId;            // ally: link back to owned beast
+	UPROPERTY() int32 Range = 1;          // attack reach in hexes
+	UPROPERTY() int32 Move = 2;           // voluntary move speed in hexes/turn
+	UPROPERTY() bool bMovedThisTurn = false;
 
 	int32 Status(EBfkStatus S) const { const int32* V = Statuses.Find(S); return V ? *V : 0; }
 };
@@ -155,12 +158,15 @@ public:
 	EBfkWeather GetWeather() const { return Config.Weather; }
 	const FBfkBattleConfig& GetConfig() const { return Config; }
 	const TArray<FBfkCardInstance>& GetHand(int32 Side) const { return Hand[Side]; }
+	const TArray<FBfkCardInstance>& GetDrawPile(int32 Side) const { return DrawPile[Side]; }
+	const TArray<FBfkCardInstance>& GetDiscardPile(int32 Side) const { return Discard[Side]; }
 	int32 GetDrawCount(int32 Side) const { return DrawPile[Side].Num(); }
 	int32 GetDiscardCount(int32 Side) const { return Discard[Side].Num(); }
 	const FBfkCardInstance* FindCard(int32 InstanceId) const;
 	bool IsCardSevered(const FBfkCardInstance& CI) const;
-	// Enemy intent for UI: card + chosen target cell (row*10+col, -1 none)
-	bool GetIntent(int32 UnitId, FName& OutCard, int32& OutTargetCode) const;
+	// Enemy intent for UI: card + chosen target cell (row*10+col, -1 none).
+	// bOutAdvance: unit will move toward the player instead of acting.
+	bool GetIntent(int32 UnitId, FName& OutCard, int32& OutTargetCode, bool& bOutAdvance) const;
 	TArray<FName> CapturedThisBattle;
 
 	// Valid targets for a card in hand (unit ids or cell codes depending on target kind)
@@ -168,10 +174,15 @@ public:
 	TArray<int32> GetValidUnitTargets(int32 InstanceId) const;
 	TArray<int32> GetValidCellTargets(int32 InstanceId) const;   // row*10+col
 
+	// voluntary movement: each unit may reposition once per its side's turn
+	bool CanUnitMove(int32 UnitId) const;
+	TArray<int32> GetMoveCells(int32 UnitId) const;              // row*10+col
+	bool MoveCommand(int32 UnitId, int32 CellCode);
+
 	// --- commands ----------------------------------------------------------
 	// TargetCode: unit id for unit targets, row*10+col for cell/lane (-1 auto)
 	bool PlayCard(int32 InstanceId, int32 TargetCode);
-	void EndTurn();          // ends active human turn (resolves AI side when appropriate)
+	void EndTurn(bool bKeepHand = false);   // keep = hand carries over; draw tops up to 5
 
 	// Presentation drains events from here.
 	TArray<FBfkBattleEvent> Events;
@@ -185,6 +196,7 @@ private:
 	UPROPERTY() int32 ActiveSide = 0;     // 0 = player/A, 1 = enemy/B
 	int32 Energy[2] = {3, 3};
 	int32 MaxEnergy[2] = {3, 3};
+	int32 CarryEnergy[2] = {0, 0};   // unspent energy banked for next turn (capped)
 	TArray<FBfkCardInstance> DrawPile[2];
 	TArray<FBfkCardInstance> Hand[2];
 	TArray<FBfkCardInstance> Discard[2];
@@ -197,7 +209,7 @@ private:
 	int32 SnareCharges = 1;
 
 	// enemy intents (campaign mode): unit id -> (card slug, target code)
-	struct FIntent { FName Card; int32 TargetCode = -1; };
+	struct FIntent { FName Card; int32 TargetCode = -1; bool bAdvance = false; };
 	TMap<int32, FIntent> Intents;
 
 	// boss bookkeeping
@@ -250,4 +262,6 @@ private:
 	int32 CountAlive(bool bEnemy) const;
 	FBfkCell FindFreeCell(bool bEnemySide, int32 PreferRow);
 	void EnemyPlayIntent(FBfkUnitState& Enemy, const FIntent& Intent);
+	void EnemyAdvance(FBfkUnitState& Enemy);              // greedy step toward nearest player unit
+	const FBfkUnitState* NearestFoe(const FBfkUnitState& U) const;
 };

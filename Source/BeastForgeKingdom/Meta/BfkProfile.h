@@ -49,6 +49,7 @@ public:
 	// currencies
 	UPROPERTY() int32 Soulshards = 0;
 	UPROPERTY() int32 Emberglass = 3;
+	UPROPERTY() int32 Forgedust = 0;   // permanent; levels up beasts (breeding's impatient cousin)
 
 	// unlocks & records
 	UPROPERTY() TSet<FName> UnlockedWeapons;      // weapons available in pools
@@ -89,6 +90,10 @@ public:
 
 	// After each battle victory, eggs tick toward hatching.
 	static TArray<FBfkOwnedBeast> TickEggs(UBfkSaveGame& Save);
+
+	// Forgedust leveling: permanent stat growth without breeding.
+	static int32 LevelUpCost(int32 CurrentLevel) { return 25 + CurrentLevel * 15; }
+	static bool LevelUpBeast(UBfkSaveGame& Save, const FGuid& Id, FString& WhyNot);
 
 	// Milestones: evaluates and returns newly completed ones.
 	static TArray<FBfkMilestone> EvaluateMilestones(UBfkSaveGame& Save);

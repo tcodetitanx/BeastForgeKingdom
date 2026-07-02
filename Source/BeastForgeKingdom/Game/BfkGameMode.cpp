@@ -46,13 +46,13 @@ void ABfkGameMode::DemoNewRun(int32 Seed)
 	TArray<FBfkRunSquadMember> Squad;
 	for (const FBfkOwnedBeast& B : Save->Vault)
 	{
-		if (Squad.Num() >= 3) break;
+		if (Squad.Num() >= Bfk::SquadSize) break;
 		FBfkRunSquadMember M;
 		M.VaultId = B.Id;
 		M.Species = B.Species;
 		Squad.Add(M);
 	}
-	if (Squad.Num() < 3) return;
+	if (Squad.Num() < Bfk::SquadSize) return;
 	Gi->StartNewRun(Squad, Seed);
 	Router->Go(EBfkScreenId::Map);
 }
@@ -106,7 +106,7 @@ static ABfkGameMode* FindBfkGameMode()
 
 static FAutoConsoleCommand GBfkNewRunCmd(
 	TEXT("Bfk.NewRun"),
-	TEXT("Start a deterministic run with the first 3 vault beasts. Args: [seed]"),
+	TEXT("Start a deterministic run with the first squad-size vault beasts. Args: [seed]"),
 	FConsoleCommandWithArgsDelegate::CreateLambda([](const TArray<FString>& Args)
 	{
 		if (ABfkGameMode* GM = FindBfkGameMode())

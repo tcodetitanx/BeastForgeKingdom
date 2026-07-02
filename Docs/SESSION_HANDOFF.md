@@ -1,5 +1,34 @@
 # Session handoff — Claude build session, 2026-07-01
 
+## Update: hex overhaul session, 2026-07-02
+
+Daniel drove a second major pass. Battle system redesigned:
+
+- **5v5 on a 5x9 hex field** (odd-r offset, iso-squashed `ui_hex_tile`): ally
+  half cols 0-3, enemy half 5-8, contested middle. Encounters/bosses field up
+  to 5 (act 1 regulars come one short); starter vault grants 5 (adds tank +
+  support archetypes).
+- **Movement & Range**: every unit moves once/turn (click unit -> hex);
+  Range/Move by archetype (BfkTypes.h); bows/crossbows/staves/wands +1 Range;
+  melee needs adjacency ("move closer"); enemies out of reach telegraph
+  **Advances** and greedy-walk in (also killed the old wasted-intent AI bug).
+- **Economy**: unspent energy banks into next turn (cap 3); End Turn offers
+  keep-or-discard hand (draw tops up to 5, min 1); poison no longer festers —
+  it decays (was oppressive).
+- **Forgedust**: new permanent currency (12/20/45 per victory tier); Vault
+  level-up button: +2 HP +1 PWR per level, cost 25+15/level. `FBfkOwnedBeast.
+  Level`.
+- **UX**: equipped weapons bob/orbit beside their bearer (token NativeTick);
+  draw/discard piles clickable -> full inspection overlay; boss/elite intro
+  splash; starting boon pick (gold / emberglass / shards+dust) on first map
+  visit (`Run.bBoonPending`); run ledger on victory/game-over; codex rewritten
+  for hex rules + Your Armory section (owned weapons/relics); squad-picker
+  tooltips list each creature's full kit; vault shows Range/Move.
+- **Art**: defringe v3 — 2px unconditional shave on character sprites + 2px
+  alpha feather; ui_hex_tile generated (Tools/make_hex_tile.py).
+- All 4 suites green (RandomSim now also exercises hex moves + keep/discard;
+  38W/22D on random play). Demo tour: zero warnings.
+
 ## Update: home-PC session, 2026-07-01 (evening)
 
 Project cloned to Daniel's home PC (D:\UEProjects\BeastForgeKingdom, engine at

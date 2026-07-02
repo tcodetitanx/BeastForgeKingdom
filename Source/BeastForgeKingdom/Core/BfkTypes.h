@@ -23,7 +23,7 @@ enum class EBfkStatus : uint8
 {
 	Burn,     // N damage at turn start, decays by 1
 	Chill,    // -1 damage dealt per attack while any; decays; 3+ freezes 1 energy
-	Poison,   // N damage at turn end, grows by 1 each turn (max +3 growth)
+	Poison,   // N damage at turn end, then decays by 1
 	Shock,    // next hit taken +N and chains N/2 to adjacent unit; consumed
 	Curse,    // healing blocked while present; decays
 	Rust,     // block gained reduced by N; decays
@@ -257,6 +257,7 @@ struct FBfkOwnedBeast
 	UPROPERTY() int32 Generation = 0;      // 0 = wild-caught
 	UPROPERTY() FString ParentNote;
 	UPROPERTY() int32 Victories = 0;
+	UPROPERTY() int32 Level = 0;           // Forgedust levels (stat bumps live in BonusHp/BonusPower)
 };
 
 USTRUCT()
@@ -274,24 +275,87 @@ struct FBfkEgg
 	UPROPERTY() FString ParentNote;
 };
 
-// ---------------------------------------------------------------- Misc
+// ---------------------------------------------------------------- Board
+
+namespace Bfk
+{
+	// 5v5 hex battlefield: 5 lanes (rows) x 9 columns, "odd-r" offset hexes
+	// (odd rows are shifted half a hex right). Ally half cols 0-3, enemy half
+	// 5-8, col 4 is the contested middle.
+	constexpr int32 BoardRows = 5;
+	constexpr int32 BoardCols = 9;
+	constexpr int32 AllyBackCol = 1, AllyFrontCol = 2;
+	constexpr int32 EnemyFrontCol = 6, EnemyBackCol = 7;
+	constexpr int32 SquadSize = 5;
+}
 
 USTRUCT()
 struct FBfkCell
 {
 	GENERATED_BODY()
 
-	UPROPERTY() int32 Row = 0;   // 0..2 (lane)
-	UPROPERTY() int32 Col = 0;   // 0..3 (0-1 ally side, 2-3 enemy side)
+	UPROPERTY() int32 Row = 0;   // 0..BoardRows-1 (lane)
+	UPROPERTY() int32 Col = 0;   // 0..BoardCols-1
 
 	FBfkCell() {}
 	FBfkCell(int32 R, int32 C) : Row(R), Col(C) {}
 	bool operator==(const FBfkCell& O) const { return Row == O.Row && Col == O.Col; }
-	bool IsValid() const { return Row >= 0 && Row < 3 && Col >= 0 && Col < 4; }
-	bool IsAllySide() const { return Col <= 1; }
+	bool IsValid() const { return Row >= 0 && Row < Bfk::BoardRows && Col >= 0 && Col < Bfk::BoardCols; }
+	bool IsAllySide() const { return Col <= 3; }
+	bool IsEnemySide() const { return Col >= 5; }
 };
 
-FORCEINLINE uint32 GetTypeHash(const FBfkCell& C) { return C.Row * 7 + C.Col; }
+FORCEINLINE uint32 GetTypeHash(const FBfkCell& C) { return C.Row * 32 + C.Col; }
+
+namespace Bfk
+{
+	// true hex distance on the odd-r offset grid (via cube coords)
+	FORCEINLINE int32 HexDist(const FBfkCell& A, const FBfkCell& B)
+	{
+		const int32 Aq = A.Col - (A.Row - (A.Row & 1)) / 2;
+		const int32 Bq = B.Col - (B.Row - (B.Row & 1)) / 2;
+		const int32 Dq = Aq - Bq, Dr = A.Row - B.Row;
+		return (FMath::Abs(Dq) + FMath::Abs(Dr) + FMath::Abs(Dq + Dr)) / 2;
+	}
+
+	// the (up to) 6 neighbors of a hex, odd-r offset
+	FORCEINLINE TArray<FBfkCell, TInlineAllocator<6>> HexNeighbors(const FBfkCell& C)
+	{
+		const bool bOdd = (C.Row & 1) != 0;
+		const int32 L = bOdd ? 0 : -1;   // row-diagonal col offsets
+		const int32 R = bOdd ? 1 : 0;
+		const FBfkCell N[6] = {
+			{C.Row, C.Col - 1}, {C.Row, C.Col + 1},
+			{C.Row - 1, C.Col + L}, {C.Row - 1, C.Col + R},
+			{C.Row + 1, C.Col + L}, {C.Row + 1, C.Col + R}};
+		TArray<FBfkCell, TInlineAllocator<6>> Out;
+		for (const FBfkCell& X : N) if (X.IsValid()) Out.Add(X);
+		return Out;
+	}
+
+	// attack range / move speed by archetype
+	FORCEINLINE int32 ArchetypeRange(EBfkArchetype A)
+	{
+		switch (A)
+		{
+		case EBfkArchetype::Caster:    return 4;
+		case EBfkArchetype::Support:   return 3;
+		case EBfkArchetype::Striker:   return 2;
+		case EBfkArchetype::Trickster: return 2;
+		default:                       return 1;   // Bruiser / Tank
+		}
+	}
+	FORCEINLINE int32 ArchetypeMove(EBfkArchetype A)
+	{
+		switch (A)
+		{
+		case EBfkArchetype::Striker:   return 3;
+		case EBfkArchetype::Trickster: return 3;
+		case EBfkArchetype::Tank:      return 1;
+		default:                       return 2;
+		}
+	}
+}
 
 namespace Bfk
 {

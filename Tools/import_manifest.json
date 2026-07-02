@@ -4458,5 +4458,9 @@
 {
 "src": "SourceArt/generated/ui_iso_tile.png",
 "asset": "ui_iso_tile"
+},
+{
+"src": "SourceArt/generated/ui_hex_tile.png",
+"asset": "ui_hex_tile"
 }
 ]

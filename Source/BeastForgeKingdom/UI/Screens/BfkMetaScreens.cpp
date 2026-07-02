@@ -122,9 +122,42 @@ void UBfkVaultScreen::ShowDetail(const FGuid& Id)
 		DetailBox->AddChildToVerticalBox(T)->SetPadding(FMargin(0, 3));
 	};
 	Line(FString::Printf(TEXT("%s %s — Quality %d"), *Bfk::ElementName(Sp->Element), *Bfk::ArchetypeName(Sp->Archetype), Sp->Quality), Bfk::ElementColor(Sp->Element), 16);
-	Line(FString::Printf(TEXT("HP %d (+%d bred)   Power %d (+%d bred)"), Sp->MaxHp + B->BonusHp, B->BonusHp, Sp->Power + B->BonusPower, B->BonusPower), BfkUi::Parchment);
+	Line(FString::Printf(TEXT("HP %d (+%d)   Power %d (+%d)   Range %d   Move %d"),
+		Sp->MaxHp + B->BonusHp, B->BonusHp, Sp->Power + B->BonusPower, B->BonusPower,
+		Bfk::ArchetypeRange(Sp->Archetype), Bfk::ArchetypeMove(Sp->Archetype)), BfkUi::Parchment);
 	if (B->Generation > 0) Line(FString::Printf(TEXT("Generation %d — hearthborn of %s"), B->Generation, *B->ParentNote), BfkUi::Venom);
 	Line(Sp->Desc, BfkUi::Dim, 13);
+
+	// forgedust leveling — breeding's impatient cousin
+	Line(FString::Printf(TEXT("Level %d"), B->Level), BfkUi::Gold, 16);
+	{
+		const int32 Cost = FBfkMeta::LevelUpCost(B->Level);
+		TWeakObjectPtr<UBfkVaultScreen> Weak = this;
+		UBfkTagButton* LvBtn = BfkUi::TagButton(this, [Weak](UBfkTagButton* Btn)
+		{
+			if (!Weak.IsValid()) return;
+			FString Why;
+			if (FBfkMeta::LevelUpBeast(*Weak->Gi()->Profile(), Btn->TagGuid, Why))
+			{
+				Weak->Gi()->UiSound(TEXT("sfx_forge"), 0.9f);
+				Weak->Gi()->SaveProfile();
+				Weak->ShowDetail(Btn->TagGuid);
+			}
+			else
+			{
+				Weak->Gi()->UiSound(TEXT("sfx_ui_cancel"), 0.7f);
+			}
+		});
+		LvBtn->TagGuid = B->Id;
+		UTextBlock* LvT = BfkUi::Text(this, FString::Printf(TEXT("Level Up — %d Forgedust (have %d)"), Cost, Gi()->Profile()->Forgedust), 15,
+			Gi()->Profile()->Forgedust >= Cost ? BfkUi::GhostTeal : BfkUi::Dim, true);
+		LvT->SetJustification(ETextJustify::Center);
+		LvBtn->AddChild(LvT);
+		DetailBox->AddChildToVerticalBox(LvBtn)->SetPadding(FMargin(20, 6));
+		UTextBlock* LvHint = BfkUi::Text(this, TEXT("+2 HP, +1 Power. Permanent — no egg required."), 12, BfkUi::Dim);
+		LvHint->SetJustification(ETextJustify::Center);
+		DetailBox->AddChildToVerticalBox(LvHint);
+	}
 
 	Line(TEXT("SIGNATURE CARDS"), BfkUi::Gold, 17);
 	for (FName CardSlug : Sp->SignatureCards)

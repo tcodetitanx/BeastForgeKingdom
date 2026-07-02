@@ -22,6 +22,7 @@ struct FBfkRewardBundle
 	UPROPERTY() FName RelicDrop;                // elite/boss
 	UPROPERTY() FName WeaponDrop;
 	UPROPERTY() int32 Emberglass = 0;
+	UPROPERTY() int32 Forgedust = 0;
 	UPROPERTY() TArray<FName> Captured;         // species captured this battle
 	UPROPERTY() TArray<FBfkOwnedBeast> Hatched; // eggs that hatched
 	UPROPERTY() TArray<FBfkMilestone> Milestones;

@@ -43,9 +43,9 @@ bool FBfkContentSanityTest::RunTest(const FString&)
 		if (Boss) TestTrue(TEXT("boss flagged"), Boss->bBoss);
 	}
 
-	// starter squad valid
+	// starter squad valid (full 5v5 roster)
 	TArray<FName> Starters = FBfkContent::StarterSquad();
-	TestEqual(TEXT("starter squad of 3"), Starters.Num(), 3);
+	TestEqual(TEXT("starter squad of 5"), Starters.Num(), Bfk::SquadSize);
 	for (FName S : Starters) TestNotNull(TEXT("starter exists"), FBfkContent::Species(S));
 
 	// weapon grants resolve
@@ -105,6 +105,15 @@ bool FBfkBattleSimTest::RunTest(const FString&)
 		int32 Guard = 0;
 		while (!B->IsOver() && ++Guard < 400)
 		{
+			// random voluntary moves for a couple of units (exercises hex movement)
+			for (const FBfkUnitState& U : B->GetUnits())
+			{
+				if (B->IsOver()) break;
+				if (!B->CanUnitMove(U.Id) || Rng.RandRange(0, 100) > 40) continue;
+				TArray<int32> Cells = B->GetMoveCells(U.Id);
+				if (Cells.Num()) B->MoveCommand(U.Id, Cells[Rng.RandRange(0, Cells.Num() - 1)]);
+			}
+
 			// play random playable cards until none playable, then end turn
 			bool bPlayed = true;
 			int32 PlayGuard = 0;
@@ -128,7 +137,7 @@ bool FBfkBattleSimTest::RunTest(const FString&)
 					if (B->PlayCard(CI.InstanceId, Target)) { bPlayed = true; break; }
 				}
 			}
-			if (!B->IsOver()) B->EndTurn();
+			if (!B->IsOver()) B->EndTurn(Rng.RandRange(0, 1) == 1);   // randomly keep or discard
 			B->Events.Reset();
 		}
 
@@ -218,7 +227,21 @@ bool FBfkBreedingTest::RunTest(const FString&)
 	FBfkContent::EnsureInit();
 	UBfkSaveGame* Save = NewObject<UBfkSaveGame>();
 	FBfkMeta::InitFreshProfile(*Save);
-	TestEqual(TEXT("starter vault"), Save->Vault.Num(), 3);
+	TestEqual(TEXT("starter vault"), Save->Vault.Num(), Bfk::SquadSize);
+
+	// forgedust leveling
+	{
+		Save->Forgedust = 100;
+		const FGuid Id = Save->Vault[0].Id;
+		const int32 Hp0 = Save->Vault[0].BonusHp;
+		FString Why;
+		TestTrue(TEXT("level up succeeds"), FBfkMeta::LevelUpBeast(*Save, Id, Why));
+		TestEqual(TEXT("level tracked"), Save->Vault[0].Level, 1);
+		TestEqual(TEXT("hp bumped"), Save->Vault[0].BonusHp, Hp0 + 2);
+		TestTrue(TEXT("dust spent"), Save->Forgedust < 100);
+		Save->Forgedust = 0;
+		TestFalse(TEXT("level up blocked when broke"), FBfkMeta::LevelUpBeast(*Save, Id, Why));
+	}
 
 	// find two compatible beasts among all species and vault them
 	FName A = NAME_None, Bn = NAME_None;

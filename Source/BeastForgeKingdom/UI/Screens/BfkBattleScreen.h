@@ -58,6 +58,7 @@ public:
 
 protected:
 	virtual FReply NativeOnMouseButtonDown(const FGeometry& Geo, const FPointerEvent& Ev) override;
+	virtual void NativeTick(const FGeometry& Geo, float Dt) override;
 
 private:
 	UPROPERTY() UProgressBar* HpBar = nullptr;
@@ -67,6 +68,8 @@ private:
 	UPROPERTY() UHorizontalBox* StatusRow = nullptr;
 	UPROPERTY() UTextBlock* IntentText = nullptr;
 	UPROPERTY() UImage* Reticle = nullptr;
+	UPROPERTY() UImage* WeaponImg = nullptr;   // equipped weapon hovers by the sprite
+	float WeaponBobT = 0.f;
 };
 
 // ---------- the screen ----------
@@ -88,13 +91,13 @@ protected:
 	virtual FReply NativeOnMouseWheel(const FGeometry& Geo, const FPointerEvent& Ev) override;
 
 private:
-	// board geometry — isometric diamond projection, fixed angle (2:1 tiles)
+	// board geometry — iso-squashed pointy-top hex grid, odd rows offset right
 	FVector2D CellCenter(int32 Row, int32 Col) const;
 	FVector2D CellPos(int32 Row, int32 Col) const;   // legacy virtual cell rect centered on the tile
 	static constexpr float CellW = 265.f, CellH = 178.f;
-	static constexpr float TileW = 300.f, TileH = 150.f;
+	static constexpr float HexW = 200.f, HexH = 115.f;
 	static FVector2D TokenOff() { return FVector2D(-115.f, -133.f); }
-	static int32 CellDepth(int32 Row, int32 Col) { return Row + Col; }
+	static int32 CellDepth(int32 Row, int32 Col) { return Row; }   // painter's order by row
 
 	// pseudo-3d board camera: drag to pan, wheel to zoom (angle is fixed)
 	void ApplyBoardTransform(FVector2D Shake = FVector2D::ZeroVector);
@@ -116,10 +119,15 @@ private:
 	void OnTokenClicked(UBfkUnitToken* Token);
 	void OnCellClicked(int32 CellCode);
 	UFUNCTION() void OnEndTurnClicked();
+	UFUNCTION() void OnEndKeepClicked();
+	UFUNCTION() void OnEndDiscardClicked();
+	void DoEndTurn(bool bKeepHand);
 	void ClearTargeting();
 	void TryPlayOn(int32 TargetCode);
 	UFUNCTION() void OnPvpReadyClicked();
 	UFUNCTION() void OnResultContinueClicked();
+	void ShowPileViewer(bool bDiscard);
+	void BuildIntroSplash();
 
 	// event pump
 	void PumpEvents();
@@ -158,11 +166,16 @@ private:
 	UPROPERTY() UTextBlock* PvpCurtainText = nullptr;
 	UPROPERTY() UBorder* ResultBox = nullptr;
 
+	UPROPERTY() UBorder* EndChoice = nullptr;     // keep-or-discard hand popup
+	UPROPERTY() UBorder* PileViewer = nullptr;    // draw/discard inspection overlay
+	UPROPERTY() UBorder* IntroSplash = nullptr;   // boss/elite entrance card
+
 	FBfkTweener Tweener;
 	TArray<FBfkBattleEvent> Pending;
 	float EventTimer = 0.f;
 	bool bAnimating = false;
 	int32 SelectedCard = -1;
+	int32 MovingUnit = -1;    // unit picked up for a voluntary move
 	float ShakeTime = 0.f, ShakeStrength = 0.f;
 	float BannerTimer = 0.f, SpeechTimer = 0.f;
 	bool bEnded = false;

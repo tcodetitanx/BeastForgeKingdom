@@ -44,8 +44,8 @@ void UBfkMapScreen::Build()
 	UTextBlock* Title = BfkUi::Text(this, FString::Printf(TEXT("Act %d — %s"), Run.Act, *FBfkContent::ActName(Run.Act)), 34, BfkUi::Parchment, true, true);
 	BfkUi::AddToCanvas(Canvas, Title, FVector2D(60, 28), FVector2D(900, 50));
 
-	UTextBlock* GoldT = BfkUi::Text(this, FString::Printf(TEXT("Gold %d    Soulshards %d    Emberglass %d    Eggs %d"),
-		Run.Gold, G->Profile()->Soulshards, G->Profile()->Emberglass, G->Profile()->Eggs.Num()), 18, BfkUi::Gold, true);
+	UTextBlock* GoldT = BfkUi::Text(this, FString::Printf(TEXT("Gold %d    Soulshards %d    Emberglass %d    Forgedust %d    Eggs %d"),
+		Run.Gold, G->Profile()->Soulshards, G->Profile()->Emberglass, G->Profile()->Forgedust, G->Profile()->Eggs.Num()), 18, BfkUi::Gold, true);
 	BfkUi::AddToCanvas(Canvas, GoldT, FVector2D(60, 76), FVector2D(900, 26));
 
 	UButton* SquadBtn = BfkUi::MakeButton(this, TEXT("Squad & Gear"), 18);
@@ -146,6 +146,67 @@ void UBfkMapScreen::Build()
 	Weather->Configure(W, G->Profile()->Settings.WeatherIntensity);
 	Weather->SetVisibility(ESlateVisibility::HitTestInvisible);
 	BfkUi::FillCanvas(Canvas, Weather);
+
+	// first steps of a fresh run: pick a boon before the road
+	if (Run.bBoonPending)
+	{
+		UBorder* Dim = WidgetTree->ConstructWidget<UBorder>();
+		Dim->SetBrush(BfkUi::SolidBrush(FLinearColor(0.01f, 0.015f, 0.03f, 0.85f), 2.f));
+		Dim->SetHorizontalAlignment(HAlign_Center);
+		Dim->SetVerticalAlignment(VAlign_Center);
+
+		UBorder* Panel = BfkUi::Panel(this, BfkUi::PanelDark);
+		Panel->SetPadding(FMargin(40, 30));
+		UVerticalBox* V = WidgetTree->ConstructWidget<UVerticalBox>();
+		UTextBlock* T1 = BfkUi::Text(this, TEXT("A Boon for the Road"), 34, BfkUi::Gold, true, true);
+		T1->SetJustification(ETextJustify::Center);
+		V->AddChildToVerticalBox(T1)->SetPadding(FMargin(0, 0, 0, 6));
+		UTextBlock* T2 = BfkUi::Text(this, TEXT("The last ember warms one gift into being. Choose."), 16, BfkUi::Dim);
+		T2->SetJustification(ETextJustify::Center);
+		V->AddChildToVerticalBox(T2)->SetPadding(FMargin(0, 0, 0, 20));
+
+		TWeakObjectPtr<UBfkMapScreen> WeakMap = this;
+		auto Boon = [&](const FString& Title, const FString& Desc, int32 Which)
+		{
+			UBfkTagButton* Btn = BfkUi::TagButton(this, [WeakMap](UBfkTagButton* B)
+			{
+				if (!WeakMap.IsValid()) return;
+				UBfkGameInstance* GI = WeakMap->Gi();
+				FBfkRunState& RR = GI->Run();
+				switch (B->TagInt)
+				{
+				case 0: RR.Gold += 40; break;
+				case 1: GI->Profile()->Emberglass += 1; break;
+				case 2: GI->Profile()->Soulshards += 15; GI->Profile()->Forgedust += 25; break;
+				}
+				RR.bBoonPending = false;
+				GI->SaveProfile();
+				WeakMap->Click();
+				WeakMap->Router->Go(EBfkScreenId::Map);   // rebuild without the overlay
+			});
+			Btn->TagInt = Which;
+			UVerticalBox* BV = WidgetTree->ConstructWidget<UVerticalBox>();
+			UTextBlock* BT = BfkUi::Text(this, Title, 20, BfkUi::GhostTeal, true);
+			BT->SetJustification(ETextJustify::Center);
+			BV->AddChildToVerticalBox(BT);
+			UTextBlock* BD = BfkUi::Text(this, Desc, 14, BfkUi::Dim);
+			BD->SetJustification(ETextJustify::Center);
+			BD->SetAutoWrapText(true);
+			BV->AddChildToVerticalBox(BD);
+			Btn->AddChild(BV);
+			V->AddChildToVerticalBox(Btn)->SetPadding(FMargin(0, 8));
+		};
+		Boon(TEXT("Gilded Start"), TEXT("+40 gold for the first peddler."), 0);
+		Boon(TEXT("Forge-Warmed"), TEXT("+1 Emberglass — Maren approves."), 1);
+		Boon(TEXT("Old Debts"), TEXT("+15 Soulshards, +25 Forgedust."), 2);
+
+		Panel->SetContent(V);
+		USizeBox* SBox = WidgetTree->ConstructWidget<USizeBox>();
+		SBox->SetWidthOverride(560);
+		SBox->AddChild(Panel);
+		Dim->SetContent(SBox);
+		BfkUi::FillCanvas(Canvas, Dim);
+	}
 }
 
 void UBfkMapScreen::NativeTick(const FGeometry& Geo, float Dt)
@@ -218,7 +279,7 @@ void UBfkSquadPickerScreen::Build()
 	}
 	BfkUi::AddToCanvas(Canvas, TitleBar(Title), FVector2D(0, 24), FVector2D(1920, 60));
 
-	HintText = BfkUi::Text(this, TEXT("Choose 3. Their souls shape your deck — click a chosen fighter to equip gear."), 18, BfkUi::Dim);
+	HintText = BfkUi::Text(this, TEXT("Choose 5. Their souls shape your deck — click a chosen fighter to equip gear."), 18, BfkUi::Dim);
 	HintText->SetJustification(ETextJustify::Center);
 	BfkUi::AddToCanvas(Canvas, HintText, FVector2D(460, 92), FVector2D(1000, 26));
 
@@ -289,7 +350,18 @@ void UBfkSquadPickerScreen::RefreshRoster()
 		Stats->SetJustification(ETextJustify::Center);
 		V->AddChildToVerticalBox(Stats);
 		Card->AddChild(V);
-		Card->SetToolTipText(FText::FromString(Sp->Desc));
+		// hover = the creature's full kit: what it brings to the shared deck
+		FString Tip = Sp->Desc;
+		Tip += FString::Printf(TEXT("\n\nRange %d   Move %d\n\nCARDS:"),
+			Bfk::ArchetypeRange(Sp->Archetype), Bfk::ArchetypeMove(Sp->Archetype));
+		for (FName CardSlug : Sp->SignatureCards)
+		{
+			if (const FBfkCardDef* D = FBfkContent::Card(CardSlug))
+			{
+				Tip += FString::Printf(TEXT("\n- %s (%d): %s"), *D->Display, D->Cost, *BfkUi::CardRulesText(*D, false));
+			}
+		}
+		Card->SetToolTipText(FText::FromString(Tip));
 
 		USizeBox* SB = WidgetTree->ConstructWidget<USizeBox>();
 		SB->SetWidthOverride(180);
@@ -337,7 +409,7 @@ void UBfkSquadPickerScreen::RefreshPicked()
 		SlotBtn->AddChild(H);
 		PickedRow->AddChildToHorizontalBox(SlotBtn)->SetPadding(FMargin(8, 0));
 	}
-	for (int32 i = Picked.Num(); i < 3; ++i)
+	for (int32 i = Picked.Num(); i < Bfk::SquadSize; ++i)
 	{
 		UBorder* Empty = BfkUi::Panel(this, FLinearColor(0.05f, 0.05f, 0.07f, 0.6f));
 		UTextBlock* T = BfkUi::Text(this, TEXT("empty"), 14, BfkUi::Dim);
@@ -347,13 +419,13 @@ void UBfkSquadPickerScreen::RefreshPicked()
 		S->SetPadding(FMargin(8, 20));
 		S->SetSize(ESlateSizeRule::Fill);
 	}
-	ConfirmBtn->SetIsEnabled(Picked.Num() == 3);
+	ConfirmBtn->SetIsEnabled(Picked.Num() == Bfk::SquadSize);
 }
 
 void UBfkSquadPickerScreen::ToggleBeast(const FGuid& Id)
 {
 	if (Picked.Contains(Id)) Picked.Remove(Id);
-	else if (Picked.Num() < 3) Picked.Add(Id);
+	else if (Picked.Num() < Bfk::SquadSize) Picked.Add(Id);
 	GearPanel->SetVisibility(ESlateVisibility::Collapsed);
 	RefreshRoster();
 	RefreshPicked();
@@ -442,7 +514,7 @@ TArray<FBfkRunSquadMember> UBfkSquadPickerScreen::BuildMembers() const
 
 void UBfkSquadPickerScreen::OnConfirmClicked()
 {
-	if (Picked.Num() != 3) return;
+	if (Picked.Num() != Bfk::SquadSize) return;
 	Click();
 	Gi()->UiSound(TEXT("sfx_ui_confirm"));
 	switch (Router->PickMode)
@@ -624,6 +696,14 @@ void UBfkGameOverScreen::Build()
 	Body->SetAutoWrapText(true);
 	BfkUi::AddToCanvas(Canvas, Body, FVector2D(960, 480), FVector2D(1000, 140), FVector2D(0.5f, 0.5f));
 
+	// the run's ledger
+	const FBfkRunState& RunRef = Save->Run;
+	UTextBlock* Ledger = BfkUi::Text(this, FString::Printf(
+		TEXT("THE LEDGER — Act %d reached   |   %d battles won   |   %d elites slain   |   %d beasts snared   |   %d gold unspent"),
+		RunRef.Act, RunRef.BattlesWon, RunRef.ElitesSlain, RunRef.CapturesThisRun, RunRef.Gold), 16, BfkUi::Dim, true);
+	Ledger->SetJustification(ETextJustify::Center);
+	BfkUi::AddToCanvas(Canvas, Ledger, FVector2D(960, 600), FVector2D(1400, 26), FVector2D(0.5f, 0.5f));
+
 	UButton* Menu = BfkUi::MakeButton(this, TEXT("Return to the Lantern"), 24);
 	Menu->OnClicked.AddDynamic(this, &UBfkGameOverScreen::OnMenuClicked);
 	BfkUi::AddToCanvas(Canvas, Menu, FVector2D(960, 700), FVector2D(380, 66), FVector2D(0.5f, 0.5f));
@@ -650,6 +730,14 @@ void UBfkVictoryScreen::Build()
 	Body->SetJustification(ETextJustify::Center);
 	Body->SetAutoWrapText(true);
 	BfkUi::AddToCanvas(Canvas, Body, FVector2D(960, 520), FVector2D(1000, 260), FVector2D(0.5f, 0.5f));
+
+	// the run's ledger
+	const FBfkRunState& RunRef = Gi()->Profile()->Run;
+	UTextBlock* Ledger = BfkUi::Text(this, FString::Printf(
+		TEXT("THE LEDGER — %d battles won   |   %d elites slain   |   %d beasts snared   |   %d gold left to the gulls"),
+		RunRef.BattlesWon, RunRef.ElitesSlain, RunRef.CapturesThisRun, RunRef.Gold), 16, BfkUi::Dim, true);
+	Ledger->SetJustification(ETextJustify::Center);
+	BfkUi::AddToCanvas(Canvas, Ledger, FVector2D(960, 700), FVector2D(1400, 26), FVector2D(0.5f, 0.5f));
 
 	UButton* Menu = BfkUi::MakeButton(this, TEXT("Tend the Fire"), 24, BfkUi::Gold);
 	Menu->OnClicked.AddDynamic(this, &UBfkVictoryScreen::OnMenuClicked);

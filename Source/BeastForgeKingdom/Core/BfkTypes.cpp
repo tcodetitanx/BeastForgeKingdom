@@ -57,7 +57,7 @@ FString StatusDesc(EBfkStatus S)
 	{
 	case EBfkStatus::Burn:    return TEXT("Takes stack damage at turn start; decays by 1.");
 	case EBfkStatus::Chill:   return TEXT("-1 damage dealt; at 3+ stacks loses 1 energy. Decays.");
-	case EBfkStatus::Poison:  return TEXT("Takes stack damage at turn end; grows each turn.");
+	case EBfkStatus::Poison:  return TEXT("Takes stack damage at turn end; decays by 1.");
 	case EBfkStatus::Shock:   return TEXT("Next hit deals bonus damage and chains to adjacent.");
 	case EBfkStatus::Curse:   return TEXT("Cannot be healed. Decays.");
 	case EBfkStatus::Rust:    return TEXT("Block gained is reduced. Decays.");

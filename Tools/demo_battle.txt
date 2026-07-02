@@ -1,40 +1,46 @@
-# deterministic gameplay tour: run -> map -> battle -> play cards -> pause/codex
-# iso board: CellCenter(r,c) = (885,250) + ((c[+0.5 enemy]-r)*150, (c[+0.5 enemy]+r)*75)
+# deterministic gameplay tour: run -> boon -> map -> hex battle 5v5
+# hex CellCenter(r,c) = (160 + c*200 + (r%2)*100, 235 + r*86.25)
 wait 3
 shot t_menu
 exec Bfk.NewRun 12345
 wait 2
+# starting boon overlay: pick Gilded Start (top button)
+shot t_boon
+click 960 505
+wait 1.5
 shot t_map
 exec Bfk.Enter battle
-wait 3
+wait 3.5
 shot t_battle_start
-# select the middle card in hand and target the enemy front (row2,col2 ~ 960,587)
+# voluntary move: pick up the captain (row0 col2 ~ 560,215) and step to mid-field
+click 560 215
+wait 0.6
+shot t_move_range
+click 960 235
+wait 1.5
+shot t_moved
+# play a card on an enemy front-liner
 click 960 960
 wait 0.6
 shot t_card_selected
-click 960 560
+click 1470 240
 wait 2.5
 shot t_card_played
-# another card, target enemy mid (row1,col3 ~ 1260,587)
-click 860 960
-wait 0.6
-click 1260 560
-wait 2.5
-shot t_card_played2
 rclick 960 500
-click 1060 960
+# inspect the draw pile
+click 195 1010
+wait 0.8
+shot t_pile
+click 1280 186
+wait 0.5
+# end turn -> keep/discard choice -> keep
+click 1760 927
 wait 0.6
-click 1410 490
-wait 2.5
-shot t_card_played3
-# end turn, watch the enemy act
-click 1760 927
-wait 4.5
+shot t_end_choice
+click 1745 712
+wait 5
 shot t_enemy_turn_done
-click 1760 927
-wait 4.5
-shot t_turn3
-# pause menu + codex
+# pause menu + codex (armory section)
 click 1750 42
 wait 0.8
 shot t_pause

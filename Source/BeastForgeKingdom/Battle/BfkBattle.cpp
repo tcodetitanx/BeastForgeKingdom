@@ -49,7 +49,7 @@ void UBfkBattle::Init(const FBfkBattleConfig& InConfig)
 void UBfkBattle::BuildSide(const TArray<FBfkFighterSpec>& Specs, bool bEnemy)
 {
 	// Default formation per archetype: tanks/bruisers front, casters/support back.
-	for (int32 i = 0; i < Specs.Num() && i < 3; ++i)
+	for (int32 i = 0; i < Specs.Num() && i < Bfk::SquadSize; ++i)
 	{
 		const FBfkFighterSpec& Spec = Specs[i];
 		const FBfkSpeciesDef* Sp = FBfkContent::Species(Spec.Species);
@@ -82,13 +82,26 @@ void UBfkBattle::BuildSide(const TArray<FBfkFighterSpec>& Specs, bool bEnemy)
 		U.MaxHp = FMath::Max(1, U.MaxHp);
 		U.Hp = U.MaxHp;
 
+		U.Range = Bfk::ArchetypeRange(Sp->Archetype);
+		U.Move = Bfk::ArchetypeMove(Sp->Archetype);
+		if (Sp->bBoss) { U.Range = FMath::Max(U.Range, 4); U.Move = 1; }
+		// reach weapons extend range
+		if (const FBfkWeaponDef* W = FBfkContent::Weapon(Spec.Weapon))
+		{
+			if (W->WClass == TEXT("bow") || W->WClass == TEXT("crossbow")
+				|| W->WClass == TEXT("staff") || W->WClass == TEXT("wand"))
+			{
+				U.Range += 1;
+			}
+		}
+
 		const bool bFronty = Sp->Archetype == EBfkArchetype::Bruiser || Sp->Archetype == EBfkArchetype::Tank
 			|| Sp->Archetype == EBfkArchetype::Striker;
-		const int32 FrontCol = bEnemy ? 2 : 1;
-		const int32 BackCol = bEnemy ? 3 : 0;
+		const int32 FrontCol = bEnemy ? Bfk::EnemyFrontCol : Bfk::AllyFrontCol;
+		const int32 BackCol = bEnemy ? Bfk::EnemyBackCol : Bfk::AllyBackCol;
 		U.Cell = FBfkCell(i, bFronty ? FrontCol : BackCol);
 		// Bosses take the middle lane front and are the only unit placed there.
-		if (Sp->bBoss) U.Cell = FBfkCell(1, FrontCol);
+		if (Sp->bBoss) U.Cell = FBfkCell(Bfk::BoardRows / 2, FrontCol);
 		while (UnitAt(U.Cell)) // resolve collisions in placement
 		{
 			U.Cell = FindFreeCell(bEnemy, U.Cell.Row);
@@ -181,15 +194,66 @@ bool UBfkBattle::IsCardSevered(const FBfkCardInstance& CI) const
 	return Owner && !Owner->bAlive;
 }
 
-bool UBfkBattle::GetIntent(int32 UnitId, FName& OutCard, int32& OutTargetCode) const
+bool UBfkBattle::GetIntent(int32 UnitId, FName& OutCard, int32& OutTargetCode, bool& bOutAdvance) const
 {
 	if (const FIntent* I = Intents.Find(UnitId))
 	{
 		OutCard = I->Card;
 		OutTargetCode = I->TargetCode;
+		bOutAdvance = I->bAdvance;
 		return true;
 	}
 	return false;
+}
+
+const FBfkUnitState* UBfkBattle::NearestFoe(const FBfkUnitState& U) const
+{
+	const FBfkUnitState* Best = nullptr;
+	int32 BestD = INT32_MAX;
+	for (const FBfkUnitState& T : Units)
+	{
+		if (!T.bAlive || T.bEnemySide == U.bEnemySide) continue;
+		const int32 D = Bfk::HexDist(U.Cell, T.Cell);
+		if (D < BestD) { BestD = D; Best = &T; }
+	}
+	return Best;
+}
+
+// ============================================================== movement
+
+bool UBfkBattle::CanUnitMove(int32 UnitId) const
+{
+	if (bOver) return false;
+	const FBfkUnitState* U = FindUnit(UnitId);
+	return U && U->bAlive && !U->bMovedThisTurn && U->Move > 0
+		&& U->bEnemySide == (ActiveSide == 1);
+}
+
+TArray<int32> UBfkBattle::GetMoveCells(int32 UnitId) const
+{
+	TArray<int32> Out;
+	if (!CanUnitMove(UnitId)) return Out;
+	const FBfkUnitState* U = FindUnit(UnitId);
+	for (int32 R = 0; R < Bfk::BoardRows; ++R)
+	{
+		for (int32 C = 0; C < Bfk::BoardCols; ++C)
+		{
+			const FBfkCell Cell(R, C);
+			if (UnitAt(Cell)) continue;
+			if (Bfk::HexDist(U->Cell, Cell) <= U->Move) Out.Add(CellCode(Cell));
+		}
+	}
+	return Out;
+}
+
+bool UBfkBattle::MoveCommand(int32 UnitId, int32 InCellCode)
+{
+	if (!GetMoveCells(UnitId).Contains(InCellCode)) return false;
+	FBfkUnitState* U = MutFind(UnitId);
+	U->bMovedThisTurn = true;
+	MoveUnit(*U, CodeCell(InCellCode), false);
+	CheckEnd();
+	return true;
 }
 
 const FBfkCardDef* UBfkBattle::Def(FName Slug) const
@@ -222,21 +286,33 @@ TArray<int32> UBfkBattle::SideUnitIds(bool bEnemy, bool bAliveOnly) const
 
 FBfkUnitState* UBfkBattle::FirstInLane(int32 Row, bool bEnemySide, bool bFromAllyView)
 {
-	// Scan columns from the attacker's side toward the defender's back.
-	TArray<int32> Cols;
-	if (bEnemySide) { Cols = {2, 3}; }       // enemies scanned front->back from ally view
-	else { Cols = {1, 0}; }                   // allies scanned front->back from enemy view
-	for (int32 C : Cols)
+	// Scan the row toward the defender's back: the first unit of that side hit.
+	if (bEnemySide)
 	{
-		if (FBfkUnitState* U = MutUnitAt(FBfkCell(Row, C))) return U;
+		for (int32 C = 0; C < Bfk::BoardCols; ++C)
+			if (FBfkUnitState* U = MutUnitAt(FBfkCell(Row, C)))
+				if (U->bEnemySide) return U;
+	}
+	else
+	{
+		for (int32 C = Bfk::BoardCols - 1; C >= 0; --C)
+			if (FBfkUnitState* U = MutUnitAt(FBfkCell(Row, C)))
+				if (!U->bEnemySide) return U;
 	}
 	return nullptr;
 }
 
 FBfkCell UBfkBattle::FindFreeCell(bool bEnemySide, int32 PreferRow)
 {
-	TArray<int32> Cols = bEnemySide ? TArray<int32>{2, 3} : TArray<int32>{1, 0};
-	TArray<int32> Rows = {PreferRow, (PreferRow + 1) % 3, (PreferRow + 2) % 3};
+	const TArray<int32> Cols = bEnemySide
+		? TArray<int32>{Bfk::EnemyFrontCol, Bfk::EnemyBackCol, Bfk::EnemyBackCol + 1, 5}
+		: TArray<int32>{Bfk::AllyFrontCol, Bfk::AllyBackCol, 0, 3};
+	TArray<int32> Rows = {PreferRow};
+	for (int32 D = 1; D < Bfk::BoardRows; ++D)
+	{
+		if (PreferRow + D < Bfk::BoardRows) Rows.Add(PreferRow + D);
+		if (PreferRow - D >= 0) Rows.Add(PreferRow - D);
+	}
 	for (int32 R : Rows)
 		for (int32 C : Cols)
 			if (!UnitAt(FBfkCell(R, C))) return FBfkCell(R, C);
@@ -260,7 +336,15 @@ void UBfkBattle::StartTurn(int32 Side)
 	if (Side == 0) ++Turn;
 	Emit(EBfkEvt::TurnBegan, -1, -1, Turn, Side);
 
-	Energy[Side] = MaxEnergy[Side];
+	// banked energy from last turn carries over (capped at 3)
+	Energy[Side] = MaxEnergy[Side] + CarryEnergy[Side];
+	CarryEnergy[Side] = 0;
+
+	// fresh move allowance
+	for (FBfkUnitState& U : Units)
+	{
+		if (U.bEnemySide == (Side == 1)) U.bMovedThisTurn = false;
+	}
 
 	// Chill: 3+ stacks on any of your units freezes 1 energy (once per unit).
 	for (const FBfkUnitState& U : Units)
@@ -285,7 +369,8 @@ void UBfkBattle::StartTurn(int32 Side)
 
 	if (Side == 0 || Config.bPvp)
 	{
-		DrawCards(Side, 5);
+		// top up to a hand of 5 (kept cards count); always at least 1
+		DrawCards(Side, FMath::Clamp(5 - Hand[Side].Num(), 1, 5));
 	}
 	CheckEnd();
 }
@@ -307,7 +392,7 @@ void UBfkBattle::DrawCards(int32 Side, int32 N)
 	}
 }
 
-void UBfkBattle::EndTurn()
+void UBfkBattle::EndTurn(bool bKeepHand)
 {
 	if (bOver) return;
 	const int32 Side = ActiveSide;
@@ -315,8 +400,11 @@ void UBfkBattle::EndTurn()
 	TickStatusesTurnEnd(Side);
 	RelicHooksSide(EBfkRelicHook::OnTurnEnd, Side);
 
-	// Discard hand (except Retain cards)
-	if (Side == 0 || Config.bPvp)
+	// bank unspent energy (capped at 3)
+	CarryEnergy[Side] = FMath::Clamp(Energy[Side], 0, 3);
+
+	// Discard hand (player's choice; Retain cards always stay)
+	if ((Side == 0 || Config.bPvp) && !bKeepHand)
 	{
 		for (int32 i = Hand[Side].Num() - 1; i >= 0; --i)
 		{
@@ -375,6 +463,11 @@ void UBfkBattle::ResolveEnemyTurn()
 
 void UBfkBattle::EnemyPlayIntent(FBfkUnitState& Enemy, const FIntent& Intent)
 {
+	if (Intent.bAdvance)
+	{
+		EnemyAdvance(Enemy);
+		return;
+	}
 	const FBfkCardDef* D = Def(Intent.Card);
 	if (!D) return;
 
@@ -409,15 +502,24 @@ void UBfkBattle::PickIntents()
 		case EBfkTarget::Enemy:
 		case EBfkTarget::EnemyFront:
 		{
-			// From the enemy's perspective, "enemies" are the player's units.
+			// From the enemy's perspective, "enemies" are the player's units —
+			// but only those within this unit's reach. Out of range = advance.
+			const int32 Reach = D->bMeleeOnly ? 1 : U.Range;
 			TArray<int32> Choices;
 			for (const FBfkUnitState& T : Units)
 			{
 				if (!T.bAlive || T.bEnemySide) continue;
 				if (T.Status(EBfkStatus::Stealth) > 0) continue;
+				if (Bfk::HexDist(U.Cell, T.Cell) > Reach) continue;
 				Choices.Add(T.Id);
 			}
-			if (Choices.Num() == 0) { I.TargetCode = -1; break; }
+			if (Choices.Num() == 0)
+			{
+				I.Card = NAME_None;
+				I.bAdvance = true;   // close the distance instead
+				I.TargetCode = -1;
+				break;
+			}
 			const FBfkUnitState* T = FindUnit(Choices[Rng.RandRange(0, Choices.Num() - 1)]);
 			I.TargetCode = CellCode(T->Cell);
 			break;
@@ -453,6 +555,27 @@ void UBfkBattle::PickIntents()
 	}
 }
 
+void UBfkBattle::EnemyAdvance(FBfkUnitState& Enemy)
+{
+	const FBfkUnitState* Target = NearestFoe(Enemy);
+	if (!Target) return;
+	// greedy hex-walk: each step take the neighbor closest to the target
+	for (int32 Step = 0; Step < Enemy.Move; ++Step)
+	{
+		if (Bfk::HexDist(Enemy.Cell, Target->Cell) <= FMath::Max(1, Enemy.Range)) break;
+		FBfkCell Best = Enemy.Cell;
+		int32 BestD = Bfk::HexDist(Enemy.Cell, Target->Cell);
+		for (const FBfkCell& N : Bfk::HexNeighbors(Enemy.Cell))
+		{
+			if (UnitAt(N)) continue;
+			const int32 D = Bfk::HexDist(N, Target->Cell);
+			if (D < BestD) { BestD = D; Best = N; }
+		}
+		if (Best == Enemy.Cell) break;   // boxed in
+		MoveUnit(Enemy, Best, false);
+	}
+}
+
 // ============================================================== statuses / weather / hazards
 
 void UBfkBattle::TickStatusesTurnStart(int32 Side)
@@ -481,7 +604,7 @@ void UBfkBattle::TickStatusesTurnEnd(int32 Side)
 		if (int32 Poison = U.Status(EBfkStatus::Poison))
 		{
 			DealDamage(nullptr, U, Poison, false);
-			if (Poison < 6) ApplyStatus(U, EBfkStatus::Poison, +1); // festers
+			ApplyStatus(U, EBfkStatus::Poison, -1); // fades (was festering — too oppressive)
 		}
 		for (EBfkStatus S : {EBfkStatus::Chill, EBfkStatus::Curse, EBfkStatus::Rust, EBfkStatus::Rally, EBfkStatus::Stealth})
 		{
@@ -511,7 +634,7 @@ void UBfkBattle::ApplyWeatherTurnStart(int32 Side)
 	if (Config.Weather == EBfkWeather::Snow && (Turn % 2 == 0))
 	{
 		// exposed back column gathers chill
-		const int32 BackCol = (Side == 1) ? 3 : 0;
+		const int32 BackCol = (Side == 1) ? Bfk::BoardCols - 1 : 0;
 		for (FBfkUnitState& U : Units)
 		{
 			if (U.bAlive && U.bEnemySide == (Side == 1) && U.Cell.Col == BackCol)
@@ -522,10 +645,10 @@ void UBfkBattle::ApplyWeatherTurnStart(int32 Side)
 	}
 	if (Config.Weather == EBfkWeather::Rain && Side == 0 && (Turn % 3 == 1))
 	{
-		// puddles pool on random empty cells
-		for (int32 i = 0; i < 2; ++i)
+		// puddles pool on random empty cells (bigger field = a few more)
+		for (int32 i = 0; i < 3; ++i)
 		{
-			FBfkCell C(Rng.RandRange(0, 2), Rng.RandRange(0, 3));
+			FBfkCell C(Rng.RandRange(0, Bfk::BoardRows - 1), Rng.RandRange(0, Bfk::BoardCols - 1));
 			if (HazardAt(C) == EBfkHazard::None) PlaceHazard(C, EBfkHazard::Puddle);
 		}
 	}
@@ -548,16 +671,16 @@ void UBfkBattle::BossTurnStart()
 		for (const auto& KV : Hazards) if (KV.Value == EBfkHazard::Spores) SporeCells.Add(KV.Key);
 		if (SporeCells.Num() == 0)
 		{
-			PlaceHazard(FBfkCell(Rng.RandRange(0, 2), Rng.RandRange(0, 1)), EBfkHazard::Spores);
+			PlaceHazard(FBfkCell(Rng.RandRange(0, Bfk::BoardRows - 1), Rng.RandRange(0, 3)), EBfkHazard::Spores);
 		}
 		else
 		{
 			const FBfkCell Src = SporeCells[Rng.RandRange(0, SporeCells.Num() - 1)];
-			const FBfkCell Dst(FMath::Clamp(Src.Row + Rng.RandRange(-1, 1), 0, 2),
-			                   FMath::Clamp(Src.Col + Rng.RandRange(-1, 1), 0, 3));
+			const FBfkCell Dst(FMath::Clamp(Src.Row + Rng.RandRange(-1, 1), 0, Bfk::BoardRows - 1),
+			                   FMath::Clamp(Src.Col + Rng.RandRange(-1, 1), 0, Bfk::BoardCols - 1));
 			if (HazardAt(Dst) == EBfkHazard::None) PlaceHazard(Dst, EBfkHazard::Spores);
 		}
-		if (Turn % 3 == 0 && CountAlive(true) < 6)
+		if (Turn % 3 == 0 && CountAlive(true) < 8)
 		{
 			SummonMinion(TEXT("min-sporeling"), true, FindFreeCell(true, Rng.RandRange(0, 2)));
 			Emit(EBfkEvt::Speech, Boss->Id, -1, 0, 0, 0, NAME_None, TEXT("The wilds keep what they catch."));
@@ -568,20 +691,20 @@ void UBfkBattle::BossTurnStart()
 		if (++CapsizeCounter >= kCapsizePeriod)
 		{
 			CapsizeCounter = 0;
-			// capsize: swap the player's front and back columns
+			// capsize: mirror the player's half — front becomes back
 			for (FBfkUnitState& U : Units)
 			{
-				if (U.bAlive && !U.bEnemySide)
+				if (U.bAlive && !U.bEnemySide && U.Cell.Col <= 3)
 				{
 					FBfkCell From = U.Cell;
-					U.Cell.Col = (U.Cell.Col == 0) ? 1 : 0;
+					U.Cell.Col = 3 - U.Cell.Col;
 					Emit(EBfkEvt::UnitMoved, U.Id, -1, CellCode(From), CellCode(U.Cell), 1);
 				}
 			}
 			Emit(EBfkEvt::ColumnsCapsized);
 			Emit(EBfkEvt::Speech, Boss->Id, -1, 0, 0, 0, NAME_None, TEXT("All hands... below."));
 		}
-		if (Turn % 3 == 2 && CountAlive(true) < 6)
+		if (Turn % 3 == 2 && CountAlive(true) < 8)
 		{
 			SummonMinion(TEXT("min-deckhand"), true, FindFreeCell(true, Rng.RandRange(0, 2)));
 		}
@@ -592,7 +715,7 @@ void UBfkBattle::BossTurnStart()
 		Emit(EBfkEvt::Speech, Boss->Id, -1, 0, 0, 0, NAME_None, TEXT("Strike, and study your reflection."));
 		if (Boss->Hp < Boss->MaxHp / 2 && Turn % 2 == 0)
 		{
-			FBfkCell C(Rng.RandRange(0, 2), Rng.RandRange(0, 1));
+			FBfkCell C(Rng.RandRange(0, Bfk::BoardRows - 1), Rng.RandRange(0, 3));
 			if (HazardAt(C) == EBfkHazard::None) PlaceHazard(C, EBfkHazard::CrystalShard);
 		}
 	}
@@ -624,14 +747,14 @@ void UBfkBattle::BossTurnStart()
 					}
 				}
 			}
-			for (int32 C = 0; C < 4; ++C) if (HazardAt(FBfkCell(TideRow, C)) == EBfkHazard::Floodmark) PlaceHazard(FBfkCell(TideRow, C), EBfkHazard::None);
+			for (int32 C = 0; C < Bfk::BoardCols; ++C) if (HazardAt(FBfkCell(TideRow, C)) == EBfkHazard::Floodmark) PlaceHazard(FBfkCell(TideRow, C), EBfkHazard::None);
 			TideRow = -1;
 		}
 		else if (TideCounter % kTidePeriod == 0)
 		{
-			TideRow = Rng.RandRange(0, 2);
+			TideRow = Rng.RandRange(0, Bfk::BoardRows - 1);
 			Emit(EBfkEvt::TideWarning, -1, -1, TideRow);
-			for (int32 C = 0; C < 4; ++C) PlaceHazard(FBfkCell(TideRow, C), EBfkHazard::Floodmark);
+			for (int32 C = 0; C < Bfk::BoardCols; ++C) PlaceHazard(FBfkCell(TideRow, C), EBfkHazard::Floodmark);
 			Emit(EBfkEvt::Speech, Boss->Id, -1, 0, 0, 0, NAME_None, TEXT("The sea remembers what I owe it."));
 		}
 	}
@@ -680,13 +803,15 @@ bool UBfkBattle::CanPlayCard(int32 InstanceId, FString& WhyNot) const
 	if (D->bMeleeOnly && CI->OwnerUnitId >= 0)
 	{
 		const FBfkUnitState* Owner = FindUnit(CI->OwnerUnitId);
-		if (Owner)
+		if (Owner && (D->Target == EBfkTarget::Enemy || D->Target == EBfkTarget::EnemyFront))
 		{
-			const int32 FrontCol = Owner->bEnemySide ? 2 : 1;
-			// front-most = in front col, or in back col with empty front
-			const bool bFrontmost = Owner->Cell.Col == FrontCol
-				|| UnitAt(FBfkCell(Owner->Cell.Row, FrontCol)) == nullptr;
-			if (!bFrontmost) { WhyNot = TEXT("Melee: needs a clear front line."); return false; }
+			bool bFoeAdjacent = false;
+			for (const FBfkUnitState& T : Units)
+			{
+				if (T.bAlive && T.bEnemySide != Owner->bEnemySide
+					&& Bfk::HexDist(Owner->Cell, T.Cell) <= 1) { bFoeAdjacent = true; break; }
+			}
+			if (!bFoeAdjacent) { WhyNot = TEXT("Melee: no foe in reach — move closer."); return false; }
 		}
 	}
 	return true;
@@ -703,6 +828,7 @@ TArray<int32> UBfkBattle::GetValidUnitTargets(int32 InstanceId) const
 	if (!D) return Out;
 
 	const bool bMyEnemies = (Side == 0); // side 0 targets bEnemySide units
+	const FBfkUnitState* Owner = FindUnit(CI->OwnerUnitId);
 	switch (D->Target)
 	{
 	case EBfkTarget::Enemy:
@@ -711,12 +837,13 @@ TArray<int32> UBfkBattle::GetValidUnitTargets(int32 InstanceId) const
 		{
 			if (!U.bAlive || U.bEnemySide != bMyEnemies) continue;
 			if (U.Status(EBfkStatus::Stealth) > 0) continue;
-			if (D->Target == EBfkTarget::EnemyFront)
+			// range gate: melee cards & EnemyFront reach 1 hex, otherwise the
+			// owner's Range. Token cards (snare) have no owner = unlimited.
+			if (Owner)
 			{
-				const int32 FrontCol = U.bEnemySide ? 2 : 1;
-				const bool bFrontmost = U.Cell.Col == FrontCol
-					|| UnitAt(FBfkCell(U.Cell.Row, FrontCol)) == nullptr;
-				if (!bFrontmost) continue;
+				const int32 Reach = (D->bMeleeOnly || D->Target == EBfkTarget::EnemyFront)
+					? 1 : FMath::Max(1, Owner->Range);
+				if (Bfk::HexDist(Owner->Cell, U.Cell) > Reach) continue;
 			}
 			// capture: beasts only, non-boss
 			const bool bIsSnare = CI->CardSlug == TEXT("soul-snare");
@@ -748,16 +875,17 @@ TArray<int32> UBfkBattle::GetValidCellTargets(int32 InstanceId) const
 	switch (D->Target)
 	{
 	case EBfkTarget::Lane:
-		Out = {0, 10, 20}; // row*10
+		for (int32 R = 0; R < Bfk::BoardRows; ++R) Out.Add(R * 10);
 		break;
 	case EBfkTarget::Cell:
-		for (int32 R = 0; R < 3; ++R) for (int32 C = 0; C < 4; ++C) Out.Add(R * 10 + C);
+		for (int32 R = 0; R < Bfk::BoardRows; ++R)
+			for (int32 C = 0; C < Bfk::BoardCols; ++C) Out.Add(R * 10 + C);
 		break;
 	case EBfkTarget::AllySlot:
 	{
 		const bool bEnemySlots = (Side == 1);
-		for (int32 R = 0; R < 3; ++R)
-			for (int32 C = bEnemySlots ? 2 : 0; C <= (bEnemySlots ? 3 : 1); ++C)
+		for (int32 R = 0; R < Bfk::BoardRows; ++R)
+			for (int32 C = bEnemySlots ? 5 : 0; C <= (bEnemySlots ? Bfk::BoardCols - 1 : 3); ++C)
 				if (!UnitAt(FBfkCell(R, C))) Out.Add(R * 10 + C);
 		break;
 	}
@@ -797,7 +925,7 @@ bool UBfkBattle::PlayCard(int32 InstanceId, int32 TargetCode)
 	{
 		Fallback.Id = -1;
 		Fallback.bEnemySide = (Side == 1);
-		Fallback.Cell = FBfkCell(1, Side == 1 ? 2 : 1);
+		Fallback.Cell = FBfkCell(Bfk::BoardRows / 2, Side == 1 ? Bfk::EnemyFrontCol : Bfk::AllyFrontCol);
 		Owner = &Fallback;
 	}
 
@@ -1033,7 +1161,8 @@ void UBfkBattle::ApplyEffect(const FBfkEffect& Fx, FBfkUnitState& Owner, int32 T
 	case EBfkOp::MoveSelf:
 	{
 		const FBfkCell Dest = CodeCell(TargetCode);
-		if (Owner.Id >= 0 && Dest.IsValid() && !UnitAt(Dest) && Dest.IsAllySide() != bOwnerEnemySide)
+		const bool bOnOwnHalf = bOwnerEnemySide ? Dest.IsEnemySide() : Dest.IsAllySide();
+		if (Owner.Id >= 0 && Dest.IsValid() && !UnitAt(Dest) && bOnOwnHalf)
 		{
 			const FBfkCell From = Owner.Cell;
 			MoveUnit(Owner, Dest, false);
@@ -1118,8 +1247,7 @@ void UBfkBattle::DealDamage(FBfkUnitState* Attacker, FBfkUnitState& Victim, int3
 		for (FBfkUnitState& U : Units)
 		{
 			if (!U.bAlive || U.Id == Victim.Id) continue;
-			const int32 Dist = FMath::Abs(U.Cell.Row - Victim.Cell.Row) + FMath::Abs(U.Cell.Col - Victim.Cell.Col);
-			if (Dist == 1) DealDamage(nullptr, U, Chain, false);
+			if (Bfk::HexDist(U.Cell, Victim.Cell) == 1) DealDamage(nullptr, U, Chain, false);
 		}
 	}
 
@@ -1146,7 +1274,7 @@ void UBfkBattle::DealDamage(FBfkUnitState* Attacker, FBfkUnitState& Victim, int3
 	// thorns
 	if (bIsAttack && Attacker && Attacker->bAlive && Victim.Status(EBfkStatus::Thorns) > 0)
 	{
-		const bool bMelee = FMath::Abs(Attacker->Cell.Col - Victim.Cell.Col) <= 1 && Attacker->Cell.Row == Victim.Cell.Row;
+		const bool bMelee = Bfk::HexDist(Attacker->Cell, Victim.Cell) <= 1;
 		if (bMelee) DealDamage(nullptr, *Attacker, Victim.Status(EBfkStatus::Thorns), false);
 	}
 
@@ -1308,6 +1436,8 @@ void UBfkBattle::SummonMinion(FName Species, bool bEnemySide, const FBfkCell& Pr
 	U.bBeast = Sp->bBeast;
 	U.bOriginal = false;
 	U.Cell = Cell;
+	U.Range = Bfk::ArchetypeRange(Sp->Archetype);
+	U.Move = Bfk::ArchetypeMove(Sp->Archetype);
 	Units.Add(U);
 	Emit(EBfkEvt::UnitSummoned, U.Id);
 
@@ -1323,9 +1453,12 @@ void UBfkBattle::SummonMinion(FName Species, bool bEnemySide, const FBfkCell& Pr
 			const FBfkCardDef* D = Def(I.Card);
 			if (D && (D->Target == EBfkTarget::Enemy || D->Target == EBfkTarget::EnemyFront))
 			{
+				const int32 Reach = D->bMeleeOnly ? 1 : U.Range;
 				TArray<const FBfkUnitState*> Ps;
-				for (const FBfkUnitState& T : Units) if (T.bAlive && !T.bEnemySide) Ps.Add(&T);
+				for (const FBfkUnitState& T : Units)
+					if (T.bAlive && !T.bEnemySide && Bfk::HexDist(U.Cell, T.Cell) <= Reach) Ps.Add(&T);
 				if (Ps.Num()) I.TargetCode = CellCode(Ps[Rng.RandRange(0, Ps.Num() - 1)]->Cell);
+				else { I.Card = NAME_None; I.bAdvance = true; }
 			}
 			else if (D && D->Target == EBfkTarget::Lane)
 			{

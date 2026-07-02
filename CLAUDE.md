@@ -47,12 +47,19 @@ session (what was built, why, known issues, and the backlog).**
 - `BfkUi::SolidBrush` MUST stay DrawAs=RoundedBox: an Image brush with no
   resource object silently draws NOTHING on this engine build (cost a long
   debugging session — the pause overlay was "invisible" while fully laid out).
-- Battle board is ISOMETRIC (`CellCenter` in BfkBattleScreen: 300x150 diamond
-  tiles, origin (885,250), enemies offset +0.5 col). `CellPos` still returns a
-  legacy CellW x CellH rect centered on the tile so offset math keeps working.
-  Tokens/tiles/hazards are ZOrder depth-sorted by row+col; update ZOrder when
-  units move. Board pans (drag) and zooms (wheel) via render transform on
-  BoardLayer + Particles — compose shake through ApplyBoardTransform.
+- Battle board is a 5x9 HEX FIELD (`Bfk::BoardRows/Cols` in BfkTypes.h), 5v5
+  squads, odd-r offset pointy-top hexes squashed 2:1 (`CellCenter` in
+  BfkBattleScreen: 200x115 tiles, origin (160,235), odd rows +100px). Hex math
+  (`Bfk::HexDist`, `Bfk::HexNeighbors`) lives in BfkTypes.h. Units have Range
+  and Move by archetype (`ArchetypeRange/Move`); reach weapons +1 Range. Every
+  unit moves once/turn (click unit -> teal hexes); enemies out of reach
+  telegraph "Advances". Energy banks between turns (cap 3); End Turn asks
+  keep-or-discard hand. `CellPos` still returns a legacy CellW x CellH rect
+  centered on the tile so offset math keeps working. ZOrder depth-sorts by row;
+  update it when units move. Board pans (drag) / zooms (wheel) via render
+  transform on BoardLayer + Particles — compose shake via ApplyBoardTransform.
+- Freshly constructed UBorder widgets default to Visible — set Collapsed
+  explicitly before any toggle-style SetVisibility logic.
 - Creature sprites are TALL (~0.6 aspect): never draw them into fixed squares —
   use `BfkUi::SpriteFit` (aspect-preserving) for lists/grids.
 - Sprite defringe: `Tools/defringe.py` (aggressive unconditional 1px shave for

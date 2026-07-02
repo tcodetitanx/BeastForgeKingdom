@@ -58,6 +58,7 @@ void UBfkGameInstance::StartNewRun(const TArray<FBfkRunSquadMember>& Squad, int3
 	R.Map = FBfkRunLogic::GenerateMap(Seed, 1);
 	R.Squad = Squad;
 	R.Gold = 60;
+	R.bBoonPending = true;
 	Profile()->RunsStarted++;
 	Shops.Reset();
 	ForgedNodes.Reset();
@@ -221,6 +222,10 @@ FBfkRewardBundle UBfkGameInstance::FinishBattle()
 			Out.Gold = FBfkRunLogic::GoldReward(N->Type, Rng);
 			R.Gold += Out.Gold;
 
+			// forgedust: the permanent leveling currency
+			Out.Forgedust = N->Type == EBfkNode::Boss ? 45 : (N->Type == EBfkNode::Elite ? 20 : 12);
+			Profile()->Forgedust += Out.Forgedust;
+
 			// squad species for reward pool
 			TArray<FName> SquadSpecies;
 			for (const FBfkRunSquadMember& M : R.Squad) SquadSpecies.Add(M.Species);
@@ -246,6 +251,7 @@ FBfkRewardBundle UBfkGameInstance::FinishBattle()
 			{
 				Profile()->Vault.Add(FBfkMeta::MakeBeast(Species));
 				Profile()->TotalCaptures++;
+				R.CapturesThisRun++;
 				Out.Captured.Add(Species);
 			}
 

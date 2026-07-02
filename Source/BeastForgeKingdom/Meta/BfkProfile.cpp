@@ -58,6 +58,23 @@ FBfkOwnedBeast* FBfkMeta::FindBeast(UBfkSaveGame& Save, const FGuid& Id)
 	return nullptr;
 }
 
+bool FBfkMeta::LevelUpBeast(UBfkSaveGame& Save, const FGuid& Id, FString& WhyNot)
+{
+	FBfkOwnedBeast* B = FindBeast(Save, Id);
+	if (!B) { WhyNot = TEXT("No such beast."); return false; }
+	const int32 Cost = LevelUpCost(B->Level);
+	if (Save.Forgedust < Cost)
+	{
+		WhyNot = FString::Printf(TEXT("Needs %d Forgedust."), Cost);
+		return false;
+	}
+	Save.Forgedust -= Cost;
+	B->Level++;
+	B->BonusHp += 2;
+	B->BonusPower += 1;
+	return true;
+}
+
 FBfkOwnedBeast FBfkMeta::MakeBeast(FName Species, int32 Generation)
 {
 	FBfkOwnedBeast B;

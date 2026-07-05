@@ -7,8 +7,16 @@ session (what was built, why, known issues, and the backlog).**
 
 ## Setup on a fresh machine
 
-1. UE 5.8 required. If the uproject's `"5.8"` association doesn't resolve
-   (source build), right-click the .uproject -> Switch Unreal Engine version.
+1. UE 5.8 required. The uproject's engine association is the custom name
+   `BFK-5.8` so the SAME uproject opens on every machine with a source build.
+   ONE TIME per machine, register your engine path under that name (else you get
+   a "made with a different version of Unreal" error on open):
+   `New-ItemProperty -Path "HKCU:\SOFTWARE\Epic Games\Unreal Engine\Builds" -Name "BFK-5.8" -Value "<your UE5.8 root>" -PropertyType String -Force`
+   Then, so a local open never rewrites the committed value to your machine's
+   GUID: `git update-index --skip-worktree BeastForgeKingdom.uproject`
+   (Do NOT run `UnrealVersionSelector /projectfiles` on the .uproject — it prunes
+   the custom name and rewrites the association. Use `Tools\build.ps1` /
+   generate VS files from the editor instead.)
 2. Build: `Tools\build.ps1 -Engine <UE root>` (or set `$env:UE_ROOT`; default
    `D:\UE_5.8`). Or generate VS files and build `BeastForgeKingdomEditor`.
 3. Open `BeastForgeKingdom.uproject`, press Play (boot map `/Game/BFK/Maps/Boot`

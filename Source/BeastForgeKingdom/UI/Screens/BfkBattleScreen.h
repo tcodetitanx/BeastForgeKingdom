@@ -93,7 +93,9 @@ private:
 	FVector2D CellCenter(int32 Row, int32 Col) const;    // Row = slot, Col = side
 	FVector2D CellPos(int32 Row, int32 Col) const;       // legacy virtual cell rect centered on the slot
 	static constexpr float CellW = 265.f, CellH = 178.f;
-	static FVector2D TokenOff() { return FVector2D(-115.f, -133.f); }
+	// token is placed so its feet point (kTokW/2, kFeetY in the .cpp) lands on
+	// CellCenter — keep in sync with those constants: (-260/2, -380).
+	static FVector2D TokenOff() { return FVector2D(-130.f, -380.f); }
 	static int32 CellDepth(int32 Row, int32 Col) { return Row; }   // painter's order by slot
 
 	// construction

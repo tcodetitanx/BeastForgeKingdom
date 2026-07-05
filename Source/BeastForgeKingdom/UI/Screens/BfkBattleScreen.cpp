@@ -5,6 +5,17 @@
 #include "Core/BfkContent.h"
 #include "Core/BfkAssets.h"
 
+// Shared token layout: the token canvas anchors everything around the FEET
+// point (kTokW/2, kFeetY) so all six fighters can stand on one ground line.
+// TokenOff() in the header MUST equal (-kTokW/2, -kFeetY).
+namespace
+{
+	constexpr float kTokW = 260.f;   // token width (holds the widest doubled sprite)
+	constexpr float kTokH = 500.f;   // token height (tall sprite + name/hp/status)
+	constexpr float kFeetY = 380.f;  // token-local Y of the sprite's feet
+	constexpr float kSpriteMaxW = 230.f;
+}
+
 // ============================================================== card widget
 
 void UBfkCardWidget::BuildCard(FName CardSlug, bool bUpgraded, int32 InInstanceId)
@@ -115,64 +126,65 @@ void UBfkUnitToken::BuildToken(const FBfkUnitState& U)
 
 	UCanvasPanel* C = WidgetTree->ConstructWidget<UCanvasPanel>();
 	WidgetTree->RootWidget = C;
-	const FVector2D Size(230, 220);
+	const float MidX = kTokW * 0.5f;
 
-	// intent line tucked over the sprite's head (keeps out of the row above)
-	IntentText = BfkUi::Text(this, TEXT(""), 14, FLinearColor(1.f, 0.55f, 0.4f), true);
-	IntentText->SetJustification(ETextJustify::Center);
-	BfkUi::AddToCanvas(C, IntentText, FVector2D(0, 16), FVector2D(230, 20));
-
-	// body sprite — allies flipped to face right (art faces left)
-	const float SpriteH = (Sp && Sp->bBoss) ? 165.f : (Sp && Sp->Quality >= 3 ? 132.f : 112.f);
-	Body = BfkUi::Sprite(this, Sp ? Sp->SpriteSlug : NAME_None, FVector2D(SpriteH, SpriteH), !U.bEnemySide);
+	// body sprite — roughly DOUBLE the old size, bottom-anchored so every
+	// fighter's feet land on the shared ground line. Allies flipped to face right.
+	float SpriteH = (Sp && Sp->bBoss) ? 330.f : (Sp && Sp->Quality >= 3 ? 264.f : 224.f);
+	float SpriteW = SpriteH;
 	if (UTexture2D* T = BfkUi::Tex(Sp ? Sp->SpriteSlug : NAME_None))
 	{
 		const float Aspect = (float)T->GetSizeX() / (float)T->GetSizeY();
-		Body->SetBrush(BfkUi::Brush(Sp->SpriteSlug, FVector2D(SpriteH * Aspect, SpriteH)));
-		if (!U.bEnemySide)
-		{
-			FWidgetTransform Tr; Tr.Scale = FVector2D(-1.f, 1.f);
-			Body->SetRenderTransform(Tr);
-		}
-		BfkUi::AddToCanvas(C, Body, FVector2D(115 - SpriteH * Aspect / 2.f, 158 - SpriteH), FVector2D(SpriteH * Aspect, SpriteH));
+		SpriteW = SpriteH * Aspect;
+		if (SpriteW > kSpriteMaxW) { SpriteH *= kSpriteMaxW / SpriteW; SpriteW = kSpriteMaxW; }
 	}
-	else
+	Body = BfkUi::Sprite(this, Sp ? Sp->SpriteSlug : NAME_None, FVector2D(SpriteW, SpriteH), !U.bEnemySide);
+	if (!U.bEnemySide)
 	{
-		BfkUi::AddToCanvas(C, Body, FVector2D(115 - SpriteH / 2.f, 158 - SpriteH), FVector2D(SpriteH, SpriteH));
+		FWidgetTransform Tr; Tr.Scale = FVector2D(-1.f, 1.f);
+		Body->SetRenderTransform(Tr);
 	}
+	const float SpriteTop = kFeetY - SpriteH;
+	BfkUi::AddToCanvas(C, Body, FVector2D(MidX - SpriteW * 0.5f, SpriteTop), FVector2D(SpriteW, SpriteH));
 
-	Reticle = BfkUi::Sprite(this, TEXT("ui_cursor_reticle_red"), FVector2D(90, 90));
+	// intent line above the (taller) sprite's head
+	IntentText = BfkUi::Text(this, TEXT(""), 15, FLinearColor(1.f, 0.55f, 0.4f), true);
+	IntentText->SetJustification(ETextJustify::Center);
+	BfkUi::AddToCanvas(C, IntentText, FVector2D(0, FMath::Max(2.f, SpriteTop - 26.f)), FVector2D(kTokW, 22));
+
+	Reticle = BfkUi::Sprite(this, TEXT("ui_cursor_reticle_red"), FVector2D(130, 130));
 	Reticle->SetVisibility(ESlateVisibility::Collapsed);
-	BfkUi::AddToCanvas(C, Reticle, FVector2D(70, 55), FVector2D(90, 90));
+	BfkUi::AddToCanvas(C, Reticle, FVector2D(MidX - 65.f, (SpriteTop + kFeetY) * 0.5f - 65.f), FVector2D(130, 130));
 
 	// equipped weapon hovers beside the fighter
 	if (const FBfkWeaponDef* WD = FBfkContent::Weapon(U.Weapon))
 	{
 		if (!WD->SpriteSlug.IsNone())
 		{
-			WeaponImg = BfkUi::SpriteFit(this, WD->SpriteSlug, FVector2D(46, 46));
+			WeaponImg = BfkUi::SpriteFit(this, WD->SpriteSlug, FVector2D(56, 56));
 			WeaponImg->SetVisibility(ESlateVisibility::HitTestInvisible);
 			WeaponImg->SetToolTipText(FText::FromString(WD->Display + TEXT(" — ") + WD->Desc));
-			BfkUi::AddToCanvas(C, WeaponImg, FVector2D(U.bEnemySide ? 32.f : 152.f, 30.f), FVector2D(46, 46));
+			BfkUi::AddToCanvas(C, WeaponImg, FVector2D(U.bEnemySide ? MidX - SpriteW * 0.5f - 40.f : MidX + SpriteW * 0.5f - 16.f, kFeetY - SpriteH * 0.6f), FVector2D(56, 56));
 			WeaponBobT = (U.Id % 7) * 0.9f;   // desync the bobbing between units
 		}
 	}
 
-	NameText = BfkUi::Text(this, U.Display, 13, BfkUi::Parchment, true);
+	// name + bars sit just below the feet / ground line
+	NameText = BfkUi::Text(this, U.Display, 15, BfkUi::Parchment, true);
 	NameText->SetJustification(ETextJustify::Center);
-	BfkUi::AddToCanvas(C, NameText, FVector2D(0, 158), FVector2D(230, 18));
+	BfkUi::AddToCanvas(C, NameText, FVector2D(0, kFeetY + 6.f), FVector2D(kTokW, 20));
 
-	HpBar = BfkUi::Bar(this, BfkUi::Blood, 12.f);
-	BfkUi::AddToCanvas(C, HpBar, FVector2D(45, 178), FVector2D(140, 12));
-	HpText = BfkUi::Text(this, TEXT(""), 12, BfkUi::Parchment, true);
+	HpBar = BfkUi::Bar(this, BfkUi::Blood, 14.f);
+	BfkUi::AddToCanvas(C, HpBar, FVector2D(MidX - 85.f, kFeetY + 30.f), FVector2D(170, 14));
+	HpText = BfkUi::Text(this, TEXT(""), 13, BfkUi::Parchment, true);
 	HpText->SetJustification(ETextJustify::Center);
-	BfkUi::AddToCanvas(C, HpText, FVector2D(45, 176), FVector2D(140, 14));
+	BfkUi::AddToCanvas(C, HpText, FVector2D(MidX - 85.f, kFeetY + 28.f), FVector2D(170, 16));
 
-	BlockText = BfkUi::Text(this, TEXT(""), 13, FLinearColor(0.55f, 0.8f, 0.95f), true);
-	BfkUi::AddToCanvas(C, BlockText, FVector2D(188, 172), FVector2D(40, 18));
+	BlockText = BfkUi::Text(this, TEXT(""), 14, FLinearColor(0.55f, 0.8f, 0.95f), true);
+	BfkUi::AddToCanvas(C, BlockText, FVector2D(MidX + 88.f, kFeetY + 28.f), FVector2D(44, 18));
 
 	StatusRow = WidgetTree->ConstructWidget<UHorizontalBox>();
-	BfkUi::AddToCanvas(C, StatusRow, FVector2D(5, 194), FVector2D(220, 44));
+	BfkUi::AddToCanvas(C, StatusRow, FVector2D(10, kFeetY + 50.f), FVector2D(kTokW - 20.f, 44));
 }
 
 void UBfkUnitToken::Refresh(const FBfkUnitState& U, const UBfkBattle* Battle)
@@ -267,12 +279,15 @@ float UBfkBattleScreen::AnimSpeed() const
 
 FVector2D UBfkBattleScreen::CellCenter(int32 Row, int32 Col) const
 {
-	// two gently arced lineups facing each other; the middle slot leans toward
-	// the center of the stage (Axie-style stagger)
-	static const float SlotY[3] = { 300.f, 470.f, 640.f };
-	const float Arc = (Row == 1) ? 90.f : 0.f;
-	const float X = (Col == Bfk::AllyCol) ? (470.f + Arc) : (1450.f - Arc);
-	return FVector2D(X, SlotY[FMath::Clamp(Row, 0, 2)]);
+	// three fighters standing side by side per side, all feet on ONE ground
+	// line. Left cluster faces right, right cluster faces left; center stays
+	// clear for the clash.
+	static const float FeetBaseline = 610.f;
+	static const float AllyX[3]  = { 210.f, 460.f, 710.f };
+	static const float EnemyX[3] = { 1210.f, 1460.f, 1710.f };
+	const int32 R = FMath::Clamp(Row, 0, 2);
+	const float X = (Col == Bfk::AllyCol) ? AllyX[R] : EnemyX[R];
+	return FVector2D(X, FeetBaseline);
 }
 
 FVector2D UBfkBattleScreen::CellPos(int32 Row, int32 Col) const
@@ -508,7 +523,7 @@ void UBfkBattleScreen::BuildBoard()
 			const FVector2D Center = CellCenter(R, Col);
 			const int32 Code = R * 10 + Col;
 			const int32 Depth = CellDepth(R, Col);
-			const FVector2D PlatSize(210.f, 64.f);
+			const FVector2D PlatSize(250.f, 74.f);
 
 			// ground shadow ellipse (capsule) under the unit's feet
 			UImage* Plat = WidgetTree->ConstructWidget<UImage>();
@@ -530,7 +545,7 @@ void UBfkBattleScreen::BuildBoard()
 		UBfkUnitToken* T = CreateWidget<UBfkUnitToken>(GetOwningPlayer(), UBfkUnitToken::StaticClass());
 		T->BuildToken(U);
 		T->OnTokenClicked.BindUObject(this, &UBfkBattleScreen::OnTokenClicked);
-		BfkUi::AddToCanvas(BoardLayer, T, CellCenter(U.Cell.Row, U.Cell.Col) + TokenOff(), FVector2D(230, 220))
+		BfkUi::AddToCanvas(BoardLayer, T, CellCenter(U.Cell.Row, U.Cell.Col) + TokenOff(), FVector2D(260, 500))
 			->SetZOrder(100 + CellDepth(U.Cell.Row, U.Cell.Col) * 2);
 		Tokens.Add(T);
 	}
@@ -546,7 +561,8 @@ FVector2D UBfkBattleScreen::UnitCanvasPos(int32 UnitId)
 {
 	if (const FBfkUnitState* U = Gi()->ActiveBattle() ? Gi()->ActiveBattle()->FindUnit(UnitId) : nullptr)
 	{
-		return CellPos(U->Cell.Row, U->Cell.Col) + FVector2D(CellW / 2, CellH / 2);
+		// aim FX (floaties, bursts, hit flash) at mid-body, not the feet
+		return CellCenter(U->Cell.Row, U->Cell.Col) + FVector2D(0.f, -150.f);
 	}
 	return FVector2D(960, 400);
 }
@@ -1034,7 +1050,7 @@ void UBfkBattleScreen::ApplyEventVisuals(const FBfkBattleEvent& E)
 			T->BuildToken(*U);
 			T->OnTokenClicked.BindUObject(this, &UBfkBattleScreen::OnTokenClicked);
 			const FVector2D P = CellPos(U->Cell.Row, U->Cell.Col);
-			BfkUi::AddToCanvas(BoardLayer, T, CellCenter(U->Cell.Row, U->Cell.Col) + TokenOff(), FVector2D(230, 220))
+			BfkUi::AddToCanvas(BoardLayer, T, CellCenter(U->Cell.Row, U->Cell.Col) + TokenOff(), FVector2D(260, 500))
 				->SetZOrder(100 + CellDepth(U->Cell.Row, U->Cell.Col) * 2);
 			Tokens.Add(T);
 			T->Refresh(*U, B);

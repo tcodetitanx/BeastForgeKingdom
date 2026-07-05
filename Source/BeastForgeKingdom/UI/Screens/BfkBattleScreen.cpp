@@ -267,17 +267,17 @@ float UBfkBattleScreen::AnimSpeed() const
 
 FVector2D UBfkBattleScreen::CellCenter(int32 Row, int32 Col) const
 {
-	// pointy-top hex grid, iso-squashed; odd rows shift half a hex right.
-	// pan/zoom camera makes the big field navigable.
-	const FVector2D Origin(160.f, 235.f);
-	return Origin + FVector2D(
-		Col * HexW + (Row & 1) * (HexW * 0.5f),
-		Row * (HexH * 0.75f));
+	// two gently arced lineups facing each other; the middle slot leans toward
+	// the center of the stage (Axie-style stagger)
+	static const float SlotY[3] = { 300.f, 470.f, 640.f };
+	const float Arc = (Row == 1) ? 90.f : 0.f;
+	const float X = (Col == Bfk::AllyCol) ? (470.f + Arc) : (1450.f - Arc);
+	return FVector2D(X, SlotY[FMath::Clamp(Row, 0, 2)]);
 }
 
 FVector2D UBfkBattleScreen::CellPos(int32 Row, int32 Col) const
 {
-	// legacy virtual cell rect (CellW x CellH) centered on the iso tile so the
+	// legacy virtual cell rect (CellW x CellH) centered on the slot so the
 	// existing offset math (tokens, particles, projectiles) keeps working
 	return CellCenter(Row, Col) - FVector2D(CellW / 2, CellH / 2);
 }
@@ -500,7 +500,7 @@ void UBfkBattleScreen::BuildBoard()
 {
 	UBfkBattle* B = Gi()->ActiveBattle();
 
-	// hex tiles, painter's order (near rows draw over far rows)
+	// six stage slots: soft ellipse platform + glow ring per slot
 	for (int32 R = 0; R < Bfk::BoardRows; ++R)
 	{
 		for (int32 Col = 0; Col < Bfk::BoardCols; ++Col)
@@ -508,73 +508,23 @@ void UBfkBattleScreen::BuildBoard()
 			const FVector2D Center = CellCenter(R, Col);
 			const int32 Code = R * 10 + Col;
 			const int32 Depth = CellDepth(R, Col);
+			const FVector2D PlatSize(210.f, 64.f);
 
-			UImage* Cell = WidgetTree->ConstructWidget<UImage>();
-			const FLinearColor CC = (Col <= 3) ? FLinearColor(0.16f, 0.30f, 0.32f, 0.40f)
-			                : (Col >= 5)      ? FLinearColor(0.34f, 0.14f, 0.16f, 0.40f)
-			                                  : FLinearColor(0.24f, 0.22f, 0.18f, 0.36f);   // contested middle
-			Cell->SetBrush(BfkUi::Brush(TEXT("ui_hex_tile"), FVector2D(HexW, HexH)));
-			Cell->SetColorAndOpacity(CC);
-			BfkUi::AddToCanvas(BoardLayer, Cell, Center - FVector2D(HexW / 2, HexH / 2), FVector2D(HexW, HexH))->SetZOrder(Depth);
+			// ground shadow ellipse (capsule) under the unit's feet
+			UImage* Plat = WidgetTree->ConstructWidget<UImage>();
+			Plat->SetBrush(BfkUi::SolidBrush(FLinearColor(0.f, 0.f, 0.f, 0.42f), PlatSize.Y * 0.5f));
+			BfkUi::AddToCanvas(BoardLayer, Plat, Center + FVector2D(-PlatSize.X / 2, 8.f), PlatSize)->SetZOrder(Depth);
 
-			UImage* Hz = WidgetTree->ConstructWidget<UImage>();
-			Hz->SetVisibility(ESlateVisibility::Collapsed);
-			BfkUi::AddToCanvas(BoardLayer, Hz, Center - FVector2D(40, 46), FVector2D(80, 80))->SetZOrder(20 + Depth);
-			HazardIcons.Add(Code, Hz);
-
-			// highlight hex, tinted per use (threat red / target green / move teal)
-			UImage* Hl = WidgetTree->ConstructWidget<UImage>();
-			Hl->SetBrush(BfkUi::Brush(TEXT("ui_hex_tile"), FVector2D(HexW, HexH)));
-			Hl->SetVisibility(ESlateVisibility::Collapsed);
-			BfkUi::AddToCanvas(BoardLayer, Hl, Center - FVector2D(HexW / 2, HexH / 2), FVector2D(HexW, HexH))->SetZOrder(40 + Depth);
-			CellHighlights.Add(Code, Hl);
-
-			// hex-shaped hover marker (replaces the old square hover rect)
-			UImage* Hov = WidgetTree->ConstructWidget<UImage>();
-			Hov->SetBrush(BfkUi::Brush(TEXT("ui_hex_tile"), FVector2D(HexW, HexH)));
-			Hov->SetColorAndOpacity(FLinearColor(1.f, 1.f, 1.f, 0.30f));
-			Hov->SetVisibility(ESlateVisibility::Collapsed);
-			BfkUi::AddToCanvas(BoardLayer, Hov, Center - FVector2D(HexW / 2, HexH / 2), FVector2D(HexW, HexH))->SetZOrder(50 + Depth);
-			HoverHexes.Add(Code, Hov);
-
-			// invisible click-catcher — rect inscribed in the hex so any click
-			// it accepts is genuinely inside the tile; visuals come from the
-			// hex hover marker above, never from the button itself
-			TWeakObjectPtr<UBfkBattleScreen> Weak = this;
-			UBfkTagButton* CellBtn = BfkUi::FlatTagButton(this,
-				FLinearColor(0, 0, 0, 0.01f), FLinearColor(0, 0, 0, 0.01f),
-				[Weak](UBfkTagButton* Btn)
-				{
-					if (Weak.IsValid()) Weak->OnCellClicked(Btn->TagInt);
-				}, 12.f);
-			CellBtn->TagInt = Code;
-			CellBtn->OnTagHovered = [Weak](UBfkTagButton* Btn)
-			{
-				if (Weak.IsValid())
-				{
-					if (UImage** H = Weak->HoverHexes.Find(Btn->TagInt))
-					{
-						(*H)->SetVisibility(ESlateVisibility::HitTestInvisible);
-					}
-				}
-			};
-			CellBtn->OnTagUnhovered = [Weak](UBfkTagButton* Btn)
-			{
-				if (Weak.IsValid())
-				{
-					if (UImage** H = Weak->HoverHexes.Find(Btn->TagInt))
-					{
-						(*H)->SetVisibility(ESlateVisibility::Collapsed);
-					}
-				}
-			};
-			CellBtn->SetVisibility(ESlateVisibility::Collapsed);
-			BfkUi::AddToCanvas(BoardLayer, CellBtn, Center - FVector2D(HexW * 0.32f, HexH * 0.28f), FVector2D(HexW * 0.64f, HexH * 0.56f))->SetZOrder(60);
-			CellButtons.Add(Code, CellBtn);
+			// glow ring, tinted per use (threat red / valid target green)
+			UImage* Glow = WidgetTree->ConstructWidget<UImage>();
+			Glow->SetBrush(BfkUi::SolidBrush(FLinearColor::White, PlatSize.Y * 0.5f + 5.f));
+			Glow->SetVisibility(ESlateVisibility::Collapsed);
+			BfkUi::AddToCanvas(BoardLayer, Glow, Center + FVector2D(-PlatSize.X / 2 - 5.f, 3.f), PlatSize + FVector2D(10, 10))->SetZOrder(Depth + 1);
+			SlotGlows.Add(Code, Glow);
 		}
 	}
 
-	// unit tokens — feet planted on the tile, depth-sorted
+	// unit tokens — feet planted on the platform, depth-sorted
 	for (const FBfkUnitState& U : B->GetUnits())
 	{
 		UBfkUnitToken* T = CreateWidget<UBfkUnitToken>(GetOwningPlayer(), UBfkUnitToken::StaticClass());
@@ -663,37 +613,6 @@ void UBfkBattleScreen::RefreshAll()
 			T->Refresh(U, B);
 		}
 	}
-	// hazards
-	for (int32 R = 0; R < Bfk::BoardRows; ++R)
-	{
-		for (int32 Col = 0; Col < Bfk::BoardCols; ++Col)
-		{
-			const int32 Code = R * 10 + Col;
-			const EBfkHazard H = B->HazardAt(FBfkCell(R, Col));
-			UImage* Icon = HazardIcons[Code];
-			if (H == EBfkHazard::None)
-			{
-				Icon->SetVisibility(ESlateVisibility::Collapsed);
-				continue;
-			}
-			FName HIcon;
-			switch (H)
-			{
-			case EBfkHazard::Coals:        HIcon = TEXT("ui_icon_status_burn"); break;
-			case EBfkHazard::Hoarfrost:    HIcon = TEXT("ui_icon_status_freeze"); break;
-			case EBfkHazard::VoidRift:     HIcon = TEXT("ui_icon_skull_smoke"); break;
-			case EBfkHazard::PowderKeg:    HIcon = TEXT("ui_icon_barrel_skull"); break;
-			case EBfkHazard::Puddle:       HIcon = TEXT("par_vfx_water_drop_ripple"); break;
-			case EBfkHazard::Spores:       HIcon = TEXT("ui_icon_status_poison"); break;
-			case EBfkHazard::CrystalShard: HIcon = TEXT("ui_icon_crystal_shard"); break;
-			case EBfkHazard::Floodmark:    HIcon = TEXT("ui_icon_warning_skull"); break;
-			default: break;
-			}
-			Icon->SetBrush(BfkUi::Brush(HIcon, FVector2D(88, 88)));
-			Icon->SetVisibility(ESlateVisibility::Visible);   // hit-testable so the tooltip works
-			Icon->SetToolTipText(FText::FromString(Bfk::HazardName(H) + TEXT(" — ") + Bfk::HazardDesc(H)));
-		}
-	}
 	RefreshPiles();
 }
 
@@ -701,8 +620,8 @@ void UBfkBattleScreen::RefreshIntents()
 {
 	UBfkBattle* B = Gi()->ActiveBattle();
 	if (!B || B->GetConfig().bPvp) return;
-	// clear cell threat highlights
-	for (auto& KV : CellHighlights)
+	// clear threat glows
+	for (auto& KV : SlotGlows)
 	{
 		KV.Value->SetVisibility(ESlateVisibility::Collapsed);
 	}
@@ -711,14 +630,9 @@ void UBfkBattleScreen::RefreshIntents()
 		UBfkUnitToken* T = Token(U.Id);
 		if (!T) continue;
 		if (!U.bEnemySide || !U.bAlive) { if (T) T->SetIntent(TEXT("")); continue; }
-		FName CardSlug; int32 TargetCode = -1; bool bAdvance = false;
-		if (B->GetIntent(U.Id, CardSlug, TargetCode, bAdvance))
+		FName CardSlug; int32 TargetCode = -1;
+		if (B->GetIntent(U.Id, CardSlug, TargetCode))
 		{
-			if (bAdvance)
-			{
-				T->SetIntent(TEXT("Advances"));
-				continue;
-			}
 			const FBfkCardDef* D = FBfkContent::Card(CardSlug);
 			FString Line = D ? D->Display : CardSlug.ToString();
 			if (D)
@@ -734,25 +648,16 @@ void UBfkBattleScreen::RefreshIntents()
 				}
 			}
 			T->SetIntent(Line);
-			// threat cell glow
-			if (TargetCode >= 0 && D)
+			// threat glow under the telegraphed victim
+			if (const FBfkUnitState* Victim = (TargetCode >= 0) ? B->FindUnit(TargetCode) : nullptr)
 			{
-				if (D->Target == EBfkTarget::Lane || D->Target == EBfkTarget::Enemy || D->Target == EBfkTarget::EnemyFront || D->Target == EBfkTarget::Cell)
+				if (Victim->bAlive)
 				{
-					TArray<int32> Threat;
-					if (D->Target == EBfkTarget::Lane)
+					const int32 Code = Victim->Cell.Row * 10 + Victim->Cell.Col;
+					if (UImage** Glow = SlotGlows.Find(Code))
 					{
-						const int32 Row = TargetCode / 10;
-						for (int32 CCol = 0; CCol <= 4; ++CCol) Threat.Add(Row * 10 + CCol);
-					}
-					else Threat.Add(TargetCode);
-					for (int32 Code : Threat)
-					{
-						if (UImage** Hl = CellHighlights.Find(Code))
-						{
-							(*Hl)->SetColorAndOpacity(FLinearColor(0.9f, 0.25f, 0.2f, 0.5f));
-							(*Hl)->SetVisibility(ESlateVisibility::HitTestInvisible);
-						}
+						(*Glow)->SetColorAndOpacity(FLinearColor(0.9f, 0.25f, 0.2f, 0.45f));
+						(*Glow)->SetVisibility(ESlateVisibility::HitTestInvisible);
 					}
 				}
 			}
@@ -795,70 +700,35 @@ void UBfkBattleScreen::OnCardClicked(UBfkCardWidget* Card)
 		return;
 	}
 
-	// show whose card this is (blue ring on the caster) and, for range-limited
-	// cards, an amber footprint of every hex the caster could hit from where it
-	// stands — including empty ones, so repositioning needs are obvious.
+	// show whose card this is (blue ring on the caster)
 	const FBfkCardInstance* CI = B->FindCard(SelectedCard);
-	const FBfkUnitState* Owner = CI ? B->FindUnit(CI->OwnerUnitId) : nullptr;
-	if (Owner && Owner->bAlive)
+	if (const FBfkUnitState* Owner = CI ? B->FindUnit(CI->OwnerUnitId) : nullptr)
 	{
-		if (UBfkUnitToken* OT = Token(Owner->Id))
+		if (Owner->bAlive)
 		{
-			OT->SetTargetable(3);
-		}
-		if (D->Target == EBfkTarget::Enemy || D->Target == EBfkTarget::EnemyFront)
-		{
-			const int32 Reach = D->bMeleeOnly ? 1 : FMath::Max(1, Owner->Range);
-			for (int32 R = 0; R < Bfk::BoardRows; ++R)
+			if (UBfkUnitToken* OT = Token(Owner->Id))
 			{
-				for (int32 Col = 0; Col < Bfk::BoardCols; ++Col)
-				{
-					const FBfkCell Cell(R, Col);
-					if (Cell == Owner->Cell || Bfk::HexDist(Owner->Cell, Cell) > Reach) continue;
-					if (UImage** Hl = CellHighlights.Find(R * 10 + Col))
-					{
-						(*Hl)->SetColorAndOpacity(FLinearColor(1.0f, 0.62f, 0.15f, 0.5f));
-						(*Hl)->SetVisibility(ESlateVisibility::HitTestInvisible);
-					}
-				}
+				OT->SetTargetable(3);
 			}
 		}
 	}
 
-	// highlight valid targets
+	// highlight valid targets: reticle on the unit + green glow on its platform
 	const TArray<int32> UnitTargets = B->GetValidUnitTargets(SelectedCard);
 	for (int32 Id : UnitTargets)
 	{
+		const FBfkUnitState* U = B->FindUnit(Id);
 		if (UBfkUnitToken* T = Token(Id))
 		{
-			const FBfkUnitState* U = B->FindUnit(Id);
 			T->SetTargetable(U && U->bEnemySide != (B->GetActiveSide() == 1) ? 1 : 2);
 		}
-	}
-	const TArray<int32> CellTargets = B->GetValidCellTargets(SelectedCard);
-	for (int32 Code : CellTargets)
-	{
-		if (D->Target == EBfkTarget::Lane)
+		if (U)
 		{
-			// lane pick: light the whole row
-			const int32 Row = Code / 10;
-			for (int32 Col = 0; Col < Bfk::BoardCols; ++Col)
+			if (UImage** Glow = SlotGlows.Find(U->Cell.Row * 10 + U->Cell.Col))
 			{
-				if (UImage** Hl = CellHighlights.Find(Row * 10 + Col))
-				{
-					(*Hl)->SetColorAndOpacity(FLinearColor(0.4f, 0.9f, 0.65f, 0.45f));
-					(*Hl)->SetVisibility(ESlateVisibility::HitTestInvisible);
-				}
+				(*Glow)->SetColorAndOpacity(FLinearColor(0.4f, 0.9f, 0.65f, 0.40f));
+				(*Glow)->SetVisibility(ESlateVisibility::HitTestInvisible);
 			}
-		}
-		else if (UImage** Hl = CellHighlights.Find(Code))
-		{
-			(*Hl)->SetColorAndOpacity(FLinearColor(0.4f, 0.9f, 0.65f, 0.45f));
-			(*Hl)->SetVisibility(ESlateVisibility::HitTestInvisible);
-		}
-		if (UBfkTagButton** Btn = CellButtons.Find(Code))
-		{
-			(*Btn)->SetVisibility(ESlateVisibility::Visible);
 		}
 	}
 }
@@ -875,70 +745,14 @@ void UBfkBattleScreen::OnTokenClicked(UBfkUnitToken* T)
 		{
 			TryPlayOn(T->UnitId);
 		}
-		return;
-	}
-
-	// no card selected: pick the unit up for a voluntary move
-	if (B->CanUnitMove(T->UnitId))
-	{
-		ClearTargeting();
-		MovingUnit = T->UnitId;
-		T->SetTargetable(2);
-		Gi()->UiSound(TEXT("sfx_ui_select"), 0.6f);
-		for (int32 Code : B->GetMoveCells(T->UnitId))
-		{
-			if (UImage** Hl = CellHighlights.Find(Code))
-			{
-				(*Hl)->SetColorAndOpacity(FLinearColor(0.35f, 0.8f, 0.9f, 0.45f));
-				(*Hl)->SetVisibility(ESlateVisibility::HitTestInvisible);
-			}
-			if (UBfkTagButton** Btn = CellButtons.Find(Code))
-			{
-				(*Btn)->SetVisibility(ESlateVisibility::Visible);
-			}
-		}
-	}
-}
-
-void UBfkBattleScreen::OnCellClicked(int32 CellCode)
-{
-	if (bAnimating || bEnded) return;
-	UBfkBattle* B = Gi()->ActiveBattle();
-	if (!B) return;
-
-	// voluntary move destination
-	if (MovingUnit >= 0 && SelectedCard < 0)
-	{
-		const int32 Unit = MovingUnit;
-		ClearTargeting();
-		if (B->MoveCommand(Unit, CellCode))
-		{
-			Gi()->UiSound(TEXT("sfx_shove"), 0.4f);
-			PumpEvents();
-			RefreshAll();
-		}
-		return;
-	}
-
-	if (SelectedCard < 0) return;
-	const FBfkCardInstance* CI = B->FindCard(SelectedCard);
-	const FBfkCardDef* D = CI ? FBfkContent::Card(CI->CardSlug) : nullptr;
-	int32 Code = CellCode;
-	if (D && D->Target == EBfkTarget::Lane) Code = (CellCode / 10) * 10;
-	if (B->GetValidCellTargets(SelectedCard).Contains(Code))
-	{
-		TryPlayOn(Code);
 	}
 }
 
 void UBfkBattleScreen::ClearTargeting()
 {
 	SelectedCard = -1;
-	MovingUnit = -1;
 	for (UBfkUnitToken* T : Tokens) T->SetTargetable(0);
-	for (auto& KV : CellHighlights) KV.Value->SetVisibility(ESlateVisibility::Collapsed);
-	for (auto& KV : HoverHexes) KV.Value->SetVisibility(ESlateVisibility::Collapsed);
-	for (auto& KV : CellButtons) KV.Value->SetVisibility(ESlateVisibility::Collapsed);
+	for (auto& KV : SlotGlows) KV.Value->SetVisibility(ESlateVisibility::Collapsed);
 	for (UBfkCardWidget* CW : HandCards)
 	{
 		if (CW) CW->SetRenderTransform(FWidgetTransform());
@@ -1027,17 +841,14 @@ float UBfkBattleScreen::EventDelay(const FBfkBattleEvent& E) const
 	case EBfkEvt::UnitHealed:
 	case EBfkEvt::UnitBlocked:    D = 0.14f; break;
 	case EBfkEvt::StatusApplied:  D = 0.10f; break;
-	case EBfkEvt::UnitMoved:      D = 0.26f; break;
-	case EBfkEvt::Collision:      D = 0.30f; break;
 	case EBfkEvt::UnitDied:       D = 0.55f; break;
 	case EBfkEvt::UnitSummoned:   D = 0.35f; break;
 	case EBfkEvt::CardPlayed:     D = 0.30f; break;
 	case EBfkEvt::TurnBegan:      D = 0.45f; break;
 	case EBfkEvt::ProjectileFly:  D = 0.30f; break;
-	case EBfkEvt::HazardTriggered:D = 0.22f; break;
 	case EBfkEvt::TideWarning:
 	case EBfkEvt::TideFlood:
-	case EBfkEvt::ColumnsCapsized:D = 0.7f; break;
+	case EBfkEvt::HandScrambled:  D = 0.7f; break;
 	case EBfkEvt::Speech:         D = 0.9f; break;
 	case EBfkEvt::CaptureResult:  D = 0.8f; break;
 	case EBfkEvt::BattleEnded:    D = 0.9f; break;
@@ -1195,58 +1006,9 @@ void UBfkBattleScreen::ApplyEventVisuals(const FBfkBattleEvent& E)
 		}
 		RefreshAll();
 		break;
-	case EBfkEvt::UnitMoved:
-	{
-		if (UBfkUnitToken* T = Token(E.Unit))
-		{
-			const FVector2D From = CellPos(E.A / 10, E.A % 10);
-			const FVector2D To = CellPos(E.B / 10, E.B % 10);
-			// physically move the slot (and its draw depth), tween the visual offset
-			if (UCanvasPanelSlot* S = Cast<UCanvasPanelSlot>(T->Slot))
-			{
-				S->SetPosition(CellCenter(E.B / 10, E.B % 10) + TokenOff());
-				S->SetZOrder(100 + CellDepth(E.B / 10, E.B % 10) * 2);
-			}
-			FBfkTween& Tw = Tweener.Add(T, (E.C ? 0.22f : 0.3f) / AnimSpeed());
-			Tw.bPos = true;
-			Tw.FromPos = From - To;
-			Tw.ToPos = FVector2D::ZeroVector;
-			Tw.Ease = E.C ? 1 : 2;
-		}
-		break;
-	}
-	case EBfkEvt::Collision:
-	{
-		if (Particles)
-		{
-			const FVector2D P = UnitCanvasPos(E.Unit);
-			Particles->Flourish(TEXT("par_vfx_star_impact_gold"), P, 0.9f, 0.4f);
-			Particles->Floatie(TEXT("CRASH!"), P + FVector2D(0, -95), BfkUi::Gold, 24);
-		}
-		Shake(9.f);
-		break;
-	}
-	case EBfkEvt::HazardChanged:
 	case EBfkEvt::WeatherPulse:
 		RefreshAll();
 		break;
-	case EBfkEvt::HazardTriggered:
-	{
-		const FVector2D P = CellPos(E.A / 10, E.A % 10) + FVector2D(CellW / 2, CellH / 2);
-		if (Particles)
-		{
-			if ((EBfkHazard)E.B == EBfkHazard::PowderKeg)
-			{
-				Particles->Flourish(TEXT("par_vfx_explosion_plume_orange"), P, 1.3f, 0.6f);
-				Shake(14.f);
-			}
-			else
-			{
-				Particles->Flourish(TEXT("par_vfx_smoke_wisp_teal"), P, 0.7f, 0.5f);
-			}
-		}
-		break;
-	}
 	case EBfkEvt::UnitDied:
 	{
 		if (UBfkUnitToken* T = Token(E.Unit))
@@ -1291,22 +1053,22 @@ void UBfkBattleScreen::ApplyEventVisuals(const FBfkBattleEvent& E)
 		break;
 	case EBfkEvt::TideWarning:
 		ShowBanner(TEXT("THE TIDE RISES..."), BfkUi::GhostTeal);
-		RefreshAll();
 		break;
 	case EBfkEvt::TideFlood:
 		ShowBanner(TEXT("THE SEA TAKES ITS DUE"), BfkUi::GhostTeal);
 		if (Particles)
 		{
-			for (int32 Col = 0; Col < 4; ++Col)
+			for (int32 R = 0; R < Bfk::BoardRows; ++R)
 			{
-				Particles->Burst(TEXT("par_vfx_water_swirl_blue"), CellPos(E.A, Col) + FVector2D(CellW / 2, CellH / 2), 6, 240, 0.7f, 0.5f);
+				Particles->Burst(TEXT("par_vfx_water_swirl_blue"), CellCenter(R, Bfk::AllyCol), 6, 240, 0.7f, 0.5f);
 			}
 		}
 		Shake(12.f);
 		break;
-	case EBfkEvt::ColumnsCapsized:
-		ShowBanner(TEXT("CAPSIZED!"), BfkUi::Blood);
-		Shake(12.f);
+	case EBfkEvt::HandScrambled:
+		ShowBanner(TEXT("THE DEEP SCATTERS YOUR HAND!"), BfkUi::Blood);
+		Shake(10.f);
+		RebuildHand();
 		break;
 	case EBfkEvt::CaptureResult:
 	{
@@ -1375,9 +1137,6 @@ void UBfkBattleScreen::PlayEventSound(const FBfkBattleEvent& E)
 			}
 		}
 		break;
-	case EBfkEvt::UnitMoved:      if (E.C) Play(TEXT("sfx_shove"), 0.7f); break;
-	case EBfkEvt::Collision:      Play(TEXT("sfx_collision"), 0.9f); break;
-	case EBfkEvt::HazardTriggered:Play((EBfkHazard)E.B == EBfkHazard::PowderKeg ? TEXT("sfx_explosion") : TEXT("sfx_hazard"), 0.8f); break;
 	case EBfkEvt::UnitDied:
 	{
 		const FBfkUnitState* U = B ? B->FindUnit(E.Unit) : nullptr;
@@ -1387,7 +1146,7 @@ void UBfkBattleScreen::PlayEventSound(const FBfkBattleEvent& E)
 	case EBfkEvt::UnitSummoned:   Play(TEXT("sfx_minion_hurt"), 0.5f); break;
 	case EBfkEvt::Speech:         Play(TEXT("sfx_boss_roar"), 0.35f); break;
 	case EBfkEvt::TideFlood:      Play(TEXT("sfx_rain_cast"), 0.9f); break;
-	case EBfkEvt::ColumnsCapsized:Play(TEXT("sfx_rumble"), 0.9f); break;
+	case EBfkEvt::HandScrambled:  Play(TEXT("sfx_rumble"), 0.9f); break;
 	case EBfkEvt::CaptureResult:  Play(E.A ? TEXT("sfx_capture") : TEXT("sfx_debuff"), 0.9f); break;
 	case EBfkEvt::BattleEnded:    Play(E.A ? TEXT("sfx_victory") : TEXT("sfx_defeat"), 1.f); break;
 	default: break;
@@ -1470,36 +1229,11 @@ void UBfkBattleScreen::OnResultContinueClicked()
 	}
 }
 
-// ============================================================== board camera
-
-void UBfkBattleScreen::ApplyBoardTransform(FVector2D Shake)
-{
-	FWidgetTransform Tr;
-	Tr.Scale = FVector2D(BoardZoom, BoardZoom);
-	Tr.Translation = BoardPan + Shake;
-	if (BoardLayer)
-	{
-		BoardLayer->SetRenderTransformPivot(FVector2D(0.5f, 0.5f));
-		BoardLayer->SetRenderTransform(Tr);
-	}
-	// particles live in a sibling layer (above the hand) — keep them in board space
-	if (Particles)
-	{
-		Particles->SetRenderTransformPivot(FVector2D(0.5f, 0.5f));
-		Particles->SetRenderTransform(Tr);
-	}
-}
-
-FVector2D UBfkBattleScreen::ClampPan(FVector2D Pan) const
-{
-	const float MaxX = 720.f * BoardZoom;
-	const float MaxY = 420.f * BoardZoom;
-	return FVector2D(FMath::Clamp(Pan.X, -MaxX, MaxX), FMath::Clamp(Pan.Y, -MaxY, MaxY));
-}
+// ============================================================== input
 
 void UBfkBattleScreen::CancelTargeting()
 {
-	if (SelectedCard >= 0 || MovingUnit >= 0)
+	if (SelectedCard >= 0)
 	{
 		Gi()->UiSound(TEXT("sfx_ui_cancel"), 0.5f);
 		ClearTargeting();
@@ -1508,64 +1242,13 @@ void UBfkBattleScreen::CancelTargeting()
 
 FReply UBfkBattleScreen::NativeOnMouseButtonDown(const FGeometry& Geo, const FPointerEvent& Ev)
 {
-	if (Ev.GetEffectingButton() == EKeys::RightMouseButton && (SelectedCard >= 0 || MovingUnit >= 0))
+	if (Ev.GetEffectingButton() == EKeys::RightMouseButton && SelectedCard >= 0)
 	{
 		Gi()->UiSound(TEXT("sfx_ui_cancel"), 0.5f);
 		ClearTargeting();
 		return FReply::Handled();
 	}
-	// drag-to-pan: reaches here only when no card/token/button claimed the press
-	if (Ev.GetEffectingButton() == EKeys::LeftMouseButton || Ev.GetEffectingButton() == EKeys::MiddleMouseButton)
-	{
-		bPanning = true;
-		bPanMoved = false;
-		PanStartMouse = Geo.AbsoluteToLocal(Ev.GetScreenSpacePosition());
-		PanStartPan = BoardPan;
-		return FReply::Handled().CaptureMouse(TakeWidget());
-	}
 	return Super::NativeOnMouseButtonDown(Geo, Ev);
-}
-
-FReply UBfkBattleScreen::NativeOnMouseMove(const FGeometry& Geo, const FPointerEvent& Ev)
-{
-	if (bPanning)
-	{
-		const FVector2D M = Geo.AbsoluteToLocal(Ev.GetScreenSpacePosition());
-		const FVector2D Delta = M - PanStartMouse;
-		if (!bPanMoved && Delta.Size() > 6.f) bPanMoved = true;
-		if (bPanMoved)
-		{
-			BoardPan = ClampPan(PanStartPan + Delta);
-			ApplyBoardTransform();
-		}
-		return FReply::Handled();
-	}
-	return Super::NativeOnMouseMove(Geo, Ev);
-}
-
-FReply UBfkBattleScreen::NativeOnMouseButtonUp(const FGeometry& Geo, const FPointerEvent& Ev)
-{
-	if (bPanning)
-	{
-		bPanning = false;
-		return FReply::Handled().ReleaseMouseCapture();
-	}
-	return Super::NativeOnMouseButtonUp(Geo, Ev);
-}
-
-FReply UBfkBattleScreen::NativeOnMouseWheel(const FGeometry& Geo, const FPointerEvent& Ev)
-{
-	const float Old = BoardZoom;
-	BoardZoom = FMath::Clamp(BoardZoom * (Ev.GetWheelDelta() > 0.f ? 1.15f : 1.f / 1.15f), 0.6f, 2.6f);
-	if (!FMath::IsNearlyEqual(Old, BoardZoom))
-	{
-		// zoom toward the cursor so what you point at stays put
-		const FVector2D C(960.f, 540.f);
-		const FVector2D M = Geo.AbsoluteToLocal(Ev.GetScreenSpacePosition());
-		BoardPan = ClampPan(M - C - (M - C - BoardPan) * (BoardZoom / Old));
-		ApplyBoardTransform();
-	}
-	return FReply::Handled();
 }
 
 // ============================================================== tick
@@ -1584,16 +1267,18 @@ void UBfkBattleScreen::NativeTick(const FGeometry& Geo, float Dt)
 		}
 	}
 
-	// screen shake decay — composed with the pan/zoom camera transform
+	// screen shake decay
 	if (ShakeTime > 0.f)
 	{
 		ShakeTime -= Dt;
 		const float S = ShakeStrength * FMath::Max(0.f, ShakeTime / 0.28f);
-		ApplyBoardTransform(FVector2D(FMath::FRandRange(-S, S), FMath::FRandRange(-S, S)));
+		FWidgetTransform Tr;
+		Tr.Translation = FVector2D(FMath::FRandRange(-S, S), FMath::FRandRange(-S, S));
+		if (BoardLayer) BoardLayer->SetRenderTransform(Tr);
 		if (ShakeTime <= 0.f)
 		{
 			ShakeStrength = 0.f;
-			ApplyBoardTransform();
+			if (BoardLayer) BoardLayer->SetRenderTransform(FWidgetTransform());
 		}
 	}
 

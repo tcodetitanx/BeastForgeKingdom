@@ -54,5 +54,6 @@ private:
 	static void InitCore();       // BfkContentCore.cpp
 	static void InitGenerated();  // BfkContentGenerated.cpp
 	static void InitDerived();    // template cards for species without hand-authored kits
+	static void InitLineup();     // translate positional ops for the lineup battle system
 	static bool bInit;
 };

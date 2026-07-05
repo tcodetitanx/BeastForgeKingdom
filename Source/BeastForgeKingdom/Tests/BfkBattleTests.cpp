@@ -56,6 +56,24 @@ bool FBfkContentSanityTest::RunTest(const FString&)
 			if (!FBfkContent::Card(C)) AddError(FString::Printf(TEXT("weapon %s grants missing card %s"), *KV.Key.ToString(), *C.ToString()));
 		}
 	}
+
+	// lineup fork: no positional targets or ops may survive the translation pass
+	for (const auto& KV : FBfkContent::AllCards())
+	{
+		const FBfkCardDef& D = KV.Value;
+		if (D.Target == EBfkTarget::Lane || D.Target == EBfkTarget::Cell || D.Target == EBfkTarget::AllySlot)
+		{
+			AddError(FString::Printf(TEXT("card %s kept a positional target kind"), *KV.Key.ToString()));
+		}
+		for (const FBfkEffect& E : D.Effects)
+		{
+			if (E.Op == EBfkOp::Push || E.Op == EBfkOp::Pull || E.Op == EBfkOp::Hazard
+				|| E.Op == EBfkOp::MoveSelf || E.Op == EBfkOp::SwapAlly || E.Op == EBfkOp::ClearHazard)
+			{
+				AddError(FString::Printf(TEXT("card %s kept positional op"), *KV.Key.ToString()));
+			}
+		}
+	}
 	return true;
 }
 
@@ -105,15 +123,6 @@ bool FBfkBattleSimTest::RunTest(const FString&)
 		int32 Guard = 0;
 		while (!B->IsOver() && ++Guard < 400)
 		{
-			// random voluntary moves for a couple of units (exercises hex movement)
-			for (const FBfkUnitState& U : B->GetUnits())
-			{
-				if (B->IsOver()) break;
-				if (!B->CanUnitMove(U.Id) || Rng.RandRange(0, 100) > 40) continue;
-				TArray<int32> Cells = B->GetMoveCells(U.Id);
-				if (Cells.Num()) B->MoveCommand(U.Id, Cells[Rng.RandRange(0, Cells.Num() - 1)]);
-			}
-
 			// play random playable cards until none playable, then end turn
 			bool bPlayed = true;
 			int32 PlayGuard = 0;
@@ -129,15 +138,13 @@ bool FBfkBattleSimTest::RunTest(const FString&)
 					if (!D) continue;
 					int32 Target = -1;
 					TArray<int32> Units = B->GetValidUnitTargets(CI.InstanceId);
-					TArray<int32> Cells = B->GetValidCellTargets(CI.InstanceId);
 					if (D->Target == EBfkTarget::None) Target = -1;
 					else if (Units.Num()) Target = Units[Rng.RandRange(0, Units.Num() - 1)];
-					else if (Cells.Num()) Target = Cells[Rng.RandRange(0, Cells.Num() - 1)];
 					else continue;
 					if (B->PlayCard(CI.InstanceId, Target)) { bPlayed = true; break; }
 				}
 			}
-			if (!B->IsOver()) B->EndTurn(Rng.RandRange(0, 1) == 1);   // randomly keep or discard
+			if (!B->IsOver()) B->EndTurn();
 			B->Events.Reset();
 		}
 

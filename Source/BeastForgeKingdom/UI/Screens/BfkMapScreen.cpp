@@ -352,8 +352,7 @@ void UBfkSquadPickerScreen::RefreshRoster()
 		Card->AddChild(V);
 		// hover = the creature's full kit: what it brings to the shared deck
 		FString Tip = Sp->Desc;
-		Tip += FString::Printf(TEXT("\n\nRange %d   Move %d\n\nCARDS:"),
-			Bfk::ArchetypeRange(Sp->Archetype), Bfk::ArchetypeMove(Sp->Archetype));
+		Tip += TEXT("\n\nCARDS:");
 		for (FName CardSlug : Sp->SignatureCards)
 		{
 			if (const FBfkCardDef* D = FBfkContent::Card(CardSlug))

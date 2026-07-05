@@ -581,19 +581,13 @@ UWidget* UBfkScreen::CodexPage()
 	};
 
 	Section(TEXT("The Squad is the Deck"));
-	Para(TEXT("You field 5 units. Each contributes its signature cards to one shared battle deck; weapons add their own cards, relics warp a unit's abilities. Card rewards are drawn only from your squad's pools — change the squad, change the game. If a unit dies, its cards are severed (unplayable) until it is revived."));
+	Para(TEXT("You field 3 fighters, standing in a line against theirs. Each contributes its signature cards to one shared battle deck; weapons add their own cards, relics warp a unit's abilities. Card rewards are drawn only from your squad's pools — change the squad, change the game. If a unit dies, its cards are severed (unplayable) for the rest of the fight."));
 
 	Section(TEXT("Turns & Energy"));
-	Para(TEXT("Each turn you get 3 energy (weapons and relics can modify this). UNSPENT energy is banked and carried into your next turn (up to 3). At end of turn you choose to KEEP your remaining hand or DISCARD it; either way you draw back up to 5 cards. When the draw pile empties, the discard pile is shuffled back in."));
-
-	Section(TEXT("The Hex Field, Movement & Range"));
-	Para(TEXT("Battles are fought on a big hex field: 5 lanes deep, your half on the left, theirs on the right, a contested middle between. Every unit can MOVE once per turn — click a unit, then a highlighted hex (Move stat = how far). Every unit has a RANGE: attacks only reach foes within it. Melee-only cards (crossed swords) need a foe in an adjacent hex — walk up to them. Casters strike from 4 hexes; enemies out of reach will telegraph an ADVANCE and close in. Drag to pan the field, mouse wheel to zoom."));
-
-	Section(TEXT("Shoves & Collisions"));
-	Para(TEXT("Cards can push, pull and swap units. Shoving a unit into the field edge or into another unit deals collision damage to both. Shoving an enemy out of its telegraphed attack lane WASTES its attack — positioning is half the fight."));
+	Para(TEXT("Each turn you get 3 energy (weapons and relics can modify this). UNSPENT energy is banked and carried into your next turn (up to 3). Unused cards stay in your hand, and each turn you draw back up to 5. When the draw pile empties, the discard pile is shuffled back in."));
 
 	Section(TEXT("Intents"));
-	Para(TEXT("Every enemy telegraphs its next card above its head, with the damage and the threatened cells glowing red. Dodge it, shove them off the line, body-block with a tank, or kill them before it fires."));
+	Para(TEXT("Every enemy telegraphs its next card above its head, and its chosen victim's platform glows red. Heal them up, shield them, or kill the attacker before it fires — a slain enemy never gets its turn."));
 
 	Section(TEXT("Capture — Soul Snare"));
 	Para(TEXT("A Soul Snare token card is added to your deck each battle against wild beasts. Play it on a beast-type enemy to attempt a capture: better odds at low health, and if none of your squad has died this battle. Captured beasts join your Vault permanently — death cannot take them from you."));
@@ -605,16 +599,6 @@ UWidget* UBfkScreen::CodexPage()
 		Entry(Bfk::StatusName(S), Bfk::StatusDesc(S), BfkUi::StatusIcon(S), BfkUi::StatusColor(S));
 	}
 
-	Section(TEXT("Hazards"));
-	Entry(Bfk::HazardName(EBfkHazard::Coals),        Bfk::HazardDesc(EBfkHazard::Coals),        TEXT("ui_icon_status_burn"));
-	Entry(Bfk::HazardName(EBfkHazard::Hoarfrost),    Bfk::HazardDesc(EBfkHazard::Hoarfrost),    TEXT("ui_icon_status_freeze"));
-	Entry(Bfk::HazardName(EBfkHazard::VoidRift),     Bfk::HazardDesc(EBfkHazard::VoidRift),     TEXT("ui_icon_skull_smoke"));
-	Entry(Bfk::HazardName(EBfkHazard::PowderKeg),    Bfk::HazardDesc(EBfkHazard::PowderKeg),    TEXT("ui_icon_barrel_skull"));
-	Entry(Bfk::HazardName(EBfkHazard::Puddle),       Bfk::HazardDesc(EBfkHazard::Puddle),       TEXT("par_vfx_water_drop_ripple"));
-	Entry(Bfk::HazardName(EBfkHazard::Spores),       Bfk::HazardDesc(EBfkHazard::Spores),       TEXT("ui_icon_status_poison"));
-	Entry(Bfk::HazardName(EBfkHazard::CrystalShard), Bfk::HazardDesc(EBfkHazard::CrystalShard), TEXT("ui_icon_crystal_shard"));
-	Entry(Bfk::HazardName(EBfkHazard::Floodmark),    Bfk::HazardDesc(EBfkHazard::Floodmark),    TEXT("ui_icon_warning_skull"));
-
 	Section(TEXT("Weather"));
 	Entry(Bfk::WeatherName(EBfkWeather::Rain),    Bfk::WeatherDesc(EBfkWeather::Rain));
 	Entry(Bfk::WeatherName(EBfkWeather::Snow),    Bfk::WeatherDesc(EBfkWeather::Snow));
@@ -622,7 +606,7 @@ UWidget* UBfkScreen::CodexPage()
 	Entry(Bfk::WeatherName(EBfkWeather::Gloom),   Bfk::WeatherDesc(EBfkWeather::Gloom));
 
 	Section(TEXT("Weapons & Relics"));
-	Para(TEXT("Each unit can hold one weapon (adds 2-3 weapon cards to the deck plus a stat modifier; bows, crossbows, staves and wands also add +1 Range) and one relic (a permanent power with a price — read the fine print). Equip them in the squad muster."));
+	Para(TEXT("Each unit can hold one weapon (adds 2-3 weapon cards to the deck plus a stat modifier) and one relic (a permanent power with a price — read the fine print). Equip them in the squad muster."));
 	if (UBfkGameInstance* GI = Gi())
 	{
 		UBfkSaveGame* Save = GI->Profile();

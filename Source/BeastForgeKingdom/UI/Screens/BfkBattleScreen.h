@@ -1,4 +1,5 @@
-// The battle screen: 3x4 positional board, hand, intents, procedural animation.
+// The battle screen: two lineups of three face off (Axie style) — hand,
+// intents, procedural animation. Position carries no mechanics.
 #pragma once
 
 #include "CoreMinimal.h"
@@ -86,26 +87,14 @@ public:
 
 protected:
 	virtual FReply NativeOnMouseButtonDown(const FGeometry& Geo, const FPointerEvent& Ev) override;
-	virtual FReply NativeOnMouseMove(const FGeometry& Geo, const FPointerEvent& Ev) override;
-	virtual FReply NativeOnMouseButtonUp(const FGeometry& Geo, const FPointerEvent& Ev) override;
-	virtual FReply NativeOnMouseWheel(const FGeometry& Geo, const FPointerEvent& Ev) override;
 
 private:
-	// board geometry — iso-squashed pointy-top hex grid, odd rows offset right
-	FVector2D CellCenter(int32 Row, int32 Col) const;
-	FVector2D CellPos(int32 Row, int32 Col) const;   // legacy virtual cell rect centered on the tile
+	// stage geometry — two gently arced lineups facing each other
+	FVector2D CellCenter(int32 Row, int32 Col) const;    // Row = slot, Col = side
+	FVector2D CellPos(int32 Row, int32 Col) const;       // legacy virtual cell rect centered on the slot
 	static constexpr float CellW = 265.f, CellH = 178.f;
-	static constexpr float HexW = 200.f, HexH = 150.f;   // taller hexes, less iso squish
 	static FVector2D TokenOff() { return FVector2D(-115.f, -133.f); }
-	static int32 CellDepth(int32 Row, int32 Col) { return Row; }   // painter's order by row
-
-	// pseudo-3d board camera: drag to pan, wheel to zoom (angle is fixed)
-	void ApplyBoardTransform(FVector2D Shake = FVector2D::ZeroVector);
-	FVector2D ClampPan(FVector2D Pan) const;
-	FVector2D BoardPan = FVector2D::ZeroVector;
-	float BoardZoom = 1.f;
-	bool bPanning = false, bPanMoved = false;
-	FVector2D PanStartMouse = FVector2D::ZeroVector, PanStartPan = FVector2D::ZeroVector;
+	static int32 CellDepth(int32 Row, int32 Col) { return Row; }   // painter's order by slot
 
 	// construction
 	void BuildBoard();
@@ -117,7 +106,6 @@ private:
 	// input flow
 	void OnCardClicked(UBfkCardWidget* Card);
 	void OnTokenClicked(UBfkUnitToken* Token);
-	void OnCellClicked(int32 CellCode);
 	UFUNCTION() void OnEndTurnClicked();
 	void DoEndTurn(bool bKeepHand);
 	void ClearTargeting();
@@ -144,9 +132,7 @@ private:
 	// state
 	UPROPERTY() TArray<UBfkUnitToken*> Tokens;
 	UPROPERTY() TArray<UBfkCardWidget*> HandCards;
-	UPROPERTY() TMap<int32, UImage*> CellHighlights;   // cellcode -> highlight img
-	UPROPERTY() TMap<int32, UImage*> HazardIcons;
-	UPROPERTY() TMap<int32, UBfkTagButton*> CellButtons;
+	UPROPERTY() TMap<int32, UImage*> SlotGlows;        // cellcode -> platform glow (threat/target)
 	UPROPERTY() UBfkParticleLayer* Particles = nullptr;
 	UPROPERTY() UBfkWeatherLayer* WeatherFx = nullptr;
 	UPROPERTY() UCanvasPanel* BoardLayer = nullptr;
@@ -164,7 +150,6 @@ private:
 	UPROPERTY() UTextBlock* PvpCurtainText = nullptr;
 	UPROPERTY() UBorder* ResultBox = nullptr;
 
-	UPROPERTY() TMap<int32, UImage*> HoverHexes;  // hex-shaped hover marker per cell
 	UPROPERTY() UBorder* PileViewer = nullptr;    // draw/discard inspection overlay
 	UPROPERTY() UBorder* IntroSplash = nullptr;   // boss/elite entrance card
 
@@ -173,7 +158,6 @@ private:
 	float EventTimer = 0.f;
 	bool bAnimating = false;
 	int32 SelectedCard = -1;
-	int32 MovingUnit = -1;    // unit picked up for a voluntary move
 	float ShakeTime = 0.f, ShakeStrength = 0.f;
 	float BannerTimer = 0.f, SpeechTimer = 0.f;
 	bool bEnded = false;

@@ -122,9 +122,8 @@ void UBfkVaultScreen::ShowDetail(const FGuid& Id)
 		DetailBox->AddChildToVerticalBox(T)->SetPadding(FMargin(0, 3));
 	};
 	Line(FString::Printf(TEXT("%s %s — Quality %d"), *Bfk::ElementName(Sp->Element), *Bfk::ArchetypeName(Sp->Archetype), Sp->Quality), Bfk::ElementColor(Sp->Element), 16);
-	Line(FString::Printf(TEXT("HP %d (+%d)   Power %d (+%d)   Range %d   Move %d"),
-		Sp->MaxHp + B->BonusHp, B->BonusHp, Sp->Power + B->BonusPower, B->BonusPower,
-		Bfk::ArchetypeRange(Sp->Archetype), Bfk::ArchetypeMove(Sp->Archetype)), BfkUi::Parchment);
+	Line(FString::Printf(TEXT("HP %d (+%d)   Power %d (+%d)"),
+		Sp->MaxHp + B->BonusHp, B->BonusHp, Sp->Power + B->BonusPower, B->BonusPower), BfkUi::Parchment);
 	if (B->Generation > 0) Line(FString::Printf(TEXT("Generation %d — hearthborn of %s"), B->Generation, *B->ParentNote), BfkUi::Venom);
 	Line(Sp->Desc, BfkUi::Dim, 13);
 

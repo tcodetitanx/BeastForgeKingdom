@@ -116,8 +116,8 @@ FString WeatherDesc(EBfkWeather W)
 {
 	switch (W)
 	{
-	case EBfkWeather::Rain:    return TEXT("Ember -1 dmg. Storm +1 dmg. Puddles conduct Shock.");
-	case EBfkWeather::Snow:    return TEXT("Frost +1 dmg. Back columns gather Chill.");
+	case EBfkWeather::Rain:    return TEXT("Ember -1 dmg. Storm +1 dmg. Shock arcs to neighbors.");
+	case EBfkWeather::Snow:    return TEXT("Frost +1 dmg. Every other turn, the cold finds someone.");
 	case EBfkWeather::Ashfall: return TEXT("Shadow +1 dmg. Healing reduced by 1.");
 	default:                   return TEXT("A dark, quiet misery. No modifiers.");
 	}

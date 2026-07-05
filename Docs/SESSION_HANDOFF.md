@@ -1,4 +1,12 @@
-# Session handoff — Claude build session, 2026-07-01
+# Session handoff — Claude build sessions
+
+> BRANCHES: `main` = the 5v5 hex-tactics version (movement, range, hazards,
+> shoves). `lineup-3v3` = the Axie-style fork — two lines of three, position
+> free, pure StS/Pirates Outlaws card play (positional content auto-translated
+> by `FBfkContent::InitLineup()`). Pick the branch matching the game you're
+> iterating on; the rest of this document describes the shared foundation.
+
+## Original build session, 2026-07-01
 
 ## Update: hex overhaul session, 2026-07-02
 

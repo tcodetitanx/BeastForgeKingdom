@@ -47,17 +47,20 @@ session (what was built, why, known issues, and the backlog).**
 - `BfkUi::SolidBrush` MUST stay DrawAs=RoundedBox: an Image brush with no
   resource object silently draws NOTHING on this engine build (cost a long
   debugging session — the pause overlay was "invisible" while fully laid out).
-- Battle board is a 5x9 HEX FIELD (`Bfk::BoardRows/Cols` in BfkTypes.h), 5v5
-  squads, odd-r offset pointy-top hexes squashed 2:1 (`CellCenter` in
-  BfkBattleScreen: 200x115 tiles, origin (160,235), odd rows +100px). Hex math
-  (`Bfk::HexDist`, `Bfk::HexNeighbors`) lives in BfkTypes.h. Units have Range
-  and Move by archetype (`ArchetypeRange/Move`); reach weapons +1 Range. Every
-  unit moves once/turn (click unit -> teal hexes); enemies out of reach
-  telegraph "Advances". Energy banks between turns (cap 3); End Turn asks
-  keep-or-discard hand. `CellPos` still returns a legacy CellW x CellH rect
-  centered on the tile so offset math keeps working. ZOrder depth-sorts by row;
-  update it when units move. Board pans (drag) / zooms (wheel) via render
-  transform on BoardLayer + Particles — compose shake via ApplyBoardTransform.
+- THIS BRANCH (lineup-3v3) is the Axie-style fork: two lines of 3, position
+  carries NO mechanics (main keeps the 5v5 hex-tactics version). Board is
+  3 slots x 2 sides (`Bfk::BoardRows/Cols`, Row=slot, Col=side). No movement,
+  Range/Move, hazards, shoves, or cell targeting — positional card ops are
+  rewritten at content load by `FBfkContent::InitLineup()` (Push/Pull ->
+  bonus damage, Hazard -> status/damage by type, MoveSelf -> Draw, DamageRow ->
+  DamageAll, Lane/Cell/AllySlot targets collapse to Enemy/None). Enemy intents
+  target UNIT IDS (retarget on death). Boss reworks: Rot Shepherd poisons a
+  random unit, Ghostwake scrambles your hand (HandScrambled event), Facet
+  Queen sprays shards, Tidebound King's tide hits the whole line. Energy still
+  banks (cap 3); hand always carries over, draw tops to 5. Stage layout in
+  `CellCenter` (BfkBattleScreen): slots y=300/470/640, allies x=470 (+90 arc
+  on middle slot), enemies mirrored at 1450. `CellPos` still returns a legacy
+  CellW x CellH rect centered on the slot so offset math keeps working.
 - Freshly constructed UBorder widgets default to Visible — set Collapsed
   explicitly before any toggle-style SetVisibility logic.
 - Creature sprites are TALL (~0.6 aspect): never draw them into fixed squares —

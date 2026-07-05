@@ -53,6 +53,7 @@ void FBfkContent::EnsureInit()
 	InitGenerated();   // species/spells/weapons/relic fallbacks from art labels
 	InitCore();        // hand-authored kits patch the generated species
 	InitDerived();     // template kits for everyone else + weapon grants + specials
+	InitLineup();      // positional ops -> lineup (Axie-style) semantics
 }
 
 // ============================================================== hand-authored
@@ -519,6 +520,112 @@ void FBfkContent::InitDerived()
 	}
 }
 
+// ============================================================== lineup translation
+
+void FBfkContent::InitLineup()
+{
+	// The lineup fork has no board positions: rewrite every positional op into
+	// a position-free equivalent so the whole card pool (generated + authored)
+	// plays cleanly. Rules text regenerates automatically from effects.
+	auto ConvertEffects = [](TArray<FBfkEffect>& Fx)
+	{
+		for (int32 i = Fx.Num() - 1; i >= 0; --i)
+		{
+			FBfkEffect& E = Fx[i];
+			switch (E.Op)
+			{
+			case EBfkOp::Push:
+			case EBfkOp::Pull:
+				// impact flavor: the shove becomes a follow-up hit
+				E.Op = EBfkOp::Damage;
+				E.A = FMath::Max(2, E.A * 2);
+				break;
+			case EBfkOp::DamageRow:
+				E.Op = EBfkOp::DamageAll;
+				break;
+			case EBfkOp::MoveSelf:
+				E.Op = EBfkOp::Draw;
+				E.A = 1;
+				break;
+			case EBfkOp::SwapAlly:
+				E.Op = EBfkOp::Block;
+				E.A = 4;
+				break;
+			case EBfkOp::ClearHazard:
+				E.Op = EBfkOp::Cleanse;
+				E.A = 2;
+				break;
+			case EBfkOp::Hazard:
+				switch (E.HazardA)
+				{
+				case EBfkHazard::Coals:        E.Op = EBfkOp::Status; E.StatusA = EBfkStatus::Burn;   E.A = 3; break;
+				case EBfkHazard::Hoarfrost:    E.Op = EBfkOp::Status; E.StatusA = EBfkStatus::Chill;  E.A = 3; break;
+				case EBfkHazard::Spores:       E.Op = EBfkOp::Status; E.StatusA = EBfkStatus::Poison; E.A = 3; break;
+				case EBfkHazard::VoidRift:     E.Op = EBfkOp::Status; E.StatusA = EBfkStatus::Curse;  E.A = 2; break;
+				case EBfkHazard::PowderKeg:    E.Op = EBfkOp::Damage; E.A = 6; break;
+				case EBfkHazard::CrystalShard: E.Op = EBfkOp::Damage; E.A = 5; break;
+				default:                       E.Op = EBfkOp::Damage; E.A = 3; break;
+				}
+				break;
+			default: break;
+			}
+		}
+	};
+
+	for (auto& KV : GCards)
+	{
+		FBfkCardDef& D = KV.Value;
+		ConvertEffects(D.Effects);
+		ConvertEffects(D.UpgradedEffects);
+		D.bMeleeOnly = false;
+
+		switch (D.Target)
+		{
+		case EBfkTarget::EnemyFront:
+			D.Target = EBfkTarget::Enemy;
+			break;
+		case EBfkTarget::Lane:
+			// lane shots become auto-attacks on the front foe
+			D.Target = EBfkTarget::None;
+			break;
+		case EBfkTarget::Cell:
+		{
+			// hazard droppers now hit a chosen enemy directly — unless the
+			// converted effects are purely friendly (then they're self skills)
+			bool bHostile = false;
+			for (const FBfkEffect& E : D.Effects)
+			{
+				if (E.Op == EBfkOp::Damage || E.Op == EBfkOp::DamageAll || E.Op == EBfkOp::DamageLane
+					|| E.Op == EBfkOp::Status) { bHostile = true; break; }
+			}
+			D.Target = bHostile ? EBfkTarget::Enemy : EBfkTarget::None;
+			break;
+		}
+		case EBfkTarget::AllySlot:
+			D.Target = EBfkTarget::None;
+			break;
+		default: break;
+		}
+
+		// hand-written rules text may describe positional play; drop it so the
+		// auto-generated text (derived from the converted effects) shows instead
+		if (D.Text.Contains(TEXT("lane")) || D.Text.Contains(TEXT("Shove")) || D.Text.Contains(TEXT("move")))
+		{
+			D.Text.Empty();
+		}
+	}
+
+	// relic hooks: shoving no longer exists — those relics proc on attack instead
+	for (auto& KV : GRelics)
+	{
+		if (KV.Value.Hook == EBfkRelicHook::OnShove)
+		{
+			KV.Value.Hook = EBfkRelicHook::OnAttack;
+		}
+		ConvertEffects(KV.Value.HookEffects);
+	}
+}
+
 // ============================================================== assembly helpers
 
 TArray<FName> FBfkContent::DeckFor(const FBfkFighterSpec& Spec)
@@ -604,23 +711,19 @@ TArray<FName> FBfkContent::RollEncounter(int32 Act, bool bElite, FRandomStream& 
 	}
 	TArray<FName> Out;
 	auto PickFrom = [&Rng](const TArray<FName>& Arr) { return Arr[Rng.RandRange(0, Arr.Num() - 1)]; };
-	// 5v5 board: field up to five foes (act 1 regulars come a beast short)
+	// lineup battles: three foes a side
 	if (bElite)
 	{
 		Out.Add(PickFrom(Elites));
-		Out.Add(PickFrom(Elites));
 		if (Act >= 4) Out.Add(PickFrom(Elites)); else Out.Add(PickFrom(Minions));
-		Out.Add(PickFrom(Minions));
 		Out.Add(PickFrom(Minions));
 	}
 	else
 	{
 		Out.Add(PickFrom(Minions));
 		Out.Add(PickFrom(Minions));
-		Out.Add(PickFrom(Minions));
-		if (Act >= 2) Out.Add(PickFrom(Minions));
 		if (Act >= 3) Out.Add(PickFrom(Elites));
-		else if (Act >= 2) Out.Add(PickFrom(Minions));
+		else Out.Add(PickFrom(Minions));
 	}
 	return Out;
 }
@@ -639,9 +742,9 @@ FName FBfkContent::BossFor(int32 Act)
 TArray<FName> FBfkContent::BossMinions(FName BossSlug)
 {
 	EnsureInit();
-	if (BossSlug == TEXT("rot-shepherd")) return { GAliasSporeling, GAliasSporeling, GAliasSporeling, GAliasSporeling };
-	if (BossSlug == TEXT("ghostwake")) return { GAliasDeckhand, GAliasDeckhand, GAliasDeckhand, GAliasDeckhand };
-	// later bosses bring a random minion retinue (boss + 4 = a full 5v5 line)
+	if (BossSlug == TEXT("rot-shepherd")) return { GAliasSporeling, GAliasSporeling };
+	if (BossSlug == TEXT("ghostwake")) return { GAliasDeckhand, GAliasDeckhand };
+	// later bosses bring a random minion pair (boss + 2 = a full line of 3)
 	TArray<FName> Minions;
 	for (FName S : GSpeciesOrder)
 	{
@@ -649,8 +752,7 @@ TArray<FName> FBfkContent::BossMinions(FName BossSlug)
 		if (Sp.bEnemyOnly && Sp.bMinion) Minions.Add(S);
 	}
 	const uint32 H = GetTypeHash(BossSlug);
-	return { Minions[H % Minions.Num()], Minions[(H / 3) % Minions.Num()],
-	         Minions[(H / 7) % Minions.Num()], Minions[(H / 11) % Minions.Num()] };
+	return { Minions[H % Minions.Num()], Minions[(H / 3) % Minions.Num()] };
 }
 
 FString FBfkContent::ActName(int32 Act)

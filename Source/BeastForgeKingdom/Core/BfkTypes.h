@@ -279,14 +279,14 @@ struct FBfkEgg
 
 namespace Bfk
 {
-	// 5v5 hex battlefield: 5 lanes (rows) x 9 columns, "odd-r" offset hexes
-	// (odd rows are shifted half a hex right). Ally half cols 0-3, enemy half
-	// 5-8, col 4 is the contested middle.
-	constexpr int32 BoardRows = 5;
-	constexpr int32 BoardCols = 9;
-	constexpr int32 AllyBackCol = 1, AllyFrontCol = 2;
-	constexpr int32 EnemyFrontCol = 6, EnemyBackCol = 7;
-	constexpr int32 SquadSize = 5;
+	// Lineup battles (Axie style): 3 slots per side standing in a line facing
+	// each other. Position carries no mechanics — Row is the slot (0 top),
+	// Col is the side (0 ally / 1 enemy).
+	constexpr int32 BoardRows = 3;
+	constexpr int32 BoardCols = 2;
+	constexpr int32 AllyCol = 0;
+	constexpr int32 EnemyCol = 1;
+	constexpr int32 SquadSize = 3;
 }
 
 USTRUCT()
@@ -301,59 +301,18 @@ struct FBfkCell
 	FBfkCell(int32 R, int32 C) : Row(R), Col(C) {}
 	bool operator==(const FBfkCell& O) const { return Row == O.Row && Col == O.Col; }
 	bool IsValid() const { return Row >= 0 && Row < Bfk::BoardRows && Col >= 0 && Col < Bfk::BoardCols; }
-	bool IsAllySide() const { return Col <= 3; }
-	bool IsEnemySide() const { return Col >= 5; }
+	bool IsAllySide() const { return Col == Bfk::AllyCol; }
+	bool IsEnemySide() const { return Col == Bfk::EnemyCol; }
 };
 
 FORCEINLINE uint32 GetTypeHash(const FBfkCell& C) { return C.Row * 32 + C.Col; }
 
 namespace Bfk
 {
-	// true hex distance on the odd-r offset grid (via cube coords)
-	FORCEINLINE int32 HexDist(const FBfkCell& A, const FBfkCell& B)
+	// lineup adjacency: neighboring slots on the same side (Shock chains use it)
+	FORCEINLINE bool SlotAdjacent(const FBfkCell& A, const FBfkCell& B)
 	{
-		const int32 Aq = A.Col - (A.Row - (A.Row & 1)) / 2;
-		const int32 Bq = B.Col - (B.Row - (B.Row & 1)) / 2;
-		const int32 Dq = Aq - Bq, Dr = A.Row - B.Row;
-		return (FMath::Abs(Dq) + FMath::Abs(Dr) + FMath::Abs(Dq + Dr)) / 2;
-	}
-
-	// the (up to) 6 neighbors of a hex, odd-r offset
-	FORCEINLINE TArray<FBfkCell, TInlineAllocator<6>> HexNeighbors(const FBfkCell& C)
-	{
-		const bool bOdd = (C.Row & 1) != 0;
-		const int32 L = bOdd ? 0 : -1;   // row-diagonal col offsets
-		const int32 R = bOdd ? 1 : 0;
-		const FBfkCell N[6] = {
-			{C.Row, C.Col - 1}, {C.Row, C.Col + 1},
-			{C.Row - 1, C.Col + L}, {C.Row - 1, C.Col + R},
-			{C.Row + 1, C.Col + L}, {C.Row + 1, C.Col + R}};
-		TArray<FBfkCell, TInlineAllocator<6>> Out;
-		for (const FBfkCell& X : N) if (X.IsValid()) Out.Add(X);
-		return Out;
-	}
-
-	// attack range / move speed by archetype
-	FORCEINLINE int32 ArchetypeRange(EBfkArchetype A)
-	{
-		switch (A)
-		{
-		case EBfkArchetype::Caster:    return 4;
-		case EBfkArchetype::Support:   return 3;
-		case EBfkArchetype::Striker:   return 2;
-		case EBfkArchetype::Trickster: return 2;
-		default:                       return 1;   // Bruiser / Tank
-		}
-	}
-	FORCEINLINE int32 ArchetypeMove(EBfkArchetype A)
-	{
-		switch (A)
-		{
-		case EBfkArchetype::Striker:   return 3;
-		case EBfkArchetype::Trickster: return 3;
-		case EBfkArchetype::Tank:      return 1;
-		default:                       return 2;
-		}
+		return A.Col == B.Col && FMath::Abs(A.Row - B.Row) == 1;
 	}
 }
 

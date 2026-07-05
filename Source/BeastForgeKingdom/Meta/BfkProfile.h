@@ -95,6 +95,15 @@ public:
 	static int32 LevelUpCost(int32 CurrentLevel) { return 25 + CurrentLevel * 15; }
 	static bool LevelUpBeast(UBfkSaveGame& Save, const FGuid& Id, FString& WhyNot);
 
+	// Sacrifice: trade an owned beast for a currency of the player's choice.
+	// EWhich: 0 Soulshards, 1 Emberglass, 2 Forgedust.
+	static int32 SacrificeValue(const FBfkOwnedBeast& B, int32 Which);
+	static bool SacrificeBeast(UBfkSaveGame& Save, const FGuid& Id, int32 Which, int32& OutAmount, FString& WhyNot);
+
+	// Merge: fold one beast into another of the SAME species, making it stronger.
+	static FGuid FindDuplicate(const UBfkSaveGame& Save, const FGuid& Id);   // invalid if none
+	static bool MergeBeasts(UBfkSaveGame& Save, const FGuid& Keep, const FGuid& Consume, FString& WhyNot);
+
 	// Milestones: evaluates and returns newly completed ones.
 	static TArray<FBfkMilestone> EvaluateMilestones(UBfkSaveGame& Save);
 };

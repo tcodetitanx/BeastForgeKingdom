@@ -158,6 +158,80 @@ void UBfkVaultScreen::ShowDetail(const FGuid& Id)
 		DetailBox->AddChildToVerticalBox(LvHint);
 	}
 
+	TWeakObjectPtr<UBfkVaultScreen> WeakMe = this;
+
+	// --- Merge two of the same creature into a stronger one ---
+	const FGuid Dupe = FBfkMeta::FindDuplicate(*Save, Id);
+	if (Dupe.IsValid())
+	{
+		Line(TEXT("BLOODLINE MERGE"), BfkUi::Gold, 17);
+		UBfkTagButton* MergeBtn = BfkUi::TagButton(this, [WeakMe, Dupe](UBfkTagButton* Btn)
+		{
+			if (!WeakMe.IsValid()) return;
+			FString Why;
+			if (FBfkMeta::MergeBeasts(*WeakMe->Gi()->Profile(), Btn->TagGuid, Dupe, Why))
+			{
+				WeakMe->Gi()->UiSound(TEXT("sfx_breed"), 0.9f);
+				WeakMe->Gi()->SaveProfile();
+				WeakMe->RefreshGrid();
+				WeakMe->ShowDetail(Btn->TagGuid);
+			}
+			else WeakMe->Gi()->UiSound(TEXT("sfx_ui_cancel"), 0.7f);
+		});
+		MergeBtn->TagGuid = Id;
+		UTextBlock* MT = BfkUi::Text(this, TEXT("Merge a duplicate into this one"), 15, BfkUi::GhostTeal, true);
+		MT->SetJustification(ETextJustify::Center);
+		MergeBtn->AddChild(MT);
+		DetailBox->AddChildToVerticalBox(MergeBtn)->SetPadding(FMargin(20, 6, 20, 0));
+		UTextBlock* MHint = BfkUi::Text(this, TEXT("Consumes another copy. +HP, +Power, +Level; keeps the best of both."), 12, BfkUi::Dim);
+		MHint->SetAutoWrapText(true);
+		MHint->SetJustification(ETextJustify::Center);
+		DetailBox->AddChildToVerticalBox(MHint)->SetPadding(FMargin(0, 0, 0, 6));
+	}
+
+	// --- Sacrifice for a currency of your choice ---
+	Line(TEXT("SACRIFICE"), BfkUi::Blood, 17);
+	{
+		UHorizontalBox* Row = WidgetTree->ConstructWidget<UHorizontalBox>();
+		const TCHAR* Labels[3] = { TEXT("Soulshards"), TEXT("Emberglass"), TEXT("Forgedust") };
+		for (int32 W = 0; W < 3; ++W)
+		{
+			const int32 Amt = FBfkMeta::SacrificeValue(*B, W);
+			UBfkTagButton* SB = BfkUi::TagButton(this, [WeakMe, W](UBfkTagButton* Btn)
+			{
+				if (!WeakMe.IsValid()) return;
+				int32 Got = 0; FString Why;
+				if (FBfkMeta::SacrificeBeast(*WeakMe->Gi()->Profile(), Btn->TagGuid, W, Got, Why))
+				{
+					WeakMe->Gi()->UiSound(TEXT("sfx_capture"), 0.9f);
+					WeakMe->Gi()->SaveProfile();
+					WeakMe->RefreshGrid();
+					WeakMe->Detail->SetVisibility(ESlateVisibility::Collapsed);
+				}
+				else
+				{
+					WeakMe->Gi()->UiSound(TEXT("sfx_ui_cancel"), 0.7f);
+					if (WeakMe->SacrificeNote) WeakMe->SacrificeNote->SetText(FText::FromString(Why));
+				}
+			});
+			SB->TagGuid = Id;
+			UVerticalBox* V = WidgetTree->ConstructWidget<UVerticalBox>();
+			UTextBlock* AT = BfkUi::Text(this, FString::Printf(TEXT("+%d"), Amt), 16, BfkUi::Gold, true);
+			AT->SetJustification(ETextJustify::Center);
+			V->AddChildToVerticalBox(AT);
+			UTextBlock* NT = BfkUi::Text(this, Labels[W], 11, BfkUi::Parchment);
+			NT->SetJustification(ETextJustify::Center);
+			V->AddChildToVerticalBox(NT);
+			SB->AddChild(V);
+			Row->AddChildToHorizontalBox(SB)->SetPadding(FMargin(3, 0));
+		}
+		DetailBox->AddChildToVerticalBox(Row)->SetPadding(FMargin(10, 4));
+		SacrificeNote = BfkUi::Text(this, TEXT(""), 12, BfkUi::Blood);
+		SacrificeNote->SetAutoWrapText(true);
+		SacrificeNote->SetJustification(ETextJustify::Center);
+		DetailBox->AddChildToVerticalBox(SacrificeNote);
+	}
+
 	Line(TEXT("SIGNATURE CARDS"), BfkUi::Gold, 17);
 	for (FName CardSlug : Sp->SignatureCards)
 	{

@@ -72,6 +72,10 @@ enum class EBfkEvt : uint8
 	UnitMoved,          // legacy (unused in lineup battles)
 	UnitDied,           // Unit
 	UnitSummoned,       // Unit (new unit id; state already in Units)
+	UnitRevived,        // Unit (a fallen ally is back; A=hp)
+	FusePlanted,        // Unit=victim, A=damage, B=turns
+	FuseTicked,         // Unit=victim, A=turns left
+	FuseDetonated,      // Unit=victim, A=damage
 	IntentUpdated,      // Unit, Slug=card, A=target UNIT id (-1 none)
 	ProjectileFly,      // Unit=source, A=target cell code, Slug=projectile sprite
 	ParticleBurst,      // A=cell code, Slug=particle sprite slug
@@ -203,6 +207,12 @@ private:
 	bool bTideIncoming = false;
 	bool bFacetReflectArmed = false;
 	int32 ScrambleCounter = 0;
+
+	// delayed detonations ("fuse" spells): tick down at the caster side's turn start
+	struct FFuse { int32 UnitId = -1; int32 TurnsLeft = 0; int32 Damage = 0; EBfkElement Elem = EBfkElement::Arcane; bool bEnemySideCaster = false; };
+	TArray<FFuse> Fuses;
+	void TickFuses(int32 Side);
+	int32 EmptySlots(bool bEnemySide) const;
 
 	// --- internals ---------------------------------------------------------
 	FBfkUnitState* MutFind(int32 Id);

@@ -468,13 +468,31 @@ void UBfkSquadPickerScreen::OpenGearFor(const FGuid& VaultId)
 		GearList->AddChildToVerticalBox(Row)->SetPadding(FMargin(0, 3));
 	};
 
+	auto StatMods = [](int32 Hp, int32 Pow, int32 En)
+	{
+		TArray<FString> P;
+		if (Hp)  P.Add(FString::Printf(TEXT("%+d HP"), Hp));
+		if (Pow) P.Add(FString::Printf(TEXT("%+d Power"), Pow));
+		if (En)  P.Add(FString::Printf(TEXT("%+d Energy"), En));
+		return P.Num() ? FString::Printf(TEXT("  (%s)"), *FString::Join(P, TEXT(", "))) : FString();
+	};
+
 	TArray<FName> Weapons = Save->OwnedWeapons.Array();
 	Weapons.Sort([](const FName& L, const FName& R){ return L.LexicalLess(R); });
 	for (FName W : Weapons)
 	{
 		const FBfkWeaponDef* D = FBfkContent::Weapon(W);
 		if (!D) continue;
-		AddGearRow(W, D->Display, D->Desc, true, ChosenWeapons.FindRef(GearTarget) == W);
+		// full effect: base desc + stat mods + the cards this weapon adds to the deck
+		FString Full = D->Desc + StatMods(D->HpMod, D->PowerMod, 0);
+		for (FName GC : D->GrantedCards)
+		{
+			if (const FBfkCardDef* CardD = FBfkContent::Card(GC))
+			{
+				Full += FString::Printf(TEXT("\nAdds \"%s\" (%d): %s"), *CardD->Display, CardD->Cost, *BfkUi::CardRulesText(*CardD, false));
+			}
+		}
+		AddGearRow(W, D->Display, Full, true, ChosenWeapons.FindRef(GearTarget) == W);
 	}
 	GearList->AddChildToVerticalBox(BfkUi::Text(this, TEXT("RELICS"), 18, BfkUi::Gold, true, true))->SetPadding(FMargin(0, 14, 0, 0));
 	TArray<FName> Relics = Save->OwnedRelics.Array();
@@ -483,7 +501,7 @@ void UBfkSquadPickerScreen::OpenGearFor(const FGuid& VaultId)
 	{
 		const FBfkRelicDef* D = FBfkContent::Relic(R);
 		if (!D) continue;
-		AddGearRow(R, D->Display, D->Desc, false, ChosenRelics.FindRef(GearTarget) == R);
+		AddGearRow(R, D->Display, D->Desc + StatMods(D->HpMod, D->PowerMod, D->EnergyMod), false, ChosenRelics.FindRef(GearTarget) == R);
 	}
 	if (Weapons.Num() == 0 && Relics.Num() == 0)
 	{

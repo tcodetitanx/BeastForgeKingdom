@@ -18,7 +18,7 @@ namespace
 
 // ============================================================== card widget
 
-void UBfkCardWidget::BuildCard(FName CardSlug, bool bUpgraded, int32 InInstanceId)
+void UBfkCardWidget::BuildCard(FName CardSlug, bool bUpgraded, int32 InInstanceId, int32 DamageBonus)
 {
 	Slug = CardSlug;
 	bUpgradedCard = bUpgraded;
@@ -61,7 +61,7 @@ void UBfkCardWidget::BuildCard(FName CardSlug, bool bUpgraded, int32 InInstanceI
 	UTextBlock* Name = BfkUi::Text(this, Title, 13, bUpgraded ? BfkUi::Venom : BfkUi::Parchment, true);
 	Name->SetJustification(ETextJustify::Center);
 	V->AddChildToVerticalBox(Name);
-	UTextBlock* Rules = BfkUi::Text(this, BfkUi::CardRulesText(*D, bUpgraded), 11, BfkUi::Dim);
+	UTextBlock* Rules = BfkUi::Text(this, BfkUi::CardRulesText(*D, bUpgraded, DamageBonus), 11, BfkUi::Dim);
 	Rules->SetJustification(ETextJustify::Center);
 	Rules->SetAutoWrapText(true);
 	V->AddChildToVerticalBox(Rules);
@@ -569,7 +569,26 @@ void UBfkBattleScreen::RebuildHand()
 		const FBfkCardInstance& CI = Hand[i];
 		UBfkCardWidget* CW = CreateWidget<UBfkCardWidget>(GetOwningPlayer(), UBfkCardWidget::StaticClass());
 		const bool bUpg = CI.bUpgraded || Gi()->Run().UpgradedCards.Contains(CI.CardSlug);
-		CW->BuildCard(CI.CardSlug, bUpg, CI.InstanceId);
+		// effective damage bonus from the card's owner: Power + Rally - Chill +
+		// weather, so the printed numbers match the real hit (relic/weapon
+		// PowerMods are already baked into the unit's Power at battle start).
+		int32 DmgBonus = 0;
+		if (const FBfkUnitState* Owner = B->FindUnit(CI.OwnerUnitId))
+		{
+			DmgBonus = Owner->Power + Owner->Status(EBfkStatus::Rally)
+				- (Owner->Status(EBfkStatus::Chill) > 0 ? 1 : 0);
+			if (const FBfkSpeciesDef* Sp = FBfkContent::Species(Owner->Species))
+			{
+				switch (B->GetWeather())
+				{
+				case EBfkWeather::Rain:    if (Sp->Element == EBfkElement::Ember) DmgBonus -= 1; if (Sp->Element == EBfkElement::Storm) DmgBonus += 1; break;
+				case EBfkWeather::Snow:    if (Sp->Element == EBfkElement::Frost) DmgBonus += 1; break;
+				case EBfkWeather::Ashfall: if (Sp->Element == EBfkElement::Shadow) DmgBonus += 1; break;
+				default: break;
+				}
+			}
+		}
+		CW->BuildCard(CI.CardSlug, bUpg, CI.InstanceId, DmgBonus);
 		CW->OnCardClicked.BindUObject(this, &UBfkBattleScreen::OnCardClicked);
 		CW->SetSevered(B->IsCardSevered(CI));
 		FString Why;
@@ -840,6 +859,11 @@ float UBfkBattleScreen::EventDelay(const FBfkBattleEvent& E) const
 	case EBfkEvt::TideWarning:
 	case EBfkEvt::TideFlood:
 	case EBfkEvt::HandScrambled:  D = 0.7f; break;
+	case EBfkEvt::UnitRevived:    D = 0.6f; break;
+	case EBfkEvt::UnitMoved:      D = 0.32f; break;
+	case EBfkEvt::FusePlanted:    D = 0.5f; break;
+	case EBfkEvt::FuseTicked:     D = 0.3f; break;
+	case EBfkEvt::FuseDetonated:  D = 0.5f; break;
 	case EBfkEvt::Speech:         D = 0.9f; break;
 	case EBfkEvt::CaptureResult:  D = 0.8f; break;
 	case EBfkEvt::BattleEnded:    D = 0.9f; break;
@@ -1036,6 +1060,68 @@ void UBfkBattleScreen::ApplyEventVisuals(const FBfkBattleEvent& E)
 		}
 		break;
 	}
+	case EBfkEvt::UnitRevived:
+	{
+		if (UBfkUnitToken* T = Token(E.Unit))
+		{
+			T->SetVisibility(ESlateVisibility::HitTestInvisible);
+			T->SetRenderOpacity(1.f);
+			T->SetRenderTransform(FWidgetTransform());
+			if (const FBfkUnitState* U = B->FindUnit(E.Unit)) T->Refresh(*U, B);
+			FBfkTween& Tw = Tweener.Add(T, 0.4f / AnimSpeed());
+			Tw.bScale = true; Tw.FromScale = FVector2D(0.2f, 0.2f); Tw.ToScale = FVector2D(1, 1); Tw.Ease = 3;
+		}
+		if (Particles)
+		{
+			const FVector2D P = UnitCanvasPos(E.Unit);
+			Particles->Flourish(TEXT("par_vfx_angel_revive_gold"), P, 1.3f, 0.9f);
+			Particles->Floatie(TEXT("REVIVED!"), P + FVector2D(0, -110), BfkUi::Gold, 28);
+		}
+		RefreshAll();
+		RefreshIntents();
+		break;
+	}
+	case EBfkEvt::UnitMoved:
+	{
+		// slot swap: reposition the token to its new slot and re-depth it
+		if (UBfkUnitToken* T = Token(E.Unit))
+		{
+			const int32 ToR = E.B / 10, ToC = E.B % 10;
+			if (UCanvasPanelSlot* S = Cast<UCanvasPanelSlot>(T->Slot))
+			{
+				const FVector2D From = CellCenter(E.A / 10, E.A % 10);
+				const FVector2D To = CellCenter(ToR, ToC);
+				S->SetPosition(To + TokenOff());
+				S->SetZOrder(100 + CellDepth(ToR, ToC) * 2);
+				FBfkTween& Tw = Tweener.Add(T, 0.3f / AnimSpeed());
+				Tw.bPos = true; Tw.FromPos = From - To; Tw.ToPos = FVector2D::ZeroVector; Tw.Ease = 2;
+			}
+		}
+		break;
+	}
+	case EBfkEvt::FusePlanted:
+	{
+		const FVector2D P = UnitCanvasPos(E.Unit);
+		if (Particles)
+		{
+			Particles->Flourish(TEXT("par_vfx_rune_ring_red"), P, 1.0f, 0.7f);
+			Particles->Floatie(FString::Printf(TEXT("FUSE %d (%dt)"), E.A, E.B), P + FVector2D(0, -110), FLinearColor(1.f, 0.5f, 0.2f), 22);
+		}
+		break;
+	}
+	case EBfkEvt::FuseTicked:
+		if (Particles)
+		{
+			Particles->Floatie(FString::Printf(TEXT("fuse: %d"), E.A), UnitCanvasPos(E.Unit) + FVector2D(0, -110), FLinearColor(1.f, 0.6f, 0.25f), 18);
+		}
+		break;
+	case EBfkEvt::FuseDetonated:
+		if (Particles)
+		{
+			Particles->Flourish(TEXT("par_vfx_explosion_plume_orange"), UnitCanvasPos(E.Unit), 1.5f, 0.7f);
+		}
+		Shake(13.f);
+		break;
 	case EBfkEvt::IntentUpdated:
 		RefreshIntents();
 		break;
@@ -1135,6 +1221,10 @@ void UBfkBattleScreen::PlayEventSound(const FBfkBattleEvent& E)
 		break;
 	}
 	case EBfkEvt::UnitSummoned:   Play(TEXT("sfx_minion_hurt"), 0.5f); break;
+	case EBfkEvt::UnitRevived:    Play(TEXT("sfx_heal"), 0.9f); break;
+	case EBfkEvt::UnitMoved:      Play(TEXT("sfx_shove"), 0.5f); break;
+	case EBfkEvt::FusePlanted:    Play(TEXT("sfx_status_curse"), 0.6f); break;
+	case EBfkEvt::FuseDetonated:  Play(TEXT("sfx_explosion"), 0.9f); break;
 	case EBfkEvt::Speech:         Play(TEXT("sfx_boss_roar"), 0.35f); break;
 	case EBfkEvt::TideFlood:      Play(TEXT("sfx_rain_cast"), 0.9f); break;
 	case EBfkEvt::HandScrambled:  Play(TEXT("sfx_rumble"), 0.9f); break;

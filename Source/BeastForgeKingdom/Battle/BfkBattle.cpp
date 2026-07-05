@@ -232,6 +232,40 @@ int32 UBfkBattle::FindFreeSlot(bool bEnemySide) const
 	return -1;
 }
 
+int32 UBfkBattle::EmptySlots(bool bEnemySide) const
+{
+	// a slot is "empty" if no living unit stands in it
+	int32 Empty = 0;
+	for (int32 R = 0; R < Bfk::BoardRows; ++R)
+	{
+		if (!UnitAt(FBfkCell(R, bEnemySide ? Bfk::EnemyCol : Bfk::AllyCol))) ++Empty;
+	}
+	return Empty;
+}
+
+void UBfkBattle::TickFuses(int32 Side)
+{
+	// fuses tick down at the start of the caster's side's turn, then detonate
+	for (int32 i = Fuses.Num() - 1; i >= 0; --i)
+	{
+		FFuse& F = Fuses[i];
+		if (F.bEnemySideCaster != (Side == 1)) continue;
+		FBfkUnitState* T = MutFind(F.UnitId);
+		if (!T || !T->bAlive) { Fuses.RemoveAt(i); continue; }
+		if (--F.TurnsLeft <= 0)
+		{
+			const int32 Dmg = F.Damage;
+			Emit(EBfkEvt::FuseDetonated, F.UnitId, -1, Dmg, 0, 0, NAME_None);
+			Fuses.RemoveAt(i);
+			DealDamage(nullptr, *T, Dmg, false);
+		}
+		else
+		{
+			Emit(EBfkEvt::FuseTicked, F.UnitId, -1, F.TurnsLeft);
+		}
+	}
+}
+
 // ============================================================== events
 
 void UBfkBattle::Emit(EBfkEvt Type, int32 Unit, int32 Unit2, int32 A, int32 B, int32 C, FName Slug, const FString& Str)
@@ -265,6 +299,7 @@ void UBfkBattle::StartTurn(int32 Side)
 
 	ApplyWeatherTurnStart(Side);
 	TickStatusesTurnStart(Side);
+	TickFuses(Side);
 	if (Side == 1 && !Config.bPvp) BossTurnStart();
 	RelicHooksSide(EBfkRelicHook::OnTurnStart, Side);
 
@@ -367,16 +402,25 @@ void UBfkBattle::EnemyPlayIntent(FBfkUnitState& Enemy, const FIntent& Intent)
 	const FBfkCardDef* D = Def(Intent.Card);
 	if (!D) return;
 
-	// If the telegraphed target died, the attack finds someone else.
+	// If the telegraphed target died, the attack finds someone else — respecting
+	// any taunt still in play.
 	int32 Target = Intent.TargetUnit;
-	if (Target >= 0)
+	const FBfkUnitState* Cur = (Target >= 0) ? FindUnit(Target) : nullptr;
+	const bool bNeedsRetarget = !Cur || !Cur->bAlive || (Cur->Status(EBfkStatus::Taunt) == 0 && [&]{
+		for (const FBfkUnitState& T : Units) if (T.bAlive && T.bEnemySide != Enemy.bEnemySide && T.Status(EBfkStatus::Taunt) > 0) return true;
+		return false; }());
+	if (bNeedsRetarget)
 	{
-		const FBfkUnitState* T = FindUnit(Target);
-		if (!T || !T->bAlive)
+		int32 Best = -1;
+		for (const FBfkUnitState& T : Units)
+			if (T.bAlive && T.bEnemySide != Enemy.bEnemySide && T.Status(EBfkStatus::Taunt) > 0) { Best = T.Id; break; }
+		if (Best < 0)
 		{
 			const FBfkUnitState* Re = RandomFoeOf(Enemy.bEnemySide);
-			Target = Re ? Re->Id : -1;
+			Best = Re ? Re->Id : -1;
 		}
+		if (Cur && Cur->bAlive && Best < 0) Best = Target;   // keep valid original if nothing better
+		Target = Best;
 	}
 
 	Emit(EBfkEvt::CardPlayed, Enemy.Id, -1, -1, 1, 0, Intent.Card);
@@ -407,14 +451,17 @@ void UBfkBattle::PickIntents()
 		case EBfkTarget::Enemy:
 		case EBfkTarget::EnemyFront:
 		{
-			TArray<int32> Choices;
+			// a taunting player unit forces the choice; otherwise pick freely
+			TArray<int32> Taunters, Choices;
 			for (const FBfkUnitState& T : Units)
 			{
 				if (!T.bAlive || T.bEnemySide) continue;
 				if (T.Status(EBfkStatus::Stealth) > 0) continue;
 				Choices.Add(T.Id);
+				if (T.Status(EBfkStatus::Taunt) > 0) Taunters.Add(T.Id);
 			}
-			I.TargetUnit = Choices.Num() ? Choices[Rng.RandRange(0, Choices.Num() - 1)] : -1;
+			const TArray<int32>& Pool = Taunters.Num() ? Taunters : Choices;
+			I.TargetUnit = Pool.Num() ? Pool[Rng.RandRange(0, Pool.Num() - 1)] : -1;
 			break;
 		}
 		case EBfkTarget::Ally: // enemy buffing its own side: pick the hurt one
@@ -466,7 +513,7 @@ void UBfkBattle::TickStatusesTurnEnd(int32 Side)
 			DealDamage(nullptr, U, Poison, false);
 			ApplyStatus(U, EBfkStatus::Poison, -1); // fades (was festering — too oppressive)
 		}
-		for (EBfkStatus S : {EBfkStatus::Chill, EBfkStatus::Curse, EBfkStatus::Rust, EBfkStatus::Rally, EBfkStatus::Stealth})
+		for (EBfkStatus S : {EBfkStatus::Chill, EBfkStatus::Curse, EBfkStatus::Rust, EBfkStatus::Rally, EBfkStatus::Stealth, EBfkStatus::Taunt})
 		{
 			if (U.Status(S) > 0) ApplyStatus(U, S, -1);
 		}
@@ -919,6 +966,77 @@ void UBfkBattle::ApplyEffect(const FBfkEffect& Fx, FBfkUnitState& Owner, int32 T
 	case EBfkOp::SummonMinion:
 		SummonMinion(Fx.SlugParam, bOwnerEnemySide);
 		break;
+	case EBfkOp::DamageDelayed:
+	{
+		FBfkUnitState* T = TargetUnit();
+		if (!T) T = FrontFoeOf(bOwnerEnemySide);
+		if (T && T->bAlive)
+		{
+			FFuse Fu;
+			Fu.UnitId = T->Id;
+			Fu.TurnsLeft = FMath::Max(1, Fx.B);
+			Fu.Damage = AttackDamage(Owner, Fx.A);   // locks in Power/Rally/weather at cast
+			Fu.Elem = InDef.Element;
+			Fu.bEnemySideCaster = bOwnerEnemySide;
+			Fuses.Add(Fu);
+			Emit(EBfkEvt::FusePlanted, T->Id, -1, Fu.Damage, Fu.TurnsLeft, 0, InDef.Slug);
+		}
+		break;
+	}
+	case EBfkOp::Revive:
+	{
+		// bring back a fallen ally (chosen target if valid & dead, else the
+		// first dead ally). Restores their severed cards.
+		FBfkUnitState* T = TargetUnit();
+		if (!T || T->bAlive || T->bEnemySide != bOwnerEnemySide)
+		{
+			T = nullptr;
+			for (FBfkUnitState& U : Units)
+				if (!U.bAlive && U.bEnemySide == bOwnerEnemySide) { T = &U; break; }
+		}
+		if (T && !T->bAlive)
+		{
+			T->bAlive = true;
+			T->Hp = FMath::Clamp(Fx.A, 1, T->MaxHp);
+			T->Block = 0;
+			T->Statuses.Reset();
+			RestoreCards(T->Id);
+			Emit(EBfkEvt::UnitRevived, T->Id, -1, T->Hp);
+		}
+		break;
+	}
+	case EBfkOp::SwapSlots:
+	{
+		FBfkUnitState* T = TargetUnit();
+		if (T && T->bAlive && T->Id != Owner.Id && Owner.Id >= 0 && T->bEnemySide == bOwnerEnemySide)
+		{
+			const FBfkCell A = Owner.Cell;
+			Owner.Cell = T->Cell;
+			T->Cell = A;
+			Emit(EBfkEvt::UnitMoved, Owner.Id, -1, CellCode(T->Cell), CellCode(Owner.Cell), 0);
+			Emit(EBfkEvt::UnitMoved, T->Id, -1, CellCode(Owner.Cell), CellCode(T->Cell), 0);
+			if (Fx.A > 0) { GainBlock(Owner, Fx.A); GainBlock(*T, Fx.A); }
+		}
+		break;
+	}
+	case EBfkOp::DamagePerEmptyFoe:
+	{
+		FBfkUnitState* T = TargetUnit();
+		if (!T) T = FrontFoeOf(bOwnerEnemySide);
+		if (T && T->bAlive)
+		{
+			const int32 Bonus = Fx.B * EmptySlots(!bOwnerEnemySide);
+			Emit(EBfkEvt::UnitAttack, Owner.Id, T->Id, 0, 0, 0, InDef.Slug);
+			DealDamage(&Owner, *T, AttackDamage(Owner, Fx.A + Bonus), true, InDef.Slug);
+		}
+		break;
+	}
+	case EBfkOp::BlockPerEmptyAlly:
+	{
+		const int32 Bonus = Fx.B * EmptySlots(bOwnerEnemySide);
+		GainBlock(Owner, Fx.A + Bonus);
+		break;
+	}
 	case EBfkOp::ExhaustSelf:
 	case EBfkOp::Retain:
 		break; // markers

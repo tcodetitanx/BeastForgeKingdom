@@ -14,6 +14,7 @@ namespace
 	TMap<FName, FBfkCardDef> GCards;
 	TMap<FName, FBfkRelicDef> GRelics;
 	TMap<FName, FBfkWeaponDef> GWeapons;
+	TArray<FName> GSpecialSpells;   // interesting reward-pool spells (any squad)
 
 	FBfkCardDef MakeCard(FName Slug, const FString& Display, int32 Cost, EBfkCardKind Kind,
 	                     EBfkRarity Rarity, EBfkElement Elem, EBfkTarget Target,
@@ -81,6 +82,53 @@ void FBfkContent::InitCore()
 	AddCard(MakeCard(TEXT("adrenal-surge"), TEXT("Adrenal Surge"), 0, EBfkCardKind::Skill,
 		EBfkRarity::Rare, EBfkElement::Neutral, EBfkTarget::None,
 		{ FBfkEffect(EBfkOp::Energy, 2), FBfkEffect(EBfkOp::ExhaustSelf, 0) }));
+
+	// ---------- special spells: available as rewards to ANY squad ----------
+	// These carry the new lineup mechanics (fuses, revives, swaps, taunts,
+	// empty-slot scaling). Recorded so CardRewardChoices always folds them in.
+	auto Special = [](const FBfkCardDef& C)
+	{
+		FBfkContent::AddCard(C);
+		GSpecialSpells.AddUnique(C.Slug);
+	};
+
+	// delayed detonations — plant now, pay off big later
+	Special(MakeCard(TEXT("timed-charge"), TEXT("Timed Charge"), 1, EBfkCardKind::Attack, EBfkRarity::Common, EBfkElement::Ember, EBfkTarget::Enemy,
+		{ FBfkEffect::Fuse(14, 2) }));
+	Special(MakeCard(TEXT("hex-of-ruin"), TEXT("Hex of Ruin"), 2, EBfkCardKind::Attack, EBfkRarity::Uncommon, EBfkElement::Arcane, EBfkTarget::Enemy,
+		{ FBfkEffect::Dmg(4), FBfkEffect::Fuse(11, 2) }));
+	Special(MakeCard(TEXT("doom-knell"), TEXT("Doom Knell"), 2, EBfkCardKind::Skill, EBfkRarity::Rare, EBfkElement::Shadow, EBfkTarget::Enemy,
+		{ FBfkEffect::Fuse(24, 3), FBfkEffect(EBfkOp::Draw, 1) }));
+
+	// revives — bring a fallen ally back
+	Special(MakeCard(TEXT("second-breath"), TEXT("Second Breath"), 2, EBfkCardKind::Skill, EBfkRarity::Uncommon, EBfkElement::Verdant, EBfkTarget::None,
+		{ FBfkEffect::Rez(12) }));
+	Special(MakeCard(TEXT("wardens-return"), TEXT("Warden's Return"), 3, EBfkCardKind::Skill, EBfkRarity::Rare, EBfkElement::Arcane, EBfkTarget::None,
+		{ FBfkEffect::Rez(20), FBfkEffect{EBfkOp::StatusSelfSide, 1, EBfkStatus::Ward}, FBfkEffect(EBfkOp::ExhaustSelf, 0) }));
+
+	// slot swaps — reposition your line (matters for Shock arcs & taunt setups)
+	Special(MakeCard(TEXT("switch-places"), TEXT("Switch Places"), 0, EBfkCardKind::Skill, EBfkRarity::Common, EBfkElement::Neutral, EBfkTarget::Ally,
+		{ FBfkEffect(EBfkOp::SwapSlots, 5) },
+		TEXT("Swap lineup slots with an ally. Both gain 5 Block.")));
+	Special(MakeCard(TEXT("battle-shuffle"), TEXT("Battle Shuffle"), 1, EBfkCardKind::Skill, EBfkRarity::Uncommon, EBfkElement::Storm, EBfkTarget::Ally,
+		{ FBfkEffect(EBfkOp::SwapSlots, 0), FBfkEffect{EBfkOp::StatusSelfSide, 2, EBfkStatus::Rally}, FBfkEffect(EBfkOp::Draw, 1) },
+		TEXT("Swap slots with an ally. All allies gain 2 Rally. Draw 1.")));
+
+	// empty-slot scaling — reward a thinned line
+	Special(MakeCard(TEXT("culling-strike"), TEXT("Culling Strike"), 1, EBfkCardKind::Attack, EBfkRarity::Common, EBfkElement::Shadow, EBfkTarget::Enemy,
+		{ FBfkEffect::Scaled(EBfkOp::DamagePerEmptyFoe, 6, 4) },
+		TEXT("Deal 6, +4 for each empty enemy slot.")));
+	Special(MakeCard(TEXT("last-stand"), TEXT("Last Stand"), 1, EBfkCardKind::Skill, EBfkRarity::Uncommon, EBfkElement::Iron, EBfkTarget::None,
+		{ FBfkEffect::Scaled(EBfkOp::BlockPerEmptyAlly, 6, 5) },
+		TEXT("Gain 6 Block, +5 for each empty ally slot.")));
+
+	// taunts / tanking — force the enemy onto one target
+	Special(MakeCard(TEXT("bulwark-roar"), TEXT("Bulwark Roar"), 1, EBfkCardKind::Skill, EBfkRarity::Common, EBfkElement::Iron, EBfkTarget::None,
+		{ FBfkEffect::Blk(8), FBfkEffect::St(EBfkStatus::Taunt, 2) }));
+	Special(MakeCard(TEXT("guardians-vow"), TEXT("Guardian's Vow"), 2, EBfkCardKind::Skill, EBfkRarity::Uncommon, EBfkElement::Iron, EBfkTarget::Ally,
+		{ FBfkEffect::St(EBfkStatus::Ward, 10), FBfkEffect::St(EBfkStatus::Taunt, 3) }));
+	Special(MakeCard(TEXT("provoke"), TEXT("Provoke"), 0, EBfkCardKind::Skill, EBfkRarity::Common, EBfkElement::Neutral, EBfkTarget::None,
+		{ FBfkEffect::Blk(4), FBfkEffect::St(EBfkStatus::Taunt, 2) }));
 
 	// ---------- protagonist kits ----------
 	auto Hero = [](FName Slug, std::initializer_list<FBfkCardDef> Cards)
@@ -709,6 +757,8 @@ TArray<FName> FBfkContent::CardRewardChoices(const TArray<FName>& SquadSpecies, 
 			Pool.Add(KV.Key);
 		}
 	}
+	// the interesting special spells are offered to every squad, any element
+	for (FName S : GSpecialSpells) Pool.AddUnique(S);
 	Pool.Sort([](const FName& L, const FName& R){ return L.LexicalLess(R); });
 
 	TArray<FName> Out;

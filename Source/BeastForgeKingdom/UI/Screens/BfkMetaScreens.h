@@ -26,6 +26,7 @@ private:
 	UPROPERTY() UBorder* Detail = nullptr;
 	UPROPERTY() UVerticalBox* DetailBox = nullptr;
 	UPROPERTY() class UEditableTextBox* RenameBox = nullptr;
+	UPROPERTY() UTextBlock* SacrificeNote = nullptr;
 	FGuid Selected;
 };
 

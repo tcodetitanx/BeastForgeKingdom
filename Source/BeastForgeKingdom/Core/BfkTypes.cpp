@@ -47,6 +47,7 @@ FString StatusName(EBfkStatus S)
 	case EBfkStatus::Rally:   return TEXT("Rally");
 	case EBfkStatus::Thorns:  return TEXT("Thorns");
 	case EBfkStatus::Stealth: return TEXT("Stealth");
+	case EBfkStatus::Taunt:   return TEXT("Taunt");
 	}
 	return TEXT("?");
 }
@@ -63,8 +64,9 @@ FString StatusDesc(EBfkStatus S)
 	case EBfkStatus::Rust:    return TEXT("Block gained is reduced. Decays.");
 	case EBfkStatus::Ward:    return TEXT("Block that persists between turns.");
 	case EBfkStatus::Rally:   return TEXT("+1 damage dealt per stack. Decays.");
-	case EBfkStatus::Thorns:  return TEXT("Melee attackers take stack damage.");
+	case EBfkStatus::Thorns:  return TEXT("Attackers take stack damage.");
 	case EBfkStatus::Stealth: return TEXT("Cannot be single-targeted. Decays.");
+	case EBfkStatus::Taunt:   return TEXT("Enemies must attack this unit. Decays each turn.");
 	}
 	return TEXT("");
 }

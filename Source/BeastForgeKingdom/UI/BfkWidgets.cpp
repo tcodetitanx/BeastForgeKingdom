@@ -146,36 +146,41 @@ UCanvasPanelSlot* FillCanvas(UCanvasPanel* Canvas, UWidget* W)
 	return S;
 }
 
-FString CardRulesText(const FBfkCardDef& Def, bool bUpgraded)
+FString CardRulesText(const FBfkCardDef& Def, bool bUpgraded, int32 FlatDamageBonus)
 {
-	if (!Def.Text.IsEmpty()) return Def.Text;
+	// If the card has authored text but we DO have an attack bonus to show,
+	// still fall through so the numbers reflect the real hit — unless the text
+	// has no numbers to adjust. Simplest: authored text wins only when no bonus.
+	if (!Def.Text.IsEmpty() && FlatDamageBonus == 0) return Def.Text;
 	TArray<FString> Parts;
 	const TArray<FBfkEffect>& Fx = (bUpgraded && Def.UpgradedEffects.Num()) ? Def.UpgradedEffects : Def.Effects;
+	auto Dmg = [&](int32 A) { return FMath::Max(0, A + FlatDamageBonus); };
 	for (const FBfkEffect& E : Fx)
 	{
 		int32 A = E.A;
 		if (bUpgraded && Def.UpgradedEffects.Num() == 0 && A > 0) A = FMath::CeilToInt(A * 1.25f);
 		switch (E.Op)
 		{
-		case EBfkOp::Damage:       Parts.Add(FString::Printf(TEXT("Deal %d."), A)); break;
-		case EBfkOp::DamageLane:   Parts.Add(FString::Printf(TEXT("Deal %d to the first foe in a lane."), A)); break;
-		case EBfkOp::DamageRow:    Parts.Add(FString::Printf(TEXT("Deal %d to every foe in a lane."), A)); break;
-		case EBfkOp::DamageAll:    Parts.Add(FString::Printf(TEXT("Deal %d to all foes."), A)); break;
+		case EBfkOp::Damage:       Parts.Add(FString::Printf(TEXT("Deal %d."), Dmg(A))); break;
+		case EBfkOp::DamageLane:   Parts.Add(FString::Printf(TEXT("Deal %d to the front foe."), Dmg(A))); break;
+		case EBfkOp::DamageRow:
+		case EBfkOp::DamageAll:    Parts.Add(FString::Printf(TEXT("Deal %d to all foes."), Dmg(A))); break;
 		case EBfkOp::DamageSelf:   Parts.Add(FString::Printf(TEXT("Take %d."), A)); break;
+		case EBfkOp::DamageDelayed:Parts.Add(FString::Printf(TEXT("Plant a fuse: %d damage in %d turns."), Dmg(A), FMath::Max(1, E.B))); break;
+		case EBfkOp::DamagePerEmptyFoe: Parts.Add(FString::Printf(TEXT("Deal %d, +%d per empty enemy slot."), Dmg(A), E.B)); break;
+		case EBfkOp::BlockPerEmptyAlly: Parts.Add(FString::Printf(TEXT("Gain %d Block, +%d per empty ally slot."), A, E.B)); break;
 		case EBfkOp::Block:        Parts.Add(FString::Printf(TEXT("Grant %d Block."), A)); break;
 		case EBfkOp::BlockAll:     Parts.Add(FString::Printf(TEXT("All allies gain %d Block."), A)); break;
 		case EBfkOp::Heal:         Parts.Add(FString::Printf(TEXT("Heal %d."), A)); break;
 		case EBfkOp::HealAll:      Parts.Add(FString::Printf(TEXT("Heal all allies %d."), A)); break;
+		case EBfkOp::Revive:       Parts.Add(FString::Printf(TEXT("Revive a fallen ally at %d HP."), A)); break;
 		case EBfkOp::Status:       Parts.Add(FString::Printf(TEXT("Apply %d %s."), A, *Bfk::StatusName(E.StatusA))); break;
 		case EBfkOp::StatusAll:    Parts.Add(FString::Printf(TEXT("All foes gain %d %s."), A, *Bfk::StatusName(E.StatusA))); break;
 		case EBfkOp::StatusSelfSide: Parts.Add(FString::Printf(TEXT("Allies gain %d %s."), A, *Bfk::StatusName(E.StatusA))); break;
 		case EBfkOp::Cleanse:      Parts.Add(FString::Printf(TEXT("Cleanse %d."), A)); break;
-		case EBfkOp::Push:         Parts.Add(FString::Printf(TEXT("Shove %d."), A)); break;
-		case EBfkOp::Pull:         Parts.Add(FString::Printf(TEXT("Pull %d."), A)); break;
-		case EBfkOp::SwapAlly:     Parts.Add(TEXT("Swap places with an ally.")); break;
-		case EBfkOp::MoveSelf:     Parts.Add(TEXT("Move to an open cell.")); break;
-		case EBfkOp::Hazard:       Parts.Add(FString::Printf(TEXT("Create %s."), *Bfk::HazardName(E.HazardA))); break;
-		case EBfkOp::ClearHazard:  Parts.Add(TEXT("Clear a hazard.")); break;
+		case EBfkOp::SwapSlots:    Parts.Add(A > 0 ? FString::Printf(TEXT("Swap slots with an ally; both gain %d Block."), A) : TEXT("Swap slots with an ally.")); break;
+		case EBfkOp::Push:         Parts.Add(FString::Printf(TEXT("Deal %d."), Dmg(FMath::Max(2, A * 2)))); break;   // lineup-translated shove
+		case EBfkOp::Pull:         Parts.Add(FString::Printf(TEXT("Deal %d."), Dmg(FMath::Max(2, A * 2)))); break;
 		case EBfkOp::Draw:         Parts.Add(FString::Printf(TEXT("Draw %d."), A)); break;
 		case EBfkOp::Energy:       Parts.Add(FString::Printf(TEXT("Gain %d energy."), A)); break;
 		case EBfkOp::ExhaustSelf:  Parts.Add(TEXT("Exhaust.")); break;
@@ -201,6 +206,7 @@ FLinearColor StatusColor(EBfkStatus S)
 	case EBfkStatus::Rally:  return Gold;
 	case EBfkStatus::Thorns: return FLinearColor(0.5f, 0.65f, 0.3f);
 	case EBfkStatus::Stealth:return FLinearColor(0.6f, 0.6f, 0.7f);
+	case EBfkStatus::Taunt:  return FLinearColor(0.9f, 0.5f, 0.2f);
 	}
 	return FLinearColor::White;
 }
@@ -219,6 +225,7 @@ FName StatusIcon(EBfkStatus S)
 	case EBfkStatus::Rally:   return TEXT("ui_icon_status_haste");
 	case EBfkStatus::Thorns:  return TEXT("ui_icon_status_bleed");
 	case EBfkStatus::Stealth: return TEXT("ui_icon_status_stealth");
+	case EBfkStatus::Taunt:   return TEXT("ui_icon_crossed_swords");
 	}
 	return NAME_None;
 }
@@ -593,11 +600,14 @@ UWidget* UBfkScreen::CodexPage()
 	Para(TEXT("A Soul Snare token card is added to your deck each battle against wild beasts. Play it on a beast-type enemy to attempt a capture: better odds at low health, and if none of your squad has died this battle. Captured beasts join your Vault permanently — death cannot take them from you."));
 
 	Section(TEXT("Statuses"));
-	for (int32 i = 0; i <= (int32)EBfkStatus::Stealth; ++i)
+	for (int32 i = 0; i <= (int32)EBfkStatus::Taunt; ++i)
 	{
 		const EBfkStatus S = (EBfkStatus)i;
 		Entry(Bfk::StatusName(S), Bfk::StatusDesc(S), BfkUi::StatusIcon(S), BfkUi::StatusColor(S));
 	}
+
+	Section(TEXT("Advanced Spells"));
+	Para(TEXT("FUSES plant delayed damage that detonates in later turns for a big payoff. REVIVES bring a fallen ally back into an empty slot. SWAP spells trade two allies' lineup slots (and matter for Shock, which arcs to neighbors). Some spells scale with EMPTY SLOTS — stronger as a line is thinned. TAUNT forces the enemy to attack one guardian until it fades — pair it with block, Ward or Thorns to tank the hit."));
 
 	Section(TEXT("Weather"));
 	Entry(Bfk::WeatherName(EBfkWeather::Rain),    Bfk::WeatherDesc(EBfkWeather::Rain));

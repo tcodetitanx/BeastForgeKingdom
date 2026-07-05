@@ -75,6 +75,82 @@ bool FBfkMeta::LevelUpBeast(UBfkSaveGame& Save, const FGuid& Id, FString& WhyNot
 	return true;
 }
 
+int32 FBfkMeta::SacrificeValue(const FBfkOwnedBeast& B, int32 Which)
+{
+	const FBfkSpeciesDef* Sp = FBfkContent::Species(B.Species);
+	const int32 Quality = Sp ? Sp->Quality : 1;
+	// worth scales with how much you've invested (quality, level, generation)
+	const int32 Worth = Quality * 2 + B.Level + B.Generation;
+	switch (Which)
+	{
+	case 1:  return FMath::Max(1, Worth / 3);      // Emberglass (rare)
+	case 2:  return 10 + Worth * 6;                // Forgedust
+	default: return 8 + Worth * 4;                 // Soulshards
+	}
+}
+
+bool FBfkMeta::SacrificeBeast(UBfkSaveGame& Save, const FGuid& Id, int32 Which, int32& OutAmount, FString& WhyNot)
+{
+	const FBfkOwnedBeast* B = FindBeast(Save, Id);
+	if (!B) { WhyNot = TEXT("No such beast."); return false; }
+	// don't let the vault be emptied below a playable squad
+	int32 Beasts = 0;
+	for (const FBfkOwnedBeast& O : Save.Vault)
+	{
+		const FBfkSpeciesDef* Sp = FBfkContent::Species(O.Species);
+		if (Sp && Sp->bBeast) ++Beasts;
+	}
+	const FBfkSpeciesDef* MySp = FBfkContent::Species(B->Species);
+	if (MySp && MySp->bBeast && Beasts <= 3)
+	{
+		WhyNot = TEXT("You must keep at least three beasts for a squad.");
+		return false;
+	}
+
+	OutAmount = SacrificeValue(*B, Which);
+	switch (Which)
+	{
+	case 1:  Save.Emberglass += OutAmount; break;
+	case 2:  Save.Forgedust  += OutAmount; break;
+	default: Save.Soulshards += OutAmount; break;
+	}
+	Save.Vault.RemoveAll([&Id](const FBfkOwnedBeast& O){ return O.Id == Id; });
+	return true;
+}
+
+FGuid FBfkMeta::FindDuplicate(const UBfkSaveGame& Save, const FGuid& Id)
+{
+	const FBfkOwnedBeast* B = nullptr;
+	for (const FBfkOwnedBeast& O : Save.Vault) if (O.Id == Id) { B = &O; break; }
+	if (!B) return FGuid();
+	for (const FBfkOwnedBeast& O : Save.Vault)
+	{
+		if (O.Id != Id && O.Species == B->Species) return O.Id;
+	}
+	return FGuid();
+}
+
+bool FBfkMeta::MergeBeasts(UBfkSaveGame& Save, const FGuid& Keep, const FGuid& Consume, FString& WhyNot)
+{
+	if (Keep == Consume) { WhyNot = TEXT("Pick two different beasts."); return false; }
+	FBfkOwnedBeast* K = FindBeast(Save, Keep);
+	FBfkOwnedBeast* C = FindBeast(Save, Consume);
+	if (!K || !C) { WhyNot = TEXT("Missing beast."); return false; }
+	if (K->Species != C->Species) { WhyNot = TEXT("Merge needs two of the SAME creature."); return false; }
+
+	// fold the consumed one in: it makes the survivor meaningfully stronger and
+	// carries over the better of the two on every axis.
+	K->BonusHp    = FMath::Max(K->BonusHp, C->BonusHp)       + 4 + C->Level;
+	K->BonusPower = FMath::Max(K->BonusPower, C->BonusPower) + 2;
+	K->Level      = FMath::Max(K->Level, C->Level) + 1;
+	K->Generation = FMath::Max(K->Generation, C->Generation);
+	if (K->InheritedCard.IsNone() && !C->InheritedCard.IsNone()) K->InheritedCard = C->InheritedCard;
+	K->Victories += C->Victories;
+
+	Save.Vault.RemoveAll([&Consume](const FBfkOwnedBeast& O){ return O.Id == Consume; });
+	return true;
+}
+
 FBfkOwnedBeast FBfkMeta::MakeBeast(FName Species, int32 Generation)
 {
 	FBfkOwnedBeast B;

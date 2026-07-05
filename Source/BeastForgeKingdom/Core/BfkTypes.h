@@ -30,7 +30,8 @@ enum class EBfkStatus : uint8
 	Ward,     // block that persists between turns (consumed by damage)
 	Rally,    // +N damage dealt per attack; decays
 	Thorns,   // melee attackers take N
-	Stealth   // untargetable by single-target attacks for N turns
+	Stealth,  // untargetable by single-target attacks for N turns
+	Taunt     // enemies must attack this unit while any stacks remain; decays
 };
 
 UENUM()
@@ -104,7 +105,13 @@ enum class EBfkOp : uint8
 	ExhaustSelf,   // this card exhausts (marker op)
 	Retain,        // marker: not discarded at end of turn
 	Capture,       // attempt soul-snare capture on target beast enemy
-	SummonMinion   // enemy-only: summon species SlugParam at target/first-free cell
+	SummonMinion,  // enemy-only: summon species SlugParam at target/first-free cell
+	// --- lineup-fork spells ---
+	DamageDelayed, // plant a fuse on target: A damage detonates after B turns
+	Revive,        // revive a fallen ally at A HP (Target Ally, or a random dead ally)
+	SwapSlots,     // owner swaps lineup slots with target ally (both gain A block)
+	DamagePerEmptyFoe,  // A damage + B per empty ENEMY slot
+	BlockPerEmptyAlly   // A block to owner + B per empty ALLY slot
 };
 
 USTRUCT()
@@ -114,6 +121,7 @@ struct FBfkEffect
 
 	UPROPERTY() EBfkOp Op = EBfkOp::Damage;
 	UPROPERTY() int32 A = 0;                          // magnitude
+	UPROPERTY() int32 B = 0;                          // secondary (delay turns / per-empty bonus)
 	UPROPERTY() EBfkStatus StatusA = EBfkStatus::Burn;
 	UPROPERTY() EBfkHazard HazardA = EBfkHazard::None;
 	UPROPERTY() FName SlugParam;                       // summons etc.
@@ -125,6 +133,9 @@ struct FBfkEffect
 	static FBfkEffect Blk(int32 N) { return FBfkEffect(EBfkOp::Block, N); }
 	static FBfkEffect St(EBfkStatus S, int32 N) { FBfkEffect E(EBfkOp::Status, N); E.StatusA = S; return E; }
 	static FBfkEffect Hz(EBfkHazard H) { FBfkEffect E(EBfkOp::Hazard, 1); E.HazardA = H; return E; }
+	static FBfkEffect Fuse(int32 Dmg, int32 Turns) { FBfkEffect E(EBfkOp::DamageDelayed, Dmg); E.B = Turns; return E; }
+	static FBfkEffect Rez(int32 Hp) { return FBfkEffect(EBfkOp::Revive, Hp); }
+	static FBfkEffect Scaled(EBfkOp InOp, int32 InA, int32 InB) { FBfkEffect E(InOp, InA); E.B = InB; return E; }
 };
 
 USTRUCT()

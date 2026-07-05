@@ -17,7 +17,7 @@ class UBfkCardWidget : public UUserWidget
 	GENERATED_BODY()
 
 public:
-	void BuildCard(FName CardSlug, bool bUpgraded, int32 InInstanceId);
+	void BuildCard(FName CardSlug, bool bUpgraded, int32 InInstanceId, int32 DamageBonus = 0);
 	void SetSevered(bool bSevered);
 	void SetPlayable(bool bPlayable);
 

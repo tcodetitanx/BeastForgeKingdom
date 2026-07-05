@@ -66,7 +66,9 @@ namespace BfkUi
 	UCanvasPanelSlot* AddToCanvas(UCanvasPanel* Canvas, UWidget* W, FVector2D Pos, FVector2D Size, FVector2D Alignment = FVector2D::ZeroVector);
 	UCanvasPanelSlot* FillCanvas(UCanvasPanel* Canvas, UWidget* W);
 
-	FString CardRulesText(const FBfkCardDef& Def, bool bUpgraded);
+	// FlatDamageBonus is added to every damage number (owner Power + Rally +
+	// weather etc.) so in-battle cards show the real hit; 0 = base card text.
+	FString CardRulesText(const FBfkCardDef& Def, bool bUpgraded, int32 FlatDamageBonus = 0);
 	FLinearColor StatusColor(EBfkStatus S);
 	FName StatusIcon(EBfkStatus S);      // ui icon slug
 	FName ElementParticle(EBfkElement E);// default burst particle slug

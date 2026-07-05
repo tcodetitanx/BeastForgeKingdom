@@ -48,7 +48,6 @@ public:
 	void BuildToken(const FBfkUnitState& U);
 	void Refresh(const FBfkUnitState& U, const UBfkBattle* Battle);
 	void SetIntent(const FString& Line);
-	void SetTargetable(int32 Mode);   // 0 none, 1 enemy(red), 2 ally(green), 3 caster(blue)
 	void FlashHit();
 	int32 UnitId = -1;
 
@@ -68,7 +67,6 @@ private:
 	UPROPERTY() UTextBlock* NameText = nullptr;
 	UPROPERTY() UHorizontalBox* StatusRow = nullptr;
 	UPROPERTY() UTextBlock* IntentText = nullptr;
-	UPROPERTY() UImage* Reticle = nullptr;
 	UPROPERTY() UImage* WeaponImg = nullptr;   // equipped weapon hovers by the sprite
 	float WeaponBobT = 0.f;
 };

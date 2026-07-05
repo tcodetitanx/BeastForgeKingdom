@@ -90,17 +90,54 @@ void FBfkContent::InitCore()
 		if (FBfkSpeciesDef* Sp = GSpecies.Find(Slug)) Sp->SignatureCards = Sig; // may run before generated: patched in InitDerived
 	};
 
+	// --- Starting lineup: three synergistic, position-free kits ---
+	// Captain (Storm/Trickster): multi-hit + Rally + Shock tempo. His triple
+	// strike and team Rally scale every ally's attacks; Shock sets up burst.
 	Hero(TEXT("captain-blacktide"), {
-		MakeCard(TEXT("boarding-hook"), TEXT("Boarding Hook"), 1, EBfkCardKind::Attack, EBfkRarity::Starter, EBfkElement::Iron, EBfkTarget::Enemy,
-			{ FBfkEffect::Dmg(5), FBfkEffect(EBfkOp::Pull, 1) }),
-		MakeCard(TEXT("broadside"), TEXT("Broadside"), 2, EBfkCardKind::Attack, EBfkRarity::Starter, EBfkElement::Iron, EBfkTarget::Lane,
-			{ FBfkEffect(EBfkOp::DamageLane, 11) }),
-		MakeCard(TEXT("powder-keg-toss"), TEXT("Powder Keg"), 1, EBfkCardKind::Skill, EBfkRarity::Starter, EBfkElement::Ember, EBfkTarget::Cell,
-			{ FBfkEffect::Hz(EBfkHazard::PowderKeg) }),
-		MakeCard(TEXT("captains-orders"), TEXT("Captain's Orders"), 2, EBfkCardKind::Skill, EBfkRarity::Starter, EBfkElement::Neutral, EBfkTarget::None,
+		MakeCard(TEXT("cutlass-flurry"), TEXT("Cutlass Flurry"), 1, EBfkCardKind::Attack, EBfkRarity::Starter, EBfkElement::Iron, EBfkTarget::Enemy,
+			{ FBfkEffect::Dmg(3), FBfkEffect::Dmg(3), FBfkEffect::Dmg(3) },
+			TEXT("Strike three times. Each hit is boosted by Rally.")),
+		MakeCard(TEXT("thunderclap-shot"), TEXT("Thunderclap Shot"), 1, EBfkCardKind::Attack, EBfkRarity::Starter, EBfkElement::Storm, EBfkTarget::Enemy,
+			{ FBfkEffect::Dmg(6), FBfkEffect::St(EBfkStatus::Shock, 2) }),
+		MakeCard(TEXT("rally-the-crew"), TEXT("Rally the Crew"), 1, EBfkCardKind::Skill, EBfkRarity::Starter, EBfkElement::Neutral, EBfkTarget::None,
 			{ FBfkEffect{EBfkOp::StatusSelfSide, 2, EBfkStatus::Rally}, FBfkEffect(EBfkOp::Draw, 1) }),
-		MakeCard(TEXT("cutlass-flurry"), TEXT("Cutlass Flurry"), 1, EBfkCardKind::Attack, EBfkRarity::Starter, EBfkElement::Iron, EBfkTarget::EnemyFront,
-			{ FBfkEffect::Dmg(4), FBfkEffect::Dmg(4) }),
+		MakeCard(TEXT("plunder"), TEXT("Plunder"), 0, EBfkCardKind::Skill, EBfkRarity::Starter, EBfkElement::Neutral, EBfkTarget::None,
+			{ FBfkEffect(EBfkOp::Draw, 2), FBfkEffect(EBfkOp::Energy, 1), FBfkEffect(EBfkOp::ExhaustSelf, 0) },
+			TEXT("Draw 2. Gain 1 energy. Exhaust.")),
+		MakeCard(TEXT("broadside"), TEXT("Broadside"), 2, EBfkCardKind::Attack, EBfkRarity::Starter, EBfkElement::Iron, EBfkTarget::None,
+			{ FBfkEffect{EBfkOp::DamageAll, 6} }),
+	});
+
+	// Wolf Squire (Frost/Striker): a frostbite bruiser — big single hits,
+	// team-wide Chill (softens their damage; 3 stacks freezes their energy),
+	// and defensive/thorns turns to soak while the deck ramps.
+	Hero(TEXT("wolf-squire"), {
+		MakeCard(TEXT("frostfang-bite"), TEXT("Frostfang Bite"), 1, EBfkCardKind::Attack, EBfkRarity::Starter, EBfkElement::Frost, EBfkTarget::Enemy,
+			{ FBfkEffect::Dmg(9) }),
+		MakeCard(TEXT("rime-howl"), TEXT("Rime Howl"), 1, EBfkCardKind::Skill, EBfkRarity::Starter, EBfkElement::Frost, EBfkTarget::None,
+			{ FBfkEffect{EBfkOp::StatusAll, 2, EBfkStatus::Chill} }),
+		MakeCard(TEXT("snowbank-guard"), TEXT("Snowbank Guard"), 1, EBfkCardKind::Skill, EBfkRarity::Starter, EBfkElement::Frost, EBfkTarget::None,
+			{ FBfkEffect::Blk(9) }),
+		MakeCard(TEXT("glacial-pounce"), TEXT("Glacial Pounce"), 2, EBfkCardKind::Attack, EBfkRarity::Starter, EBfkElement::Frost, EBfkTarget::Enemy,
+			{ FBfkEffect::Dmg(6), FBfkEffect::St(EBfkStatus::Chill, 3) }),
+		MakeCard(TEXT("wolfs-resolve"), TEXT("Wolf's Resolve"), 1, EBfkCardKind::Skill, EBfkRarity::Starter, EBfkElement::Neutral, EBfkTarget::None,
+			{ FBfkEffect::Blk(4), FBfkEffect::St(EBfkStatus::Thorns, 3) }),
+	});
+
+	// Owl Oracle (Arcane/Caster): the support & burst engine — card draw,
+	// persistent Ward on a chosen ally, a team heal, and a heavy nuke that
+	// Rally and Shock turn lethal.
+	Hero(TEXT("owl-oracle"), {
+		MakeCard(TEXT("runebolt"), TEXT("Runebolt"), 1, EBfkCardKind::Attack, EBfkRarity::Starter, EBfkElement::Arcane, EBfkTarget::Enemy,
+			{ FBfkEffect::Dmg(6), FBfkEffect::St(EBfkStatus::Shock, 1) }),
+		MakeCard(TEXT("arcane-insight"), TEXT("Arcane Insight"), 1, EBfkCardKind::Skill, EBfkRarity::Starter, EBfkElement::Arcane, EBfkTarget::None,
+			{ FBfkEffect(EBfkOp::Draw, 2) }),
+		MakeCard(TEXT("warding-sigil"), TEXT("Warding Sigil"), 1, EBfkCardKind::Skill, EBfkRarity::Starter, EBfkElement::Arcane, EBfkTarget::Ally,
+			{ FBfkEffect::St(EBfkStatus::Ward, 6) }),
+		MakeCard(TEXT("astral-lance"), TEXT("Astral Lance"), 2, EBfkCardKind::Attack, EBfkRarity::Starter, EBfkElement::Arcane, EBfkTarget::Enemy,
+			{ FBfkEffect::Dmg(11) }),
+		MakeCard(TEXT("owls-blessing"), TEXT("Owl's Blessing"), 2, EBfkCardKind::Skill, EBfkRarity::Starter, EBfkElement::Verdant, EBfkTarget::None,
+			{ FBfkEffect{EBfkOp::HealAll, 4}, FBfkEffect(EBfkOp::Cleanse, 2) }),
 	});
 
 	Hero(TEXT("plague-warden"), {
@@ -836,10 +873,14 @@ TArray<FName> FBfkContent::WeaponPool(FRandomStream& Rng, int32 Count, int32 Act
 TArray<FName> FBfkContent::StarterSquad()
 {
 	EnsureInit();
+	// The three starters have hand-authored, synergistic kits (see InitCore):
+	// captain-blacktide (aggro tempo), wolf-squire (frost bruiser),
+	// owl-oracle (arcane support). Pin them so those kits are what a new player gets.
 	TArray<FName> Out;
 	Out.Add(TEXT("captain-blacktide"));
 	if (GSpecies.Contains(TEXT("wolf-squire"))) Out.Add(TEXT("wolf-squire"));
-	// third member: a caster beast that isn't frost, for elemental variety
+	if (GSpecies.Contains(TEXT("owl-oracle")) && !Out.Contains(TEXT("owl-oracle"))) Out.Add(TEXT("owl-oracle"));
+	// fallbacks if the pinned starters are missing from the content set
 	for (FName S : GSpeciesOrder)
 	{
 		if (Out.Num() >= 3) break;

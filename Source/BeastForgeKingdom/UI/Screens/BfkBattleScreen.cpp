@@ -152,10 +152,6 @@ void UBfkUnitToken::BuildToken(const FBfkUnitState& U)
 	IntentText->SetJustification(ETextJustify::Center);
 	BfkUi::AddToCanvas(C, IntentText, FVector2D(0, FMath::Max(2.f, SpriteTop - 26.f)), FVector2D(kTokW, 22));
 
-	Reticle = BfkUi::Sprite(this, TEXT("ui_cursor_reticle_red"), FVector2D(130, 130));
-	Reticle->SetVisibility(ESlateVisibility::Collapsed);
-	BfkUi::AddToCanvas(C, Reticle, FVector2D(MidX - 65.f, (SpriteTop + kFeetY) * 0.5f - 65.f), FVector2D(130, 130));
-
 	// equipped weapon hovers beside the fighter
 	if (const FBfkWeaponDef* WD = FBfkContent::Weapon(U.Weapon))
 	{
@@ -220,21 +216,6 @@ void UBfkUnitToken::Refresh(const FBfkUnitState& U, const UBfkBattle* Battle)
 void UBfkUnitToken::SetIntent(const FString& Line)
 {
 	IntentText->SetText(FText::FromString(Line));
-}
-
-void UBfkUnitToken::SetTargetable(int32 Mode)
-{
-	if (Mode == 0)
-	{
-		Reticle->SetVisibility(ESlateVisibility::Collapsed);
-	}
-	else
-	{
-		const TCHAR* Slug = Mode == 1 ? TEXT("ui_cursor_reticle_red")
-			: Mode == 3 ? TEXT("ui_cursor_reticle_blue") : TEXT("ui_cursor_reticle_green");
-		Reticle->SetBrush(BfkUi::Brush(Slug, FVector2D(90, 90)));
-		Reticle->SetVisibility(ESlateVisibility::HitTestInvisible);
-	}
 }
 
 void UBfkUnitToken::FlashHit()
@@ -716,29 +697,24 @@ void UBfkBattleScreen::OnCardClicked(UBfkCardWidget* Card)
 		return;
 	}
 
-	// show whose card this is (blue ring on the caster)
+	// show whose card this is (soft blue glow under the caster's feet)
 	const FBfkCardInstance* CI = B->FindCard(SelectedCard);
 	if (const FBfkUnitState* Owner = CI ? B->FindUnit(CI->OwnerUnitId) : nullptr)
 	{
 		if (Owner->bAlive)
 		{
-			if (UBfkUnitToken* OT = Token(Owner->Id))
+			if (UImage** Glow = SlotGlows.Find(Owner->Cell.Row * 10 + Owner->Cell.Col))
 			{
-				OT->SetTargetable(3);
+				(*Glow)->SetColorAndOpacity(FLinearColor(0.35f, 0.6f, 0.95f, 0.40f));
+				(*Glow)->SetVisibility(ESlateVisibility::HitTestInvisible);
 			}
 		}
 	}
 
-	// highlight valid targets: reticle on the unit + green glow on its platform
-	const TArray<int32> UnitTargets = B->GetValidUnitTargets(SelectedCard);
-	for (int32 Id : UnitTargets)
+	// mark valid targets with a gentle green glow under their feet (no crosshairs)
+	for (int32 Id : B->GetValidUnitTargets(SelectedCard))
 	{
-		const FBfkUnitState* U = B->FindUnit(Id);
-		if (UBfkUnitToken* T = Token(Id))
-		{
-			T->SetTargetable(U && U->bEnemySide != (B->GetActiveSide() == 1) ? 1 : 2);
-		}
-		if (U)
+		if (const FBfkUnitState* U = B->FindUnit(Id))
 		{
 			if (UImage** Glow = SlotGlows.Find(U->Cell.Row * 10 + U->Cell.Col))
 			{
@@ -767,7 +743,6 @@ void UBfkBattleScreen::OnTokenClicked(UBfkUnitToken* T)
 void UBfkBattleScreen::ClearTargeting()
 {
 	SelectedCard = -1;
-	for (UBfkUnitToken* T : Tokens) T->SetTargetable(0);
 	for (auto& KV : SlotGlows) KV.Value->SetVisibility(ESlateVisibility::Collapsed);
 	for (UBfkCardWidget* CW : HandCards)
 	{

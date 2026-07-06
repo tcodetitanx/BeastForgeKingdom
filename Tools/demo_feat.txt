@@ -1,0 +1,26 @@
+# tour: vault (sacrifice/merge) then a battle to see effective damage + new cards
+wait 3
+shot f_menu
+# Collections / Vault (5th button, x=278, y=228+73*4=521)
+click 278 521
+wait 1.5
+shot f_vault
+# select first vault beast to open detail (sacrifice/merge panel)
+click 150 265
+wait 1
+shot f_vault_detail
+click 90 55
+wait 1
+# start a run to reach a battle
+exec Bfk.NewRun 24680
+wait 2
+click 960 540
+wait 1.5
+exec Bfk.Enter battle
+wait 4
+shot f_battle
+# select a card to see effective numbers + targeting glow (no crosshair)
+click 960 960
+wait 0.8
+shot f_card_selected
+quit
